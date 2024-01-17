@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92ab9ab5-8a14-4ea2-9564-978b3cab2dd4" name="Changes" comment="asdasd">
+    <list default="true" id="92ab9ab5-8a14-4ea2-9564-978b3cab2dd4" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/listeners/other/OtherListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/listeners/other/OtherListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/listeners/player/PlayerDeathListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/listeners/player/PlayerDeathListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/listeners/player/SniezkaListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/listeners/player/SniezkaListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/utils/ItemBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/utils/ItemBuilder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,8 +97,17 @@
       <workItem from="1705398181167" duration="410000" />
       <workItem from="1705398909805" duration="1573000" />
       <workItem from="1705484956619" duration="1639000" />
-      <workItem from="1705486638801" duration="536000" />
+      <workItem from="1705486638801" duration="1315000" />
     </task>
+    <task id="LOCAL-00001" summary="update">
+      <option name="closed" value="true" />
+      <created>1705487187066</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1705487187067</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,6 +118,7 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="asdasd" />
-    <option name="LAST_COMMIT_MESSAGE" value="asdasd" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>

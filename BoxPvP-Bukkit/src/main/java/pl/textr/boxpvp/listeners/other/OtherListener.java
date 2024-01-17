@@ -1,10 +1,6 @@
 package pl.textr.boxpvp.listeners.other;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.Sound;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
@@ -35,6 +31,9 @@ import pl.textr.boxpvp.Main;
 import pl.textr.boxpvp.utils.ChatUtil;
 import pl.textr.boxpvp.utils.ItemBuilder;
 import pl.textr.boxpvp.utils.RandomUtil;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class OtherListener implements Listener {
 
@@ -90,7 +89,7 @@ public class OtherListener implements Listener {
         AnvilIMenu.show(player);
       } 
     }
-    
+
     @EventHandler
     public void onEntityDamageByEntity(EntityDamageByEntityEvent e) {
         if (!(e.getDamager() instanceof Player) || !(e.getEntity() instanceof Player)) {
@@ -128,7 +127,7 @@ public class OtherListener implements Listener {
 
 
 
-    
+
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onWeatherChange(WeatherChangeEvent event) {
@@ -156,35 +155,23 @@ public class OtherListener implements Listener {
         }
         Player player = event.getPlayer();
         ItemStack item = event.getItem();
+        List<ItemBuilder> vouchers = Arrays.asList(
+                new ItemBuilder(Material.PAPER, 1).setTitle(ChatUtil.fixColor("&a&lVoucher Sponsor")),
+                new ItemBuilder(Material.PAPER, 1).setTitle(ChatUtil.fixColor("&6&lVoucher SVIP")),
+                new ItemBuilder(Material.PAPER, 1).setTitle(ChatUtil.fixColor("&e&lVoucher VIP"))
+        );
+        vouchers.stream()
+                .filter(voucher -> item.isSimilar(voucher.ToItemStack()))
+                .findFirst()
+                .ifPresent(voucher -> {
+                    event.setCancelled(true);
+                    player.getInventory().remove(item);
+                    String groupName = ChatColor.stripColor(voucher.getTitle()).toLowerCase();
+                    ChatUtil.sendMessage(player, "&7[&aI&7] &aPomyslnie uzyles Vouchera " + groupName + "!");
+                    Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "lp user " + player.getName() + " group " + groupName);
+                });
+    }
 
-        ItemBuilder sponsor = new ItemBuilder(Material.PAPER, 1)
-                .setTitle(ChatUtil.fixColor("&a&lVoucher Sponsor"));
-        ItemBuilder svip = new ItemBuilder(Material.PAPER, 1)
-                .setTitle(ChatUtil.fixColor("&6&lVoucher SVIP"));
-        ItemBuilder vip = new ItemBuilder(Material.PAPER, 1)
-                .setTitle(ChatUtil.fixColor("&e&lVoucher VIP"));
-
-        if (item.isSimilar(sponsor.ToItemStack())) {
-            event.setCancelled(true);
-            player.getInventory().remove(item);
-            ChatUtil.sendMessage(player, "&7[&aI&7] &aPomyslnie uzyles Vouchera Sponsor!");
-            Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "lp user " + player.getName() + " group add sponsor");
-        } 
-        if (item.isSimilar(svip.ToItemStack())) {
-            event.setCancelled(true);
-            player.getInventory().remove(item);
-            ChatUtil.sendMessage(player, "&7[&aI&7] &aPomyslnie uzyles Vouchera SVIP!");
-            Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "lp user " + player.getName() + " group add svip");
-        } 
-        if (item.isSimilar(vip.ToItemStack())) {
-            event.setCancelled(true);
-            player.getInventory().remove(item);
-            ChatUtil.sendMessage(player, "&7[&aI&7] &aPomyslnie uzyles Vouchera vip!");
-            Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "lp user " + player.getName() + " group set vip");
-        }
-    
-}
- 
 
     
     @EventHandler

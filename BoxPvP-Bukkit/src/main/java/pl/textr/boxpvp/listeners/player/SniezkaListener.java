@@ -37,7 +37,7 @@ public class SniezkaListener  implements Listener {
         }
     }
 
-
+//
     @EventHandler
     public void onProjectileHit(ProjectileHitEvent event) {
         Optional.of(event)

@@ -1,6 +1,9 @@
 package pl.textr.boxpvp.listeners.player;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
+import java.util.stream.IntStream;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -138,33 +141,22 @@ public class PlayerDeathListener implements Listener {
 	}
 
 
-    public void voucher(Player k) {
+    public void voucher(Player player) {
         if (Main.getPlugin().getConfiguration().vouchery > System.currentTimeMillis()) {
             Random random = new Random();
-            double chance1 = 0.01; // 1% szansa
-            double chance2 = 0.02; // 2% szansa
-            double chance3 = 0.03; // 3% szansa
-            
-            if (random.nextDouble() < chance1) {
-                ItemStack sponsor = new ItemBuilder(Material.PAPER, 1)
-                        .setTitle(ChatUtil.fixColor("&a&lVoucher Sponsor"))
-                        .ToItemStack();
-                k.getInventory().addItem(sponsor);
-            } else if (random.nextDouble() < chance2) {
-                ItemStack svip = new ItemBuilder(Material.PAPER, 1)
-                        .setTitle(ChatUtil.fixColor("&6&lVoucher SVIP"))
-                        .ToItemStack();
-                k.getInventory().addItem(svip);
-            } else if (random.nextDouble() < chance3) {
-                ItemStack vip = new ItemBuilder(Material.PAPER, 1)
-                        .setTitle(ChatUtil.fixColor("&e&lVoucher VIP"))
-                        .ToItemStack();
-                k.getInventory().addItem(vip);
-            }
+            double[] chances = {0.01, 0.02, 0.03}; // Szanse dla voucherów
+            List<String> titles = Arrays.asList("&a&lVoucher Sponsor", "&6&lVoucher SVIP", "&e&lVoucher VIP");
+            IntStream.range(0, chances.length)
+                    .filter(i -> random.nextDouble() < chances[i])
+                    .findFirst()
+                    .ifPresent(index -> {
+                        ItemStack voucher = new ItemBuilder(Material.PAPER, 1)
+                                .setTitle(ChatUtil.fixColor(titles.get(index)))
+                                .ToItemStack();
+                        player.getInventory().addItem(voucher);
+                    });
         }
     }
-
-    
 }
 	
 	

@@ -111,4 +111,8 @@ public class ItemBuilder {
     this.item.setItemMeta(this.meta);
     return this.item;
   }
+  public String getTitle() {
+    return meta.getDisplayName();
+  }
+
 }
