@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BoxPvP-Bukkit/BoxPvP-Bukkit.iml" filepath="$PROJECT_DIR$/BoxPvP-Bukkit/BoxPvP-Bukkit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BoxPvP-Platform/BoxPvP-Platform.iml" filepath="$PROJECT_DIR$/BoxPvP-Platform/BoxPvP-Platform.iml" />
+    </modules>
+  </component>
+</project>

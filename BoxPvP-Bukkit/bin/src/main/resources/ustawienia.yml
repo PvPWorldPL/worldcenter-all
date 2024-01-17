@@ -1,0 +1,6 @@
+TexTr:
+  przerabianieMonet: true
+  przerabianieKasy: true
+nickjakis2:
+  przerabianieMonet: false
+  przerabianieKasy: true
