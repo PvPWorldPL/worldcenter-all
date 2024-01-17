@@ -9,6 +9,9 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import api.managers.CooldownManager;
+
+import java.util.Optional;
+
 public class SniezkaListener  implements Listener {
 
     private static final String SNOWBALL_NAME = ChatColor.RED + "Magiczna Śnieżka";
@@ -16,43 +19,41 @@ public class SniezkaListener  implements Listener {
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();
-
-        if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
-            if (player.getInventory().getItemInMainHand().getType().toString().contains("SNOWBALL")) {
-                if (player.getInventory().getItemInMainHand().hasItemMeta() &&
-                        player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(SNOWBALL_NAME)) {
-
-                    event.setCancelled(true);
-
-                    if (CooldownManager.canUse(player)) {
+        if ((event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) &&
+                player.getInventory().getItemInMainHand().getType().toString().contains("SNOWBALL") &&
+                player.getInventory().getItemInMainHand().hasItemMeta() &&
+                player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(SNOWBALL_NAME)) {
+            event.setCancelled(true);
+            Optional.of(player)
+                    .filter(CooldownManager::canUse)
+                    .ifPresent(p -> {
                         Snowball snowball = player.launchProjectile(Snowball.class);
                         snowball.setCustomName(SNOWBALL_NAME);
                         snowball.setShooter(player);
                         CooldownManager.setCooldown(player);
-                    } else {
-                        player.sendMessage(ChatColor.RED + "Musisz poczekać " + CooldownManager.getRemainingCooldown(player) + " sekund przed ponownym użyciem.");
-                    }
-                }
-            }
+                    });
+        } else {
+            player.sendMessage(ChatColor.RED + "Musisz poczekać " + CooldownManager.getRemainingCooldown(player) + " sekund przed ponownym użyciem.");
         }
     }
+
 
     @EventHandler
     public void onProjectileHit(ProjectileHitEvent event) {
-        if (event.getEntity() instanceof Snowball) {
-            Snowball snowball = (Snowball) event.getEntity();
-            if (snowball.getCustomName() != null && snowball.getCustomName().equals(SNOWBALL_NAME)) {
-                if (event.getHitEntity() instanceof Player) {
+        Optional.of(event)
+                .filter(e -> e.getEntity() instanceof Snowball)
+                .map(e -> (Snowball) e.getEntity())
+                .filter(snowball -> snowball.getCustomName() != null && snowball.getCustomName().equals(SNOWBALL_NAME))
+                .filter(snowball -> event.getHitEntity() instanceof Player)
+                .ifPresent(snowball -> {
                     Player thrower = (Player) snowball.getShooter();
                     Player hitPlayer = (Player) event.getHitEntity();
-
                     // Zamień miejscami graczy
                     teleportPlayers(thrower, hitPlayer);
-                }
-                snowball.remove();
-            }
-        }
+                    snowball.remove();
+                });
     }
+
 
     private void teleportPlayers(Player player1, Player player2) {
 
