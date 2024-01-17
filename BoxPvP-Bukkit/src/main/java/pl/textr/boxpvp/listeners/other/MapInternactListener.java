@@ -10,7 +10,6 @@ import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.World;
 import org.bukkit.block.Block;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.EventHandler;
@@ -29,11 +28,11 @@ import api.managers.ItemsManager;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import pl.textr.boxpvp.utils.ChatUtil;
-import pl.textr.boxpvp.utils.RandomUtil;
+import api.managers.CooldownManager;
 
 public class MapInternactListener implements Listener {
 
-	  public HashMap<String, Long> cooldowns = new HashMap<>();
+
       private List<Material> allowedBlocks = Arrays.asList(Material.COBWEB, Material.WARPED_STEM);
 
       private List<Material> allowedBreakKopalnia = Arrays.asList( Material.WARPED_STEM, Material.BLACK_WOOL, Material.WHITE_WOOL, Material.HONEYCOMB_BLOCK, Material.IRON_BLOCK, Material.GOLD_BLOCK, Material.DIAMOND_BLOCK, Material.REDSTONE_BLOCK, Material.EMERALD_BLOCK, Material.LAPIS_BLOCK, Material.NETHERITE_BLOCK, Material.COAL_BLOCK, Material.QUARTZ_BLOCK, Material.IRON_ORE, Material.GOLD_ORE,Material.DIAMOND_ORE, Material.REDSTONE_ORE, Material.EMERALD_ORE, Material.LAPIS_ORE, Material.ANCIENT_DEBRIS, Material.COAL_ORE, Material.NETHER_QUARTZ_ORE);
@@ -75,49 +74,38 @@ public class MapInternactListener implements Listener {
 
     @EventHandler
     public void onClickMeteor(PlayerInteractEvent event) {
-      Block clickedBlock = event.getClickedBlock();
-      if (event.getPlayer() != null && event.getClickedBlock() != null && clickedBlock.getType() == Material.DRAGON_EGG) {
-        Player p = event.getPlayer();
-        event.setCancelled(true);
-        clickedBlock.setType(Material.AIR);
-        p.spawnParticle(Particle.FLAME, clickedBlock.getLocation().add(0.5, 0.5, 0.5), 10, 0, 0, 0, 0.1);
-
-        p.playEffect(EntityEffect.FIREWORK_EXPLODE);
-        Bukkit.broadcastMessage(ChatUtil.fixColor("&fMeteor &7zostal zdobyty przez gracza: &f" + event.getPlayer().getName()));
-    	  p.getInventory().addItem(ItemsManager.getodlamek(1));
-        int i = RandomUtil.getRandInt(0, 2);
-        if (i == 0) {
-         
-
-          Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "key give" + p.getName()  + " zwykla 1");
+        Block clickedBlock = event.getClickedBlock();
+        if (event.getPlayer() != null && event.getClickedBlock() != null && clickedBlock.getType() == Material.DRAGON_EGG) {
+            Player player = event.getPlayer();
+            event.setCancelled(true);
+            clickedBlock.setType(Material.AIR);
+            player.spawnParticle(Particle.FLAME, clickedBlock.getLocation().add(0.5, 0.5, 0.5), 10, 0, 0, 0, 0.1);
+            player.playEffect(EntityEffect.FIREWORK_EXPLODE);
+            Bukkit.broadcastMessage(ChatUtil.fixColor("&fMeteor &7zostal zdobyty przez gracza: &f" + player.getName()));
+            player.getInventory().addItem(ItemsManager.getodlamek(1));
+            String[] keyTypes = {"zwykla", "epicka", "rzadka"};
+            String keyType = keyTypes[new Random().nextInt(keyTypes.length)];
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "klucz give " + player.getName() + " " + keyType + " 1");
         }
-        if (i == 1) {
-
-          Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "key give" + p.getName()  + " epicka 1");
-        }
-        if (i == 2)
-
-        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "key give" + p.getName()  + " rzadka 1");
-      } 
     }
-  
-    
-  
-    
+
     @EventHandler
-    public void playerInteractEvent(PlayerInteractEvent event) {
+    public void handleUsuwacz(PlayerInteractEvent event) {
         Player player = event.getPlayer();
         if (event.getHand() != EquipmentSlot.HAND) {
             return;
         }
+
         Action action = event.getAction();
         if (action != Action.RIGHT_CLICK_BLOCK && action != Action.LEFT_CLICK_BLOCK) {
             return;
         }
+
         ItemStack item = event.getItem();
         if (item == null || !item.isSimilar(ItemsManager.getUsuwacz(1))) {
             return;
         }
+
         if (event instanceof Cancellable) {
             Cancellable cancellableEvent = event;
             if (cancellableEvent.isCancelled()) {
@@ -125,17 +113,17 @@ public class MapInternactListener implements Listener {
                 return;
             }
         }
+
+        if (CooldownManager.isCooldownActive(player)) {
+            long remainingCooldown = CooldownManager.getRemainingCooldown(player);
+            player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.translateAlternateColorCodes('&', "&cUsuwacz pajęczyn możesz użyć za &f" + remainingCooldown + " &7sek")));
+            return;
+        }
+
         Location location = player.getLocation();
+        List<Block> nearbyBlocks = getNearbyBlocks(location);
         boolean deletedBlocks = false;
 
-        if (cooldowns.containsKey(player.getName())) {
-            long secondsLeddsft = cooldowns.get(player.getName()) / 1000L + 30L - System.currentTimeMillis() / 1000L;
-            if (secondsLeddsft > 0L) {
-                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.translateAlternateColorCodes('&', "&cUsuwacz pajęczyn mozesz uzyc za &f" + secondsLeddsft + " &7sek")));
-                return;
-            }
-        }
-        List<Block> nearbyBlocks = getNearbyBlocks(location, 4);
         for (Block block : nearbyBlocks) {
             if (block.getType() == Material.COBWEB) {
                 block.setType(Material.AIR);
@@ -145,19 +133,22 @@ public class MapInternactListener implements Listener {
 
         if (deletedBlocks) {
             player.getInventory().removeItem(new ItemStack(ItemsManager.getUsuwacz(1)));
-            cooldowns.put(player.getName(), System.currentTimeMillis());
+            CooldownManager.setCooldownTime(30);
         }
     }
 
-    private List<Block> getNearbyBlocks(Location location, int radius) {
+    private List<Block> getNearbyBlocks(Location location) {
+        if (location == null || location.getWorld() == null) {
+            return Collections.emptyList();
+        }
         World world = location.getWorld();
         List<Block> blocks = new ArrayList<>();
-        int minX = location.getBlockX() - radius;
-        int minY = location.getBlockY() - radius;
-        int minZ = location.getBlockZ() - radius;
-        int maxX = location.getBlockX() + radius;
-        int maxY = location.getBlockY() + radius;
-        int maxZ = location.getBlockZ() + radius;
+        int minX = location.getBlockX() - 4;
+        int minY = location.getBlockY() - 4;
+        int minZ = location.getBlockZ() - 4;
+        int maxX = location.getBlockX() + 4;
+        int maxY = location.getBlockY() + 4;
+        int maxZ = location.getBlockZ() + 4;
         for (int x = minX; x <= maxX; x++) {
             for (int y = minY; y <= maxY; y++) {
                 for (int z = minZ; z <= maxZ; z++) {

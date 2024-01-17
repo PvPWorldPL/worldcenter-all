@@ -30,7 +30,8 @@ public class SniezkaListener  implements Listener {
                         Snowball snowball = player.launchProjectile(Snowball.class);
                         snowball.setCustomName(SNOWBALL_NAME);
                         snowball.setShooter(player);
-                        CooldownManager.setCooldown(player);
+                     CooldownManager.setCooldownTime(30);
+
                     });
         } else {
             player.sendMessage(ChatColor.RED + "Musisz poczekać " + CooldownManager.getRemainingCooldown(player) + " sekund przed ponownym użyciem.");

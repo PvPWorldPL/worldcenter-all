@@ -28,11 +28,6 @@ public class AnvilListener implements Listener
     if (ChatUtil.fixColor("&eKowadlo").equalsIgnoreCase(e.getView().getTitle())) {
       e.setCancelled(true);
       ItemStack item = e.getCurrentItem();
-       String repair = "";
-       String wymiana1 = "";
-       String wymiana2 = "";
-       String wymiana3 = "";
-       String wymiana4 = "";
       if (item != null) {
         if (item.getType() == Material.EXPERIENCE_BOTTLE) {
         /*
