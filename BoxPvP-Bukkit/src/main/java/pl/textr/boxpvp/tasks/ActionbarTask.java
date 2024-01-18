@@ -26,13 +26,6 @@ public class ActionbarTask implements Runnable {
               message += "&fJestes w trybie &aVanish";
           }
 
-
-          long turbodropTimer = Main.getPlugin().getConfiguration().turbodrop;
-          if (turbodropTimer > System.currentTimeMillis()) {
-              message += " &8| ";
-              message += "&7Aktualnie trwa &C&lTURBO DROP &7pozostalo &8(&a" + DataUtil.secondsToString(turbodropTimer) + "&8)";
-          }
-
           long voucheryTimer = Main.getPlugin().getConfiguration().vouchery;
           if (voucheryTimer > System.currentTimeMillis()) {
               message += " &8| ";

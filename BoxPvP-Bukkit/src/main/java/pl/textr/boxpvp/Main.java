@@ -96,11 +96,7 @@ import eu.okaeri.configs.serdes.standard.StandardSerdes;
 import eu.okaeri.configs.yaml.bukkit.YamlBukkitConfigurer;
 import net.luckperms.api.LuckPerms;
 import net.milkbowl.vault.economy.Economy;
-import pl.textr.boxpvp.tasks.ActionbarTask;
-import pl.textr.boxpvp.tasks.ItemClearTask;
-import pl.textr.boxpvp.tasks.PlayerTimeRunnable;
-import pl.textr.boxpvp.tasks.TabCategoryTask;
-import pl.textr.boxpvp.tasks.TopPlayersNpc;
+import pl.textr.boxpvp.tasks.*;
 import pl.textr.boxpvp.utils.ChatUtil;
 
 public class Main extends JavaPlugin {
@@ -258,7 +254,7 @@ public class Main extends JavaPlugin {
         if (!Main.getPlugin().getConfiguration().RewardsDiscord()) {
             getLogger().warning("Funkcja discord bot jest wyłączona!");
         } else {
-            new DiscordBot("MTE2NTE4NTUwMzQxMTMwNjU5Ng.GGuSJ6.9Eur3FqJuUesLEGGGn10y6hI9RuMIHi53-Qvew");
+            new DiscordBot("MTE1OTYwNTA3MTU2NzQwOTE1NQ.G04WwZ.nzxyb1eSkKJ8gUBrVhVIx1A86NNWgIu3YMJTTM");
             getLogger().info("Discord bot is registered");
         }
     }
@@ -269,8 +265,7 @@ public class Main extends JavaPlugin {
         Bukkit.getScheduler().runTaskTimerAsynchronously(this, new ItemClearTask(), 10 * 60 * 20L, 10 * 60 * 20L); //10m
         Bukkit.getScheduler().runTaskTimerAsynchronously(this, new TabCategoryTask(), 0L, 6000L);
         Bukkit.getServer().getScheduler().runTaskTimer(this, new TopPlayersNpc(), 0L, 30L * 60 * 20L);
-        //Bukkit.getServer().getScheduler().runTaskTimer(this, new TopPlayersNpc(),  0L, 20L * 10);
-
+        Bukkit.getScheduler().runTaskTimerAsynchronously(this, new BossBarTask(), 40L, 20L);
         Bukkit.getScheduler().runTaskTimer(this, new PlayerTimeRunnable(), 20L * 60 * 5, 20L * 60 * 5);
     }
 

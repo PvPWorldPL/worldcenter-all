@@ -28,7 +28,7 @@ public class DataUtil {
         }
         final long numberOfSeconds = input / 1000L % 60L;
         if (numberOfSeconds > 0L) {
-            stringBuilder.append(numberOfSeconds).append(" &7sek &f");
+            stringBuilder.append(numberOfSeconds).append(" &7sek");
         }
         if (stringBuilder.toString().isEmpty()) {
             return "0 &7sek";
