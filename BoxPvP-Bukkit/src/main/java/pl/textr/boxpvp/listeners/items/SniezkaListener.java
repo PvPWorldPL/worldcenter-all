@@ -1,4 +1,4 @@
-package pl.textr.boxpvp.listeners.player;
+package pl.textr.boxpvp.listeners.items;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

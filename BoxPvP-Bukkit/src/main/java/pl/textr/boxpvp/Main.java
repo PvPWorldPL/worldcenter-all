@@ -418,6 +418,8 @@ public class Main extends JavaPlugin {
                     .addAll(cp.getTopLevelClassesRecursive("pl.textr.boxpvp.listeners.inventory"))
                     .addAll(cp.getTopLevelClassesRecursive("pl.textr.boxpvp.listeners.chat"))
                     .addAll(cp.getTopLevelClassesRecursive("pl.textr.boxpvp.listeners.other"))
+                    .addAll(cp.getTopLevelClassesRecursive("pl.textr.boxpvp.listeners.items"))
+
                     .build();
 
             for (ClassPath.ClassInfo classInfo : classInfos) {

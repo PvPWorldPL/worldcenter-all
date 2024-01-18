@@ -148,6 +148,7 @@ public class OtherListener implements Listener {
     }
 
 
+
     @EventHandler
     public void onInteractVoucher(PlayerInteractEvent event) {
         if (event.getItem() == null) {
@@ -171,7 +172,6 @@ public class OtherListener implements Listener {
                     Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "lp user " + player.getName() + " group " + groupName);
                 });
     }
-
 
     
     @EventHandler
