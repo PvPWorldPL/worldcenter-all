@@ -38,7 +38,7 @@ public class AsyncPlayerChatListener implements Listener {
         final Clans g1 = ClanManager.getGuild(p);
         final UserProfile u = UserAccountManager.getUser(p);
         final String prefix = lpuser.getCachedData().getMetaData().getPrefix();
-       
+
         if (ChatUtil.isBlocked(e.getMessage()) && (!p.hasPermission("core.cmd.helper"))) {
             ChatUtil.sendMessage(p, "&8[&C&l!&8] &cNiektorych slow nie wolno uzywac na naszym serwerze");
             e.setCancelled(true);
