@@ -148,7 +148,7 @@ public class TopPlayersNpc implements Runnable {
 //        UserDeathManager.sortUserDeaths();
         
         if (topDeath1NPC != null && UserDeathManager.getDeaths().size() >= 1) {
-            String playerName = String.valueOf(UserDeathManager.getDeaths().get(0).getPlayer());
+            String playerName = String.valueOf(UserDeathManager.getDeaths().get(0).getName());
             int playerDeaths = UserDeathManager.getDeaths().get(0).getDeaths();
             final UserProfile u = UserAccountManager.getUser(playerName);
             int position = UserDeathManager.getPlaceUser(u);
@@ -160,7 +160,7 @@ public class TopPlayersNpc implements Runnable {
         }
 
         if (topDeath2NPC != null && UserDeathManager.getDeaths().size() >= 2) {
-            String playerName = String.valueOf(UserDeathManager.getDeaths().get(1).getPlayer());
+            String playerName = String.valueOf(UserDeathManager.getDeaths().get(1).getName());
             int playerDeaths = UserDeathManager.getDeaths().get(1).getDeaths();
             final UserProfile u = UserAccountManager.getUser(playerName);
             int position = UserDeathManager.getPlaceUser(u);
@@ -174,7 +174,7 @@ public class TopPlayersNpc implements Runnable {
         }
 
         if (topDeath3NPC != null && UserDeathManager.getDeaths().size() >= 3) {
-            String playerName = String.valueOf(UserDeathManager.getDeaths().get(2).getPlayer());
+            String playerName = String.valueOf(UserDeathManager.getDeaths().get(2).getName());
             int playerDeaths = UserDeathManager.getDeaths().get(2).getDeaths();
 
             final UserProfile u = UserAccountManager.getUser(playerName);
