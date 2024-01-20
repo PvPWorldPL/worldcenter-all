@@ -264,7 +264,9 @@ public class Main extends JavaPlugin {
         Bukkit.getScheduler().runTaskTimerAsynchronously(this, new ActionbarTask(), 40L, 20L);
         Bukkit.getScheduler().runTaskTimerAsynchronously(this, new ItemClearTask(), 10 * 60 * 20L, 10 * 60 * 20L); //10m
         Bukkit.getScheduler().runTaskTimerAsynchronously(this, new TabCategoryTask(), 0L, 6000L);
-        Bukkit.getServer().getScheduler().runTaskTimer(this, new TopPlayersNpc(), 0L, 30L * 60 * 20L);
+       // Bukkit.getServer().getScheduler().runTaskTimer(this, new TopPlayersNpc(), 0L, 30L * 60 * 20L);
+        Bukkit.getServer().getScheduler().runTaskTimer(this, new TopPlayersNpc(), 0L, 500L);
+
         Bukkit.getScheduler().runTaskTimerAsynchronously(this, new BossBarTask(), 40L, 20L);
         Bukkit.getScheduler().runTaskTimer(this, new PlayerTimeRunnable(), 20L * 60 * 5, 20L * 60 * 5);
     }

@@ -144,6 +144,30 @@ public class OtherListener implements Listener {
     }
 
 
+//    @EventHandler
+//    public void interactVouchertest(final PlayerInteractEvent e) {
+//        if (e.getItem() == null) {
+//            return;
+//        }
+//
+//        final Player p = e.getPlayer();
+//        final ItemStack is = p.getInventory().getItemInMainHand();
+//
+//        Map<ItemStack, String> voucherCommands = new HashMap<>();
+//        voucherCommands.put(new ItemBuilder(Material.PAPER, 1).setTitle(ChatUtil.fixColor("&e&lVoucher SPONSOR")).ToItemStack(), "lp user %player% group add sponsor");
+//        voucherCommands.put(new ItemBuilder(Material.PAPER, 1).setTitle(ChatUtil.fixColor("&e&lVoucher SVIP")).ToItemStack(), "lp user %player% group add svip");
+//        voucherCommands.put(new ItemBuilder(Material.PAPER, 1).setTitle(ChatUtil.fixColor("&e&lVoucher vip")).ToItemStack(), "lp user %player% group set vip");
+//
+//        voucherCommands.entrySet().stream()
+//                .filter(entry -> is.isSimilar(entry.getKey()))
+//                .findFirst()
+//                .ifPresent(entry -> {
+//                    p.getInventory().remove(entry.getKey());
+//                    String command = entry.getValue().replace("%player%", p.getName());
+//                    Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), command);
+//                    ChatUtil.sendMessage(p, "&aPomyslnie uzyles Vouchera!");
+//                });
+//    }
 
     @EventHandler
     public void interactVoucher(final PlayerInteractEvent e) {
@@ -154,9 +178,25 @@ public class OtherListener implements Listener {
         final ItemStack is = p.getInventory().getItemInMainHand();
 
 
-        final ItemBuilder sponsor = new ItemBuilder(Material.PAPER, 1).setTitle(ChatUtil.fixColor("&e&lVoucher SPONSOR"));
-        final ItemBuilder svip = new ItemBuilder(Material.PAPER, 1).setTitle(ChatUtil.fixColor("&e&lVoucher SVIP"));
-        final ItemBuilder vip = new ItemBuilder(Material.PAPER, 1).setTitle(ChatUtil.fixColor("&e&lVoucher VIP"));
+        final ItemBuilder sponsor = new ItemBuilder(Material.PAPER, 1).setTitle(ChatUtil.fixColor("&e&lVoucher SPONSOR"))
+                .addLore("")
+                .addLore("")
+                .addLore(ChatUtil.fixColor("&7Kliknij aby aktywować range"))
+                .addLore("")
+                .setGlow();
+
+        final ItemBuilder vip = new ItemBuilder(Material.PAPER, 1).setTitle(ChatUtil.fixColor("&e&lVoucher VIP"))
+                .addLore("")
+                .addLore("")
+                .addLore(ChatUtil.fixColor("&7Kliknij aby aktywować range"))
+                .addLore("")
+                .setGlow();
+        final ItemBuilder svip = new ItemBuilder(Material.PAPER, 1).setTitle(ChatUtil.fixColor("&e&lVoucher SVIP"))
+                .addLore("")
+                .addLore("")
+                .addLore(ChatUtil.fixColor("&7Kliknij aby aktywować range"))
+                .addLore("")
+                .setGlow();
 
         if (is.isSimilar(sponsor.ToItemStack())) {
             p.getInventory().remove(sponsor.ToItemStack());
@@ -179,7 +219,16 @@ public class OtherListener implements Listener {
 
 
 
-
+    public static ItemStack getVoucherSVIP(int size) {
+        ItemStack vip = (new ItemBuilder(Material.PAPER, size))
+                .setTitle(ChatUtil.fixColor("&e&lVoucher SVIP"))
+                .addLore("")
+                .addLore("")
+                .addLore(ChatUtil.fixColor("&7Kliknij aby aktywować range"))
+                .addLore("")
+                .setGlow().ToItemStack();
+        return vip;
+    }
     @EventHandler
     public void onRightClick(NPCRightClickEvent event) {
         NPC npc = event.getNPC();
