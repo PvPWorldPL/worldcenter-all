@@ -205,6 +205,28 @@ public class ItemsManager {
 	    .setGlow().ToItemStack();
 	    return vip;
 	  }
+
+	public static ItemStack getVoucherSVIP(int size) {
+		ItemStack vip = (new ItemBuilder(Material.PAPER, size))
+				.setTitle(ChatUtil.fixColor("&e&lVoucher SVIP"))
+				.addLore("")
+				.addLore("")
+				.addLore(ChatUtil.fixColor("&7Kliknij aby aktywować range"))
+				.addLore("")
+				.setGlow().ToItemStack();
+		return vip;
+	}
+
+	public static ItemStack getVoucherSPONSOR(int size) {
+		ItemStack vip = (new ItemBuilder(Material.PAPER, size))
+				.setTitle(ChatUtil.fixColor("&e&lVoucher SPONSOR"))
+				.addLore("")
+				.addLore("")
+				.addLore(ChatUtil.fixColor("&7Kliknij aby aktywować range"))
+				.addLore("")
+				.setGlow().ToItemStack();
+		return vip;
+	}
 	  
 	  public static ItemStack getLuckyBlock(int size) {
 		    ItemStack vip;

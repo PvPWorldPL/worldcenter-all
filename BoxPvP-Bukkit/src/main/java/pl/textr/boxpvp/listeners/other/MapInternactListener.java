@@ -33,11 +33,11 @@ import api.managers.CooldownManager;
 public class MapInternactListener implements Listener {
 
 
-      private List<Material> allowedBlocks = Arrays.asList(Material.COBWEB, Material.WARPED_STEM);
+      private final List<Material> allowedBlocks = Arrays.asList(Material.COBWEB, Material.WARPED_STEM);
 
-      private List<Material> allowedBreakKopalnia = Arrays.asList( Material.WARPED_STEM, Material.BLACK_WOOL, Material.WHITE_WOOL, Material.HONEYCOMB_BLOCK, Material.IRON_BLOCK, Material.GOLD_BLOCK, Material.DIAMOND_BLOCK, Material.REDSTONE_BLOCK, Material.EMERALD_BLOCK, Material.LAPIS_BLOCK, Material.NETHERITE_BLOCK, Material.COAL_BLOCK, Material.QUARTZ_BLOCK, Material.IRON_ORE, Material.GOLD_ORE,Material.DIAMOND_ORE, Material.REDSTONE_ORE, Material.EMERALD_ORE, Material.LAPIS_ORE, Material.ANCIENT_DEBRIS, Material.COAL_ORE, Material.NETHER_QUARTZ_ORE);
+      private final List<Material> allowedBreakKopalnia = Arrays.asList( Material.WARPED_STEM, Material.BLACK_WOOL, Material.WHITE_WOOL, Material.HONEYCOMB_BLOCK, Material.IRON_BLOCK, Material.GOLD_BLOCK, Material.DIAMOND_BLOCK, Material.REDSTONE_BLOCK, Material.EMERALD_BLOCK, Material.LAPIS_BLOCK, Material.NETHERITE_BLOCK, Material.COAL_BLOCK, Material.QUARTZ_BLOCK, Material.IRON_ORE, Material.GOLD_ORE,Material.DIAMOND_ORE, Material.REDSTONE_ORE, Material.EMERALD_ORE, Material.LAPIS_ORE, Material.ANCIENT_DEBRIS, Material.COAL_ORE, Material.NETHER_QUARTZ_ORE);
       
-        private List<Material> alloweBreakPvP = Arrays.asList(Material.COBWEB, Material.BLACK_WOOL,Material.WHITE_WOOL, Material.WARPED_STEM, Material.IRON_BLOCK, Material.GOLD_BLOCK, Material.DIAMOND_BLOCK, Material.REDSTONE_BLOCK, Material.EMERALD_BLOCK, Material.LAPIS_BLOCK, Material.NETHERITE_BLOCK, Material.COAL_BLOCK, Material.QUARTZ_BLOCK, Material.IRON_ORE, Material.GOLD_ORE, Material.DIAMOND_ORE, Material.REDSTONE_ORE, Material.EMERALD_ORE, Material.LAPIS_ORE, Material.ANCIENT_DEBRIS, Material.COAL_ORE, Material.NETHER_QUARTZ_ORE);
+        private final List<Material> alloweBreakPvP = Arrays.asList(Material.COBWEB, Material.BLACK_WOOL,Material.WHITE_WOOL, Material.WARPED_STEM, Material.IRON_BLOCK, Material.GOLD_BLOCK, Material.DIAMOND_BLOCK, Material.REDSTONE_BLOCK, Material.EMERALD_BLOCK, Material.LAPIS_BLOCK, Material.NETHERITE_BLOCK, Material.COAL_BLOCK, Material.QUARTZ_BLOCK, Material.IRON_ORE, Material.GOLD_ORE, Material.DIAMOND_ORE, Material.REDSTONE_ORE, Material.EMERALD_ORE, Material.LAPIS_ORE, Material.ANCIENT_DEBRIS, Material.COAL_ORE, Material.NETHER_QUARTZ_ORE);
           
       
     @EventHandler
