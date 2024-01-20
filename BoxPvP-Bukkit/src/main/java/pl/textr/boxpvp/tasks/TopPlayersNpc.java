@@ -185,8 +185,7 @@ public class TopPlayersNpc implements Runnable {
             int playerDeaths = UserDeathManager.getDeaths().get(2).getDeaths();
 
             final UserProfile u = UserAccountManager.getUser(playerName);
-            int position = UserDeathManager.getPlaceUser(u);
-
+            int position = UserBalanceManager.getPlaceUserMoney(u);
             updateNPCTopDeath(topDeath3NPC, playerName, playerDeaths, position);    
         	   //  Bukkit.getLogger().info("update npc topDeath3");    	     
         } else if (topDeath3NPC != null) {
@@ -207,7 +206,7 @@ public class TopPlayersNpc implements Runnable {
             String playerMonety = ChatUtil.formatAmount(UserBalanceManager.getBalance().get(0).getBalance());
 
             final UserProfile u = UserAccountManager.getUser(playerName);
-            int position = UserDeathManager.getPlaceUser(u);
+            int position = UserBalanceManager.getPlaceUserMoney(u);
             updateNPCTopMonety(topMonety1NPC, playerName, playerMonety, position);
             // Bukkit.getLogger().info("update npc topMonety1");
         } else if (topMonety1NPC != null) {
@@ -235,7 +234,8 @@ public class TopPlayersNpc implements Runnable {
             String playerMonety = ChatUtil.formatAmount(UserBalanceManager.getBalance().get(2).getBalance());
 
             final UserProfile u = UserAccountManager.getUser(playerName);
-            int position = UserDeathManager.getPlaceUser(u);
+
+            int position = UserBalanceManager.getPlaceUserMoney(u);
 
             updateNPCTopMonety(topMonety3NPC, playerName, playerMonety, position);
             //  Bukkit.getLogger().info("update npc topMonety3");
