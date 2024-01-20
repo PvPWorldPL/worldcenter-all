@@ -201,13 +201,13 @@ public class OtherListener implements Listener {
         if (is.isSimilar(sponsor.ToItemStack())) {
             p.getInventory().remove(sponsor.ToItemStack());
             ChatUtil.sendMessage(p, "&aPomyslnie uzyles Vouchera Sponsor!");
-            Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "lp user " + p.getName() + " group add sponsor");
+            Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "lp user " + p.getName() + " group set sponsor");
             return;
         }
         if (is.isSimilar(svip.ToItemStack())) {
             p.getInventory().remove(svip.ToItemStack());
             ChatUtil.sendMessage(p, "&aPomyslnie uzyles Vouchera SVIP!");
-            Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "lp user " + p.getName() + " group add svip");
+            Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "lp user " + p.getName() + " group set svip");
             return;
         }
         if (is.isSimilar(vip.ToItemStack())) {
@@ -219,16 +219,7 @@ public class OtherListener implements Listener {
 
 
 
-    public static ItemStack getVoucherSVIP(int size) {
-        ItemStack vip = (new ItemBuilder(Material.PAPER, size))
-                .setTitle(ChatUtil.fixColor("&e&lVoucher SVIP"))
-                .addLore("")
-                .addLore("")
-                .addLore(ChatUtil.fixColor("&7Kliknij aby aktywować range"))
-                .addLore("")
-                .setGlow().ToItemStack();
-        return vip;
-    }
+
     @EventHandler
     public void onRightClick(NPCRightClickEvent event) {
         NPC npc = event.getNPC();
