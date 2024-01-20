@@ -1,34 +1,55 @@
 package pl.textr.boxpvp.tasks;
-import java.util.Calendar;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 
+import api.redis.packet.broadcast.BroadcastMeteorRandomPacket;
+import org.bukkit.Bukkit;
+import org.bukkit.boss.BarColor;
+import org.bukkit.boss.BarFlag;
+import org.bukkit.boss.BarStyle;
+import org.bukkit.boss.BossBar;
 import pl.textr.boxpvp.Main;
 import pl.textr.boxpvp.utils.ChatUtil;
-import pl.textr.boxpvp.utils.RandomUtil;
+import pl.textr.boxpvp.utils.DataUtil;
 
+import java.util.Calendar;
 
 public class MeteorTask implements Runnable {
+    private static final BossBar METEOR_BOSS_BAR = Bukkit.createBossBar(ChatUtil.translateHexColorCodes("&7Za &f60 &7sekund pojawi się deszcz meteorytów na strefie PvP"), BarColor.YELLOW, BarStyle.SOLID, BarFlag.values());
+    private static final int INITIAL_COUNTDOWN = 60;
+    private int currentCountdown = INITIAL_COUNTDOWN;
+    private static final int MIN_PLAYERS = 1; // Minimalna liczba graczy
+    private static final int ACTIVE_HOUR_START = 16;
+    private static final int ACTIVE_HOUR_END = 20;
+
     public void run() {
-        Calendar calendar = Calendar.getInstance();
-        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        Calendar currentCalendar = Calendar.getInstance();
+        int currentHour = currentCalendar.get(Calendar.HOUR_OF_DAY);
 
-
-        if (hour < 12 || hour > 18) {
+        if (currentHour < ACTIVE_HOUR_START || currentHour >= ACTIVE_HOUR_END) {
             return;
         }
 
-        if (Bukkit.getOnlinePlayers().size() < 10) {
+        int onlinePlayersCount = Bukkit.getOnlinePlayers().size();
+        if (onlinePlayersCount < MIN_PLAYERS) {
             return;
         }
-
-        Bukkit.getScheduler().runTask(Main.getPlugin(), () -> {
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "meteorspawn random" + RandomUtil.getRandInt(1, 20));
-        });
-
-        for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
-            ChatUtil.sendTitle(onlinePlayer, "", ChatUtil.translateHexColorCodes("&7za &f60 &7sekund pojawi się &adeszcz meteorytów &7na &cstrefie PvP"));
+        Bukkit.getOnlinePlayers().forEach(METEOR_BOSS_BAR::addPlayer);
+        if (currentCountdown > 0) {
+            METEOR_BOSS_BAR.setTitle(ChatUtil.translateHexColorCodes("&7Za &f" + DataUtil.convertSecondsToTime(currentCountdown) + " &7sekund pojawi się deszcz meteorytów na strefie PvP"));
+            METEOR_BOSS_BAR.setProgress((double) currentCountdown / INITIAL_COUNTDOWN);
+            currentCountdown--;
+        } else {
+            executeMeteorSpawn();
+            METEOR_BOSS_BAR.setProgress(1.0);
+            METEOR_BOSS_BAR.removeAll();
+            currentCountdown = INITIAL_COUNTDOWN;
         }
     }
-}
 
+
+public void executeMeteorSpawn() {
+    BroadcastMeteorRandomPacket BroadcastMeteorRandomPacket;
+    BroadcastMeteorRandomPacket = new BroadcastMeteorRandomPacket();
+    Main.getPlugin().getRedisService().publishAsync("BroadcastMeteorRandom", BroadcastMeteorRandomPacket);
+
+}
+}
