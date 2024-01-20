@@ -11,6 +11,8 @@
     <modules>
         <module>BoxPvP-Bukkit</module>
         <module>BoxPvP-Platform</module>
+        <module>BoxPvP-Ranga</module>
+        <module>ProxyCore</module>
     </modules>
 
     <build>

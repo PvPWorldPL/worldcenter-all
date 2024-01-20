@@ -4,63 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92ab9ab5-8a14-4ea2-9564-978b3cab2dd4" name="Changes" comment="update usuwacz i sniezka&#10;&#10;//jak bedzie sie bugowac zrobi sie normalnie &#10;//uzyte strumienie">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BoxPvP-Ranga/BoxPvP-Ranga.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BoxPvP-Ranga/src/main/java/pl/worldcenter/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BoxPvP-Ranga/src/main/java/pl/worldcenter/PlaceHolderRegisterAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BoxPvP-Ranga/src/main/java/pl/worldcenter/commands/RangaCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BoxPvP-Ranga/src/main/java/pl/worldcenter/commands/api/BaseCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BoxPvP-Ranga/src/main/java/pl/worldcenter/commands/api/CommandInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BoxPvP-Ranga/src/main/java/pl/worldcenter/commands/api/CommandRegistry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BoxPvP-Ranga/src/main/java/pl/worldcenter/commands/api/PlayerCommandExecutor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BoxPvP-Ranga/src/main/java/pl/worldcenter/util/ChatUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BoxPvP-Ranga/src/main/java/pl/worldcenter/util/Reflection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/ProxyCore.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/lib/waterfall-1.19-506.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/src/main/java/pl/textr/connect/AuthPlugin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/src/main/java/pl/textr/connect/commands/AdminCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/src/main/java/pl/textr/connect/commands/ConfigCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/src/main/java/pl/textr/connect/commands/MsgCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/src/main/java/pl/textr/connect/commands/ReplyCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/src/main/java/pl/textr/connect/commands/SlotCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/src/main/java/pl/textr/connect/commands/WhiteListCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/src/main/java/pl/textr/connect/lang/PluginConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/src/main/java/pl/textr/connect/listeners/PreLoginListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/src/main/java/pl/textr/connect/listeners/ProxyPingListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/src/main/java/pl/textr/connect/listeners/TabCompleteListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/src/main/java/pl/textr/connect/utils/ChatUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/src/main/java/pl/textr/connect/utils/DataUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/src/main/java/pl/textr/connect/utils/MessageManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/src/main/resources/bungee.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/target/ProxyCore-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/target/classes/bungee.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/target/classes/pl/textr/connect/AuthPlugin.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/target/classes/pl/textr/connect/commands/AdminCommand.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/target/classes/pl/textr/connect/commands/ConfigCommand.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/target/classes/pl/textr/connect/commands/MsgCommand.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/target/classes/pl/textr/connect/commands/ReplyCommand.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/target/classes/pl/textr/connect/commands/SlotCommand.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/target/classes/pl/textr/connect/commands/WhiteListCommand.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/target/classes/pl/textr/connect/lang/PluginConfiguration.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/target/classes/pl/textr/connect/listeners/PreLoginListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/target/classes/pl/textr/connect/listeners/ProxyPingListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/target/classes/pl/textr/connect/listeners/TabCompleteListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/target/classes/pl/textr/connect/utils/ChatUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/target/classes/pl/textr/connect/utils/DataUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/target/classes/pl/textr/connect/utils/MessageManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProxyCore/target/original-ProxyCore-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="92ab9ab5-8a14-4ea2-9564-978b3cab2dd4" name="Changes" comment="UPDATE npcxty">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/target.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/waterfall_1_19_506.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BoxPvP-Ranga/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Ranga/BoxPvP-Ranga.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Ranga/BoxPvP-Ranga.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProxyCore/ProxyCore.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProxyCore/ProxyCore.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +28,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -110,34 +61,26 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.com.intellij.ui.dsl.builder.impl.RowImpl.sdk": "corretto-17",
+    "jdk.selected.JAVA_MODULE": "corretto-17",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/textr/Plugins-Master/boxpvp",
+    "last_opened_file_path": "C:/Users/textr/IdeaProjects/boxpvp/BoxPvP-Ranga",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
+    "project.structure.proportion": "0.15234375",
+    "project.structure.side.proportion": "0.44367817",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
     "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
       "XML"
-    ],
-    "jdk.preference.com.intellij.ui.dsl.builder.impl.RowImpl.sdk": [
-      "17=C:/Users/Paweł/.jdks/corretto-17.0.9"
     ]
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Paweł\boxpvp\ProxyCore\src\main\java" />
-    </key>
-  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="BoxPvP" />
@@ -151,35 +94,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="ProxyCore package" type="MavenRunConfiguration" factoryName="Maven">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings" />
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="cmdOptions" />
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list>
-                <option value="package" />
-              </list>
-            </option>
-            <option name="pomFileName" />
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="projectsCmdOptionValues">
-              <list />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
-      <method v="2" />
     </configuration>
   </component>
   <component name="SharedIndexes">
@@ -205,6 +119,7 @@
       <workItem from="1705484956619" duration="1639000" />
       <workItem from="1705486638801" duration="3163000" />
       <workItem from="1705568162679" duration="387000" />
+      <workItem from="1705743048180" duration="4665000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -238,22 +153,67 @@
       <option name="project" value="LOCAL" />
       <updated>1705592402044</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="usunieto snieska bo za op">
+      <option name="closed" value="true" />
+      <created>1705743139768</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1705743139768</updated>
+    </task>
+    <task id="LOCAL-00006" summary="poprawiono pozycje zjebana oraz rankingi">
+      <option name="closed" value="true" />
+      <created>1705743375682</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1705743375683</updated>
+    </task>
+    <task id="LOCAL-00007" summary="listenery yodate">
+      <option name="closed" value="true" />
+      <created>1705746440901</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1705746440901</updated>
+    </task>
+    <task id="LOCAL-00008" summary="USUNIETO LUCKYBLOCK  ITEMEK DODANO VOUNCHERY DO /AI">
+      <option name="closed" value="true" />
+      <created>1705746625946</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1705746625946</updated>
+    </task>
+    <task id="LOCAL-00009" summary="UPDATE VOUNCHERY">
+      <option name="closed" value="true" />
+      <created>1705747295969</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1705747295969</updated>
+    </task>
+    <task id="LOCAL-00010" summary="UPDATE VOUNCHERY">
+      <option name="closed" value="true" />
+      <created>1705747559222</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1705747559222</updated>
+    </task>
+    <task id="LOCAL-00011" summary="UPDATE npcxty">
+      <option name="closed" value="true" />
+      <created>1705747613170</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1705747613170</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
@@ -263,6 +223,12 @@
     <MESSAGE value="update" />
     <MESSAGE value="update vouncher and sniezka listener&#10;PlayerDeathListener.java&#10;OtherListener.java&#10;ItemBuilder.java&#10;SniezkaListener.java&#10;&#10;//jak bedzie sie bugowac zrobi sie normalnie &#10;//uzyte strumienie" />
     <MESSAGE value="update usuwacz i sniezka&#10;&#10;//jak bedzie sie bugowac zrobi sie normalnie &#10;//uzyte strumienie" />
-    <option name="LAST_COMMIT_MESSAGE" value="update usuwacz i sniezka&#10;&#10;//jak bedzie sie bugowac zrobi sie normalnie &#10;//uzyte strumienie" />
+    <MESSAGE value="usunieto snieska bo za op" />
+    <MESSAGE value="poprawiono pozycje zjebana oraz rankingi" />
+    <MESSAGE value="listenery yodate" />
+    <MESSAGE value="USUNIETO LUCKYBLOCK  ITEMEK DODANO VOUNCHERY DO /AI" />
+    <MESSAGE value="UPDATE VOUNCHERY" />
+    <MESSAGE value="UPDATE npcxty" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE npcxty" />
   </component>
 </project>

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="target">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ProxyCore/target/ProxyCore-1.0-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ProxyCore/target/original-ProxyCore-1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
