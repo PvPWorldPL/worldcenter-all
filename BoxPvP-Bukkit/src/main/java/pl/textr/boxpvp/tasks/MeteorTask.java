@@ -13,14 +13,14 @@ import pl.textr.boxpvp.utils.DataUtil;
 import java.util.Calendar;
 
 public class MeteorTask implements Runnable {
-    private static final BossBar METEOR_BOSS_BAR = Bukkit.createBossBar(ChatUtil.translateHexColorCodes("&7Za &f60 &7sekund pojawi się deszcz meteorytów na strefie PvP"), BarColor.YELLOW, BarStyle.SOLID, BarFlag.values());
     private static final BossBar METEOR_BOSS_BAR_ACTIVE = Bukkit.createBossBar(ChatUtil.translateHexColorCodes("&aAktualnie trwa deszcz meteorytów"), BarColor.GREEN, BarStyle.SOLID, BarFlag.values());
+    private static final BossBar METEOR_BOSS_BAR = Bukkit.createBossBar(ChatUtil.translateHexColorCodes("&7Za &f60 &7sekund pojawi się deszcz meteorytów na strefie PvP"), BarColor.RED, BarStyle.SEGMENTED_10, BarFlag.values());
 
     private static final int INITIAL_COUNTDOWN = 60;
     private int currentCountdown = INITIAL_COUNTDOWN;
     private static final int MIN_PLAYERS = 1; // Minimalna liczba graczy
-    private static final int ACTIVE_HOUR_START = 16;
-    private static final int ACTIVE_HOUR_END = 20;
+    private static final int ACTIVE_HOUR_START = 15;
+    private static final int ACTIVE_HOUR_END = 18;
 
     public void run() {
         Calendar currentCalendar = Calendar.getInstance();
@@ -36,13 +36,21 @@ public class MeteorTask implements Runnable {
         if (onlinePlayersCount < MIN_PLAYERS) {
             return;
         }
-        Bukkit.getOnlinePlayers().forEach(METEOR_BOSS_BAR::addPlayer);
+        Bukkit.getOnlinePlayers().forEach(player -> {
+            METEOR_BOSS_BAR_ACTIVE.addPlayer(player);
+            METEOR_BOSS_BAR.addPlayer(player);
+
+        });
+
         if (currentCountdown > 0) {
+
             METEOR_BOSS_BAR.setTitle(ChatUtil.translateHexColorCodes("&7Za &f" + DataUtil.convertSecondsToTime(currentCountdown) + " &7sekund pojawi się deszcz meteorytów na strefie PvP"));
             METEOR_BOSS_BAR.setProgress((double) currentCountdown / INITIAL_COUNTDOWN);
-            METEOR_BOSS_BAR_ACTIVE.setTitle("&aAktualnie trwa deszcz meteorytów");
             currentCountdown--;
+
         } else {
+            METEOR_BOSS_BAR_ACTIVE.setTitle(ChatUtil.translateHexColorCodes("&aAktualnie trwa deszcz meteorytów"));
+            METEOR_BOSS_BAR_ACTIVE.setProgress(1.0);
             executeMeteorSpawn();
             METEOR_BOSS_BAR.setProgress(1.0);
             METEOR_BOSS_BAR.removeAll();

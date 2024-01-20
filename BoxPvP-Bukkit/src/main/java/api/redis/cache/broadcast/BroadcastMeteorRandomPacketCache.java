@@ -49,11 +49,11 @@ public class BroadcastMeteorRandomPacketCache implements PacketListener<Broadcas
 		         
 		            Bukkit.broadcastMessage(ChatUtil.fixColor(""));
 		            Bukkit.broadcastMessage(ChatUtil.fixColor(""));
-		            Bukkit.broadcastMessage(ChatUtil.fixColor("&6&lWłaśnie spadł meteor na strefie PvP!"));
+		            Bukkit.broadcastMessage(ChatUtil.fixColor("&x&0&0&0&0&0&0✖ &x&f&f&0&f&0&f&lᴡ&x&f&f&1&0&0&f&lʟ&x&f&f&1&2&1&0&lᴀ&x&f&f&1&3&1&0&ls&x&f&f&1&4&1&1&lɴ&x&f&f&1&6&1&1&lɪ&x&f&f&1&7&1&2&lᴇ &x&f&f&1&8&1&2&ls&x&f&f&1&a&1&3&lᴘ&x&f&f&1&b&1&3&lᴀ&x&f&f&1&c&1&4&lᴅ&x&f&f&1&d&1&4&lʟ &x&f&f&1&f&1&5&lᴍ&x&f&f&2&0&1&5&lᴇ&x&f&f&2&1&1&6&lᴛ&x&f&f&2&3&1&6&lᴇ&x&f&f&2&4&1&7&lᴏ&x&f&f&2&5&1&7&lʀ&x&f&f&2&7&1&7&lʏ&x&f&f&2&8&1&8&lᴛ &x&f&f&2&9&1&8&lɴ&x&f&f&2&b&1&9&lᴀ &x&f&f&2&c&1&9&ls&x&f&f&2&d&1&a&lᴛ&x&f&f&2&f&1&a&lʀ&x&f&f&3&0&1&b&lᴇ&x&f&f&3&1&1&b&lғ&x&f&f&3&2&1&c&lɪ&x&f&f&3&4&1&c&lᴇ &x&f&f&3&5&1&d&lᴘ&x&f&f&3&6&1&d&lᴠ&x&f&f&3&8&1&e&lᴘ&x&f&f&3&9&1&e&l!"));
 		            Bukkit.broadcastMessage(ChatUtil.fixColor(""));
-		            Bukkit.broadcastMessage(ChatUtil.fixColor("&8- &7Współrzędne X: &f" + b.getLocation().getBlockX()));
-		            Bukkit.broadcastMessage(ChatUtil.fixColor("&8- &7Współrzędne Z: &f" + b.getLocation().getBlockZ()));
-					Bukkit.broadcastMessage(ChatUtil.fixColor("&8- &7Współrzędne Y: &f" + b.getLocation().getBlockY()));
+		            Bukkit.broadcastMessage(ChatUtil.fixColor("&8 ● &7ᴡsᴘᴏ́ᴌʀᴢᴇᴅɴᴇ x: &c" + b.getLocation().getBlockX()));
+		            Bukkit.broadcastMessage(ChatUtil.fixColor("&8 ● &7ᴡsᴘᴏ́ᴌʀᴢᴇᴅɴᴇ ᴢ: &c" + b.getLocation().getBlockZ()));
+					Bukkit.broadcastMessage(ChatUtil.fixColor("&8 ● &7ᴡsᴘᴏ́ᴌʀᴢᴇᴅɴᴇ ʏ: &c" + b.getLocation().getBlockY()));
 
 					Bukkit.broadcastMessage(ChatUtil.fixColor(""));
 		            Bukkit.broadcastMessage(ChatUtil.fixColor(""));
