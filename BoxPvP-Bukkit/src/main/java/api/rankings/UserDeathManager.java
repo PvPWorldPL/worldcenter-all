@@ -44,11 +44,11 @@ public class UserDeathManager
             return p2.compareTo(p0); // Zamiana miejscami p0 i p2
         });
     }
- 
-    
 
 
-    
+
+
+
     public static int getPlaceUser(final UserProfile user) {
         for (int num = 0; num < UserDeathManager.deaths.size(); ++num) {
             if (UserDeathManager.deaths.get(num).equals(user)) {
@@ -57,4 +57,5 @@ public class UserDeathManager
         }
         return 0;
     }
+
 }

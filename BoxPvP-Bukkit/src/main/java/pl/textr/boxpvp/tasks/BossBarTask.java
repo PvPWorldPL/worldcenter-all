@@ -14,7 +14,7 @@ import pl.textr.boxpvp.utils.DataUtil;
 public class BossBarTask implements Runnable {
     private static final BossBar bossBar = Bukkit.createBossBar(
             ChatColor.translateAlternateColorCodes('&', "&eɴᴀ sᴇʀᴡᴇʀᴢᴇ ᴊᴇsᴛ ᴀᴋᴜᴛᴀʟɴɪᴇ &6ᴅʀᴏᴘ x2 &8(&f00:00&8)"),
-            BarColor.YELLOW, BarStyle.SOLID, BarFlag.values());
+            BarColor.YELLOW, BarStyle.SEGMENTED_12);
 
     @Override
     public void run() {
@@ -28,6 +28,9 @@ public class BossBarTask implements Runnable {
             for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                 bossBar.addPlayer(onlinePlayer);
                 bossBar.setTitle(ChatColor.translateAlternateColorCodes('&', "&eɴᴀ sᴇʀᴡᴇʀᴢᴇ ᴊᴇsᴛ ᴀᴋᴜᴛᴀʟɴɪᴇ &6ᴅʀᴏᴘ x2 &8(&f" + DataUtil.secondsToString(turbodropTimer) + "&8)"));
+                double progress = (double) (turbodropTimer - System.currentTimeMillis()) / (double) turbodropTimer;
+                bossBar.setProgress(progress);
+
             }
         }
     }

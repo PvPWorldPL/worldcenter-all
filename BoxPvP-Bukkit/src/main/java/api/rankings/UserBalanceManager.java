@@ -44,10 +44,9 @@ public class UserBalanceManager
             return p2.compareTo(p0); // Zamiana miejscami p0 i p2
         });
     }
- 
-    
 
-    
+
+
     public static int getPlaceUserMoney(final UserProfile user) {
         for (int num = 0; num < UserBalanceManager.balance.size(); ++num) {
             if (UserBalanceManager.balance.get(num).equals(user)) {
@@ -56,4 +55,6 @@ public class UserBalanceManager
         }
         return 0;
     }
+    
+
 }
