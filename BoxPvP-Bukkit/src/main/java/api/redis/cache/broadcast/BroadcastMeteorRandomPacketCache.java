@@ -53,7 +53,9 @@ public class BroadcastMeteorRandomPacketCache implements PacketListener<Broadcas
 		            Bukkit.broadcastMessage(ChatUtil.fixColor(""));
 		            Bukkit.broadcastMessage(ChatUtil.fixColor("&8- &7Współrzędne X: &f" + b.getLocation().getBlockX()));
 		            Bukkit.broadcastMessage(ChatUtil.fixColor("&8- &7Współrzędne Z: &f" + b.getLocation().getBlockZ()));
-		            Bukkit.broadcastMessage(ChatUtil.fixColor(""));
+					Bukkit.broadcastMessage(ChatUtil.fixColor("&8- &7Współrzędne Y: &f" + b.getLocation().getBlockY()));
+
+					Bukkit.broadcastMessage(ChatUtil.fixColor(""));
 		            Bukkit.broadcastMessage(ChatUtil.fixColor(""));
 		        } else {
 		          if (Main.getPlugin().getConfiguration().debug) {

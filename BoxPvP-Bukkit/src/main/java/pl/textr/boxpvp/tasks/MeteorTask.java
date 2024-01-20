@@ -14,6 +14,8 @@ import java.util.Calendar;
 
 public class MeteorTask implements Runnable {
     private static final BossBar METEOR_BOSS_BAR = Bukkit.createBossBar(ChatUtil.translateHexColorCodes("&7Za &f60 &7sekund pojawi się deszcz meteorytów na strefie PvP"), BarColor.YELLOW, BarStyle.SOLID, BarFlag.values());
+    private static final BossBar METEOR_BOSS_BAR_ACTIVE = Bukkit.createBossBar(ChatUtil.translateHexColorCodes("&aAktualnie trwa deszcz meteorytów"), BarColor.GREEN, BarStyle.SOLID, BarFlag.values());
+
     private static final int INITIAL_COUNTDOWN = 60;
     private int currentCountdown = INITIAL_COUNTDOWN;
     private static final int MIN_PLAYERS = 1; // Minimalna liczba graczy
@@ -25,6 +27,8 @@ public class MeteorTask implements Runnable {
         int currentHour = currentCalendar.get(Calendar.HOUR_OF_DAY);
 
         if (currentHour < ACTIVE_HOUR_START || currentHour >= ACTIVE_HOUR_END) {
+            METEOR_BOSS_BAR.removeAll();
+            METEOR_BOSS_BAR_ACTIVE.removeAll();
             return;
         }
 
@@ -36,6 +40,7 @@ public class MeteorTask implements Runnable {
         if (currentCountdown > 0) {
             METEOR_BOSS_BAR.setTitle(ChatUtil.translateHexColorCodes("&7Za &f" + DataUtil.convertSecondsToTime(currentCountdown) + " &7sekund pojawi się deszcz meteorytów na strefie PvP"));
             METEOR_BOSS_BAR.setProgress((double) currentCountdown / INITIAL_COUNTDOWN);
+            METEOR_BOSS_BAR_ACTIVE.setTitle("&aAktualnie trwa deszcz meteorytów");
             currentCountdown--;
         } else {
             executeMeteorSpawn();
