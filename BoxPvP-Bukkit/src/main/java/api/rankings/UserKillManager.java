@@ -41,14 +41,7 @@ public class UserKillManager
         });
     }
 
-    public static int getPlaceUser(final String playerName) {
-        for (int num = 0; num < UserKillManager.kills.size(); ++num) {
-            if (UserKillManager.kills.get(num).equals(playerName)) {
-                return num + 1;
-            }
-        }
-        return 0;
-    }
+
     
     public static int getPlaceUser(final UserProfile user) {
         for (int num = 0; num < UserKillManager.kills.size(); ++num) {

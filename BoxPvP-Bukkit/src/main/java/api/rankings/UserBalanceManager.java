@@ -47,14 +47,6 @@ public class UserBalanceManager
  
     
 
-    public static int getPlaceUser(final String playerName) {
-        for (int num = 0; num < UserBalanceManager.balance.size(); ++num) {
-            if (UserBalanceManager.balance.get(num).equals(playerName)) {
-                return num + 1;
-            }
-        }
-        return 0;
-    }
     
     public static int getPlaceUserMoney(final UserProfile user) {
         for (int num = 0; num < UserBalanceManager.balance.size(); ++num) {

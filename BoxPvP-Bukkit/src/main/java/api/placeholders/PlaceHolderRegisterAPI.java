@@ -40,7 +40,7 @@ public class PlaceHolderRegisterAPI extends PlaceholderExpansion {
 	    // Pobieranie pozycji gracza w rankingu
 	    if (identifier.equalsIgnoreCase("position")) {
 	        final UserProfile u = UserAccountManager.getUser(player);
-	        return (u == null) ? "" : ("" + UserRankingManager.getPlaceUser(u.getName()));
+	        return (u == null) ? "" : ("" + UserRankingManager.getPlaceUser(u));
 	    }	
 	    // Pobieranie pozycji gracza w rankingu
 	    if (identifier.equalsIgnoreCase("totalclans")) {

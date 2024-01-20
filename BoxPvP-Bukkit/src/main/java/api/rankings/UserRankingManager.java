@@ -89,15 +89,6 @@ public class UserRankingManager
         }
         return 0;
     }
-    
-    public static int getPlaceUser(final String playerName) {
-        for (int num = 0; num < UserRankingManager.rankings.size(); ++num) {
-            if (UserRankingManager.rankings.get(num).equals(playerName)) {
-                return num + 1;
-            }
-        }
-        return 0;
-    }
 
     
     public static int getPlaceGuild(final Clans clans) {

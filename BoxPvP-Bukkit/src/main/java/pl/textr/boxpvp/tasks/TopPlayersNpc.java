@@ -2,6 +2,8 @@ package pl.textr.boxpvp.tasks;
 
 import java.util.UUID;
 
+import api.data.UserProfile;
+import api.managers.UserAccountManager;
 import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
 
@@ -53,7 +55,8 @@ public class TopPlayersNpc implements Runnable {
         if (topRanking1NPC != null && UserRankingManager.getRankings().size() >= 1) {
             String playerName = UserRankingManager.getRankings().get(0).getName();
             int playerPoints = UserRankingManager.getRankings().get(0).getPoints();
-            int position = UserRankingManager.getPlaceUser(playerName);
+            final UserProfile u = UserAccountManager.getUser(playerName);
+            int position = UserRankingManager.getPlaceUser(u);
 
             updateNPCTopRanking(topRanking1NPC, playerName, playerPoints, position);
             // Bukkit.getLogger().info("update npc topRanking1");
@@ -65,7 +68,8 @@ public class TopPlayersNpc implements Runnable {
         if (topRanking2NPC != null && UserRankingManager.getRankings().size() >= 2) {
             String playerName = UserRankingManager.getRankings().get(1).getName();
             int playerPoints = UserRankingManager.getRankings().get(1).getPoints();
-            int position = UserRankingManager.getPlaceUser(playerName);
+            final UserProfile u = UserAccountManager.getUser(playerName);
+            int position = UserRankingManager.getPlaceUser(u);
 
             updateNPCTopRanking(topRanking2NPC, playerName, playerPoints, position);
             // Bukkit.getLogger().info("update npc topRanking2");
@@ -77,7 +81,8 @@ public class TopPlayersNpc implements Runnable {
         if (topRanking3NPC != null && UserRankingManager.getRankings().size() >= 3) {
             String playerName = UserRankingManager.getRankings().get(2).getName();
             int playerPoints = UserRankingManager.getRankings().get(2).getPoints();
-            int position = UserRankingManager.getPlaceUser(playerName);
+            final UserProfile u = UserAccountManager.getUser(playerName);
+            int position = UserRankingManager.getPlaceUser(u);
 
             updateNPCTopRanking(topRanking3NPC, playerName, playerPoints, position);
             //Bukkit.getLogger().info("update npc topRanking3");
@@ -98,8 +103,8 @@ public class TopPlayersNpc implements Runnable {
         if (topKill1NPC != null && UserKillManager.getKills().size() >= 1) {
             String playerName = UserKillManager.getKills().get(0).getName();
             int playerKills = UserKillManager.getKills().get(0).getKills();
-            int position = UserKillManager.getPlaceUser(playerName);
-
+            final UserProfile u = UserAccountManager.getUser(playerName);
+            int position = UserKillManager.getPlaceUser(u);
             updateNPCTopKill(topKill1NPC, playerName, playerKills, position);
          //   Bukkit.getLogger().info("update npc topKill1");
         } else if (topKill1NPC != null) {
@@ -110,8 +115,8 @@ public class TopPlayersNpc implements Runnable {
         if (topKill2NPC != null && UserKillManager.getKills().size() >= 2) {
             String playerName = UserKillManager.getKills().get(1).getName();
             int playerKills = UserKillManager.getKills().get(1).getKills();
-            int position = UserKillManager.getPlaceUser(playerName);
-
+            final UserProfile u = UserAccountManager.getUser(playerName);
+            int position = UserKillManager.getPlaceUser(u);
             updateNPCTopKill(topKill2NPC, playerName, playerKills, position);
        //     Bukkit.getLogger().info("update npc topKill2");
         } else if (topKill2NPC != null) {
@@ -123,7 +128,8 @@ public class TopPlayersNpc implements Runnable {
         if (topKill3NPC != null && UserKillManager.getKills().size() >= 3) {
             String playerName = UserKillManager.getKills().get(2).getName();
             int playerKills = UserKillManager.getKills().get(2).getKills();
-            int position = UserKillManager.getPlaceUser(playerName);
+            final UserProfile u = UserAccountManager.getUser(playerName);
+            int position = UserKillManager.getPlaceUser(u);
 
             updateNPCTopKill(topKill3NPC, playerName, playerKills, position);
        //     Bukkit.getLogger().info("update npc topKill3");
@@ -144,8 +150,8 @@ public class TopPlayersNpc implements Runnable {
         if (topDeath1NPC != null && UserDeathManager.getDeaths().size() >= 1) {
             String playerName = UserDeathManager.getDeaths().get(0).getName();
             int playerDeaths = UserDeathManager.getDeaths().get(0).getDeaths();
-            int position = UserDeathManager.getPlaceUser(playerName);
-
+            final UserProfile u = UserAccountManager.getUser(playerName);
+            int position = UserDeathManager.getPlaceUser(u);
             updateNPCTopDeath(topDeath1NPC, playerName, playerDeaths, position);
            // Bukkit.getLogger().info("update npc topDeath1");
         } else if (topDeath1NPC != null) {
@@ -156,8 +162,8 @@ public class TopPlayersNpc implements Runnable {
         if (topDeath2NPC != null && UserDeathManager.getDeaths().size() >= 2) {
             String playerName = UserDeathManager.getDeaths().get(1).getName();
             int playerDeaths = UserDeathManager.getDeaths().get(1).getDeaths();
-            int position = UserDeathManager.getPlaceUser(playerName);
-
+            final UserProfile u = UserAccountManager.getUser(playerName);
+            int position = UserDeathManager.getPlaceUser(u);
             updateNPCTopDeath(topDeath2NPC, playerName, playerDeaths, position);
         	
       	    // Bukkit.getLogger().info("update npc topDeath2");
@@ -170,8 +176,9 @@ public class TopPlayersNpc implements Runnable {
         if (topDeath3NPC != null && UserDeathManager.getDeaths().size() >= 3) {
             String playerName = UserDeathManager.getDeaths().get(2).getName();
             int playerDeaths = UserDeathManager.getDeaths().get(2).getDeaths();
-         
-            int position = UserDeathManager.getPlaceUser(playerName);
+
+            final UserProfile u = UserAccountManager.getUser(playerName);
+            int position = UserDeathManager.getPlaceUser(u);
 
             updateNPCTopDeath(topDeath3NPC, playerName, playerDeaths, position);    
         	   //  Bukkit.getLogger().info("update npc topDeath3");    	     

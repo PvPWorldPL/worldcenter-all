@@ -47,14 +47,7 @@ public class UserDeathManager
  
     
 
-    public static int getPlaceUser(final String playerName) {
-        for (int num = 0; num < UserDeathManager.deaths.size(); ++num) {
-            if (UserDeathManager.deaths.get(num).equals(playerName)) {
-                return num + 1;
-            }
-        }
-        return 0;
-    }
+
     
     public static int getPlaceUser(final UserProfile user) {
         for (int num = 0; num < UserDeathManager.deaths.size(); ++num) {
