@@ -1,0 +1,3 @@
+name: ProxyCore
+version: '${project.version}'
+main: worldcenter.proxycore.ProxyCore

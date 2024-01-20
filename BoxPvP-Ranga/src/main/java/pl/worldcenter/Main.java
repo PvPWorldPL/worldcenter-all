@@ -1,0 +1,74 @@
+package pl.worldcenter;
+
+
+import com.google.common.collect.ImmutableSet;
+import com.google.common.reflect.ClassPath;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
+import pl.worldcenter.commands.api.BaseCommand;
+import pl.worldcenter.commands.api.CommandRegistry;
+import pl.worldcenter.util.ChatUtil;
+
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+
+public class Main extends JavaPlugin {
+
+    //test
+
+    private static Main plugin;
+    private pl.worldcenter.commands.RangaCommand RangaCommand;
+
+    public static Main getPlugin() {
+        return Main.plugin;
+    }
+
+    @Override
+    public void onEnable() {
+        Main.plugin = this;
+        Main.plugin.getServer().getMessenger().registerOutgoingPluginChannel(Main.plugin, "BungeeCord");
+        loadCommands();
+        new PlaceHolderRegisterAPI().register();
+        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+        }
+    }
+
+
+
+
+    @Override
+    public void onDisable() {
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            player.kickPlayer(ChatUtil.fixColor("&cSerwer jest aktualnie restartowany!"));
+        }
+    }
+
+
+    public void loadCommands() {
+        int totalCommands = 0;
+
+        try {
+            ClassPath classPath = ClassPath.from(getClass().getClassLoader());
+
+            ImmutableSet<ClassPath.ClassInfo> classInfos = ImmutableSet.<ClassPath.ClassInfo>builder()
+                    .addAll(classPath.getTopLevelClasses("pl.worldcenter.commands"))
+                    .build();
+
+            for (ClassPath.ClassInfo classInfo : classInfos) {
+                Class<?> commandClass = classInfo.load();
+                if (BaseCommand.class.isAssignableFrom(commandClass) && !commandClass.isInterface()) {
+                    try {
+                        BaseCommand baseCommand = (BaseCommand) commandClass.getDeclaredConstructor().newInstance();
+                        CommandRegistry.registerCommand(baseCommand);
+                        totalCommands++;
+
+                    } catch (InstantiationException | IllegalAccessException | NoSuchMethodException |
+                             InvocationTargetException e) {
+                    }
+                }
+            }
+        } catch (IOException e) {}
+        this.getLogger().info("Załadowano " + totalCommands + " komend");
+    }
+}

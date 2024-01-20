@@ -7,8 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="BoxPvP-Bukkit" />
+        <module name="BoxPvP-Ranga" />
         <module name="BoxPvP-Platform" />
+        <module name="ProxyCore" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="BoxPvP-RangaProxy" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
