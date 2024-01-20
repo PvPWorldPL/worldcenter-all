@@ -1,9 +1,11 @@
 package pl.textr.boxpvp.tasks;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 import api.data.UserProfile;
 import api.managers.UserAccountManager;
+import api.rankings.UserBalanceManager;
 import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
 
@@ -32,12 +34,17 @@ public class TopPlayersNpc implements Runnable {
     private int topDeath3NPCId = 56; // NPC "top3" dla topki śmierci
 
 
-    
+    private int topMonety1NPCId = 58; // NPC "top1" dla topki Monety
+    private int topMonety2NPCId = 59; // NPC "top2" dla topki Monety
+    private int topMonety3NPCId = 60; // NPC "top3" dla topki Monety
+
+
     @Override
     public void run() {
     	updateTopRankingNPCs();
         updateTopKillNPCs();
         updateTopDeathNPCs();
+        updateTopMonetyNPCs();
     }
     
     
@@ -188,6 +195,56 @@ public class TopPlayersNpc implements Runnable {
         }
     }
 
+    private void updateTopMonetyNPCs() {
+        NPC topMonety1NPC = CitizensAPI.getNPCRegistry().getById(topMonety1NPCId);
+        NPC topMonety2NPC = CitizensAPI.getNPCRegistry().getById(topMonety2NPCId);
+        NPC topMonety3NPC = CitizensAPI.getNPCRegistry().getById(topMonety3NPCId);
+
+        UserBalanceManager.sortUserBalance();
+
+        if (topMonety1NPC != null && UserBalanceManager.getBalance().size() >= 1) {
+            String playerName = UserBalanceManager.getBalance().get(0).getName();
+            String playerMonety = ChatUtil.formatAmount(UserBalanceManager.getBalance().get(0).getBalance());
+
+            final UserProfile u = UserAccountManager.getUser(playerName);
+            int position = UserDeathManager.getPlaceUser(u);
+            updateNPCTopMonety(topMonety1NPC, playerName, playerMonety, position);
+            // Bukkit.getLogger().info("update npc topMonety1");
+        } else if (topMonety1NPC != null) {
+            brakgraczatop(topMonety1NPC, "topMonety1");
+            // Bukkit.getLogger().info("npc topMonety1 (brak graczy)");
+        }
+
+        if (topMonety2NPC != null && UserDeathManager.getDeaths().size() >= 2) {
+            String playerName = UserBalanceManager.getBalance().get(1).getName();
+            String playerMonety = ChatUtil.formatAmount(UserBalanceManager.getBalance().get(1).getBalance());
+
+            final UserProfile u = UserAccountManager.getUser(playerName);
+            int position = UserDeathManager.getPlaceUser(u);
+            updateNPCTopMonety(topMonety2NPC, playerName, playerMonety, position);
+
+            // Bukkit.getLogger().info("update npc topMonety2");
+
+        } else if (topMonety2NPC != null) {
+            brakgraczatop(topMonety2NPC, "topMonety2");
+            //   Bukkit.getLogger().info("npc topMonety2 (brak graczy)");
+        }
+
+        if (topMonety3NPC != null && UserDeathManager.getDeaths().size() >= 3) {
+            String playerName = UserBalanceManager.getBalance().get(2).getName();
+            String playerMonety = ChatUtil.formatAmount(UserBalanceManager.getBalance().get(2).getBalance());
+
+            final UserProfile u = UserAccountManager.getUser(playerName);
+            int position = UserDeathManager.getPlaceUser(u);
+
+            updateNPCTopMonety(topMonety3NPC, playerName, playerMonety, position);
+            //  Bukkit.getLogger().info("update npc topMonety3");
+        } else if (topMonety3NPC != null) {
+            brakgraczatop(topMonety3NPC, "topMonety3");
+            //  Bukkit.getLogger().info("npc topMonety3 (brak graczy)");
+        }
+    }
+
     private void updateNPCTopRanking(NPC npc, String playerName, int playerPoints, int position) {
         SkinTrait skinTrait = npc.getOrAddTrait(SkinTrait.class);
         skinTrait.setSkinName(playerName);
@@ -224,6 +281,18 @@ public class TopPlayersNpc implements Runnable {
      //   Bukkit.getLogger().info("updateDeath");
     }
 
+    private void updateNPCTopMonety(NPC npc, String playerName, String playerMonety, int position) {
+        SkinTrait skinTrait = npc.getOrAddTrait(SkinTrait.class);
+        skinTrait.setSkinName(playerName);
+        HologramTrait hologramTrait = npc.getTraitNullable(HologramTrait.class);
+        if (hologramTrait == null) {
+            hologramTrait = new HologramTrait();
+            npc.addTrait(hologramTrait);
+        }
+        updateHologramTopMonety(hologramTrait, playerName, playerMonety , position);
+        //   Bukkit.getLogger().info("updateDeath");
+    }
+
     private void updateHologramTopRanking(HologramTrait hologramTrait, String playerName, int playerPoints, int position) {
         hologramTrait.clear();
         hologramTrait.addLine(ChatUtil.translateHexColorCodes("&8(&f" + playerPoints + "&8)"));
@@ -250,7 +319,7 @@ public class TopPlayersNpc implements Runnable {
 
     }
     
-    private void updateHologramTopMonety(HologramTrait hologramTrait, String playerName, int playerBalance, int position) {
+    private void updateHologramTopMonety(HologramTrait hologramTrait, String playerName, String playerBalance, int position) {
         hologramTrait.clear();
         hologramTrait.addLine(ChatUtil.translateHexColorCodes("&8(&f" + playerBalance + "&8)"));
         hologramTrait.addLine(ChatUtil.translateHexColorCodes("&#00FF1C" + playerName));
@@ -316,7 +385,21 @@ public class TopPlayersNpc implements Runnable {
             	hologramTrait.addLine(ChatUtil.translateHexColorCodes("&8&l▶ &#FF7200&lT&#FF7200&lO&#FF7200&lP&#FF7200&lK&#FF7200&lA &#FF7200&lR&#FF7200&lA&#FF7200&lN&#FF7200&lK&#FF7200&lI&#FF7200&lN&#FF7200&lG&#FF7200&lU &8&l◀"));    
              	hologramTrait.addLine(ChatUtil.translateHexColorCodes("&8(&#FF9100M&#FF9100i&#FF9100e&#FF9100j&#FF9100s&#FF9100c&#FF9100e &f➌&8)"));
                 break;
-         
+            case "topMonety1":
+                hologramTrait.addLine(ChatUtil.translateHexColorCodes("&#FF0000&lB&#FF0000&lR&#FF0000&lA&#FF0000&lK"));
+                hologramTrait.addLine(ChatUtil.translateHexColorCodes("&8&l▶ &#18A828&lT&#18A828&lO&#18A828&lP&#18A828&lK&#18A828&lA &#18A828&lM&#18A828&lO&#18A828&lN&#18A828&lE&#18A828&lT &8&l◀"));
+                hologramTrait.addLine(ChatUtil.translateHexColorCodes("&8(&#00FF1CM&#00FF1Ci&#00FF1Ce&#00FF1Cj&#00FF1Cs&#00FF1Cc&#00FF1Ce &f➊&8)"));
+                break;
+            case "topMonety2":
+                hologramTrait.addLine(ChatUtil.translateHexColorCodes("&#FF0000&lB&#FF0000&lR&#FF0000&lA&#FF0000&lK"));
+                hologramTrait.addLine(ChatUtil.translateHexColorCodes("&8&l▶ &#18A828&lT&#18A828&lO&#18A828&lP&#18A828&lK&#18A828&lA &#18A828&lM&#18A828&lO&#18A828&lN&#18A828&lE&#18A828&lT &8&l◀"));
+                hologramTrait.addLine(ChatUtil.translateHexColorCodes("&8(&#00FF1CM&#00FF1Ci&#00FF1Ce&#00FF1Cj&#00FF1Cs&#00FF1Cc&#00FF1Ce &f➋&8)"));
+                break;
+            case "topMonety3":
+                hologramTrait.addLine(ChatUtil.translateHexColorCodes("&#FF0000&lB&#FF0000&lR&#FF0000&lA&#FF0000&lK"));
+                hologramTrait.addLine(ChatUtil.translateHexColorCodes("&8&l▶ &#18A828&lT&#18A828&lO&#18A828&lP&#18A828&lK&#18A828&lA &#18A828&lM&#18A828&lO&#18A828&lN&#18A828&lE&#18A828&lT &8&l◀"));
+                hologramTrait.addLine(ChatUtil.translateHexColorCodes("&8(&#00FF1CM&#00FF1Ci&#00FF1Ce&#00FF1Cj&#00FF1Cs&#00FF1Cc&#00FF1Ce &f➌&8)"));
+                break;
         }
     }
 }
