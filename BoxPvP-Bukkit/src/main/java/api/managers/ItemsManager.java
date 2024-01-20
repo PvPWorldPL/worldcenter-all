@@ -227,18 +227,4 @@ public class ItemsManager {
 				.setGlow().ToItemStack();
 		return vip;
 	}
-	  
-	  public static ItemStack getLuckyBlock(int size) {
-		    ItemStack vip;
-		  vip = (new ItemBuilder(Material.SPONGE, size))
-		  .setTitle(ChatUtil.fixColor("&e&lLuckyBlock"))
-		  .addLore("")
-		  .addLore("")
-		  .addLore(ChatUtil.fixColor("&7Polóż na ziemi i wylosuj nagrodę"))
-		  .addLore("")
-		  .setGlow().ToItemStack();
-		  return vip;
-		  }
-	
-	
 }

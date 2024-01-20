@@ -12,7 +12,8 @@ import api.managers.ItemsManager;
 import pl.textr.boxpvp.utils.ChatUtil;
 import pl.textr.boxpvp.utils.ItemBuilder;
 
-@CommandInfo(name = "adminitems", description = "adminitems", usage = "/adminitems", permission = "core.cmd.admin")
+@CommandInfo(name = "adminitems", description = "adminitems", usage = "/adminitems", permission = "core.cmd.admin", aliases = {"ai"})
+
 public class AdminItemsCommand extends PlayerCommandExecutor {
 
 
@@ -34,10 +35,11 @@ public class AdminItemsCommand extends PlayerCommandExecutor {
 	    inv.addItem(new ItemStack(ItemsManager.getMoneta7(64)));
 	    inv.addItem(new ItemStack(ItemsManager.getMoneta8(64)));
 	    
-	    inv.addItem(new ItemStack(ItemsManager.getVoucherVIP(64)));
+	    inv.addItem(new ItemStack(ItemsManager.getVoucherSPONSOR(64)));
+	    inv.addItem(new ItemStack(ItemsManager.getVoucherSVIP(64)));
+		inv.addItem(new ItemStack(ItemsManager.getVoucherVIP(64)));
 	    inv.addItem(new ItemStack(ItemsManager.getUsuwacz(64)));
 	    inv.addItem(new ItemStack(ItemsManager.getodlamek(64)));
-	    inv.addItem(new ItemStack(ItemsManager.getLuckyBlock(64)));
 	    
 	    
 	    p.openInventory(inv);
