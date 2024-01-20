@@ -48,7 +48,7 @@ public class TopPlayersNpc implements Runnable {
         NPC topRanking2NPC = CitizensAPI.getNPCRegistry().getById(topRanking2NPCId);
         NPC topRanking3NPC = CitizensAPI.getNPCRegistry().getById(topRanking3NPCId);
 
-       // UserRankingManager.sortUserRankings();
+      UserRankingManager.sortUserRankings();
         
         
         
@@ -97,7 +97,7 @@ public class TopPlayersNpc implements Runnable {
         NPC topKill2NPC = CitizensAPI.getNPCRegistry().getById(topKill2NPCId);
         NPC topKill3NPC = CitizensAPI.getNPCRegistry().getById(topKill3NPCId);
 
-       // UserKillManager.sortUserKills();
+      UserKillManager.sortUserKills();
         
         
         if (topKill1NPC != null && UserKillManager.getKills().size() >= 1) {
@@ -145,7 +145,7 @@ public class TopPlayersNpc implements Runnable {
         NPC topDeath2NPC = CitizensAPI.getNPCRegistry().getById(topDeath2NPCId);
         NPC topDeath3NPC = CitizensAPI.getNPCRegistry().getById(topDeath3NPCId);
 
-//        UserDeathManager.sortUserDeaths();
+  UserDeathManager.sortUserDeaths();
         
         if (topDeath1NPC != null && UserDeathManager.getDeaths().size() >= 1) {
             String playerName = String.valueOf(UserDeathManager.getDeaths().get(0).getName());
