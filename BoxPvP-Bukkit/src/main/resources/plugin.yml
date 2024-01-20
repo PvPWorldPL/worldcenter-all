@@ -2,6 +2,6 @@ main: pl.textr.boxpvp.Main
 version: 3.9
 author: TexTr
 name: Core-BoxPvP
-api-version: 1.17
+api-version: 1.16
 website: http://MCYOU.PL
 depend: [PlaceholderAPI, Vault, Citizens]

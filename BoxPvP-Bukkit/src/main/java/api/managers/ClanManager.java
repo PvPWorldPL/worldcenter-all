@@ -44,37 +44,7 @@ import pl.textr.boxpvp.Main;
 		        }
 		        return null;
 		    }
-	    
-		    
-		    public static int addPoints(final Player p, final Player other) {
-		        final Clans g = getGuild(p);
-		        if (g == null) {
-		            return 0;
-		        }
-		        final Clans o = getGuild(other);
-		        if (o == null) {
-		            return 10;
-		        }
-		        if (g.isMember(other)) {
-		            return 0;
-		        }
-		        return 50;
-		    }
-		    
-		    public static int removePoints(final Player p, final Player other) {
-		        final Clans g = getGuild(p);
-		        if (g == null) {
-		            return 0;
-		        }
-		        final Clans o = getGuild(other);
-		        if (o == null) {
-		            return 50;
-		        }
-		        if (g.isMember(other)) {
-		            return 20;
-		        }
-		        return 50;
-		    }
+
 	    
 	    public static Clans getGuild(final String name) {
 	        for (final Clans g : ClanManager.clans.values()) {

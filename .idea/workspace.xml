@@ -5,16 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92ab9ab5-8a14-4ea2-9564-978b3cab2dd4" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/listeners/boss/MirekListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/CrystalBossTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/BoxPvP-Bukkit.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/BoxPvP-Bukkit.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/api/rankings/UserBalanceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/api/rankings/UserBalanceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/api/rankings/UserDeathManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/api/rankings/UserDeathManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/api/redis/cache/broadcast/BroadcastMeteorRandomPacketCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/api/redis/cache/broadcast/BroadcastMeteorRandomPacketCache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/api/managers/ClanManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/api/managers/ClanManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/BossBarTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/BossBarTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/TopPlayersNpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/TopPlayersNpc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/commands/HeadAdmin/CreateNpcCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/listeners/other/OtherListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/listeners/other/OtherListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/listeners/other/WGRegionEventsListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/listeners/other/WGRegionEventsListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -268,7 +267,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705769057434</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="update">
+      <option name="closed" value="true" />
+      <created>1705783895179</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1705783895179</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
