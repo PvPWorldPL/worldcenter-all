@@ -62,7 +62,7 @@ public class CrystalBossTask extends BukkitRunnable {
         int progress = (int) (((double) (initialCountdown - countdown) / initialCountdown) * 100);
         String progressString = progress + "%";
         if (countdown <= 0) {
-            spawnCustomEnderman(player);
+            Bukkit.getScheduler().runTask(Main.getPlugin(), () -> spawnCustomEnderman(player));
             countdown = initialCountdown;
             basicCrystalBossBar.setTitle(ChatUtil.translateHexColorCodes("&aWitaj w krainie crystal za &2" + DataUtil.convertSecondsToTime(countdown) + " &7zrespi sie mirek &7(&2" + progressString + "&7)"));
             basicCrystalBossBar.setProgress((double) countdown / initialCountdown);
@@ -80,8 +80,9 @@ public class CrystalBossTask extends BukkitRunnable {
 
     public static void spawnCustomEnderman(Player player) {
         World world = player.getWorld();
-        Location location = player.getLocation();
-        Enderman enderman = (Enderman) world.spawnEntity(location, EntityType.ENDERMAN);
+        Location spawnLocation = new Location(world, 102.597, 24, 363.307); // Set your desired coordinates
+
+        Enderman enderman = (Enderman) world.spawnEntity(spawnLocation, EntityType.ENDERMAN);
         enderman.setCustomName("MIREK");
         enderman.setCustomNameVisible(true);
         enderman.setMaxHealth(1000);
@@ -93,5 +94,4 @@ public class CrystalBossTask extends BukkitRunnable {
         enderman.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, Integer.MAX_VALUE, 10));
         enderman.setMetadata("CustomEnderman", new FixedMetadataValue(Main.getPlugin(), player.getUniqueId().toString()));
     }
-
 }

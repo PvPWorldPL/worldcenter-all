@@ -108,7 +108,10 @@ public class WGRegionEventsListener implements Listener
     }
 
     private void handleRegionEntryDenied(Player player, BlockVector3 maximumPoint, String message) {
-        Vector backwardVelocity = player.getLocation().getDirection().multiply(-1.5);
+        Location playerLocation = player.getLocation();
+        Location maxPointLocation = new Location(player.getWorld(), maximumPoint.getX(), maximumPoint.getY(), maximumPoint.getZ());
+        Vector directionToMaxPoint = maxPointLocation.toVector().subtract(playerLocation.toVector()).normalize();
+        Vector backwardVelocity = directionToMaxPoint.multiply(-1.5);
         player.setVelocity(backwardVelocity);
         ChatUtil.sendMessage(player, message);
     }
