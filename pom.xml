@@ -13,6 +13,7 @@
         <module>BoxPvP-Platform</module>
         <module>BoxPvP-Ranga</module>
         <module>ProxyCore</module>
+        <module>BoxPvP-lobbyChannel</module>
     </modules>
 
     <build>
