@@ -13,18 +13,14 @@ import org.bukkit.entity.Player;
 import pl.textr.boxpvp.Main;
 
 	public class UserProfile {
-	
-	    private String name;
-
-	    private int money;
+        private String name;
+        private int money;
 	    private BigDecimal balance;
 	    private boolean teczowy;
 	    private long lastChat;
 	    private int points;
 	    private int kills;
 	    private int deaths;
-	    private int prestiz;
-	    
 	    private String lastKill;
 	    private long lastKillTime;
 	    private boolean PrzerabianieKasy;
@@ -36,19 +32,16 @@ import pl.textr.boxpvp.Main;
 	    private int perkSily;	    
 	    private int perkWampiryzmu;    
 	    private int perkSzybkosciAtaku;
-	    private boolean vanish;
-	   
 
+        private int perkDropu;
+        private boolean vanish;
 
     public UserProfile(final Player p) {
-
         this.name = p.getName();
-     
         this.money = 0;
         this.balance = BigDecimal.valueOf(0.0);
         this.teczowy = false;
         this.points = 1000;
-        this.prestiz = 0;
         this.kills = 0;
         this.deaths = 0;
         this.lastKill = "-";
@@ -63,20 +56,17 @@ import pl.textr.boxpvp.Main;
         this.perkSily = 0;
         this.perkWampiryzmu = 0;
         this.perkSzybkosciAtaku = 0;
+        this.perkDropu = 0;
         this.vanish = false;
-    
     }
 
 
     public UserProfile(final ResultSet rs) throws SQLException {
-
         this.name = rs.getString("name");
-     
         this.money = rs.getInt("money");
         this.balance = rs.getBigDecimal("balance");
         this.teczowy = (rs.getInt("teczowy") == 1);
         this.points = 1000;
-        this.prestiz = 0;
         this.kills = 0;
         this.deaths = 0;
         this.lastKill = rs.getString("lastKill");
@@ -91,22 +81,16 @@ import pl.textr.boxpvp.Main;
         this.perkSily = rs.getInt("perkSily");
         this.perkWampiryzmu = rs.getInt("perkWampiryzmu");
         this.perkSzybkosciAtaku = rs.getInt("perkSzybkosciAtaku");
+        this.perkSzybkosciAtaku = rs.getInt("perkDropu");
         this.vanish = (rs.getInt("vanish") == 1);
-
     }
-
-
-
-    
 
     public void insert() {
         try (Connection connection = Main.getPlugin().getHikari().getConnection();
              PreparedStatement statement = connection.prepareStatement(
-                     "INSERT INTO users (name, money, balance, teczowy, points, kills, deaths, lastKill, lastKillTime,  god, PrzerabianieKasy, PrzerabianieMonet, PrzerabianieBlokow,  perkZycia, perkSzybkosci, perkSily, perkWampiryzmu, perkSzybkosciAtaku, vanish) " +
-                             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
+                     "INSERT INTO users (name, money, balance, teczowy, points, kills, deaths, lastKill, lastKillTime,  god, PrzerabianieKasy, PrzerabianieMonet, PrzerabianieBlokow,  perkZycia, perkSzybkosci, perkSily, perkWampiryzmu, perkSzybkosciAtaku, perkDropu, vanish) " +
+                             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)")) {
             statement.setString(1, this.getName());
-         
-            
             statement.setInt(2, this.getMoney());
             statement.setBigDecimal(3, this.getBalance());
             statement.setInt(4, this.isTeczowy() ? 1 : 0);
@@ -124,8 +108,8 @@ import pl.textr.boxpvp.Main;
             statement.setInt(16, this.getPerkSily());
             statement.setInt(17, this.getPerkWampiryzmu());
             statement.setInt(18, this.getPerkSzybkosciAtaku());
-            statement.setInt(19, this.isVanish() ? 1 : 0);
-
+            statement.setInt(19, this.getPerkDropu());
+            statement.setInt(20, this.isVanish() ? 1 : 0);
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -181,8 +165,18 @@ import pl.textr.boxpvp.Main;
             e.printStackTrace();
         }
     }
-    
 
+        public void setPerkDropu(Integer index) {
+            this.perkDropu = index;
+            try (Connection connection = Main.getPlugin().getHikari().getConnection();
+                 PreparedStatement statement = connection.prepareStatement("UPDATE users SET perkDropu = ? WHERE name = ?")) {
+                statement.setInt(1, this.getPerkDropu());
+                statement.setString(2, getName());
+                statement.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     
     public void setPerkWampiryzmu(Integer index) {
         this.perkWampiryzmu = index;
@@ -203,7 +197,6 @@ import pl.textr.boxpvp.Main;
            statement.setBigDecimal(1, this.getBalance());
            statement.setString(2, this.getName());
            statement.executeUpdate();
-           
        } catch (SQLException e) {
            e.printStackTrace();
        }
@@ -215,7 +208,6 @@ import pl.textr.boxpvp.Main;
        this.money = index;
        try (Connection connection = Main.getPlugin().getHikari().getConnection();
             PreparedStatement statement = connection.prepareStatement("UPDATE users SET money = ? WHERE name = ?")) {
-
            statement.setDouble(1, this.getMoney());
            statement.setString(2, this.getName());
            statement.executeUpdate();
@@ -233,8 +225,6 @@ import pl.textr.boxpvp.Main;
         try (Connection connection = Main.getPlugin().getHikari().getConnection();
              PreparedStatement statement = connection.prepareStatement("UPDATE users SET "
                      + "points = ?, "
-                    
-            		 
                      + "kills = ?, "
                      + "money = ?, "
                      + "balance = ?, "                    
@@ -244,19 +234,17 @@ import pl.textr.boxpvp.Main;
                      + "god = ?, "
                      + "PrzerabianieKasy = ?, "
                      + "PrzerabianieMonet = ?, "
-                     + "PrzerabianieBlokow = ?, " 
-                     
+                     + "PrzerabianieBlokow = ?, "
                      + "PerkZycia = ?, "  
                      + "PerkSzybkosci = ?, "  
                      + "PerkSily = ?, "  
                      + "PerkWampiryzmu = ?, "  
-                     + "PerkSzybkosciAtaku = ?, "  
-                     
+                     + "PerkSzybkosciAtaku = ?, "
+                     + "PerkDropu = ?, "
                      + "teczowy = ?, "
                      + "vanish = ? "
                      + "WHERE name = ?")) {
             statement.setInt(1, this.getPoints());
-        
             statement.setInt(2, this.getKills());
             statement.setInt(3, this.getMoney());
             statement.setBigDecimal(4, this.getBalance());          
@@ -272,9 +260,10 @@ import pl.textr.boxpvp.Main;
             statement.setInt(14, this.getPerkSily());
             statement.setInt(15, this.getPerkWampiryzmu());
             statement.setInt(16, this.getPerkSzybkosciAtaku());
-            statement.setInt(17, this.isTeczowy() ? 1 : 0);
-            statement.setInt(18, this.isVanish() ? 1 : 0);
-            statement.setString(19, this.getName());
+            statement.setInt(17, this.getPerkDropu());
+            statement.setInt(18, this.isTeczowy() ? 1 : 0);
+            statement.setInt(19, this.isVanish() ? 1 : 0);
+            statement.setString(20, this.getName());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -354,7 +343,18 @@ import pl.textr.boxpvp.Main;
         }
     }
 
-    
+
+        public void addperkPerkDropu() {
+            this.perkDropu++;
+            try (Connection connection = Main.getPlugin().getHikari().getConnection();
+                 PreparedStatement statement = connection.prepareStatement("UPDATE users SET perkDropu = ? WHERE name = ?")) {
+                statement.setInt(1, this.getPerkDropu());
+                statement.setString(2, getName());
+                statement.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
 
 
 
@@ -364,22 +364,14 @@ import pl.textr.boxpvp.Main;
     
     public void addBalance(final double amount) {
         this.setBalance(this.balance.add(BigDecimal.valueOf(amount)));
-   
     }
-    
     public void addMoney(final int amount) {
-    	 this.money += amount;
+        this.money += amount;
     }
     
     public void removeBalance(final double amount) {
         this.setBalance(this.balance.subtract(BigDecimal.valueOf(amount)));
-
     }
-    
-    
-   
-
-    
     public BigDecimal getBalance() {
         return this.balance;
     }
@@ -399,7 +391,7 @@ import pl.textr.boxpvp.Main;
     
     
     public int getPerkSily() {
-      return this.perkSily;
+        return this.perkSily;
     }
     
     public int getPerkWampiryzmu() {
@@ -409,7 +401,10 @@ import pl.textr.boxpvp.Main;
     public int getPerkSzybkosciAtaku() {
         return this.perkSzybkosciAtaku;
       }
-    
+
+    public int getPerkDropu() {
+        return this.perkDropu;
+        }
     
     public String getLastKill() {
         return this.lastKill;
@@ -442,25 +437,7 @@ import pl.textr.boxpvp.Main;
     public void removePoints(final int index) {
         this.points -= index;
     }
-  
-    
-    
-    public int getPrestige() {
-        return this.prestiz;   
-        }
-    
-    public void setPrestige(final int points) {
-        this.points = prestiz;
-    }
-    
-    public void addPrestige(final int index) {
-        this.prestiz += index;
-    }
-    
-    public void removePrestiz(final int index) {
-        this.prestiz -= index;
-    }
-    
+
         public int getKills() {
             return this.kills;
         }
@@ -474,7 +451,6 @@ import pl.textr.boxpvp.Main;
   
     }
     
-    
     public void removeKills(final int index) {
         this.kills -= index;
     }
@@ -486,11 +462,7 @@ import pl.textr.boxpvp.Main;
     public void setDeaths(final int deaths) {
         this.deaths = deaths;
     }
-    
 
-    
- 
-    
     public void addDeaths(final int index) {
         this.deaths += index;
     }
@@ -524,9 +496,6 @@ import pl.textr.boxpvp.Main;
     public void setPrzerabianieBlokow(final boolean PrzerabianieBlokow) {
         this.PrzerabianieBlokow = PrzerabianieBlokow;
     }
-    
-    
-
 
     public boolean isVanish() {
         return this.vanish;
@@ -552,8 +521,6 @@ import pl.textr.boxpvp.Main;
         return this.getPlayer() != null;
     }
 
-  
-
     public boolean isChat() {
         return System.currentTimeMillis() > this.lastChat;
     }
@@ -573,8 +540,6 @@ import pl.textr.boxpvp.Main;
     public void setGod(final boolean god) {
         this.god = god;
     }
-    
-
 
     public boolean isTeczowy() {
         return this.teczowy;

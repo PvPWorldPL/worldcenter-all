@@ -130,6 +130,13 @@ public class PluginConfiguration extends OkaeriConfig {
     public double perkSzybkosciAtaku_2 = 4.25D;
     public double perkSzybkosciAtaku_3 = 4.3D;
     public double perkSzybkosciAtaku_4 = 4.35D;
+    @Comment("")
+    @Comment("PERK DROPU")
+    public double getPerkDropu_1 = 1.50;
+    public double getPerkDropu_2 = 2.0;
+    public double getPerkDropu_3 = 2.50;
+    public double getPerkDropu_4 = 3.0;
+
     public String usage = "&8[&C&l!&8] &7Poprawne uzycie: &r{USAGE}";
     public String fullserver = "&7Serwer jest pelen &rgraczy&7!\n&7Odczekaj chwile i dolacz do nas ponownie!";
     public String whitelistreason = "&cNie jestes na whitelist!";
@@ -164,22 +171,8 @@ public class PluginConfiguration extends OkaeriConfig {
     @Comment("whitelist")
     private  List<String> whitelistnicks = Collections.singletonList("nick");
 
-    
-    
- 
-    public List<Map<String, Object>> getGenerators() {
-        return generators;
-    }
-    
-
-    public void setGenerators(List<Map<String, Object>> generators) {
-        this.generators = generators;
-    }
 
 
-
-
-    
     public Location getAfkLocation() {
         return new Location(Bukkit.getWorld(AFK_WORLD), AFK_X, AFK_Y, AFK_Z, AFK_YAW, AFK_PITCH);
     }
@@ -277,6 +270,23 @@ public class PluginConfiguration extends OkaeriConfig {
 
     public double getPerkSzybkosciAtaku4() {
         return perkSzybkosciAtaku_4;
+    }
+
+
+    public double getPerkDropu1() {
+        return getPerkDropu_1;
+    }
+
+    public double getPerkDropu2() {
+        return getPerkDropu_2;
+    }
+
+    public double getPerkDropu3() {
+        return getPerkDropu_3;
+    }
+
+    public double getPerkDropu4() {
+        return getPerkDropu_4;
     }
 
 
@@ -450,8 +460,6 @@ public class PluginConfiguration extends OkaeriConfig {
         return fortuna;
     }
 
-
-	
 
 
 }

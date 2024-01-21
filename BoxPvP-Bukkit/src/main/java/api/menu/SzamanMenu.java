@@ -17,7 +17,7 @@ import pl.textr.boxpvp.utils.ItemBuilder;
 
 public class SzamanMenu {
   public static void show(Player p) {
-    Inventory inv = Bukkit.createInventory((InventoryHolder)p, 54, ChatUtil.fixColor("&eSzaman"));
+    Inventory inv = Bukkit.createInventory(p, 54, ChatUtil.fixColor("&eSzaman"));
    UserProfile user = UserAccountManager.getUser(p);
    
     ItemBuilder perk1 = (new ItemBuilder(Material.BEETROOT_SOUP))
@@ -108,21 +108,34 @@ public class SzamanMenu {
     		.addLore(ChatUtil.fixColor(""))
     		.addLore(ChatUtil.translateHexColorCodes("&#ff99cc&lK&#fc96c9&ll&#f993c6&li&#f690c3&lk&#f38dc0&ln&#f08abd&li&#ed87ba&lj &#ea84b7&la&#e781b4&lb&#e47eb1&ly &#e17bae&lu&#de78ab&ll&#db75a8&le&#d872a5&lp&#d56fa2&ls&#d26c9f&lz&#cf699c&ly&#cc6699&lc"))  	        	     
 	        .addLore(ChatUtil.fixColor(""));
-    
-    ItemBuilder reset = (new ItemBuilder(Material.ACACIA_BUTTON))
-    	    .setTitle(ChatUtil.translateHexColorCodes("    &#ce5e53R&#ce5e53e&#ce5e53s&#ce5e53e&#ce5e53t&#ce5e53u&#ce5e53j &#ce5e53u&#ce5e53l&#ce5e53e&#ce5e53p&#ce5e53s&#ce5e53z&#ce5e53e&#ce5e53n&#ce5e53i&#ce5e53a &#ce5e53p&#ce5e53o&#ce5e53s&#ce5e53t&#ce5e53a&#ce5e53c&#ce5e53i"))
-    	    .addLore(ChatUtil.fixColor(""))
-    	    .addLore(ChatUtil.fixColor("&7Zresetuj wszystkie ulepszenia!"))
-    	    .addLore(ChatUtil.fixColor("  &7otrzymasz zwrot odlamkow"))
-    	    .addLore(ChatUtil.fixColor("     &aKliknij aby wykonac"));
-   
-    ItemBuilder.fillGui(inv);
+
+      ItemBuilder perk6 = (new ItemBuilder(Material.DIAMOND_PICKAXE))
+              .setTitle(ChatUtil.translateHexColorCodes("&#6dd60f&lP&#91e536&le&#b6f35d&lr&#cefd77&lk &#cefd77&lD&#cefd77&lr&#b6f35d&lo&#91e536&lp&#6dd60f&lu"))
+              .addLore(ChatUtil.fixColor(""))
+              .addLore(ChatUtil.fixColor("&7Aktualny poziom: &f" + user.getPerkDropu()))
+              .addLore(ChatUtil.fixColor(""))
+              .addLore(ChatUtil.translateHexColorCodes("&#ff92c0&lP&#f494c9&lo&#ea97d2&lz&#df99db&li&#d49be4&lo&#c99ded&lm&#bfa0f6&ly&#b4a2ff&l:"))
+              .addLore(ChatUtil.fixColor(""))
+              .addLore(ChatUtil.fixColor("&71 &8- &7Zwieksza procent dropu o &e4.2 &6⛏"))
+              .addLore(ChatUtil.fixColor("&72 &8- &7Zwieksza procent dropu o &e4.25 &6⛏"))
+              .addLore(ChatUtil.fixColor("&73 &8- &7Zwieksza procent dropu o &e4.3 &6⛏"))
+              .addLore(ChatUtil.fixColor("&74 &8- &7Zwieksza procent dropu o &e4.35 &6⛏"))
+
+              .addLore(ChatUtil.fixColor(""))
+              .addLore(ChatUtil.fixColor("&7Koszt ulepszenia: &f50 &7odlamkow"))
+              .addLore(ChatUtil.fixColor(""))
+              .addLore(ChatUtil.translateHexColorCodes("&#ff99cc&lK&#fc96c9&ll&#f993c6&li&#f690c3&lk&#f38dc0&ln&#f08abd&li&#ed87ba&lj &#ea84b7&la&#e781b4&lb&#e47eb1&ly &#e17bae&lu&#de78ab&ll&#db75a8&le&#d872a5&lp&#d56fa2&ls&#d26c9f&lz&#cf699c&ly&#cc6699&lc"))
+              .addLore(ChatUtil.fixColor(""));
+
+      ItemBuilder.fillGui(inv);
     inv.setItem(20, perk1.ToItemStack());
     inv.setItem(21, perk2.ToItemStack());
     inv.setItem(22, perk3.ToItemStack());
     inv.setItem(23, perk4.ToItemStack());
     inv.setItem(24, perk5.ToItemStack());
-    p.openInventory(inv);
+      inv.setItem(29, perk6.ToItemStack());
+
+      p.openInventory(inv);
   }
 
   
@@ -185,6 +198,19 @@ public class SzamanMenu {
     if (user.getPerkWampiryzmu() == 4) {
     p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
     }
+      //oddanie odlamkow za perk PerkWampiryzmu
+      if (user.getPerkDropu() == 1) {
+          p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
+      }
+      if (user.getPerkDropu() == 2) {
+          p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
+      }
+      if (user.getPerkDropu() == 3) {
+          p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
+      }
+      if (user.getPerkDropu() == 4) {
+          p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
+      }
     p.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(20.0D);
     p.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).setBaseValue(0.1D);
     p.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).setBaseValue(2.0D);
@@ -194,6 +220,7 @@ public class SzamanMenu {
     user.setPerkSily(0);
     user.setPerkSzybkosciAtaku(0);
     user.setPerkWampiryzmu(0);
+    user.setPerkDropu(0);
     user.save();
   }
   
@@ -259,5 +286,7 @@ public class SzamanMenu {
       if (user.getPerkSzybkosciAtaku() == 4) {
           p.getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(Main.getPlugin().getConfiguration().getPerkSzybkosciAtaku4());
       }
+
+
   }
 }

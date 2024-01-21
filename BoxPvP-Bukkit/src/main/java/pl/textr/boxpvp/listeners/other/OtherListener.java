@@ -143,31 +143,6 @@ public class OtherListener implements Listener {
     }
 
 
-//    @EventHandler
-//    public void interactVouchertest(final PlayerInteractEvent e) {
-//        if (e.getItem() == null) {
-//            return;
-//        }
-//
-//        final Player p = e.getPlayer();
-//        final ItemStack is = p.getInventory().getItemInMainHand();
-//
-//        Map<ItemStack, String> voucherCommands = new HashMap<>();
-//        voucherCommands.put(new ItemBuilder(Material.PAPER, 1).setTitle(ChatUtil.fixColor("&e&lVoucher SPONSOR")).ToItemStack(), "lp user %player% group add sponsor");
-//        voucherCommands.put(new ItemBuilder(Material.PAPER, 1).setTitle(ChatUtil.fixColor("&e&lVoucher SVIP")).ToItemStack(), "lp user %player% group add svip");
-//        voucherCommands.put(new ItemBuilder(Material.PAPER, 1).setTitle(ChatUtil.fixColor("&e&lVoucher vip")).ToItemStack(), "lp user %player% group set vip");
-//
-//        voucherCommands.entrySet().stream()
-//                .filter(entry -> is.isSimilar(entry.getKey()))
-//                .findFirst()
-//                .ifPresent(entry -> {
-//                    p.getInventory().remove(entry.getKey());
-//                    String command = entry.getValue().replace("%player%", p.getName());
-//                    Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), command);
-//                    ChatUtil.sendMessage(p, "&aPomyslnie uzyles Vouchera!");
-//                });
-//    }
-
     @EventHandler
     public void interactVoucher(final PlayerInteractEvent e) {
         if (e.getItem() == null) {

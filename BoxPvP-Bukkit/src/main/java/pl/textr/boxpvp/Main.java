@@ -302,8 +302,6 @@ public class Main extends JavaPlugin {
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS users " +
                     "(id SERIAL PRIMARY KEY, " +
                     "name VARCHAR(32) NOT NULL, " +
-             
-                    
                     "money INTEGER NOT NULL, " +
                     "balance NUMERIC(32, 2) NOT NULL, " +
                     "points INTEGER NOT NULL, " +
@@ -321,6 +319,7 @@ public class Main extends JavaPlugin {
                     "perkSily INTEGER NOT NULL, " +
                     "perkWampiryzmu INTEGER NOT NULL, " +
                     "perkSzybkosciAtaku INTEGER NOT NULL, " +
+                    "perkDropu INTEGER NOT NULL, " +
                     "vanish INTEGER NOT NULL)");
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS clans " +
                     "(id SERIAL PRIMARY KEY, " +

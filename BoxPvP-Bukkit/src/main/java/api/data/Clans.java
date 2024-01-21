@@ -50,10 +50,7 @@ public class Clans
         this.points = rs.getInt("points");
         this.members();
     }
-    
-    
 
-    
     public String getTag() {
         return this.tag;
     }
@@ -90,16 +87,7 @@ public class Clans
     public boolean isOwner(final String p) {
         return this.getOwner().equalsIgnoreCase(p);
     }
-  
-    public void addPoints(final int index) {
-        this.setPoints(this.getPoints() + index);
-    }
-    
-    public void removePoints(final int index) {
-        this.setPoints(this.getPoints() - index);
-    }
-    
-    
+
     public Set<String> getMembers() {
         return this.members;
     }
@@ -133,11 +121,6 @@ public class Clans
     }
 
     
-    
-    
-    
-    
-    
     public void members() {
         try (Connection connection = Main.getPlugin().getHikari().getConnection()) {
             try (PreparedStatement statement = connection.prepareStatement("SELECT name FROM members WHERE tag = ?")) {
@@ -167,11 +150,11 @@ public class Clans
     }
 
 
-    public void addMember(Player p) {
-        this.members.add(p.getName());
+    public void addMember(String nick) {
+        this.members.add(nick);
         try (Connection connection = Main.getPlugin().getHikari().getConnection();
              PreparedStatement statement = connection.prepareStatement("INSERT INTO members (name,tag) VALUES(?, ?)")) {
-            statement.setString(1, p.getName());
+            statement.setString(1, nick);
             statement.setString(2, this.tag);
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -179,29 +162,6 @@ public class Clans
         }
     }
 
-    public void addMember(String nick2) {
-        this.members.add(nick2);
-        try (Connection connection = Main.getPlugin().getHikari().getConnection();
-             PreparedStatement statement = connection.prepareStatement("INSERT INTO members (name,tag) VALUES(?, ?)")) {
-            statement.setString(1, nick2);
-            statement.setString(2, this.tag);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void removeMember(Player p) {
-        this.members.remove(p.getName());
-        try (Connection connection = Main.getPlugin().getHikari().getConnection();
-             PreparedStatement statement = connection.prepareStatement("DELETE FROM members WHERE name = ? AND tag = ?")) {
-            statement.setString(1, p.getName());
-            statement.setString(2, this.tag);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void removeMember(String p) {
         this.members.remove(p);
@@ -253,8 +213,7 @@ public class Clans
             e.printStackTrace();
         }
     }
- 
-    
+
     public void setPoints(final int points) {
     	 this.points = points;
         String query = "UPDATE clans SET points = ? WHERE tag = ?";
@@ -269,7 +228,6 @@ public class Clans
         }
     }
 
-	
 	    public Set<Player> getOnlineMembers() {
 	        final Set<Player> online = new HashSet<>();
 	        for (final Player p : Bukkit.getOnlinePlayers()) {

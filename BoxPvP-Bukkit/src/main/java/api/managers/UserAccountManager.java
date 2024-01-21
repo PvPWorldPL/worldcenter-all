@@ -24,9 +24,9 @@ public class UserAccountManager {
 	// Mapa przechowująca użytkowników indeksowanych po nazwie
 	public static final ConcurrentHashMap<String, UserProfile> users = new ConcurrentHashMap<>();
 
-    // Lista przechowująca zalogowanych użytkowników
+	// Lista przechowująca zalogowanych użytkowników
 
-    public static ConcurrentHashMap<String, UserProfile> getUsers() {
+	public static ConcurrentHashMap<String, UserProfile> getUsers() {
 		return UserAccountManager.users;
 	}
 
@@ -39,18 +39,18 @@ public class UserAccountManager {
 		return null;
 	}
 
-	public static UserProfile getUser(Player p){
-		if(users.containsKey(p.getName())) return users.get(p.getName());
+	public static UserProfile getUser(Player p) {
+		if (users.containsKey(p.getName())) return users.get(p.getName());
 		else return createUser(p);
 	}
 
-	public static UserProfile createUser(Player p){
-		UserProfile user = new UserProfile(p);		
+	public static UserProfile createUser(Player p) {
+		UserProfile user = new UserProfile(p);
 		users.put(p.getName(), user);
 		return user;
 	}
 
-	
+
 	// Pobieranie informacji o użytkowniku z bazy danych
 	public static void downloadPlayerInfo(final Player p) {
 		final UserProfile u = UserAccountManager.getUser(p);
@@ -61,7 +61,7 @@ public class UserAccountManager {
 			@Override
 			public void run() {
 				try (Connection connection = Main.getPlugin().getHikari().getConnection();
-						PreparedStatement select = connection.prepareStatement("SELECT money,  balance, teczowy,  points, kills, deaths, god, PrzerabianieKasy, PrzerabianieMonet, PrzerabianieBlokow, perkZycia, perkSzybkosci, perkSily, perkWampiryzmu, perkSzybkosciAtaku, vanish  FROM users WHERE name = ?")) {
+					 PreparedStatement select = connection.prepareStatement("SELECT money,  balance, teczowy,  points, kills, deaths, god, PrzerabianieKasy, PrzerabianieMonet, PrzerabianieBlokow, perkZycia, perkSzybkosci, perkSily, perkWampiryzmu, perkSzybkosciAtaku, perkDropu, vanish  FROM users WHERE name = ?")) {
 					select.setString(1, p.getName());
 					ResultSet rs = select.executeQuery();
 					if (rs.next()) {
@@ -69,7 +69,7 @@ public class UserAccountManager {
 							Bukkit.getLogger().info("Znaleziono dane gracza.");
 						}
 						u.setMoney(rs.getInt("money"));
-					
+
 						u.setBalance(rs.getBigDecimal("balance"));
 						u.setTeczowy(rs.getBoolean("teczowy"));
 						u.setPoints(rs.getInt("points"));
@@ -78,12 +78,13 @@ public class UserAccountManager {
 						u.setGod(rs.getBoolean("god"));
 						u.setPrzerabianieKasy(rs.getBoolean("PrzerabianieKasy"));
 						u.setPrzerabianieMonet(rs.getBoolean("PrzerabianieMonet"));
-						u.setPrzerabianieBlokow(rs.getBoolean("PrzerabianieBlokow"));					
-						u.setPerkZycia(rs.getInt("perkZycia"));	
+						u.setPrzerabianieBlokow(rs.getBoolean("PrzerabianieBlokow"));
+						u.setPerkZycia(rs.getInt("perkZycia"));
 						u.setPerkSzybkosci(rs.getInt("perkSzybkosci"));
 						u.setPerkSily(rs.getInt("perkSily"));
-						u.setPerkWampiryzmu(rs.getInt("perkWampiryzmu"));	
-						u.setPerkSzybkosciAtaku(rs.getInt("perkSzybkosciAtaku"));		
+						u.setPerkWampiryzmu(rs.getInt("perkWampiryzmu"));
+						u.setPerkSzybkosciAtaku(rs.getInt("perkSzybkosciAtaku"));
+						u.setPerkDropu(rs.getInt("perkDropu"));
 						u.setVanish(rs.getBoolean("vanish"));
 
 						rs.close();
@@ -99,9 +100,9 @@ public class UserAccountManager {
 						p.getEnderChest().clear();
 						p.getInventory().clear();
 						Bukkit.getServer().getScheduler().runTask(Main.getPlugin(), () -> {
-                            Location location = Main.getPlugin().getConfiguration().getSpawnLocation();
-                            p.teleport(location);
-                        });
+							Location location = Main.getPlugin().getConfiguration().getSpawnLocation();
+							p.teleport(location);
+						});
 					}
 				} catch (SQLException e) {
 					e.printStackTrace();
@@ -109,15 +110,16 @@ public class UserAccountManager {
 			}
 		});
 	}
+
 	// Pobieranie informacji o użytkowniku z bazy danych
 	public static void downloadPlayerInfo(final String p) {
 		final Long startTime = System.currentTimeMillis();
 		final UserProfile u = UserAccountManager.getUser(p);
 		if (Main.getPlugin().getConfiguration().debug) {
 			Bukkit.getLogger().info("ladowanie danych gracza " + p);
-		}	        
+		}
 		try (Connection connection = Main.getPlugin().getHikari().getConnection();
-				PreparedStatement select = connection.prepareStatement("SELECT money,  balance, teczowy, points, kills, deaths, god, PrzerabianieKasy, PrzerabianieMonet, PrzerabianieBlokow, perkZycia, perkSzybkosci, perkSily, perkWampiryzmu, perkSzybkosciAtaku, vanish FROM users WHERE name = ?")) {
+			 PreparedStatement select = connection.prepareStatement("SELECT money,  balance, teczowy, points, kills, deaths, god, PrzerabianieKasy, PrzerabianieMonet, PrzerabianieBlokow, perkZycia, perkSzybkosci, perkSily, perkWampiryzmu, perkSzybkosciAtaku, perkDropu, vanish FROM users WHERE name = ?")) {
 			select.setString(1, p);
 			ResultSet rs = select.executeQuery();
 			if (rs.next()) {
@@ -125,7 +127,7 @@ public class UserAccountManager {
 					Bukkit.getLogger().info("Znaleziono dane gracza.");
 				}
 				u.setMoney(rs.getInt("money"));
-	
+
 				u.setBalance(rs.getBigDecimal("balance"));
 				u.setTeczowy(rs.getBoolean("teczowy"));
 				u.setPoints(rs.getInt("points"));
@@ -134,14 +136,14 @@ public class UserAccountManager {
 				u.setGod(rs.getBoolean("god"));
 				u.setPrzerabianieKasy(rs.getBoolean("PrzerabianieKasy"));
 				u.setPrzerabianieMonet(rs.getBoolean("PrzerabianieMonet"));
-				u.setPrzerabianieBlokow(rs.getBoolean("PrzerabianieBlokow"));					
-				u.setPerkZycia(rs.getInt("perkZycia"));	
+				u.setPrzerabianieBlokow(rs.getBoolean("PrzerabianieBlokow"));
+				u.setPerkZycia(rs.getInt("perkZycia"));
 				u.setPerkSzybkosci(rs.getInt("perkSzybkosci"));
 				u.setPerkSily(rs.getInt("perkSily"));
-				u.setPerkWampiryzmu(rs.getInt("perkWampiryzmu"));	
-				u.setPerkSzybkosciAtaku(rs.getInt("perkSzybkosciAtaku"));	
+				u.setPerkWampiryzmu(rs.getInt("perkWampiryzmu"));
+				u.setPerkSzybkosciAtaku(rs.getInt("perkSzybkosciAtaku"));
+				u.setPerkDropu(rs.getInt("perkDropu"));
 				u.setVanish(rs.getBoolean("vanish"));
-		
 				rs.close();
 			}
 			if (Main.getPlugin().getConfiguration().debug) {
@@ -153,49 +155,32 @@ public class UserAccountManager {
 			e.printStackTrace();
 		}
 	}
-	
+
 	// Wczytywanie użytkowników z bazy danych
 	public static void loadUsers() {
 		try (Connection connection = Main.getPlugin().getHikari().getConnection();
-				PreparedStatement statement = connection.prepareStatement("SELECT * FROM users");
-				ResultSet rs = statement.executeQuery()) {
+			 PreparedStatement statement = connection.prepareStatement("SELECT * FROM users");
+			 ResultSet rs = statement.executeQuery()) {
 			while (rs.next()) {
 				final UserProfile u = new UserProfile(rs);
-					UserAccountManager.users.put(u.getName(), u);
+				UserAccountManager.users.put(u.getName(), u);
 				UserRankingManager.addRanking(u);
 				UserKillManager.addKill(u);
 				UserDeathManager.addDeath(u);
 				UserBalanceManager.addBalance(u);
-			
-		
-		      UserRankingManager.sortUserRankings();
-	           UserKillManager.sortUserKills();
-	          UserDeathManager.sortUserDeaths();
-	         UserBalanceManager.sortUserBalance();
-	            UserRankingManager.sortGuildRankings();
-			}  
-	            
+
+
+				UserRankingManager.sortUserRankings();
+				UserKillManager.sortUserKills();
+				UserDeathManager.sortUserDeaths();
+				UserBalanceManager.sortUserBalance();
+				UserRankingManager.sortGuildRankings();
+			}
+
 			Bukkit.getLogger().info("Loaded " + UserAccountManager.users.size() + " players");
 		} catch (SQLException e) {
 			Bukkit.getLogger().warning("Can not load players Error " + e.getMessage());
 			e.printStackTrace();
 		}
 	}
-	// Usuwanie użytkowników z bazy danych
-	public static void deleteUser(final UserProfile u) {
-		UserAccountManager.users.remove(u.getName());
-		UserRankingManager.removeRanking(u);
-		UserKillManager.removeKill(u);
-		UserDeathManager.removeDeath(u);	
-		UserBalanceManager.removeBalance(u);
-		
-		try (Connection connection = Main.getPlugin().getHikari().getConnection();
-				PreparedStatement deleteUserStatement = connection.prepareStatement("DELETE FROM `users` WHERE `name` = ?")) {
-			deleteUserStatement.setString(1, u.getName());
-			deleteUserStatement.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
 }

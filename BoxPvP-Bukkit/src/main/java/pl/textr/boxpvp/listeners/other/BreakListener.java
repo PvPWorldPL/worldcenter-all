@@ -3,6 +3,7 @@ package pl.textr.boxpvp.listeners.other;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.enchantments.Enchantment;
@@ -18,6 +19,7 @@ import api.data.UserProfile;
 import api.managers.ItemsManager;
 import api.managers.UserAccountManager;
 import pl.textr.boxpvp.Main;
+import pl.textr.boxpvp.utils.ChatUtil;
 import pl.textr.boxpvp.utils.RandomUtil;
 
 
@@ -27,6 +29,7 @@ public class BreakListener implements Listener {
 	@EventHandler(priority = EventPriority.MONITOR)
 	  public void drop2inventory(BlockBreakEvent event) {
         Player player = event.getPlayer();
+        UserProfile user = UserAccountManager.getUser(player);
         Block block = event.getBlock();
         if (event.isCancelled()) {
             event.setCancelled(true);
@@ -68,6 +71,27 @@ public class BreakListener implements Listener {
                     player.getWorld().dropItemNaturally(player.getLocation(), leftoverItem);
                 }
             }
+
+            if (user.getPerkDropu() >= 1 && user.getPerkDropu() <= 4) {
+                double multiplier = switch (user.getPerkDropu()) {
+                    case 1 -> Main.getPlugin().getConfiguration().getPerkDropu1();
+                    case 2 -> Main.getPlugin().getConfiguration().getPerkDropu2();
+                    case 3 -> Main.getPlugin().getConfiguration().getPerkDropu3();
+                    case 4 -> Main.getPlugin().getConfiguration().getPerkDropu4();
+                    default -> 1.0;
+                };
+
+                // Informacje dla gracza o użyciu perku dropu
+                String perkLevelMessage = "&7Użyto perku &adropu&7, zostałeś uleczony &8(&aPoziom " + user.getPerkDropu() + "&8)";
+                ChatUtil.sendMessage(player, perkLevelMessage);
+
+                ItemStack multipliedItem = new ItemStack(item.getType(), (int) (item.getAmount() * multiplier));
+                HashMap<Integer, ItemStack> leftOver1 = player.getInventory().addItem(multipliedItem);
+                leftOver1.values().removeIf(leftoverItem1 -> leftoverItem1.getType() != Material.AIR && leftoverItem1.getAmount() != 0);
+                leftOver1.forEach((index, leftoverItem1) -> player.getWorld().dropItemNaturally(player.getLocation(), leftoverItem1));
+                Bukkit.getLogger().info("Gracz " + player.getName() + " używa perkDropu " + user.getPerkDropu() + " z mnożnikiem " + multiplier);
+            }
+
 
             if (Main.getPlugin().getConfiguration().turbodrop > System.currentTimeMillis()) {
                 ItemStack multipliedItem = new ItemStack(item.getType(), item.getAmount() * Main.getPlugin().getConfiguration().turbodropmnoznik());
