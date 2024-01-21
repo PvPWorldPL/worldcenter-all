@@ -18,7 +18,13 @@
         <option value="$PROJECT_DIR$/ProxyCore/BoxPvP-lobbyChannel/pom.xml" />
         <option value="$PROJECT_DIR$/BoxPvP-lobbyChannel/pom.xml" />
         <option value="$PROJECT_DIR$/Hub/pom.xml" />
+        <option value="$PROJECT_DIR$/Core-Survival/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/Core-Survival/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="corretto-17" project-jdk-type="JavaSDK" />

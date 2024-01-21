@@ -9,9 +9,10 @@
         <module name="Hub" />
         <module name="BoxPvP-Bukkit" />
         <module name="BoxPvP-Ranga" />
-        <module name="BoxPvP-LobbyChannel" />
         <module name="BoxPvP-Platform" />
         <module name="ProxyCore" />
+        <module name="BOXPVP-DENYBLOCK" />
+        <module name="BoxPvP-LobbyChannel" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -19,6 +20,7 @@
       <module name="BoxPvP-Ranga (1)" target="17" />
       <module name="BoxPvP-Ranga (2)" target="17" />
       <module name="BoxPvP-RangaProxy" target="1.8" />
+      <module name="Core-Survival" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

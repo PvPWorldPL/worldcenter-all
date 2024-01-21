@@ -19,7 +19,8 @@ public class PlayerInteractListener implements Listener {
 
         if (e.getAction() == Action.RIGHT_CLICK_AIR | e.getAction() == Action.RIGHT_CLICK_BLOCK) {
             if (item != null) {
-                if (item.getType() == Material.CLOCK) {
+                if (item.getType() == Material.getMaterial(Lobby.getInstance().cfg.getString("hotbarItem.material")) && item
+                        .getItemMeta().getDisplayName().equals(Lobby.getInstance().getString("hotbarItem.displayname"))) {
                     e.setCancelled(true);
                     Lobby.getInstance().openGUI(p);
                     return;

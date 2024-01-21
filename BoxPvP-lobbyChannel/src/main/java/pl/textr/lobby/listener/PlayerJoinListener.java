@@ -16,12 +16,7 @@ public class PlayerJoinListener implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
-
-       // final ItemBuilder item = new ItemBuilder(Material.getMaterial(Lobby.getInstance().cfg.getString("hotbarItem.material")), 1, (short)Lobby.getInstance().cfg.getInt("hotbarItem.subid")).setDisplayName(ChatColor.translateAlternateColorCodes('&', Lobby.getInstance().cfg.getString("hotbarItem.displayname"))).setLore(Lobby.getInstance().cfg.getStringList("hotbarItem.lore"));
-      //  p.getInventory().setItem(Lobby.getInstance().cfg.getInt("hotbarItem.slot"), (ItemStack)item);
         if (Lobby.getInstance().currentServer == null)
-            Lobby.getInstance().getServer(p);    
-        
+            Lobby.getInstance().getServer(p);
     }
-
 }

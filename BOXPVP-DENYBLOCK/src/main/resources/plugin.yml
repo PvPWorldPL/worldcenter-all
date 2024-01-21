@@ -1,0 +1,11 @@
+main: pl.textr.Main
+version: 1.0
+author: TexTr
+name: BOXPVP-DENYBLOCK
+api-version: 1.16
+commands:
+  manage:
+    description: Zarządzaj ustawieniami pluginu
+    usage: /manage <add/remove/reload> <world/block> <nazwa>
+    permission: core.manage
+    executor: pl.textr.commands.ManageCommand
