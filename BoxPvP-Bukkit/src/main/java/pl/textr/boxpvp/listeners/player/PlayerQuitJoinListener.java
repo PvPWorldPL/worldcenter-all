@@ -45,7 +45,7 @@ public class PlayerQuitJoinListener implements Listener {
 		event.setJoinMessage(null);
 		ChatUtil.sendTitle(player, "", "§7Pomyślnie przeteleportowano na §f" + Main.getPlugin().getConfiguration().boxpvpName());
 		UserAccountManager.downloadPlayerInfo(player);
-		this.handle(player);
+
 	}
 
 
@@ -65,14 +65,16 @@ public class PlayerQuitJoinListener implements Listener {
 
 	@EventHandler
 	public void onKick(PlayerKickEvent e) {
+
 		e.setLeaveMessage(null);
+		this.handle(e.getPlayer());
 	}
 
 
 	@EventHandler
 	public void onQuit(PlayerQuitEvent e) {
 		e.setQuitMessage(null);
-
+		this.handle(e.getPlayer());
 	}
 }
 

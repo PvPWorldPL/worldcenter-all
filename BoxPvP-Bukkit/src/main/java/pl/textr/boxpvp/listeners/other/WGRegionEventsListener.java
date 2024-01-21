@@ -92,7 +92,8 @@ public class WGRegionEventsListener implements Listener
                     if (totalPlayersInRegion >= 30) {
                         handleRegionEntryDenied(player, event.getRegion().getMaximumPoint(), "&cNie możesz wejść na obszar &facrystal&c, ponieważ liczba graczy na obszarze jest już powyżej 30.");
                     } else {
-                        ChatUtil.sendMessage(player, "&aWitaj w krainie krystal!");
+                        player.spigot().sendMessage(ChatMessageType.CHAT, new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Wszedles na kraine crystal")));
+
                         CrystalBossTask.startTask(50,player);
                     }
                 }
@@ -132,7 +133,7 @@ public class WGRegionEventsListener implements Listener
    public void onRegionLeftAfk(RegionLeftEvent event) {
        Player player = event.getPlayer();
        if (event.getRegion().getId().equals("afk")) {
-           player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Opuściłeś strefę afk")));
+           player.spigot().sendMessage(ChatMessageType.CHAT, new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Opuściłeś strefę afk")));
            RewardTask.cancelTask(player);
            for (final Player otherPlayer : Bukkit.getOnlinePlayers()) {
         	   player.showPlayer(Main.getPlugin(),otherPlayer);

@@ -13,6 +13,7 @@ import org.bukkit.boss.BossBar;
 import org.bukkit.entity.Enderman;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Zombie;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.potion.PotionEffect;
@@ -50,6 +51,7 @@ public class CrystalBossTask extends BukkitRunnable {
         CrystalBossTask CrystalTask = activeTasks.remove(player);
         if (CrystalTask != null) {
             CrystalTask.cancel();
+
             if (CrystalTask.basicCrystalBossBar.isVisible()) {
                 CrystalTask.basicCrystalBossBar.setVisible(false);
                 CrystalTask.basicCrystalBossBar.removePlayer(player);
@@ -82,16 +84,16 @@ public class CrystalBossTask extends BukkitRunnable {
         World world = player.getWorld();
         Location spawnLocation = new Location(world, 102.597, 24, 363.307); // Set your desired coordinates
 
-        Enderman enderman = (Enderman) world.spawnEntity(spawnLocation, EntityType.ENDERMAN);
-        enderman.setCustomName("MIREK");
-        enderman.setCustomNameVisible(true);
-        enderman.setMaxHealth(1000);
-        enderman.setHealth(1000);
-        enderman.setAI(false);
-        enderman.setSilent(true);
-        enderman.getEquipment().setItemInMainHand(new ItemStack(Material.DIAMOND_SWORD));
-        enderman.setMetadata("CustomEnderman", new FixedMetadataValue(Main.getPlugin(), null));
-        enderman.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, Integer.MAX_VALUE, 10));
-        enderman.setMetadata("CustomEnderman", new FixedMetadataValue(Main.getPlugin(), player.getUniqueId().toString()));
+        Zombie ZOMBIE = (Zombie) world.spawnEntity(spawnLocation, EntityType.ZOMBIE);
+        ZOMBIE.setCustomName("MIREK");
+        ZOMBIE.setCustomNameVisible(true);
+        ZOMBIE.setMaxHealth(20);
+        ZOMBIE.setHealth(20);
+        ZOMBIE.setAI(true);
+        ZOMBIE.setSilent(true);
+        ZOMBIE.getEquipment().setItemInMainHand(new ItemStack(Material.DIAMOND_SWORD));
+        ZOMBIE.setMetadata("CustomZombie", new FixedMetadataValue(Main.getPlugin(), null));
+        ZOMBIE.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, Integer.MAX_VALUE, 10));
+        ZOMBIE.setMetadata("CustomZombie", new FixedMetadataValue(Main.getPlugin(), player.getUniqueId().toString()));
     }
 }
