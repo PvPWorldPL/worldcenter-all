@@ -56,8 +56,8 @@ public class WGRegionEventsListener implements Listener {
                 player.hidePlayer(Main.getPlugin(), otherPlayer);
                 otherPlayer.hidePlayer(Main.getPlugin(), player);
             }
-
-            if (regionId.equals("afk")) {
+        }
+         else   if (regionId.equals("afk")) {
                 player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Wszedłeś do strefy AFK")));
                 RewardTask.startTask(300, 1800, player);
 
@@ -66,7 +66,7 @@ public class WGRegionEventsListener implements Listener {
                     otherPlayer.hidePlayer(Main.getPlugin(), player);
                 }
             }
-        }
+
     }
 
 
@@ -109,9 +109,12 @@ public class WGRegionEventsListener implements Listener {
     }
 
     public static void handleRegionEntryDenied(Player player, Location location, String Message) {
-        Vector vector = player.getLocation().toVector().subtract(location.toVector()).normalize().multiply(1.4D).setY(0.1D);
+        Vector vector = player.getLocation().toVector().subtract(location.toVector()).normalize().multiply(1.4D);
+        vector.setY(0.1D); // Set the y-component separately
+
         if (player.isInsideVehicle())
             player.leaveVehicle();
+
         player.setVelocity(vector);
         player.spigot().sendMessage(ChatMessageType.CHAT, new TextComponent(ChatUtil.translateHexColorCodes(Message)));
     }
@@ -129,8 +132,8 @@ public class WGRegionEventsListener implements Listener {
                 player.showPlayer(Main.getPlugin(), otherPlayer);
                 otherPlayer.showPlayer(Main.getPlugin(), player);
             }
-
-            if (regionId.equals(Main.getPlugin().getConfiguration().spawnregion())) {
+        }
+         else   if (regionId.equals(Main.getPlugin().getConfiguration().spawnregion())) {
                 player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Opuściłeś środek spawnu - zostałeś odkryty!")));
 
                 for (Player otherPlayer : Bukkit.getOnlinePlayers()) {
@@ -138,7 +141,7 @@ public class WGRegionEventsListener implements Listener {
                     otherPlayer.showPlayer(Main.getPlugin(), player);
                 }
             }
-        }
+
     }
 
 
@@ -170,22 +173,24 @@ public class WGRegionEventsListener implements Listener {
     }
 
 
+
+
     @EventHandler
     public void onPlayerKick(PlayerKickEvent e) {
-        handlePlayerDisconnect(e.getPlayer(), e);
+        handlePlayerDisconnect(e.getPlayer(), MovementWay.DISCONNECT, e);
     }
 
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent e) {
-        handlePlayerDisconnect(e.getPlayer(), e);
+        handlePlayerDisconnect(e.getPlayer(), MovementWay.DISCONNECT, e);
     }
 
-    private void handlePlayerDisconnect(Player player, PlayerEvent event) {
+    private void handlePlayerDisconnect(Player player, MovementWay movement, PlayerEvent event) {
         Set<ProtectedRegion> regions = playerRegions.remove(player);
         if (regions != null) {
             for (ProtectedRegion region : regions) {
-                RegionLeaveEvent leaveEvent = new RegionLeaveEvent(region, player, MovementWay.DISCONNECT, event);
-                RegionLeftEvent leftEvent = new RegionLeftEvent(region, player, MovementWay.DISCONNECT, event);
+                RegionLeaveEvent leaveEvent = new RegionLeaveEvent(region, player, movement, event);
+                RegionLeftEvent leftEvent = new RegionLeftEvent(region, player, movement, event);
                 Bukkit.getPluginManager().callEvent(leaveEvent);
                 Bukkit.getPluginManager().callEvent(leftEvent);
             }
@@ -193,15 +198,14 @@ public class WGRegionEventsListener implements Listener {
     }
 
 
-
     @EventHandler
     public void onPlayerMove(final PlayerMoveEvent e) {
-        e.setCancelled(this.updateRegions(e.getPlayer(), MovementWay.MOVE, e.getPlayer().getLocation(), e));
+        e.setCancelled(this.updateRegions(e.getPlayer(), MovementWay.MOVE, e.getTo(), e));
     }
 
     @EventHandler
     public void onPlayerTeleport(final PlayerTeleportEvent e) {
-        e.setCancelled(this.updateRegions(e.getPlayer(), MovementWay.TELEPORT, e.getPlayer().getLocation(), e));
+        e.setCancelled(this.updateRegions(e.getPlayer(), MovementWay.TELEPORT, e.getTo(), e));
     }
 
     @EventHandler
@@ -216,57 +220,55 @@ public class WGRegionEventsListener implements Listener {
 
     private synchronized boolean updateRegions(final Player player, final MovementWay movement, final Location to, final PlayerEvent event) {
         Set<ProtectedRegion> regions = playerRegions.getOrDefault(player, new HashSet<>());
-        Set<ProtectedRegion> oldRegions = new HashSet<>(regions);
+        final Set<ProtectedRegion> oldRegions = new HashSet<>(regions);
 
         RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
-        World world = to.getWorld();
-        if (world == null) {
-            return false;
-        }
-
-        RegionManager rm = container.get(BukkitAdapter.adapt(world));
+        final RegionManager rm = container.get(BukkitAdapter.adapt(to.getWorld()));
         if (rm == null) {
             return false;
         }
 
         Set<ProtectedRegion> appRegions = rm.getApplicableRegions(BlockVector3.at(to.getX(), to.getY(), to.getZ())).getRegions();
-        ProtectedRegion globalRegion = rm.getRegion("__global__");
+
+        final ProtectedRegion globalRegion = rm.getRegion("__global__");
         if (globalRegion != null) {
             appRegions.add(globalRegion);
         }
 
-        regions.retainAll(appRegions);
-        regions.addAll(appRegions);
-
-        for (ProtectedRegion region : appRegions) {
-            if (!oldRegions.contains(region)) {
-                RegionEnterEvent enterEvent = new RegionEnterEvent(region, player, movement, event);
-                Bukkit.getServer().getPluginManager().callEvent(enterEvent);
-
-                if (enterEvent.isCancelled()) {
+        for (final ProtectedRegion region : appRegions) {
+            if (!regions.contains(region)) {
+                final RegionEnterEvent e = new RegionEnterEvent(region, player, movement, event);
+                Bukkit.getServer().getPluginManager().callEvent(e);
+                if (e.isCancelled()) {
+                    regions.clear();
+                    regions.addAll(oldRegions);
                     return true;
                 }
-
-                Bukkit.getScheduler().runTaskLaterAsynchronously(Main.getPlugin(), () -> {
-                    RegionEnteredEvent enteredEvent = new RegionEnteredEvent(region, player, movement, event);
+                Bukkit.getScheduler().runTaskLater(Main.getPlugin(), () -> {
+                    final RegionEnteredEvent enteredEvent = new RegionEnteredEvent(region, player, movement, event);
                     Bukkit.getServer().getPluginManager().callEvent(enteredEvent);
                 }, 1L);
+                regions.add(region);
             }
         }
 
-        for (ProtectedRegion region : oldRegions) {
-            if (!regions.contains(region) && rm.getRegion(region.getId()) == region) {
-                RegionLeaveEvent leaveEvent = new RegionLeaveEvent(region, player, movement, event);
-                Bukkit.getServer().getPluginManager().callEvent(leaveEvent);
+        regions.removeIf(region -> !appRegions.contains(region));
 
-                if (leaveEvent.isCancelled()) {
-                    return true;
+        for (final ProtectedRegion region : oldRegions) {
+            if (!regions.contains(region)) {
+                if (rm.getRegion(region.getId()) == region) {
+                    final RegionLeaveEvent e = new RegionLeaveEvent(region, player, movement, event);
+                    Bukkit.getServer().getPluginManager().callEvent(e);
+                    if (e.isCancelled()) {
+                        regions.clear();
+                        regions.addAll(oldRegions);
+                        return true;
+                    }
+                    Bukkit.getScheduler().runTaskLater(Main.getPlugin(), () -> {
+                        final RegionLeftEvent leftEvent = new RegionLeftEvent(region, player, movement, event);
+                        Bukkit.getServer().getPluginManager().callEvent(leftEvent);
+                    }, 1L);
                 }
-
-                Bukkit.getScheduler().runTaskLaterAsynchronously(Main.getPlugin(), () -> {
-                    RegionLeftEvent leftEvent = new RegionLeftEvent(region, player, movement, event);
-                    Bukkit.getServer().getPluginManager().callEvent(leftEvent);
-                }, 1L);
             }
         }
 

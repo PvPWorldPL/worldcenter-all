@@ -249,9 +249,69 @@ public class SzamanListener implements Listener {
     	            p.closeInventory();
     	            return;
     	          } 
-    	        } 
-    	        
-    	        //perk wampiryzmu
+    	        }
+
+ ///perk dropu
+				  if (item.getType() == Material.DIAMOND_PICKAXE) {
+					  if (user.getPerkDropu() == 0) {
+						  if (!p.getInventory().containsAtLeast(ItemsManager.getodlamek(50), 50)) {
+							  ChatUtil.sendMessage(p, "&8[&C&l!&8] &cBrakuje Ci 50szt kamienia filozoficznego do ulepszenia!");
+							  p.closeInventory();
+							  return;
+						  }
+						  p.getInventory().removeItem(new ItemStack(ItemsManager.getodlamek(50)));
+						  user.addperkPerkDropu();
+						  ChatUtil.sendMessage(p, "&7Pomyslnie zakupiles &aZwiekszony drop");
+						  p.closeInventory();
+						  return;
+					  }
+
+					  if (user.getPerkDropu() == 1) {
+						  if (!p.getInventory().containsAtLeast(ItemsManager.getodlamek(50), 50)) {
+							  ChatUtil.sendMessage(p, "&8[&C&l!&8] &cBrakuje Ci 50szt kamienia filozoficznego do ulepszenia!");
+							  p.closeInventory();
+							  return;
+						  }
+						  p.getInventory().removeItem(new ItemStack(ItemsManager.getodlamek(50)));
+						  user.addperkPerkDropu();
+						  ChatUtil.sendMessage(p, "&7Pomyslnie zakupiles &aZwiekszony drop");
+						  p.closeInventory();
+						  return;
+					  }
+
+					  if (user.getPerkDropu() == 2) {
+						  if (!p.getInventory().containsAtLeast(ItemsManager.getodlamek(50), 50)) {
+							  ChatUtil.sendMessage(p, "&7Pomyslnie zakupiles &aZwiekszony drop");
+							  p.closeInventory();
+							  return;
+						  }
+						  p.getInventory().removeItem(new ItemStack(ItemsManager.getodlamek(50)));
+						  user.addperkPerkDropu();
+						  ChatUtil.sendMessage(p, "&7Pomyslnie zakupiles &aZwiekszony drop");
+						  p.closeInventory();
+						  return;
+					  }
+
+					  if (user.getPerkDropu() == 3) {
+						  if (!p.getInventory().containsAtLeast(ItemsManager.getodlamek(50), 50)) {
+							  ChatUtil.sendMessage(p, "&8[&C&l!&8] &cBrakuje Ci 50szt kamienia filozoficznego do ulepszenia!");
+							  p.closeInventory();
+							  return;
+						  }
+						  p.getInventory().removeItem(new ItemStack(ItemsManager.getodlamek(50)));
+						  user.addperkPerkDropu();
+						  ChatUtil.sendMessage(p, "&7Pomyslnie zakupiles &aZwiekszony drop");
+						  p.closeInventory();
+						  return;
+					  }
+					  if (user.getPerkDropu() == 4) {
+						  ChatUtil.sendMessage(p, "&8[&C&l!&8] &cPosiadasz juz maksymalny poziom!");
+						  p.closeInventory();
+						  return;
+					  }
+				  }
+
+				  //perk wampiryzmu
     	        
     	        if (item.getType() == Material.GREEN_DYE) {
     	          if (user.getPerkWampiryzmu() == 0) {
@@ -307,7 +367,7 @@ public class SzamanListener implements Listener {
     	          if (user.getPerkWampiryzmu() == 4) {
     	           ChatUtil.sendMessage(p, "&8[&C&l!&8] &cPosiadasz juz maksymalny poziom!");
     	           p.closeInventory();
-    	           return;
+
     	          } 
     	        } 
     	      } 
