@@ -17,7 +17,7 @@ public class BossBarTask implements Runnable {
             ChatColor.translateAlternateColorCodes('&', "&eɴᴀ sᴇʀᴡᴇʀᴢᴇ ᴊᴇsᴛ ᴀᴋᴜᴛᴀʟɴɪᴇ &6ᴅʀᴏᴘ x" + Main.getPlugin().getConfiguration().turbodropmnoznik() + " &8(&f00:00&8)"),
             BarColor.YELLOW, BarStyle.SEGMENTED_10);
     private static final BossBar turboRangiBossBar = Bukkit.createBossBar(
-            ChatColor.translateAlternateColorCodes('&', "&eɴᴀ sᴇʀᴡᴇʀᴢᴇ ᴊᴇsᴛ ᴀᴋᴜᴛᴀʟɴɪᴇ &6ᴅʀᴏᴘ ʀᴀɴɢ &8(&f00:00&8)"),
+            ChatColor.translateAlternateColorCodes('&', "&bɴᴀ sᴇʀᴡᴇʀᴢᴇ ᴊᴇsᴛ ᴀᴋᴜᴛᴀʟɴɪᴇ &6ᴅʀᴏᴘ ʀᴀɴɢ &8(&f00:00&8)"),
             BarColor.WHITE, BarStyle.SEGMENTED_10);
 
     @Override
