@@ -38,9 +38,10 @@ public class MirekListener implements Listener {
     }
 
     private void dropItemOnEndermanKill(Enderman enderman, Player killer) {
-        List<MetadataValue> metadata = enderman.getMetadata("CustomEnderman");
-        for (MetadataValue value : metadata) {
-            if (value.value() != null && value.value().equals(killer.getUniqueId().toString())) {
+        List<MetadataValue> metadataList = enderman.getMetadata("CustomEnderman");
+
+        for (MetadataValue metadata : metadataList) {
+            if (metadata.value() instanceof String && metadata.value().equals(killer.getUniqueId().toString())) {
                 killer.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(1)));
                 break;
             }

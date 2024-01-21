@@ -93,8 +93,6 @@ public class WGRegionEventsListener implements Listener
                         handleRegionEntryDenied(player, event.getRegion().getMaximumPoint(), "&cNie możesz wejść na obszar &facrystal&c, ponieważ liczba graczy na obszarze jest już powyżej 30.");
                     } else {
                         player.spigot().sendMessage(ChatMessageType.CHAT, new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Wszedles na kraine crystal")));
-
-                        CrystalBossTask.startTask(50,player);
                     }
                 }
             } else {
@@ -120,14 +118,6 @@ public class WGRegionEventsListener implements Listener
 
 
 
-    @EventHandler
-    public void onRegionLeftCrystal(RegionLeftEvent event) {
-        Player player = event.getPlayer();
-        if (event.getRegion().getId().equals("crystal")) {
-            player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Opuściłeś kraine crystal")));
-            CrystalBossTask.cancelTask(player);
-        }
-    }
 
     @EventHandler
    public void onRegionLeftAfk(RegionLeftEvent event) {

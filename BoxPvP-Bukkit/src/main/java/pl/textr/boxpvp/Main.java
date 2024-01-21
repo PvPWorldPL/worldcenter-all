@@ -268,6 +268,8 @@ public class Main extends JavaPlugin {
         Bukkit.getServer().getScheduler().runTaskTimer(this, new TopPlayersNpc(), 0, 300L); //10m
         Bukkit.getScheduler().runTaskTimer(this, new MeteorTask(), 0L, 20L);
         Bukkit.getScheduler().runTaskTimerAsynchronously(this, new BossBarTask(), 40L, 20L);
+        Bukkit.getScheduler().runTaskTimerAsynchronously(this, new CrystalBossTask(), 40L, 20L);
+
         Bukkit.getScheduler().runTaskTimer(this, new PlayerTimeRunnable(), 20L * 60 * 5, 20L * 60 * 5);
     }
 
