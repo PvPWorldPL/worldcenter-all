@@ -6,7 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Hub" />
         <module name="BoxPvP-Bukkit" />
+        <module name="BoxPvP-Ranga" />
         <module name="BoxPvP-LobbyChannel" />
         <module name="BoxPvP-Platform" />
         <module name="ProxyCore" />

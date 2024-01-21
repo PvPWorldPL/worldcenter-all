@@ -14,6 +14,8 @@
         <module>BoxPvP-Ranga</module>
         <module>ProxyCore</module>
         <module>BoxPvP-lobbyChannel</module>
+        <module>Hub</module>
+
     </modules>
 
     <build>

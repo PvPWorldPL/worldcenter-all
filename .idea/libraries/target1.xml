@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="target1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/BoxPvP-lobbyChannel/target/BoxPvP-LobbyChannel-2.0.0-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BoxPvP-lobbyChannel/target/BoxPvP-LobbyChannel-2.0.0-SNAPSHOT-shaded.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BoxPvP-lobbyChannel/target/original-BoxPvP-LobbyChannel-2.0.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
