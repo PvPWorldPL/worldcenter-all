@@ -15,10 +15,7 @@
         <module>ProxyCore</module>
         <module>BoxPvP-lobbyChannel</module>
         <module>Hub</module>
-        <module>Core-Survival</module>
         <module>BOXPVP-DENYBLOCK</module>
-
-
 
     </modules>
 

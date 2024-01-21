@@ -6,7 +6,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Core-Survival" />
         <module name="Hub" />
         <module name="BoxPvP-Bukkit" />
         <module name="BoxPvP-Ranga" />
@@ -21,6 +20,7 @@
       <module name="BoxPvP-Ranga (1)" target="17" />
       <module name="BoxPvP-Ranga (2)" target="17" />
       <module name="BoxPvP-RangaProxy" target="1.8" />
+      <module name="Core-Survival" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

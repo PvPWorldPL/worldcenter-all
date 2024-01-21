@@ -5,7 +5,205 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92ab9ab5-8a14-4ea2-9564-978b3cab2dd4" name="Changes" comment="update tasks">
-      <change afterPath="$PROJECT_DIR$/BOXPVP-DENYBLOCK/.idea/discord.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BOXPVP-DENYBLOCK/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BOXPVP-DENYBLOCK/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BOXPVP-DENYBLOCK/src/main/java/pl/textr/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/BOXPVP-DENYBLOCK/src/main/java/pl/textr/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BOXPVP-DENYBLOCK/src/main/java/pl/textr/commands/ManageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/BOXPVP-DENYBLOCK/src/main/java/pl/textr/commands/ManageCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BOXPVP-DENYBLOCK/src/main/java/pl/textr/utils/MessageFormatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/BOXPVP-DENYBLOCK/src/main/java/pl/textr/utils/MessageFormatter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/Core-Survival.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/Commands/BaseCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/Commands/CommandInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/Commands/CommandRegistry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/Commands/PlayerCommandExecutor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/configurations/DiscordConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/configurations/PluginConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/data/Clans.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/data/UserProfile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/data/VaultEconomyProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/managers/ClanManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/managers/ItemsManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/managers/KillContractManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/managers/UserAccountManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/menu/ColorsTagMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/menu/RanksMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/menu/ShopMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/menu/SzamanMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/menu/WarpMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/menu/ZleceniodawcaMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/placeholders/PlaceHolderRegisterAPI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/placeholders/PlayerTabInfoUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/rankings/UserBalanceManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/rankings/UserDeathManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/rankings/UserKillManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/rankings/UserRankingManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/BroadcastType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/Packet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/PacketListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/RedisDatabase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/broadcast/BroadcastCasePacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/broadcast/BroadcastDeathMessagePacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/broadcast/BroadcastGuildMessagePacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/broadcast/BroadcastHelpopPacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/broadcast/BroadcastItemShopPacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/broadcast/BroadcastMeteorRandomPacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/broadcast/BroadcastPacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/broadcast/BroadcastRangiDropPacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/broadcast/BroadcastTurboDropPacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/chat/ChatClearPacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/chat/ChatDisablePacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/chat/ChatEnablePacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/chat/ChatPacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/chat/ChatRankingPacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/chat/ChatSlowPacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/chat/ChatVipDisablePacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/chat/ChatVipEnablePacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/guild/UpdateGuildAddPlayerPacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/guild/UpdateGuildColorTagPacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/guild/UpdateGuildCreatePacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/guild/UpdateGuildDeletePacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/guild/UpdateGuildInformationPacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/guild/UpdateGuildInvitePacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/guild/UpdateGuildKickPlayerPacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/guild/UpdateGuildOwnerPacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/guild/UpdateGuildRemovePlayerPacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/player/UpdatePlayerPacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/server/ServerRefreshTopsRankingCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/cache/server/ServerRestartPacketCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/broadcast/BroadcastCasePacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/broadcast/BroadcastDeathMessagePacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/broadcast/BroadcastGuildMessagePacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/broadcast/BroadcastHelpopPacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/broadcast/BroadcastItemShopPacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/broadcast/BroadcastMeteorRandomPacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/broadcast/BroadcastPacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/broadcast/BroadcastRangiDropPacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/broadcast/BroadcastTurboDropPacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/chat/ChatClearPacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/chat/ChatDisablePacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/chat/ChatEnablePacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/chat/ChatPacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/chat/ChatRankingPacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/chat/ChatSlowPacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/chat/ChatVipDisablePacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/chat/ChatVipEnablePacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/guild/UpdateGuildAddPlayerPacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/guild/UpdateGuildColorTagPacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/guild/UpdateGuildCreatePacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/guild/UpdateGuildDeletePacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/guild/UpdateGuildInformationPacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/guild/UpdateGuildInvitePacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/guild/UpdateGuildKickPlayerPacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/guild/UpdateGuildOwnerPacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/guild/UpdateGuildRemovePlayerPacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/player/ServerRefreshTopsRanking.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/player/UpdatePlayerPacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/redis/packet/server/ServerRestartPacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/regions/MovementWay.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/regions/RegionEnterEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/regions/RegionEnteredEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/regions/RegionEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/regions/RegionLeaveEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/api/regions/RegionLeftEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Admin/AdminItemsCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Admin/EnchantCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Admin/EventCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Admin/FunCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Admin/GamemodeCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Admin/KeyGiveCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Admin/MeteorSpawnCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Admin/ResetperkCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Admin/RestartCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Admin/SlowmodeCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Admin/StpCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Guild/CreateCommandGuilds.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Guild/DeleteCommandGuilds.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Guild/GuildHelpCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Guild/InfoCommandGuilds.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Guild/InviteCommandGuilds.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Guild/JoinCommandGuilds.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Guild/KickCommandGuilds.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Guild/LeaveCommandGuilds.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Guild/OwnerCommandGuilds.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/HeadAdmin/BalanceGiveCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/HeadAdmin/ConfigCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/HeadAdmin/EnableCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/HeadAdmin/GiveCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/HeadAdmin/GroupCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/HeadAdmin/IsCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/HeadAdmin/KickAllCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/HeadAdmin/SetSpawnCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/HeadAdmin/SlotCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/HeadAdmin/UpdateTabCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/HeadAdmin/WhiteListCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Helper/FlyCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Helper/GodCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Helper/TeleportCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Helper/VanishCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Moderator/BroadcastCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Moderator/ChatCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Moderator/ClearCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Moderator/HealCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Moderator/InvCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/Moderator/SpeedCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/User/AdminGlowCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/User/BalanceCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/User/EnderChestCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/User/HelpCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/User/HelpOpCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/User/KolorowyTagCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/User/KoszCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/User/LobbyCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/User/PayCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/User/RangiCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/User/RepairCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/User/SklepCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/User/SpawnCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/User/TeczowyNickCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/User/WarpCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/User/ZlecenieCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/commands/User/ZleceniodawcaCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/listeners/chat/AsyncPlayerChatListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/listeners/chat/ChatClansListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/listeners/inventory/ColorsTagClansListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/listeners/inventory/SklepListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/listeners/inventory/SzamanListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/listeners/inventory/WarpListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/listeners/inventory/ZlecenieListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/listeners/other/BreakListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/listeners/other/CheckLoginListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/listeners/other/MapInternactListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/listeners/other/OtherListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/listeners/other/WGRegionEventsListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/listeners/player/OpenShulkerBoxListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/listeners/player/PlayerCommandPreprocessListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/listeners/player/PlayerDeathListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/listeners/player/PlayerQuitJoinListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/listeners/player/TeleportPlayerManagerListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/tasks/ActionbarTask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/tasks/ItemClearTask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/tasks/PlayerTimeRunnable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/tasks/RewardTask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/tasks/TabCategoryTask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/utils/ChatUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/utils/ConnectUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/utils/DataUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/utils/EnchantUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/utils/ItemBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/utils/RandomUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/utils/Reflection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/utils/TimeUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/utils/teleport/TeleportCallback.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/utils/teleport/TeleportTimer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/java/pl/textr/survival/utils/teleport/TimerManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/resources/config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/resources/plugin.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core-Survival/src/main/resources/ustawienia.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -491,7 +689,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705860087384</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="update tasks">
+      <option name="closed" value="true" />
+      <created>1705860187859</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1705860187859</updated>
+    </task>
+    <task id="LOCAL-00049" summary="update tasks">
+      <option name="closed" value="true" />
+      <created>1705860240856</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1705860240856</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
