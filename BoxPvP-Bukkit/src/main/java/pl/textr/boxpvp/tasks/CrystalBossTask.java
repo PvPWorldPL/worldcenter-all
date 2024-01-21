@@ -84,16 +84,17 @@ public class CrystalBossTask extends BukkitRunnable {
         World world = player.getWorld();
         Location spawnLocation = new Location(world, 102.597, 24, 363.307); // Set your desired coordinates
 
-        Zombie ZOMBIE = (Zombie) world.spawnEntity(spawnLocation, EntityType.ZOMBIE);
-        ZOMBIE.setCustomName("MIREK");
-        ZOMBIE.setCustomNameVisible(true);
-        ZOMBIE.setMaxHealth(20);
-        ZOMBIE.setHealth(20);
-        ZOMBIE.setAI(true);
-        ZOMBIE.setSilent(true);
-        ZOMBIE.getEquipment().setItemInMainHand(new ItemStack(Material.DIAMOND_SWORD));
-        ZOMBIE.setMetadata("CustomZombie", new FixedMetadataValue(Main.getPlugin(), null));
-        ZOMBIE.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, Integer.MAX_VALUE, 10));
-        ZOMBIE.setMetadata("CustomZombie", new FixedMetadataValue(Main.getPlugin(), player.getUniqueId().toString()));
+        Enderman enderman = (Enderman) world.spawnEntity(spawnLocation, EntityType.ENDERMAN);
+        enderman.setCustomName("MIREK");
+        enderman.setGlowing(true);
+        enderman.setCustomNameVisible(true);
+        enderman.setMaxHealth(55);
+        enderman.setHealth(55);
+        enderman.setAI(false);
+        enderman.setSilent(true);
+        enderman.getEquipment().setItemInMainHand(new ItemStack(Material.DIAMOND_SWORD));
+        enderman.setMetadata("CustomEnderman", new FixedMetadataValue(Main.getPlugin(), null));
+        enderman.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, Integer.MAX_VALUE, 10));
+        enderman.setMetadata("CustomEnderman", new FixedMetadataValue(Main.getPlugin(), player.getUniqueId().toString()));
     }
 }
