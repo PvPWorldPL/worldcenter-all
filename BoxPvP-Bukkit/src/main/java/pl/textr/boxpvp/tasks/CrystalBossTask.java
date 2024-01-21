@@ -26,8 +26,8 @@ public class CrystalBossTask implements Runnable {
     private static final int INITIAL_COUNTDOWN = 5000;
     private int currentCountdown = INITIAL_COUNTDOWN;
     private static final int MIN_PLAYERS = 1; // Minimalna liczba graczy
-    private static final int ACTIVE_HOUR_START = 15;
-    private static final int ACTIVE_HOUR_END = 18;
+    private static final int ACTIVE_HOUR_START = 6;
+    private static final int ACTIVE_HOUR_END = 20;
 
     @Override
     public void run() {
