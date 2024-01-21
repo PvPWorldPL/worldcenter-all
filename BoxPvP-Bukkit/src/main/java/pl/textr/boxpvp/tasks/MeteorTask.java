@@ -13,7 +13,7 @@ import pl.textr.boxpvp.utils.DataUtil;
 import java.util.Calendar;
 
 public class MeteorTask implements Runnable {
-    private static final BossBar METEOR_BOSS_BAR_ACTIVE = Bukkit.createBossBar(ChatUtil.translateHexColorCodes("&aAktualnie trwa deszcz meteorytów"), BarColor.GREEN, BarStyle.SOLID, BarFlag.values());
+    private static final BossBar METEOR_BOSS_BAR_ACTIVE = Bukkit.createBossBar(ChatUtil.translateHexColorCodes("&aAktualnie trwa deszcz meteorytów"), BarColor.GREEN, BarStyle.SEGMENTED_20, BarFlag.values());
     private static final BossBar METEOR_BOSS_BAR = Bukkit.createBossBar(ChatUtil.translateHexColorCodes("&7Za &f60 &7sekund pojawi się deszcz meteorytów na strefie PvP"), BarColor.RED, BarStyle.SEGMENTED_10, BarFlag.values());
 
     private static final int INITIAL_COUNTDOWN = 60;
