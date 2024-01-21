@@ -17,7 +17,7 @@ public class BossBarTask implements Runnable {
             ChatColor.translateAlternateColorCodes('&', "&eɴᴀ sᴇʀᴡᴇʀᴢᴇ ᴊᴇsᴛ ᴀᴋᴜᴛᴀʟɴɪᴇ &6ᴅʀᴏᴘ x" + Main.getPlugin().getConfiguration().turbodropmnoznik() + " &8(&f00:00&8)"),
             BarColor.YELLOW, BarStyle.SEGMENTED_10);
     private static final BossBar turboRangiBossBar = Bukkit.createBossBar(
-            ChatColor.translateAlternateColorCodes('&', "&eɴᴀ sᴇʀᴡᴇʀᴢᴇ ᴊᴇsᴛ ᴀᴋᴜᴛᴀʟɴɪᴇ &6ᴅʀᴏᴘ Rang  &8(&f00:00&8)"),
+            ChatColor.translateAlternateColorCodes('&', "&eɴᴀ sᴇʀᴡᴇʀᴢᴇ ᴊᴇsᴛ ᴀᴋᴜᴛᴀʟɴɪᴇ &6ᴅʀᴏᴘ ʀᴀɴɢ &8(&f00:00&8)"),
             BarColor.WHITE, BarStyle.SEGMENTED_10);
 
     @Override
@@ -43,7 +43,7 @@ public class BossBarTask implements Runnable {
             } else {
                 for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                     turboRangiBossBar.addPlayer(onlinePlayer);
-                    turboRangiBossBar.setTitle(ChatColor.translateAlternateColorCodes('&', "&eɴᴀ sᴇʀᴡᴇʀᴢᴇ ᴊᴇsᴛ ᴀᴋᴜᴛᴀʟɴɪᴇ &6ᴅʀᴏᴘ Rang &8(&f" + DataUtil.secondsToString(turboRangiTimer) + "&8)"));
+                    turboRangiBossBar.setTitle(ChatColor.translateAlternateColorCodes('&', "&eɴᴀ sᴇʀᴡᴇʀᴢᴇ ᴊᴇsᴛ ᴀᴋᴜᴛᴀʟɴɪᴇ &6ᴅʀᴏᴘ ʀᴀɴɢ &8(&f" + DataUtil.secondsToString(turboRangiTimer) + "&8)"));
                     turboRangiBossBar.setProgress((double) (turboRangiTimer - System.currentTimeMillis()) / (turboRangiTimer - System.currentTimeMillis()));
 
                 }
