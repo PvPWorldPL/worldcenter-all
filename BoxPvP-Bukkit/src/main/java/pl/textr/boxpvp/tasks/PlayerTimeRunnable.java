@@ -18,7 +18,6 @@ public class PlayerTimeRunnable implements Runnable {
 	        UserProfile user = UserAccountManager.getUser(player);
 	        user.addMoney(1);
 	        user.save();
-	    //    ChatUtil.sendMessage(player, "&aOtrzymałeś monetę czasu za granie na serwerze");
 	    }
 	}
 }

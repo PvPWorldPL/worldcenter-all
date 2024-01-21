@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92ab9ab5-8a14-4ea2-9564-978b3cab2dd4" name="Changes" comment="update" />
+    <list default="true" id="92ab9ab5-8a14-4ea2-9564-978b3cab2dd4" name="Changes" comment="update">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/ActionbarTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/ActionbarTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/BossBarTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/BossBarTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/CrystalBossTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/CrystalBossTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/ItemClearTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/ItemClearTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/MeteorTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/MeteorTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/PlayerTimeRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/PlayerTimeRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/RewardTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/RewardTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/TabCategoryTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/TabCategoryTask.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,7 +121,7 @@
       <workItem from="1705486638801" duration="3163000" />
       <workItem from="1705568162679" duration="387000" />
       <workItem from="1705743048180" duration="4665000" />
-      <workItem from="1705832572570" duration="21691000" />
+      <workItem from="1705832572570" duration="22737000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -385,7 +395,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705855307590</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="update">
+      <option name="closed" value="true" />
+      <created>1705855586361</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1705855586361</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

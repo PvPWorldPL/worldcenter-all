@@ -14,10 +14,8 @@ public class ItemClearTask implements Runnable {
 	@Override
 	public void run() {
 	    Bukkit.getWorlds().forEach(world -> world.getEntitiesByClass(Item.class).forEach(Entity::remove));
-
 	    Bukkit.broadcastMessage("");
 	    Bukkit.broadcastMessage(ChatUtil.translateHexColorCodes("&8[&C&l!&8] &7Wszystkie itemy z ziemi zostały usunięte!"));
 	    Bukkit.broadcastMessage("");
-
 	}
 }

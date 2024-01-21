@@ -66,8 +66,7 @@ public class RewardTask extends BukkitRunnable {
                 rewardTask.DisableRewardBossBar.removePlayer(player);
             }
         }
-    }   
-    
+    }
     @Override
     public void run() {
     	int progress = (int) (((double) (initialCountdown - countdown) / initialCountdown) * 100);
@@ -140,6 +139,5 @@ public class RewardTask extends BukkitRunnable {
       if (player.getInventory().contains(ItemsManager.getMoneta7(64))) {
     	  ItemsManager.change3(player, ItemsManager.getMoneta7(64), ItemsManager.getMoneta8(1));
         }
-	
 }
 }

@@ -52,8 +52,7 @@ public class CrystalBossTask implements Runnable {
         });
 
         if (currentCountdown > 0) {
-            ENDERMAN_BOSS_BAR.setTitle(ChatUtil.translateHexColorCodes("&#fb0cf7Z&#fb0cf7a &f" + DataUtil.convertSecondsToTime(currentCountdown) +
-                    "&7 &#fb0cf7P&#f80df7o&#f50df7j&#f20ef8a&#ef0ff8w&#ec10f8i &#e910f8s&#e611f8i&#e312f8e &#e013f9b&#dd13f9o&#da14f9s&#d715f9s &#d415f9M&#d116faI&#ce17faR&#cb18faE&#c818faK &#c519fan&#c21afaa &#bf1bfbs&#bc1bfbt&#b91cfbr&#b61dfbe&#b31dfbf&#b01efci&#ad1ffce &#aa20fcc&#a720fcr&#a421fcy&#a122fcs&#9e23fdt&#9b23fda&#9824fdl &8(&f" + progressString + "&8)"));
+            ENDERMAN_BOSS_BAR.setTitle(ChatUtil.translateHexColorCodes("&#fb0cf7Z&#fb0cf7a &f" + DataUtil.convertSecondsToTime(currentCountdown) + "&7 &#fb0cf7P&#f80df7o&#f50df7j&#f20ef8a&#ef0ff8w&#ec10f8i &#e910f8s&#e611f8i&#e312f8e &#e013f9b&#dd13f9o&#da14f9s&#d715f9s &#d415f9M&#d116faI&#ce17faR&#cb18faE&#c818faK &#c519fan&#c21afaa &#bf1bfbs&#bc1bfbt&#b91cfbr&#b61dfbe&#b31dfbf&#b01efci&#ad1ffce &#aa20fcc&#a720fcr&#a421fcy&#a122fcs&#9e23fdt&#9b23fda&#9824fdl &8(&f" + progressString + "&8)"));
             ENDERMAN_BOSS_BAR.setProgress((double) currentCountdown / INITIAL_COUNTDOWN);
             currentCountdown--;
         } else {
