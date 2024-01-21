@@ -1,0 +1,6 @@
+main: pl.textr.core.LobbyPlugin
+version: 2.0 Alpha
+author: TexTr
+name: LobbyCore
+api-version: 1.16
+website: http://lajtpvp.pl
