@@ -116,7 +116,9 @@ public class BreakListener implements Listener {
                     leftOver1.forEach((index, leftoverItem1) -> player.getWorld().dropItemNaturally(player.getLocation(), leftoverItem1));
                 }
             }
-            ChatUtil.sendMessage(player, ChatUtil.translateHexColorCodes("Twój ogólny mnożnik: " + totalMultiplier));
+            if (Main.getPlugin().getConfiguration().debug) {
+                ChatUtil.sendMessage(player, ChatUtil.translateHexColorCodes(" &7(&cdebug&7) &7Twój ogólny mnożnik:&f " + totalMultiplier));
+            }
             checkInventory(player);
             // if (itemInMainHand != null)
             ItemsManager.recalculateDurability(player, itemInMainHand);
