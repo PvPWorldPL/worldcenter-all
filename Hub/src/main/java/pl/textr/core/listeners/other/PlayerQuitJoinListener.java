@@ -31,9 +31,6 @@ public class PlayerQuitJoinListener implements Listener {
             SPAWN_LOCATION = new Location(Bukkit.getWorld("World"), -4.480, 63.0, -1.433, 179.3f, -10.3f);
         }
        p.teleport(SPAWN_LOCATION);
-      
-     	p.getPlayer().getInventory().setItem(0, new ItemBuild(Material.CLOCK).setTitle(ChatUtil.fixColor("&7Zmiana &8(&fKanalu&8)")).build());      
-
 	}
 
 	   
