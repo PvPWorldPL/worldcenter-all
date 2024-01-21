@@ -21,7 +21,7 @@ import java.util.Calendar;
 
 public class CrystalBossTask implements Runnable {
     private static final BossBar ENDERMAN_BOSS_BAR_ACTIVE = Bukkit.createBossBar(ChatUtil.translateHexColorCodes("&aAktualnie trwa boss MIREK"), BarColor.GREEN, BarStyle.SOLID, BarFlag.values());
-    private static final BossBar ENDERMAN_BOSS_BAR = Bukkit.createBossBar(ChatUtil.translateHexColorCodes("&7Za &f60 &7sekund pojawi się boss MIREK na strefie PvP"), BarColor.RED, BarStyle.SEGMENTED_10, BarFlag.values());
+    private static final BossBar ENDERMAN_BOSS_BAR = Bukkit.createBossBar(ChatUtil.translateHexColorCodes("&7Za &f83m i 20sek pojawi się boss MIREK na strefie PvP"), BarColor.RED, BarStyle.SEGMENTED_10, BarFlag.values());
 
     private static final int INITIAL_COUNTDOWN = 5000;
     private int currentCountdown = INITIAL_COUNTDOWN;
@@ -33,6 +33,8 @@ public class CrystalBossTask implements Runnable {
     public void run() {
         Calendar currentCalendar = Calendar.getInstance();
         int currentHour = currentCalendar.get(Calendar.HOUR_OF_DAY);
+        int progress = (int) (((double) (INITIAL_COUNTDOWN - currentCountdown) / INITIAL_COUNTDOWN) * 100);
+        String progressString = progress + "%";
 
         if (currentHour < ACTIVE_HOUR_START || currentHour >= ACTIVE_HOUR_END) {
             ENDERMAN_BOSS_BAR.removeAll();
@@ -50,7 +52,7 @@ public class CrystalBossTask implements Runnable {
         });
 
         if (currentCountdown > 0) {
-            ENDERMAN_BOSS_BAR.setTitle(ChatUtil.translateHexColorCodes("&7Za &f" + DataUtil.convertSecondsToTime(currentCountdown) + " &7sekund pojawi się boss MIREK na strefie CRYSTAL"));
+            ENDERMAN_BOSS_BAR.setTitle(ChatUtil.translateHexColorCodes("&7Za &f" + DataUtil.convertSecondsToTime(currentCountdown) + " &7sekund pojawi się boss MIREK na strefie CRYSTAL &8(&f" + progressString + "&8)"));
             ENDERMAN_BOSS_BAR.setProgress((double) currentCountdown / INITIAL_COUNTDOWN);
             currentCountdown--;
         } else {

@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92ab9ab5-8a14-4ea2-9564-978b3cab2dd4" name="Changes" comment="update">
+    <list default="true" id="92ab9ab5-8a14-4ea2-9564-978b3cab2dd4" name="Changes" comment="update GOWNO ALL DLA WRZYSTKICH">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/listeners/boss/MirekListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/listeners/boss/MirekListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/listeners/other/WGRegionEventsListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/listeners/other/WGRegionEventsListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/CrystalBossTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/CrystalBossTask.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -302,7 +299,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705796465447</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="update GOWNO ALL DLA WRZYSTKICH">
+      <option name="closed" value="true" />
+      <created>1705798530403</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1705798530403</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,6 +327,7 @@
     <MESSAGE value="UPDATE VOUNCHERY" />
     <MESSAGE value="UPDATE npcxty" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="update GOWNO ALL DLA WRZYSTKICH" />
+    <option name="LAST_COMMIT_MESSAGE" value="update GOWNO ALL DLA WRZYSTKICH" />
   </component>
 </project>
