@@ -17,7 +17,7 @@ public class BossBarTask implements Runnable {
             ChatColor.translateAlternateColorCodes('&', "&eɴᴀ sᴇʀᴡᴇʀᴢᴇ ᴊᴇsᴛ ᴀᴋᴜᴛᴀʟɴɪᴇ &6ᴅʀᴏᴘ x" + Main.getPlugin().getConfiguration().turbodropmnoznik() + " &8(&f00:00&8)"),
             BarColor.YELLOW, BarStyle.SEGMENTED_10);
     private static final BossBar turboRangiBossBar = Bukkit.createBossBar(
-            ChatColor.translateAlternateColorCodes('&', "&eɴᴀ sᴇʀᴡᴇʀᴢᴇ ᴊᴇsᴛ ᴀᴋᴜᴛᴀʟɴɪᴇ &6ᴅʀᴏᴘ Rang  &8(&f00:00&8)"),
+            ChatColor.translateAlternateColorCodes('&', "&bɴᴀ sᴇʀᴡᴇʀᴢᴇ ᴊᴇsᴛ ᴀᴋᴜᴛᴀʟɴɪᴇ &6ᴅʀᴏᴘ ʀᴀɴɢ &8(&f00:00&8)"),
             BarColor.WHITE, BarStyle.SEGMENTED_10);
 
     @Override
@@ -33,7 +33,8 @@ public class BossBarTask implements Runnable {
             for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                 turboDropBossBar.addPlayer(onlinePlayer);
                 turboDropBossBar.setTitle(ChatColor.translateAlternateColorCodes('&', "&eɴᴀ sᴇʀᴡᴇʀᴢᴇ ᴊᴇsᴛ ᴀᴋᴜᴛᴀʟɴɪᴇ &6ᴅʀᴏᴘ x" + Main.getPlugin().getConfiguration().turbodropmnoznik() + " &8(&f" + DataUtil.secondsToString(turbodropTimer) + "&8)"));
-                turboDropBossBar.setProgress((double) (turbodropTimer - System.currentTimeMillis()) / (turbodropTimer - System.currentTimeMillis()));
+                double progress = 1.0 - ((double) (System.currentTimeMillis() - turbodropTimer) / (double) (turbodropTimer - System.currentTimeMillis()));
+                turboDropBossBar.setProgress(Math.max(0.0, Math.min(1.0, progress)));
             }
 
             if (turboRangiTimer < System.currentTimeMillis()) {
@@ -43,9 +44,9 @@ public class BossBarTask implements Runnable {
             } else {
                 for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                     turboRangiBossBar.addPlayer(onlinePlayer);
-                    turboRangiBossBar.setTitle(ChatColor.translateAlternateColorCodes('&', "&eɴᴀ sᴇʀᴡᴇʀᴢᴇ ᴊᴇsᴛ ᴀᴋᴜᴛᴀʟɴɪᴇ &6ᴅʀᴏᴘ Rang &8(&f" + DataUtil.secondsToString(turboRangiTimer) + "&8)"));
-                    turboRangiBossBar.setProgress((double) (turboRangiTimer - System.currentTimeMillis()) / (turboRangiTimer - System.currentTimeMillis()));
-
+                    turboRangiBossBar.setTitle(ChatColor.translateAlternateColorCodes('&', "&eɴᴀ sᴇʀᴡᴇʀᴢᴇ ᴊᴇsᴛ ᴀᴋᴜᴛᴀʟɴɪᴇ &6ᴅʀᴏᴘ ʀᴀɴɢ &8(&f" + DataUtil.secondsToString(turboRangiTimer) + "&8)"));
+                    double progress = 1.0 - ((double) (System.currentTimeMillis() - turboRangiTimer) / (double) (turboRangiTimer - System.currentTimeMillis()));
+                    turboDropBossBar.setProgress(Math.max(0.0, Math.min(1.0, progress)));
                 }
 
             }
