@@ -1,0 +1,12 @@
+name: Lobby
+version: 1.0.2
+author: TexTr
+main: pl.textr.lobby.Lobby
+api-version: 1.16
+commands:
+  lobbyswitcheradd:
+    description: 'glowna komenda lobbyswitcheradd'
+    aliases: lbswa
+  ch:
+    description: 'Otwiera gui lobby'
+    aliases: channel
