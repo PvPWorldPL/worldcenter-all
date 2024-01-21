@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/BOXPVP-DENYBLOCK/BOXPVP-DENYBLOCK.iml" filepath="$PROJECT_DIR$/BOXPVP-DENYBLOCK/BOXPVP-DENYBLOCK.iml" />
       <module fileurl="file://$PROJECT_DIR$/BoxPvP.iml" filepath="$PROJECT_DIR$/BoxPvP.iml" />
       <module fileurl="file://$PROJECT_DIR$/BoxPvP-Bukkit/BoxPvP-Bukkit.iml" filepath="$PROJECT_DIR$/BoxPvP-Bukkit/BoxPvP-Bukkit.iml" />
       <module fileurl="file://$PROJECT_DIR$/BoxPvP-lobbyChannel/BoxPvP-LobbyChannel.iml" filepath="$PROJECT_DIR$/BoxPvP-lobbyChannel/BoxPvP-LobbyChannel.iml" />
       <module fileurl="file://$PROJECT_DIR$/BoxPvP-Platform/BoxPvP-Platform.iml" filepath="$PROJECT_DIR$/BoxPvP-Platform/BoxPvP-Platform.iml" />
       <module fileurl="file://$PROJECT_DIR$/BoxPvP-Ranga/BoxPvP-Ranga.iml" filepath="$PROJECT_DIR$/BoxPvP-Ranga/BoxPvP-Ranga.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Core-Survival/Core-Survival.iml" filepath="$PROJECT_DIR$/Core-Survival/Core-Survival.iml" />
       <module fileurl="file://$PROJECT_DIR$/Hub/Hub.iml" filepath="$PROJECT_DIR$/Hub/Hub.iml" />
       <module fileurl="file://$PROJECT_DIR$/ProxyCore/ProxyCore.iml" filepath="$PROJECT_DIR$/ProxyCore/ProxyCore.iml" />
     </modules>
