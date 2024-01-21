@@ -15,9 +15,10 @@
         <option value="$PROJECT_DIR$/BoxPvP-Ranga/pom.xml" />
         <option value="$PROJECT_DIR$/BoxPvP-Bukkit/BoxPvP-RangaProxy/pom.xml" />
         <option value="$PROJECT_DIR$/ProxyCore/pom.xml" />
+        <option value="$PROJECT_DIR$/ProxyCore/BoxPvP-lobbyChannel/pom.xml" />
+        <option value="$PROJECT_DIR$/BoxPvP-lobbyChannel/pom.xml" />
       </list>
     </option>
-    <option name="workspaceImportForciblyTurnedOn" value="true" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="corretto-17" project-jdk-type="JavaSDK" />
 </project>
