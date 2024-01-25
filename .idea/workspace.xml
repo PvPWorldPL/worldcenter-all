@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="92ab9ab5-8a14-4ea2-9564-978b3cab2dd4" name="Changes" comment="update tasks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoxPvP-lobbyChannel/src/main/java/pl/textr/lobby/listener/PlayerInteractListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-lobbyChannel/src/main/java/pl/textr/lobby/listener/PlayerInteractListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoxPvP-lobbyChannel/src/main/java/pl/textr/lobby/listener/PlayerJoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-lobbyChannel/src/main/java/pl/textr/lobby/listener/PlayerJoinListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/BossBarTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/BossBarTask.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,35 +46,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.BoxPvP-Bukkit [install].executor": "Run",
-    "Maven.BoxPvP-Bukkit [verify].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.JAVA_MODULE": "corretto-17",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/textr/IdeaProjects/boxpvp/Hub",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15234375",
-    "project.structure.side.proportion": "0.44367817",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.BoxPvP-Bukkit [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.BoxPvP-Bukkit [verify].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/textr/IdeaProjects/boxpvp/Hub&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15234375&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.44367817&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "XML"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;XML&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="BoxPvP" />
@@ -116,38 +115,7 @@
       <workItem from="1705568162679" duration="387000" />
       <workItem from="1705743048180" duration="4665000" />
       <workItem from="1705832572570" duration="24214000" />
-    </task>
-    <task id="LOCAL-00003" summary="update usuwacz i sniezka&#10;&#10;//jak bedzie sie bugowac zrobi sie normalnie &#10;//uzyte strumienie">
-      <option name="closed" value="true" />
-      <created>1705489798691</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1705489798691</updated>
-    </task>
-    <task id="LOCAL-00004" summary="update usuwacz i sniezka&#10;&#10;//jak bedzie sie bugowac zrobi sie normalnie &#10;//uzyte strumienie">
-      <option name="closed" value="true" />
-      <created>1705592402044</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1705592402044</updated>
-    </task>
-    <task id="LOCAL-00005" summary="usunieto snieska bo za op">
-      <option name="closed" value="true" />
-      <created>1705743139768</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1705743139768</updated>
-    </task>
-    <task id="LOCAL-00006" summary="poprawiono pozycje zjebana oraz rankingi">
-      <option name="closed" value="true" />
-      <created>1705743375682</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1705743375683</updated>
+      <workItem from="1706212983863" duration="3037000" />
     </task>
     <task id="LOCAL-00007" summary="listenery yodate">
       <option name="closed" value="true" />
@@ -509,7 +477,39 @@
       <option name="project" value="LOCAL" />
       <updated>1705860601200</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="update tasks">
+      <option name="closed" value="true" />
+      <created>1705861236234</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1705861236235</updated>
+    </task>
+    <task id="LOCAL-00053" summary="update tasks">
+      <option name="closed" value="true" />
+      <created>1705861497561</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1705861497561</updated>
+    </task>
+    <task id="LOCAL-00054" summary="update tasks">
+      <option name="closed" value="true" />
+      <created>1706217617084</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1706217617085</updated>
+    </task>
+    <task id="LOCAL-00055" summary="update tasks">
+      <option name="closed" value="true" />
+      <created>1706220926040</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1706220926040</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

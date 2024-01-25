@@ -186,7 +186,7 @@ public class BreakListener implements Listener {
             //JAKIE MONETY MAJA WYPADAC Z BLOKOW
             //domyslnie wymagane 9 i 3 do przerobienia na monete
             if (playerInventory.contains(Material.EMERALD_BLOCK, 64)) {
-                ItemsManager.change2(p, Material.EMERALD_BLOCK, 64, ItemsManager.getMoneta1(1));
+                ItemsManager.change2(p, Material.EMERALD_BLOCK, 64, ItemsManager.getMoneta1(2));
             }
 
             if (playerInventory.contains(Material.DIAMOND_BLOCK, 64)) {

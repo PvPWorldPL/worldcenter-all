@@ -10,9 +10,7 @@ import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
 import org.bukkit.entity.Enderman;
 import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.metadata.FixedMetadataValue;
 import pl.textr.boxpvp.Main;
 import pl.textr.boxpvp.utils.ChatUtil;
 import pl.textr.boxpvp.utils.DataUtil;
@@ -65,9 +63,9 @@ public class CrystalBossTask implements Runnable {
         }
     }
 
-    private Enderman spawnCustomEnderman() {
-        World world = Bukkit.getWorlds().get(0); // Assuming you want to spawn it in the first world
-        Location spawnLocation = new Location(world, 102.597, 24, 363.307); // Set your desired coordinates
+    private void spawnCustomEnderman() {
+        World world = Bukkit.getWorlds().get(0);
+        Location spawnLocation = new Location(world, 102.597, 24, 363.307);
 
         Enderman enderman = (Enderman) world.spawnEntity(spawnLocation, EntityType.ENDERMAN);
         enderman.setCustomName("MIREK");
@@ -79,6 +77,5 @@ public class CrystalBossTask implements Runnable {
         enderman.setSilent(false);
         enderman.getEquipment().setItemInMainHand(new ItemStack(Material.DIAMOND_SWORD));
 
-        return enderman;
     }
 }
