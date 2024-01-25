@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="92ab9ab5-8a14-4ea2-9564-978b3cab2dd4" name="Changes" comment="update tasks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/CrystalBossTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/CrystalBossTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/BossBarTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/tasks/BossBarTask.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,15 +115,7 @@
       <workItem from="1705568162679" duration="387000" />
       <workItem from="1705743048180" duration="4665000" />
       <workItem from="1705832572570" duration="24214000" />
-      <workItem from="1706212983863" duration="2147000" />
-    </task>
-    <task id="LOCAL-00006" summary="poprawiono pozycje zjebana oraz rankingi">
-      <option name="closed" value="true" />
-      <created>1705743375682</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1705743375683</updated>
+      <workItem from="1706212983863" duration="3037000" />
     </task>
     <task id="LOCAL-00007" summary="listenery yodate">
       <option name="closed" value="true" />
@@ -509,7 +501,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706217617085</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="update tasks">
+      <option name="closed" value="true" />
+      <created>1706220926040</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1706220926040</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
