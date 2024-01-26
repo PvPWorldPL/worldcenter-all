@@ -1,0 +1,7 @@
+main: pl.worldcenter.Main
+version: 1.0
+author: W97
+name: Rangi-Command
+api-version: 1.16
+website: https://worldcenter.pl/
+depend: [PlaceholderAPI]

@@ -77,7 +77,7 @@ public class RangaCommand extends PlayerCommandExecutor {
                     String expiryInfo = node.hasExpiry() && node.getExpiry() != null ?
                             ChatUtil.fixColor( "&fwygasa &8(&a " + (node.getExpiry()) + "&8)").replace("T", " ").replace("Z", " "):
                             ChatUtil.fixColor("&8(&fwygasa &cNIGDY&8)");
-                    return SERVER_NAME.getOrDefault(serverName, "") + rankName + expiryInfo;
+                    return rankName + expiryInfo;
                 })
                 .collect(Collectors.toSet());
         return String.join(", ", serverRanks);
