@@ -10,34 +10,47 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 /**
  * @author Weby &amp; Anrza (info@raidstone.net)
  * @version 1.0.0
- * @since 2/24/19
+ * @since 12/12/2019
  */
-public class RegionEnteredEvent extends Event implements Cancellable {
+public class RegionsChangedEvent extends Event implements Cancellable {
     private static final HandlerList handlers = new HandlerList();
 
     private boolean cancelled = false;
 
     private final UUID uuid;
-    private final ProtectedRegion region;
-    private final String regionName;
-
+    private final Set<ProtectedRegion> previousRegions = new HashSet<>();
+    private final Set<ProtectedRegion> currentRegions = new HashSet<>();
+    private final Set<String> previousRegionsNames = new HashSet<>();
+    private final Set<String> currentRegionsNames = new HashSet<>();
     /**
      * This even is fired whenever a region is entered.
      * It may be fired multiple times per tick, if several
      * regions are entered at the same time.
      * @param playerUUID The UUID of the player entering the region.
-     * @param region WorldGuard's ProtectedRegion region.
+     * @param previous Set of WorldGuard's ProtectedRegion the player was in before this event
+     * @param current Set of WorldGUard's ProtectedRegion the player is currently in
      */
-    public RegionEnteredEvent(UUID playerUUID, @NotNull ProtectedRegion region)
+    public RegionsChangedEvent(UUID playerUUID, @NotNull Set<ProtectedRegion> previous, @NotNull Set<ProtectedRegion> current)
     {
         this.uuid = playerUUID;
-        this.region = region;
-        this.regionName = region.getId();
+        previousRegions.addAll(previous);
+        currentRegions.addAll(current);
+
+        for(ProtectedRegion r : current) {
+            currentRegionsNames.add(r.getId());
+        }
+
+        for(ProtectedRegion r : previous) {
+            previousRegionsNames.add(r.getId());
+        }
+
     }
 
     @Contract (pure = true)
@@ -61,13 +74,23 @@ public class RegionEnteredEvent extends Event implements Cancellable {
     }
 
     @NotNull
-    public String getRegionName() {
-        return regionName;
+    public Set<String> getCurrentRegionsNames() {
+        return currentRegionsNames;
     }
 
     @NotNull
-    public ProtectedRegion getRegion() {
-        return region;
+    public Set<String> getPreviousRegionsNames() {
+        return previousRegionsNames;
+    }
+
+    @NotNull
+    public Set<ProtectedRegion> getCurrentRegions() {
+        return currentRegions;
+    }
+
+    @NotNull
+    public Set<ProtectedRegion> getPreviousRegions() {
+        return previousRegions;
     }
 
     @Override

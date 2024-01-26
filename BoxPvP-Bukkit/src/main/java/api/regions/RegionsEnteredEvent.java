@@ -10,34 +10,40 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
-/**
- * @author Weby &amp; Anrza (info@raidstone.net)
- * @version 1.0.0
- * @since 2/24/19
- */
-public class RegionEnteredEvent extends Event implements Cancellable {
+
+public class RegionsEnteredEvent extends Event implements Cancellable {
+
     private static final HandlerList handlers = new HandlerList();
 
-    private boolean cancelled = false;
+    private boolean cancelled=false;
 
     private final UUID uuid;
-    private final ProtectedRegion region;
-    private final String regionName;
+    private final Set<ProtectedRegion> regions;
+    private final Set<String> regionsNames;
 
     /**
-     * This even is fired whenever a region is entered.
-     * It may be fired multiple times per tick, if several
-     * regions are entered at the same time.
-     * @param playerUUID The UUID of the player entering the region.
-     * @param region WorldGuard's ProtectedRegion region.
+     * This even is fired whenever one or several regions are entered.
+     * @param playerUUID The UUID of the player entering the regions.
+     * @param regions
      */
-    public RegionEnteredEvent(UUID playerUUID, @NotNull ProtectedRegion region)
+    public RegionsEnteredEvent(UUID playerUUID, @Nullable Set<ProtectedRegion> regions)
     {
         this.uuid = playerUUID;
-        this.region = region;
-        this.regionName = region.getId();
+        this.regionsNames = new HashSet<>();
+        this.regions = new HashSet<>();
+
+        if(regions != null)
+        {
+            this.regions.addAll(regions);
+            for(ProtectedRegion region : regions)
+            {
+                this.regionsNames.add(region.getId());
+            }
+        }
     }
 
     @Contract (pure = true)
@@ -61,13 +67,13 @@ public class RegionEnteredEvent extends Event implements Cancellable {
     }
 
     @NotNull
-    public String getRegionName() {
-        return regionName;
+    public Set<ProtectedRegion> getRegions() {
+        return regions;
     }
 
     @NotNull
-    public ProtectedRegion getRegion() {
-        return region;
+    public Set<String> getRegionsNames() {
+        return regionsNames;
     }
 
     @Override

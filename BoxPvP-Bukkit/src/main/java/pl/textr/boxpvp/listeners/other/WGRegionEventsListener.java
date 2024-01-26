@@ -1,12 +1,12 @@
 package pl.textr.boxpvp.listeners.other;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import api.data.Clans;
 import api.managers.ClanManager;
+import com.sk89q.worldguard.protection.ApplicableRegionSet;
+import com.sk89q.worldguard.protection.regions.RegionQuery;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -28,21 +28,22 @@ import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import com.sk89q.worldguard.protection.regions.RegionContainer;
 
-import api.regions.MovementWay;
-import api.regions.RegionEnterEvent;
+
 import api.regions.RegionEnteredEvent;
-import api.regions.RegionLeaveEvent;
+
 import api.regions.RegionLeftEvent;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.util.Vector;
 import pl.textr.boxpvp.Main;
-import pl.textr.boxpvp.tasks.CrystalBossTask;
+
 import pl.textr.boxpvp.tasks.RewardTask;
 import pl.textr.boxpvp.utils.ChatUtil;
 
+import javax.annotation.Nonnull;
+
 public class WGRegionEventsListener implements Listener {
-    private static final Map<Player, Set<ProtectedRegion>> playerRegions = new HashMap<>();
+
 
     @EventHandler
     public void onRegionEntered(RegionEnteredEvent event) {
@@ -172,106 +173,87 @@ public class WGRegionEventsListener implements Listener {
     }
 
 
-    @EventHandler
-    public void onPlayerKick(PlayerKickEvent e) {
-        handlePlayerDisconnect(e.getPlayer(), MovementWay.DISCONNECT, e);
+
+    @Nonnull
+    public static Set<ProtectedRegion> getRegions(UUID playerUUID)
+    {
+        Player player = Bukkit.getPlayer(playerUUID);
+        if (player == null || !player.isOnline())
+            return Collections.emptySet();
+
+        RegionQuery query = Main.getPlugin().getRegionContainer().createQuery();
+        ApplicableRegionSet set = query.getApplicableRegions(BukkitAdapter.adapt(player.getLocation()));
+        return set.getRegions();
     }
 
-    @EventHandler
-    public void onPlayerQuit(PlayerQuitEvent e) {
-        handlePlayerDisconnect(e.getPlayer(), MovementWay.DISCONNECT, e);
+    /**
+     * Gets the regions names a player is currently in.
+     *
+     * @param playerUUID UUID of the player in question.
+     * @return Set of Strings with the names of the regions the player is currently in.
+     */
+    @Nonnull
+    public static Set<String> getRegionsNames(UUID playerUUID)
+    {
+        return getRegions(playerUUID).stream().map(ProtectedRegion::getId).collect(Collectors.toSet());
     }
 
-    private void handlePlayerDisconnect(Player player, MovementWay movement, PlayerEvent event) {
-        Set<ProtectedRegion> regions = playerRegions.remove(player);
-        if (regions != null) {
-            for (ProtectedRegion region : regions) {
-                RegionLeaveEvent leaveEvent = new RegionLeaveEvent(region, player, movement, event);
-                RegionLeftEvent leftEvent = new RegionLeftEvent(region, player, movement, event);
-                Bukkit.getPluginManager().callEvent(leaveEvent);
-                Bukkit.getPluginManager().callEvent(leftEvent);
-            }
+    /**
+     * Checks whether a player is in one or several regions
+     *
+     * @param playerUUID UUID of the player in question.
+     * @param regionNames Set of regions to check.
+     * @return True if the player is in (all) the named region(s).
+     */
+    public static boolean isPlayerInAllRegions(UUID playerUUID, Set<String> regionNames)
+    {
+        Set<String> regions = getRegionsNames(playerUUID);
+        if(regionNames.isEmpty()) throw new IllegalArgumentException("You need to check for at least one region !");
+
+        return regions.containsAll(regionNames.stream().map(String::toLowerCase).collect(Collectors.toSet()));
+    }
+
+    /**
+     * Checks whether a player is in one or several regions
+     *
+     * @param playerUUID UUID of the player in question.
+     * @param regionNames Set of regions to check.
+     * @return True if the player is in (any of) the named region(s).
+     */
+    public static boolean isPlayerInAnyRegion(UUID playerUUID, Set<String> regionNames)
+    {
+        Set<String> regions = getRegionsNames(playerUUID);
+        if(regionNames.isEmpty()) throw new IllegalArgumentException("You need to check for at least one region !");
+        for(String region : regionNames)
+        {
+            if(regions.contains(region.toLowerCase()))
+                return true;
         }
-    }
-
-
-    @EventHandler
-    public void onPlayerMove(final PlayerMoveEvent e) {
-        e.setCancelled(this.updateRegions(e.getPlayer(), MovementWay.MOVE, e.getTo(), e));
-    }
-
-    @EventHandler
-    public void onPlayerTeleport(final PlayerTeleportEvent e) {
-        e.setCancelled(this.updateRegions(e.getPlayer(), MovementWay.TELEPORT, e.getTo(), e));
-    }
-
-    @EventHandler
-    public void onPlayerJoin(final PlayerJoinEvent e) {
-        this.updateRegions(e.getPlayer(), MovementWay.SPAWN, e.getPlayer().getLocation(), e);
-    }
-
-    @EventHandler
-    public void onPlayerRespawn(final PlayerRespawnEvent e) {
-        this.updateRegions(e.getPlayer(), MovementWay.SPAWN, e.getRespawnLocation(), e);
-    }
-
-    private synchronized boolean updateRegions(final Player player, final MovementWay movement, final Location to, final PlayerEvent event) {
-        Set<ProtectedRegion> regions = new HashSet<>(playerRegions.getOrDefault(player, new HashSet<>()));
-        final Set<ProtectedRegion> oldRegions = new HashSet<>(regions);
-
-        RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
-        final RegionManager rm = container.get(BukkitAdapter.adapt(to.getWorld()));
-        if (rm == null) {
-            return false;
-        }
-
-        Set<ProtectedRegion> appRegions = rm.getApplicableRegions(BlockVector3.at(to.getX(), to.getY(), to.getZ())).getRegions();
-
-        final ProtectedRegion globalRegion = rm.getRegion("__global__");
-        if (globalRegion != null) {
-            appRegions.add(globalRegion);
-        }
-
-        for (final ProtectedRegion region : appRegions) {
-            if (!regions.contains(region)) {
-                final RegionEnterEvent e = new RegionEnterEvent(region, player, movement, event);
-                Bukkit.getServer().getPluginManager().callEvent(e);
-                if (e.isCancelled()) {
-                    regions.clear();
-                    regions.addAll(oldRegions);
-                    playerRegions.put(player, regions);
-                    return true;
-                }
-                Bukkit.getScheduler().runTaskLater(Main.getPlugin(), () -> {
-                    final RegionEnteredEvent enteredEvent = new RegionEnteredEvent(region, player, movement, event);
-                    Bukkit.getServer().getPluginManager().callEvent(enteredEvent);
-                }, 1L);
-                regions.add(region);
-            }
-        }
-
-        regions.removeIf(region -> !appRegions.contains(region));
-
-        for (final ProtectedRegion region : oldRegions) {
-            if (!regions.contains(region)) {
-                if (rm.getRegion(region.getId()) == region) {
-                    final RegionLeaveEvent e = new RegionLeaveEvent(region, player, movement, event);
-                    Bukkit.getServer().getPluginManager().callEvent(e);
-                    if (e.isCancelled()) {
-                        regions.clear();
-                        regions.addAll(oldRegions);
-                        playerRegions.put(player, regions);
-                        return true;
-                    }
-                    Bukkit.getScheduler().runTaskLater(Main.getPlugin(), () -> {
-                        final RegionLeftEvent leftEvent = new RegionLeftEvent(region, player, movement, event);
-                        Bukkit.getServer().getPluginManager().callEvent(leftEvent);
-                    }, 1L);
-                }
-            }
-        }
-
-        playerRegions.put(player, regions);
         return false;
     }
+
+    /**
+     * Checks whether a player is in one or several regions
+     *
+     * @param playerUUID UUID of the player in question.
+     * @param regionName List of regions to check.
+     * @return True if the player is in (any of) the named region(s).
+     */
+    public static boolean isPlayerInAnyRegion(UUID playerUUID, String... regionName)
+    {
+        return isPlayerInAnyRegion(playerUUID, new HashSet<>(Arrays.asList(regionName)));
+    }
+
+    /**
+     * Checks whether a player is in one or several regions
+     *
+     * @param playerUUID UUID of the player in question.
+     * @param regionName List of regions to check.
+     * @return True if the player is in (any of) the named region(s).
+     */
+    public static boolean isPlayerInAllRegions(UUID playerUUID, String... regionName)
+    {
+        return isPlayerInAllRegions(playerUUID, new HashSet<>(Arrays.asList(regionName)));
+    }
+
 }

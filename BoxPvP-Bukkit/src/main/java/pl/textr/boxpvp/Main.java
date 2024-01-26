@@ -10,6 +10,8 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
+import com.sk89q.worldguard.WorldGuard;
+import com.sk89q.worldguard.protection.regions.RegionContainer;
 import org.bukkit.Bukkit;
 import org.bukkit.WorldCreator;
 import org.bukkit.WorldType;
@@ -102,23 +104,19 @@ import pl.textr.boxpvp.utils.ChatUtil;
 
 public class Main extends JavaPlugin {
 
-    //test
     private static Main plugin;
     public WorldGuardPlugin wgPlugin;
     public final RedisDatabase redisDatabase = new RedisDatabase();
     private PluginConfiguration Pluginconfiguration;
     public DiscordConfiguration DiscordConfiguration;	
-   private HikariDataSource hikari;
+    private HikariDataSource hikari;
     public static Economy econ = null;
     private KillContractManager killContractManager;
+    public  RegionContainer container;
 
-  
-    
     public static Main getPlugin() {
         return Main.plugin;
     }
-
-
     public PluginConfiguration getConfiguration() {
         return this.Pluginconfiguration;
     }
@@ -126,20 +124,24 @@ public class Main extends JavaPlugin {
     public DiscordConfiguration getDiscordConfiguration() {
         return this.DiscordConfiguration;
     }
-    
- 
+
     public HikariDataSource getHikari() {
  
     	return hikari;
     }
 
-    
+
+    public RegionContainer getRegionContainer() {
+      return container;
+    }
 
     public RedisDatabase getRedisService() {
+
         return redisDatabase;
     }
 
     public KillContractManager getKillContractManager() {
+
         return killContractManager;
     }
 
@@ -199,6 +201,7 @@ public class Main extends JavaPlugin {
         if (provider != null) {
             provider.getProvider();
         }
+        container = WorldGuard.getInstance().getPlatform().getRegionContainer();
     }
 
     
