@@ -14,11 +14,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-/**
- * @author Weby &amp; Anrza (info@raidstone.net)
- * @version 1.0.0
- * @since 12/12/2019
- */
+
 public class RegionsChangedEvent extends Event implements Cancellable {
     private static final HandlerList handlers = new HandlerList();
 
@@ -29,14 +25,16 @@ public class RegionsChangedEvent extends Event implements Cancellable {
     private final Set<ProtectedRegion> currentRegions = new HashSet<>();
     private final Set<String> previousRegionsNames = new HashSet<>();
     private final Set<String> currentRegionsNames = new HashSet<>();
+
     /**
-     * This even is fired whenever a region is entered.
-     * It may be fired multiple times per tick, if several
-     * regions are entered at the same time.
-     * @param playerUUID The UUID of the player entering the region.
-     * @param previous Set of WorldGuard's ProtectedRegion the player was in before this event
-     * @param current Set of WorldGUard's ProtectedRegion the player is currently in
+     * To zdarzenie jest wywoływane za każdym razem, gdy wchodzisz do obszaru.
+     * Może być wywoływane wielokrotnie w jednym tickie, jeśli kilka
+     * obszarów jest wchodzonych jednocześnie.
+     * @param playerUUID UUID gracza wchodzącego do obszaru.
+     * @param previous Zbiór obszarów chronionych przez WorldGuard, w których gracz był przed tym zdarzeniem.
+     * @param current Zbiór obszarów chronionych przez WorldGuard, w których gracz obecnie się znajduje.
      */
+
     public RegionsChangedEvent(UUID playerUUID, @NotNull Set<ProtectedRegion> previous, @NotNull Set<ProtectedRegion> current)
     {
         this.uuid = playerUUID;

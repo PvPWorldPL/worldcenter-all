@@ -24,12 +24,13 @@ public class RegionLeftEvent extends Event implements Cancellable {
 
 
     /**
-     * This even is fired whenever a region is left.
-     * It may be fired multiple times per tick, if several
-     * regions are left at the same time.
-     * @param playerUUID The UUID of the player leaving the region.
-     * @param region WorldGuard's ProtectedRegion region.
+     * To zdarzenie jest wywoływane za każdym razem, gdy opuszczasz obszar.
+     * Może być wywoływane wielokrotnie w jednym tikie, jeśli kilka
+     * obszarów jest opuszczanych jednocześnie.
+     * @param playerUUID UUID gracza opuszczającego obszar.
+     * @param region Obszar chroniony WorldGuard.
      */
+
     public RegionLeftEvent(UUID playerUUID, @NotNull ProtectedRegion region)
     {
         this.uuid = playerUUID;

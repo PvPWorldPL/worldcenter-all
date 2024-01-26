@@ -26,11 +26,13 @@ public class RegionsEnteredEvent extends Event implements Cancellable {
     private final Set<String> regionsNames;
 
     /**
-     * This even is fired whenever one or several regions are entered.
-     * @param playerUUID The UUID of the player entering the regions.
-     * @param regions
+     * To zdarzenie jest wywoływane za każdym razem, gdy jeden lub kilka obszarów jest wchodzonych.
+     * @param playerUUID UUID gracza wchodzącego do obszarów.
+     * @param regions Zbiór obszarów chronionych przez WorldGuard, które gracz wchodzi.
      */
-    public RegionsEnteredEvent(UUID playerUUID, @Nullable Set<ProtectedRegion> regions)
+
+
+public RegionsEnteredEvent(UUID playerUUID, @Nullable Set<ProtectedRegion> regions)
     {
         this.uuid = playerUUID;
         this.regionsNames = new HashSet<>();

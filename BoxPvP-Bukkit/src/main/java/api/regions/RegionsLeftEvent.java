@@ -27,10 +27,11 @@ public class RegionsLeftEvent extends Event implements Cancellable {
     private final Set<String> regionsNames;
 
     /**
-     * This even is fired whenever one or several regions are left.
-     * @param playerUUID The UUID of the player leaving the regions.
-     * @param regions Set of WorldGuard's ProtectedRegion regions.
+     * To zdarzenie jest wywoływane za każdym razem, gdy jeden lub kilka obszarów jest opuszczanych.
+     * @param playerUUID UUID gracza opuszczającego obszary.
+     * @param regions Zbiór obszarów chronionych przez WorldGuard, które gracz opuszcza.
      */
+
     public RegionsLeftEvent(UUID playerUUID, @Nullable Set<ProtectedRegion> regions)
     {
         this.uuid = playerUUID;

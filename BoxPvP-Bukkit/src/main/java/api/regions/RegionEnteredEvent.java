@@ -12,11 +12,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;
 
-/**
- * @author Weby &amp; Anrza (info@raidstone.net)
- * @version 1.0.0
- * @since 2/24/19
- */
+
 public class RegionEnteredEvent extends Event implements Cancellable {
     private static final HandlerList handlers = new HandlerList();
 
@@ -27,12 +23,13 @@ public class RegionEnteredEvent extends Event implements Cancellable {
     private final String regionName;
 
     /**
-     * This even is fired whenever a region is entered.
-     * It may be fired multiple times per tick, if several
-     * regions are entered at the same time.
-     * @param playerUUID The UUID of the player entering the region.
-     * @param region WorldGuard's ProtectedRegion region.
+     * To zdarzenie jest wywoływane za każdym razem, gdy wchodzisz do obszaru.
+     * Może być wywoływane wielokrotnie w jednym tikie, jeśli kilka
+     * obszarów jest wchodzonych jednocześnie.
+     * @param playerUUID UUID gracza wchodzącego do obszaru.
+     * @param region Obszar chroniony WorldGuard.
      */
+
     public RegionEnteredEvent(UUID playerUUID, @NotNull ProtectedRegion region)
     {
         this.uuid = playerUUID;

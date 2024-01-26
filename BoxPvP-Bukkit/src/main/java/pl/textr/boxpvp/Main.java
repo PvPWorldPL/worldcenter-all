@@ -10,6 +10,7 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
+import api.regions.Entry;
 import com.sk89q.worldguard.WorldGuard;
 import com.sk89q.worldguard.protection.regions.RegionContainer;
 import org.bukkit.Bukkit;
@@ -184,8 +185,15 @@ public class Main extends JavaPlugin {
 
         // Sprawdzenie WorldGuard i Vault
         if (wgPlugin == null) {
-            getLogger().warning("WorldGuard nie jest zainstalowany na serwerze.");
+            getLogger().warning("[WorldGuard] nie jest zainstalowany na serwerze.");
             getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
+        if (!WorldGuard.getInstance().getPlatform().getSessionManager().registerHandler(Entry.factory, null)) {
+            getLogger().warning("[WorldGuard] Nie udało się zarejestrować obsługi wejścia!");
+            getLogger().warning("[WorldGuard] Prosimy zgłosić ten błąd. Teraz wtyczka zostanie wyłączona.");
+
+            Bukkit.getPluginManager().disablePlugin(this);
             return;
         }
 

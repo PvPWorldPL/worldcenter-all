@@ -53,7 +53,6 @@ public class Entry extends Handler implements Listener {
             if(regentered.isCancelled()) return false;
         }
 
-
         for(ProtectedRegion r : left) {
             RegionLeftEvent regleft = new RegionLeftEvent(player.getUniqueId(), r);
             pm.callEvent(regleft);
@@ -61,9 +60,5 @@ public class Entry extends Handler implements Listener {
         }
         return true;
     }
-
-
-
-
 
 }
