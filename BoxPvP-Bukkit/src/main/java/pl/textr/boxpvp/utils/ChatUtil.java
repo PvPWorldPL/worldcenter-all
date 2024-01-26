@@ -11,10 +11,14 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import net.minecraft.network.chat.ChatComponentText;
+import net.minecraft.network.chat.ChatMessage;
+import net.minecraft.network.chat.IChatBaseComponent;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
-import org.bukkit.craftbukkit.v1_16_R3.entity.CraftPlayer;
+
+import org.bukkit.craftbukkit.v1_17_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -26,13 +30,9 @@ import com.sk89q.worldguard.protection.regions.RegionContainer;
 import com.sk89q.worldguard.protection.regions.RegionQuery;
 
 import net.md_5.bungee.api.ChatColor;
-import net.minecraft.server.v1_16_R3.IChatBaseComponent;
-import net.minecraft.server.v1_16_R3.PacketPlayOutTitle;
 
 public class ChatUtil {
-    public static String iiIi;
     private static final Pattern HEX_PATTERN = Pattern.compile("&(#\\w{6})");
-    public final static char COLOR_CHAR = ChatColor.COLOR_CHAR;
     private static final List<String> blockedWords = List.of(".pl", ".eu", ".net", ".com", ".", "zapraszamy na", "zapraszam", "ip", "wbijajcie na");
 	
 
@@ -52,7 +52,7 @@ public class ChatUtil {
 
     public static String translateHexColorCodes(String str) {
         Matcher matcher = HEX_PATTERN.matcher(ChatColor.translateAlternateColorCodes('&', str));
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
 
         while (matcher.find())
             matcher.appendReplacement(buffer, ChatColor.of(matcher.group(1)).toString());
@@ -126,14 +126,11 @@ public class ChatUtil {
     }
 
 
-    
-  
-    public static double roundTwoDecimals(String  amount) {
-        DecimalFormat twoForm = new DecimalFormat("##.00");
-        return Double.valueOf(twoForm.format(amount)).doubleValue();
-      }
-    
-    
+
+
+    public static double roundTwoDecimals(String amount) {
+        return Double.parseDouble(new DecimalFormat("##.00").format(Double.parseDouble(amount)));
+    }
 
 
     public static String format(final Double d) {
@@ -146,11 +143,10 @@ public class ChatUtil {
                 .anyMatch(s -> mess.toLowerCase().contains(s.toLowerCase()));
     }
 
-    
+
     public static boolean isAlphaNumeric(final String s) {
-        return s.matches("^[a-zA-Z0-9_]*$");
+        return !s.matches("^[a-zA-Z0-9_]*$");
     }
-    
 
  
     
@@ -173,8 +169,8 @@ public class ChatUtil {
 
 
 
-    public static void sendTitle(final Player p, final String title, final String subttitle) {
-        sendTitle(p, title, subttitle, 30, 40, 30);
+    public static void sendTitle(final Player player, String title, String subtitle) {
+        sendTitle(player, title, subtitle, 10, 20, 10); // Provide default values or adjust them accordingly
     }
 
     public static void sendTitle(final Player player, String title, String subtitle, final int fadeIn, final int stay, final int fadeOut) {
@@ -184,16 +180,12 @@ public class ChatUtil {
         if (subtitle == null) {
             subtitle = "";
         }
-        final CraftPlayer craftPlayer = (CraftPlayer) player;
-        final PacketPlayOutTitle packetTimes = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.TIMES, null, fadeIn, stay, fadeOut);
-        craftPlayer.getHandle().playerConnection.sendPacket(packetTimes);
-        final IChatBaseComponent chatTitle = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + translateHexColorCodes(fixColor(title)) + "\"}");
-        final PacketPlayOutTitle packetTitle = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.TITLE, chatTitle);
-        craftPlayer.getHandle().playerConnection.sendPacket(packetTitle);
-        final IChatBaseComponent chatSubtitle = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + translateHexColorCodes(fixColor(subtitle)) + "\"}");
-        final PacketPlayOutTitle packetSubtitle = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.SUBTITLE, chatSubtitle);
-        craftPlayer.getHandle().playerConnection.sendPacket(packetSubtitle);
+
+        // Send title
+        player.sendTitle(translateHexColorCodes(fixColor(title)), translateHexColorCodes(fixColor(subtitle)), fadeIn, stay, fadeOut);
     }
+
+
 
 
     public static void giveItems(final Player p, final ItemStack... items) {
@@ -229,6 +221,7 @@ public class ChatUtil {
         }
         return returnMaterial;
     }
+
 
 
 }
