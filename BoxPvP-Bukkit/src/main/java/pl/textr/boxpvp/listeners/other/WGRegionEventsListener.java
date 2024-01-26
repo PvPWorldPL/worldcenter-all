@@ -97,6 +97,7 @@ public class WGRegionEventsListener implements Listener {
 
             if (totalPlayersInRegion >= 30) {
                 handleRegionEntryDenied(player, event.getPlayer().getLocation(), "&cNie możesz wejść na obszar &facrystal&c, ponieważ liczba graczy na obszarze jest już powyżej 30.");
+
                 return;
             }
             player.spigot().sendMessage(ChatMessageType.CHAT, new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Wszedles na kraine crystal")));
