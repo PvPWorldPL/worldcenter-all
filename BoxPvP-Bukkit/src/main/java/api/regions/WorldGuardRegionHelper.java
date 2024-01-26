@@ -17,7 +17,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 
-public class WorldGuardEvents {
+public class WorldGuardRegionHelper {
 
     /**
      * Pobiera obszary, w których obecnie znajduje się gracz.
