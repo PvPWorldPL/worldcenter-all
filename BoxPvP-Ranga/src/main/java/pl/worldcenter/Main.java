@@ -34,17 +34,6 @@ public class Main extends JavaPlugin {
         }
     }
 
-
-
-
-    @Override
-    public void onDisable() {
-        for (Player player : Bukkit.getOnlinePlayers()) {
-            player.kickPlayer(ChatUtil.fixColor("&cSerwer jest aktualnie restartowany!"));
-        }
-    }
-
-
     public void loadCommands() {
         int totalCommands = 0;
 
