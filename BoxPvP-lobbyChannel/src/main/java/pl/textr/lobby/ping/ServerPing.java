@@ -96,7 +96,7 @@ public class ServerPing {
             response.time = response_1_10.getTime();
             response.protocol = response_1_10.getVersion().getProtocol();
             response.version = response_1_10.getVersion().getName();
-        } else if (version.contains("1.13") | version.contains("1.14") | version.contains("1.15") | version.contains("1.16")) {
+        } else if (version.contains("1.13") | version.contains("1.14") | version.contains("1.15") | version.contains("1.16")|  version.contains("1.18")) {
             StatusResponse_1_13 response_1_13 = ServerPing.gson.fromJson(jsonString, StatusResponse_1_13.class);
             response.description = response_1_13.getDescription().getText();
             response.players = response_1_13.getPlayers().getOnline();
