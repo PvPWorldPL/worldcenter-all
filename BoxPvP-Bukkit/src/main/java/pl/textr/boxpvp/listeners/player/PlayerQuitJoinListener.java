@@ -37,7 +37,6 @@ public class PlayerQuitJoinListener implements Listener {
 
 	private static Location SPAWN_LOCATION;
 
-	LuckPerms api = LuckPermsProvider.get();
 
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event) {
