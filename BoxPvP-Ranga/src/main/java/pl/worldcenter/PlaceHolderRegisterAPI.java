@@ -12,7 +12,6 @@ import pl.worldcenter.util.ChatUtil;
 public class PlaceHolderRegisterAPI extends PlaceholderExpansion {
 
 
-    private RangaCommand rangaCommand;
 
 
     @Override
@@ -20,9 +19,9 @@ public class PlaceHolderRegisterAPI extends PlaceholderExpansion {
         LuckPerms luckPerms = LuckPermsProvider.get();
         User user = luckPerms.getUserManager().getUser(player.getUniqueId());
 
-        String boxPvpRanks = rangaCommand.getRanksOnServer(user, "boxpvp");
-        String skyPvpRanks = rangaCommand.getRanksOnServer(user, "skypvp");
-        String lifeStealRanks = rangaCommand.getRanksOnServer(user, "lifesteal");
+        String boxPvpRanks = RangaCommand.getRanksOnServer(user, "boxpvp");
+        String skyPvpRanks = RangaCommand.getRanksOnServer(user, "skypvp");
+        String lifeStealRanks = RangaCommand.getRanksOnServer(user, "lifesteal");
 
             if (identifier.equalsIgnoreCase("boxpvp")) {
                 return boxPvpRanks;

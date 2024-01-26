@@ -56,16 +56,15 @@ public class WGRegionEventsListener implements Listener {
                 player.hidePlayer(Main.getPlugin(), otherPlayer);
                 otherPlayer.hidePlayer(Main.getPlugin(), player);
             }
-        }
-         else   if (regionId.equals("afk")) {
-                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Wszedłeś do strefy AFK")));
-                RewardTask.startTask(300, 1800, player);
+        } else if (regionId.equals("afk")) {
+            player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Wszedłeś do strefy AFK")));
+            RewardTask.startTask(300, 1800, player);
 
-                for (Player otherPlayer : Bukkit.getOnlinePlayers()) {
-                    player.hidePlayer(Main.getPlugin(), otherPlayer);
-                    otherPlayer.hidePlayer(Main.getPlugin(), player);
-                }
+            for (Player otherPlayer : Bukkit.getOnlinePlayers()) {
+                player.hidePlayer(Main.getPlugin(), otherPlayer);
+                otherPlayer.hidePlayer(Main.getPlugin(), player);
             }
+        }
 
     }
 
@@ -133,15 +132,14 @@ public class WGRegionEventsListener implements Listener {
                 player.showPlayer(Main.getPlugin(), otherPlayer);
                 otherPlayer.showPlayer(Main.getPlugin(), player);
             }
-        }
-         else   if (regionId.equals(Main.getPlugin().getConfiguration().spawnregion())) {
-                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Opuściłeś środek spawnu - zostałeś odkryty!")));
+        } else if (regionId.equals(Main.getPlugin().getConfiguration().spawnregion())) {
+            player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Opuściłeś środek spawnu - zostałeś odkryty!")));
 
-                for (Player otherPlayer : Bukkit.getOnlinePlayers()) {
-                    player.showPlayer(Main.getPlugin(), otherPlayer);
-                    otherPlayer.showPlayer(Main.getPlugin(), player);
-                }
+            for (Player otherPlayer : Bukkit.getOnlinePlayers()) {
+                player.showPlayer(Main.getPlugin(), otherPlayer);
+                otherPlayer.showPlayer(Main.getPlugin(), player);
             }
+        }
 
     }
 
@@ -172,8 +170,6 @@ public class WGRegionEventsListener implements Listener {
             p.showPlayer(Main.getPlugin(), otherPlayer);
         }
     }
-
-
 
 
     @EventHandler
@@ -220,7 +216,7 @@ public class WGRegionEventsListener implements Listener {
     }
 
     private synchronized boolean updateRegions(final Player player, final MovementWay movement, final Location to, final PlayerEvent event) {
-        Set<ProtectedRegion> regions = playerRegions.getOrDefault(player, new HashSet<>());
+        Set<ProtectedRegion> regions = new HashSet<>(playerRegions.getOrDefault(player, new HashSet<>()));
         final Set<ProtectedRegion> oldRegions = new HashSet<>(regions);
 
         RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
@@ -243,6 +239,7 @@ public class WGRegionEventsListener implements Listener {
                 if (e.isCancelled()) {
                     regions.clear();
                     regions.addAll(oldRegions);
+                    playerRegions.put(player, regions);
                     return true;
                 }
                 Bukkit.getScheduler().runTaskLater(Main.getPlugin(), () -> {
@@ -263,6 +260,7 @@ public class WGRegionEventsListener implements Listener {
                     if (e.isCancelled()) {
                         regions.clear();
                         regions.addAll(oldRegions);
+                        playerRegions.put(player, regions);
                         return true;
                     }
                     Bukkit.getScheduler().runTaskLater(Main.getPlugin(), () -> {

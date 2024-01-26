@@ -4,11 +4,9 @@ package pl.worldcenter;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.reflect.ClassPath;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import pl.worldcenter.commands.api.BaseCommand;
 import pl.worldcenter.commands.api.CommandRegistry;
-import pl.worldcenter.util.ChatUtil;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -18,9 +16,9 @@ public class Main extends JavaPlugin {
     //test
 
     private static Main plugin;
-    private pl.worldcenter.commands.RangaCommand RangaCommand;
 
     public static Main getPlugin() {
+
         return Main.plugin;
     }
 
@@ -53,11 +51,11 @@ public class Main extends JavaPlugin {
                         totalCommands++;
 
                     } catch (InstantiationException | IllegalAccessException | NoSuchMethodException |
-                             InvocationTargetException e) {
+                             InvocationTargetException ignored) {
                     }
                 }
             }
-        } catch (IOException e) {}
+        } catch (IOException ignored) {}
         this.getLogger().info("Załadowano " + totalCommands + " komend");
     }
 }

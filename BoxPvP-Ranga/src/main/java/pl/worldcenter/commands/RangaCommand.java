@@ -30,7 +30,7 @@ public class RangaCommand extends PlayerCommandExecutor {
         RANK_MAPPINGS.put("group.svip", "&6SVIP ");
         RANK_MAPPINGS.put("group.sponsor", "&9 SPONSOR ");
         RANK_MAPPINGS.put("group.yt", " ");
-        RANK_MAPPINGS.put("group.player", " ");
+        RANK_MAPPINGS.put("group.player", " &fPlayer");
 
         RANK_GLOBAL_MAPPINGS.put("wlasciciel", "&4&lCEO");
         RANK_GLOBAL_MAPPINGS.put("vip", "&aVIP");
