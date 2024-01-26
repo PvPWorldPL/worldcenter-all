@@ -89,6 +89,34 @@ public class WorldGuardRegionHelper {
     }
 
     /**
+     * Sprawdza, czy wszyscy gracze online znajdują się w jednym lub kilku obszarach.
+     *
+     * @param regionNames Zbiór obszarów do sprawdzenia.
+     * @return Prawda, jeśli wszyscy gracze online są w (wszystkich) obszarze/obszarach o podanych nazwach.
+     */
+    public static boolean areAllPlayersInRegions(Set<String> regionNames) {
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            if (!isPlayerInAnyRegion(player.getUniqueId(), regionNames)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+
+
+    /**
+     * Sprawdza, czy wszyscy gracze online znajdują się w jednym lub kilku obszarach.
+     *
+     * @param regionNames Lista obszarów do sprawdzenia.
+     * @return Prawda, jeśli wszyscy gracze online są w (wszystkich) obszarze/obszarach o podanych nazwach.
+     */
+    public static boolean areAllPlayersInRegions(String... regionNames) {
+        return areAllPlayersInRegions(new HashSet<>(Arrays.asList(regionNames)));
+    }
+
+    /**
      * Sprawdza, czy gracz znajduje się w jednym lub kilku obszarach.
      *
      * @param playerUUID UUID gracza, którego dotyczy zapytanie.
