@@ -21,7 +21,7 @@ public class AnvilListener implements Listener
 
   
     
-  @SuppressWarnings("deprecation")
+
 @EventHandler(priority = EventPriority.MONITOR)
   public void onClick1(InventoryClickEvent e) {
     Player player = (Player)e.getWhoClicked();
