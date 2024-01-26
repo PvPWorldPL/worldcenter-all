@@ -31,7 +31,7 @@ public class AnvilListener implements Listener
       if (item != null) {
         if (item.getType() == Material.EXPERIENCE_BOTTLE) {
           
-          if (player.getInventory().getItemInMainHand().getType() != Material.AIR && RepairCommand.isTool(is.getType())) {
+          if (player.getInventory().getItemInMainHand().getType() != Material.AIR && RepairCommand.isTool(player.getInventory().getItemInMainHand().getType())) {
         	    player.getInventory().getItemInMainHand().setDurability((short)0);        
             player.setLevel(player.getLevel() - 5);
             player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 10.0F, 5.0F);
