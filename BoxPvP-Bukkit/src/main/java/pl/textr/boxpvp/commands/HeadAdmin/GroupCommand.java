@@ -26,7 +26,7 @@ public class GroupCommand extends BaseCommand {
             return ChatUtil.sendMessage(p, "&8[&C&l!&8] &cGracz jest offline lub nie znaleziono go w bazie danych!");     
         }
         
-        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + args[0] + " group set " + args[1]);
+        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + args[0] + " parent set " + args[1] + " server=boxpvp");
 
         ChatUtil.sendMessage(p, "&7Zmieniles range &f" + args[0] + " &7na &f" + args[1]);
 
