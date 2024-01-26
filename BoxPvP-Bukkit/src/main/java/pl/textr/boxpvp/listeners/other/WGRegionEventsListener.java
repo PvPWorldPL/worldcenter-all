@@ -78,7 +78,9 @@ public class WGRegionEventsListener implements Listener {
             Clans guild = ClanManager.getGuild(player);
 
             if (guild == null) {
-                handleRegionEntryDenied(player, event.getPlayer().getLocation(), "&cNie możesz wejść na obszar &fcrystal&c, ponieważ nie należysz do żadnego klanu.");
+                handleRegionEntryDenied(player);
+                player.spigot().sendMessage(ChatMessageType.CHAT,
+                new TextComponent(ChatUtil.translateHexColorCodes("&cNie możesz wejść na obszar &fcrystal&c, ponieważ nie należysz do żadnego klanu")));
                 return;
             }
 
@@ -91,16 +93,20 @@ public class WGRegionEventsListener implements Listener {
                     .count();
 
             if (totalMembersInRegion >= 2) {
-                handleRegionEntryDenied(player, event.getPlayer().getLocation(), "&cNie możesz wejść na obszar &facrystal&c, ponieważ liczba członków gildii na obszarze jest już powyżej 2.");
+                handleRegionEntryDenied(player);
+                player.spigot().sendMessage(ChatMessageType.CHAT,
+                new TextComponent(ChatUtil.translateHexColorCodes("&cNie możesz wejść na obszar &facrystal&c, ponieważ liczba członków gildii na obszarze jest już powyżej 2."))) ;
                 return;
             }
 
             if (totalPlayersInRegion >= 30) {
-                handleRegionEntryDenied(player, event.getPlayer().getLocation(), "&cNie możesz wejść na obszar &facrystal&c, ponieważ liczba graczy na obszarze jest już powyżej 30.");
-
+                handleRegionEntryDenied(player);
+                player.spigot().sendMessage(ChatMessageType.CHAT,
+                new TextComponent(ChatUtil.translateHexColorCodes("&cNie możesz wejść na obszar &facrystal&c, ponieważ liczba graczy na obszarze jest już powyżej 30.")));
                 return;
             }
-            player.spigot().sendMessage(ChatMessageType.CHAT, new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Wszedles na kraine crystal")));
+            player.spigot().sendMessage(ChatMessageType.CHAT,
+            new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Wszedles na kraine crystal")));
         }
     }
 
@@ -109,16 +115,13 @@ public class WGRegionEventsListener implements Listener {
         return player.getWorld() == location.getWorld() && player.getLocation().distance(location) <= radius;
     }
 
-    public static void handleRegionEntryDenied(Player player, Location location, String Message) {
-        Vector vector = player.getLocation().toVector().subtract(location.toVector()).normalize().multiply(1.4D);
-        vector.setY(0.1D); // Set the y-component separately
 
-        if (player.isInsideVehicle())
-            player.leaveVehicle();
-
-        player.setVelocity(vector);
-        player.spigot().sendMessage(ChatMessageType.CHAT, new TextComponent(ChatUtil.translateHexColorCodes(Message)));
+    private void handleRegionEntryDenied(Player player) {
+        Vector knockbackDirection = player.getLocation().getDirection().multiply(-1); // Kierunek odepchnięcia (w tył)
+        knockbackDirection.setY(1); // Odepchnięcie w górę, aby uniknąć utknięcia w blokach
+        player.setVelocity(knockbackDirection);
     }
+
 
     @EventHandler
     public void onRegionLeft(RegionLeftEvent event) {

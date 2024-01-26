@@ -79,8 +79,7 @@ public class BreakListener implements Listener {
                 item = blockToIngot(item);
 
                 HashMap<Integer, ItemStack> leftOver = player.getInventory().addItem(new ItemStack(item));
-                leftOver.values().removeIf(leftoverItem -> leftoverItem.getType() != Material.AIR && leftoverItem.getAmount() != 0);
-                leftOver.forEach((index, leftoverItem) -> player.getWorld().dropItemNaturally(player.getLocation(), leftoverItem));
+                leftOver.values().forEach(leftoverItem -> player.getWorld().dropItemNaturally(player.getLocation(), leftoverItem));
             }
 
             // PerkDropu logic
@@ -98,9 +97,7 @@ public class BreakListener implements Listener {
                 for (ItemStack item : drops) {
                     ItemStack multipliedItem = new ItemStack(item.getType(), (int) (item.getAmount() * perkDropuMultiplier));
                     HashMap<Integer, ItemStack> leftOver1 = player.getInventory().addItem(multipliedItem);
-                    leftOver1.values().removeIf(leftoverItem1 -> leftoverItem1.getType() != Material.AIR && leftoverItem1.getAmount() != 0);
-                    leftOver1.forEach((index, leftoverItem1) -> player.getWorld().dropItemNaturally(player.getLocation(), leftoverItem1));
-
+                    leftOver1.values().forEach(leftoverItem1 -> player.getWorld().dropItemNaturally(player.getLocation(), leftoverItem1));
                 }
             }
 
@@ -112,8 +109,7 @@ public class BreakListener implements Listener {
                 for (ItemStack item : drops) {
                     ItemStack multipliedItem = new ItemStack(item.getType(), (int) (item.getAmount() * turbodropMultiplier));
                     HashMap<Integer, ItemStack> leftOver1 = player.getInventory().addItem(multipliedItem);
-                    leftOver1.values().removeIf(leftoverItem1 -> leftoverItem1.getType() != Material.AIR && leftoverItem1.getAmount() != 0);
-                    leftOver1.forEach((index, leftoverItem1) -> player.getWorld().dropItemNaturally(player.getLocation(), leftoverItem1));
+                    leftOver1.values().forEach(leftoverItem1 -> player.getWorld().dropItemNaturally(player.getLocation(), leftoverItem1));
                 }
             }
             if (Main.getPlugin().getConfiguration().debug) {

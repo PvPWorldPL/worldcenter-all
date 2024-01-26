@@ -30,16 +30,8 @@ public class AnvilListener implements Listener
       ItemStack item = e.getCurrentItem();
       if (item != null) {
         if (item.getType() == Material.EXPERIENCE_BOTTLE) {
-        /*
-            if (player.getLevel() < 5) {
-            ChatUtil.sendMessage(player, "&8[&C&l!&8]  &cPotrzebujesz &c65 poziom expa &caby naprawic przedmiot!");
-            player.closeInventory();
-            return;
-           }
-          */
-          ItemStack is = player.getInventory().getItemInMainHand();
           
-          if (is.getType() != Material.AIR && RepairCommand.isTool(is.getType())) {
+          if (player.getInventory().getItemInMainHand().getType() != Material.AIR && RepairCommand.isTool(is.getType())) {
         	    player.getInventory().getItemInMainHand().setDurability((short)0);        
             player.setLevel(player.getLevel() - 5);
             player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 10.0F, 5.0F);
