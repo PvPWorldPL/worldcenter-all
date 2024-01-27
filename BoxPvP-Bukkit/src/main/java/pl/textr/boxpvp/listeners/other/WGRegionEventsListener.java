@@ -85,10 +85,10 @@ public class WGRegionEventsListener implements Listener {
                 return;
             }
 
-            int totalGuildMembersInRegion = WorldGuardRegionHelper.getGuildMembersInRegionCount(clan, "crystal");
+            int totalClanMembersInRegion = WorldGuardRegionHelper.getClanMembersInRegionCount(clan, "crystal");
 
 
-            if (totalGuildMembersInRegion >= 2) {
+            if (totalClanMembersInRegion >= 2) {
                 handleRegionEntryDenied(player);
                 player.spigot().sendMessage(ChatMessageType.CHAT,
                         new TextComponent(ChatUtil.translateHexColorCodes("&cNie możesz wejść na obszar &facrystal&c, ponieważ liczba członków gildii na obszarze jest już powyżej 2.")));
@@ -106,11 +106,6 @@ public class WGRegionEventsListener implements Listener {
             player.spigot().sendMessage(ChatMessageType.CHAT,
             new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Wszedles na kraine crystal")));
         }
-    }
-
-
-    private boolean isSameWorldAndWithinRadius(Player player, Location location, double radius) {
-        return player.getWorld() == location.getWorld() && player.getLocation().distance(location) <= radius;
     }
 
 
