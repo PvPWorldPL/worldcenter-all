@@ -116,12 +116,12 @@ public class WorldGuardRegionHelper {
      * @param regionName Nazwa obszaru, dla którego chcesz sprawdzić liczbę członków klanu.
      * @return Liczba członków klanu w danym regionie.
      */
-    public static int getGuildMembersInRegionCount(Clans clan, String regionName) {
-        Set<Player> guildMembersInRegion = clan.getOnlineMembers().stream()
+    public static int getClanMembersInRegionCount(Clans clan, String regionName) {
+        Set<Player> ClanMembersInRegion = clan.getOnlineMembers().stream()
                 .filter(member -> isPlayerInAnyRegion(member.getUniqueId(), regionName))
                 .collect(Collectors.toSet());
 
-        return guildMembersInRegion.size();
+        return ClanMembersInRegion.size();
     }
 
 
