@@ -82,6 +82,7 @@ public class WGRegionEventsListener implements Listener {
                 return;
             }
 
+
             int totalClanMembersInRegion = WorldGuardRegionHelper.getClanMembersInRegionCount(clan, "crystal");
 
 
