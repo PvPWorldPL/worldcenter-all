@@ -51,14 +51,11 @@ public class WGRegionEventsListener implements Listener {
         String regionId = event.getRegionName();
 
         if (regionId.equals(Main.getPlugin().getConfiguration().spawnregion())) {
-            player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Jesteś na środku spawnu - zostałeś ukryty")));
-
             for (Player otherPlayer : Bukkit.getOnlinePlayers()) {
                 player.hidePlayer(Main.getPlugin(), otherPlayer);
                 otherPlayer.hidePlayer(Main.getPlugin(), player);
             }
         } else if (regionId.equals("afk")) {
-            player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Wszedłeś do strefy AFK")));
             RewardTask.startTask(300, 1800, player);
 
             for (Player otherPlayer : Bukkit.getOnlinePlayers()) {
@@ -66,8 +63,8 @@ public class WGRegionEventsListener implements Listener {
                 otherPlayer.hidePlayer(Main.getPlugin(), player);
             }
         }
-
     }
+
 
 
     @EventHandler
@@ -122,7 +119,6 @@ public class WGRegionEventsListener implements Listener {
         String regionId = event.getRegionName();
 
         if (regionId.equals("afk")) {
-            player.spigot().sendMessage(ChatMessageType.CHAT, new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Opuściłeś strefę AFK")));
             RewardTask.cancelTask(player);
 
             for (Player otherPlayer : Bukkit.getOnlinePlayers()) {
@@ -130,8 +126,6 @@ public class WGRegionEventsListener implements Listener {
                 otherPlayer.showPlayer(Main.getPlugin(), player);
             }
         } else if (regionId.equals(Main.getPlugin().getConfiguration().spawnregion())) {
-            player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Opuściłeś środek spawnu - zostałeś odkryty!")));
-
             for (Player otherPlayer : Bukkit.getOnlinePlayers()) {
                 player.showPlayer(Main.getPlugin(), otherPlayer);
                 otherPlayer.showPlayer(Main.getPlugin(), player);
