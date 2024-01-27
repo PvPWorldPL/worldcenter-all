@@ -21,7 +21,7 @@ public class PlayerCommandPreprocessListener implements Listener {
 	private static final HelpMap HELP_MAP = Bukkit.getServer().getHelpMap();
 
 	private static final Set<String> BLOCKEDREGION_COMMANDS = new HashSet<>(Arrays.asList(
-			"/usun", "/opusc", "/wyrzuc"
+			"/usun", "/opusc", "/wyrzuc","zapros"
 	));
 
 	private static final Set<String> BLOCKED_COMMANDS = new HashSet<>(Arrays.asList(
