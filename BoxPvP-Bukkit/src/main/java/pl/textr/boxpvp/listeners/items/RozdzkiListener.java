@@ -19,6 +19,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.util.Vector;
 import pl.textr.boxpvp.utils.ChatUtil;
+import api.regions.WorldGuardRegionHelper;
+
+import java.util.Set;
 
 public class RozdzkiListener implements Listener {
 
@@ -33,20 +36,32 @@ public class RozdzkiListener implements Listener {
         }
 
 
+        if (WorldGuardRegionHelper.isPlayerInAnyRegion(player.getUniqueId(), "protectspawn")) {
+            player.sendMessage(ChatColor.RED + "Nie możesz używać tego przedmiotu w tym obszarze!");
+            event.setCancelled(true);
+            return;
+        }
+
         ItemStack item = player.getInventory().getItemInMainHand();
         if (!item.isSimilar(ItemsManager.getrozdzkawiatr(1))) {
             return;
         }
 
         if (targetEntity instanceof Player targetPlayer) {
-            pushPlayer(targetPlayer, 5, 3);
+
+            if (WorldGuardRegionHelper.isPlayerInAnyRegion(targetPlayer.getUniqueId(), "protectspawn")) {
+                player.sendMessage(ChatColor.RED + "Nie możesz używać tego przedmiotu na graczach w obszarze protectspawn!");
+                event.setCancelled(true);
+                return;
+            }
+            pushPlayer(targetPlayer, 3, 3);
             player.getInventory().removeItem(new ItemStack(ItemsManager.getrozdzkawiatr(1)));
         }
     }
 
     private void pushPlayer(Player player, int strength, int height) {
         Location playerLocation = player.getLocation();
-        Vector direction = playerLocation.getDirection().normalize();
+        Vector direction = playerLocation.getDirection().normalize().multiply(-1);
         Vector velocity = direction.multiply(strength);
         velocity.setY(height);
         player.setVelocity(velocity);
