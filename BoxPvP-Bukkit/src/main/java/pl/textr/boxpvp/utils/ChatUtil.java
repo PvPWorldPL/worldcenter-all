@@ -168,7 +168,7 @@ public class ChatUtil {
 
 
     public static void sendTitle(final Player player, String title, String subtitle) {
-        sendTitle(player, title, subtitle, 10, 20, 10); // Provide default values or adjust them accordingly
+        sendTitle(player, title, subtitle, 10, 20, 10);
     }
 
     public static void sendTitle(final Player player, String title, String subtitle, final int fadeIn, final int stay, final int fadeOut) {

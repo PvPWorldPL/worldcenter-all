@@ -58,8 +58,7 @@ public class TeleportPlayerManagerListener implements Listener
     
     @EventHandler
     public void onDamage(final EntityDamageEvent event) {
-        if (event.getEntity() instanceof Player) {
-            final Player player = (Player)event.getEntity();
+        if (event.getEntity() instanceof Player player) {
             final TimerTask t = TeleportPlayerManagerListener.tasks.get(player.getUniqueId());
             if (t != null) {
                 cancel(t, player);

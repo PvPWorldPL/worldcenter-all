@@ -29,7 +29,12 @@ public class ActionbarTask implements Runnable {
                 message += "&fTeleportacja &8(&a" + teleportRemainingTime + "sek.&8)";
             }
 
-            player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.translateAlternateColorCodes('&', "&7Wymiana monet: " + (user.isPrzerabianieMonet() ? "&a&l✔" : "&c&l✖") + "&7, &7Sprzedaż monet: " + (user.isPrzerabianieKasy() ? "&a&l✔" : "&c&l✖") + " &8(&f/ustawienia&8)")));
+            if (true || user.isPrzerabianieBlokow() || user.isPrzerabianieKasy() || user.isPrzerabianieMonet()) {
+                if (!message.isEmpty()) {
+                    message += " &8| ";
+                }
+                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.translateAlternateColorCodes('&', "&7Wymiana monet: " + (user.isPrzerabianieMonet() ? "&a&l✔" : "&c&l✖") + "&7, &7Sprzedaż monet: " + (user.isPrzerabianieKasy() ? "&a&l✔" : "&c&l✖") + " &8(&f/ustawienia&8)")));
+            }
 
             if (!message.isEmpty()) {
                 player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.translateAlternateColorCodes('&', message)));
