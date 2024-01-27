@@ -17,7 +17,7 @@ public class ActionbarTask implements Runnable {
             String message = "";
 
             if (user.isVanish()) {
-                message += "&fJestes w trybie &aVanish";
+                message += "&#1eff12j&#1cf111e&#1be210s&#19d40ft&#17c50ee&#16b70ds &#14a80cw &#129a0bt&#118b0ar&#0f7d09y&#118b0ab&#129a0bi&#14a80ce &#16b70dv&#17c50ea&#19d40fn&#1be210i&#1cf111s&#1eff12h";
             }
 
             if (TeleportTimer.teleporting.containsKey(player)) {
