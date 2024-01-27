@@ -9,6 +9,7 @@ import api.regions.WorldGuardRegionHelper;
 import com.sk89q.worldguard.protection.ApplicableRegionSet;
 import com.sk89q.worldguard.protection.regions.RegionQuery;
 import org.bukkit.Bukkit;
+import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
@@ -68,52 +69,42 @@ public class WGRegionEventsListener implements Listener {
 
 
     @EventHandler
-    public void onRegionEnteredCrystal(RegionEnteredEvent event) {
+    public void onRegionEnteredCrystal(PlayerMoveEvent event) {
         Player player = event.getPlayer();
-        String regionId = event.getRegionName();
 
-        if (regionId.equals("crystal")) {
+        if (WorldGuardRegionHelper.isPlayerInAnyRegion(player.getUniqueId(), "crystal")) {
             Clans clan = ClanManager.getGuild(player);
 
             if (clan == null) {
-                handleRegionEntryDenied(player);
-                player.spigot().sendMessage(ChatMessageType.CHAT,
-                new TextComponent(ChatUtil.translateHexColorCodes("&cNie możesz wejść na obszar &fcrystal&c, ponieważ nie należysz do żadnego klanu")));
+                handleRegionEntryDenied(player, "&cNie możesz wejść na obszar &fcrystal&c, ponieważ nie należysz do żadnego klanu");
                 return;
             }
 
-
             int totalClanMembersInRegion = WorldGuardRegionHelper.getClanMembersInRegionCount(clan, "crystal");
 
-
             if (totalClanMembersInRegion >= 2) {
-                handleRegionEntryDenied(player);
-                player.spigot().sendMessage(ChatMessageType.CHAT,
-                        new TextComponent(ChatUtil.translateHexColorCodes("&cNie możesz wejść na obszar &facrystal&c, ponieważ liczba członków gildii na obszarze jest już powyżej 2.")));
+                handleRegionEntryDenied(player, "&cNie możesz wejść na obszar &facrystal&c, ponieważ liczba członków gildii na obszarze jest już powyżej 2.");
                 return;
             }
 
             int totalPlayersInRegion = WorldGuardRegionHelper.getPlayersInRegionCount("crystal");
 
             if (totalPlayersInRegion >= 30) {
-                handleRegionEntryDenied(player);
-                player.spigot().sendMessage(ChatMessageType.CHAT,
-                new TextComponent(ChatUtil.translateHexColorCodes("&cNie możesz wejść na obszar &facrystal&c, ponieważ liczba graczy na obszarze jest już powyżej 30.")));
+                handleRegionEntryDenied(player, "&cNie możesz wejść na obszar &facrystal&c, ponieważ liczba graczy na obszarze jest już powyżej 30.");
                 return;
-
-
             }
 
-            player.spigot().sendMessage(ChatMessageType.CHAT,
-            new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Wszedles na kraine crystal")));
+            player.spigot().sendMessage(ChatMessageType.CHAT, new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Wszedłeś na krainę crystal")));
         }
     }
 
-
-    private void handleRegionEntryDenied(Player player) {
+    private void handleRegionEntryDenied(Player player, String message) {
         Vector knockbackDirection = new Vector(0, 0, -1);
         player.setVelocity(knockbackDirection);
+        player.spigot().sendMessage(ChatMessageType.CHAT, new TextComponent(ChatUtil.translateHexColorCodes(message)));
+
     }
+
 
 
 
