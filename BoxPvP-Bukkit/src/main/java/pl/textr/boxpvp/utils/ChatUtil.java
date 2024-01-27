@@ -142,11 +142,11 @@ public class ChatUtil {
     }
 
 
-    public static boolean isAlphaNumeric(final String s) {
-        return !s.matches("^[a-zA-Z0-9_]*$");
-    }
 
- 
+
+    public static boolean isAlphaNumeric(final String s) {
+        return s.matches("^[a-zA-Z0-9_]+$");
+    }
     
     public static boolean isInteger(final String string) {
         return Pattern.matches("-?[0-9]+", string.subSequence(0, string.length()));
@@ -168,7 +168,7 @@ public class ChatUtil {
 
 
     public static void sendTitle(final Player player, String title, String subtitle) {
-        sendTitle(player, title, subtitle, 10, 20, 10);
+        sendTitle(player, title, subtitle, 10, 20, 10); // Provide default values or adjust them accordingly
     }
 
     public static void sendTitle(final Player player, String title, String subtitle, final int fadeIn, final int stay, final int fadeOut) {
