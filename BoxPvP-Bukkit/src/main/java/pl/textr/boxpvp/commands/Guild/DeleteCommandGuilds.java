@@ -1,5 +1,6 @@
 package pl.textr.boxpvp.commands.Guild;
 
+import api.regions.WorldGuardRegionHelper;
 import org.bukkit.entity.Player;
 
 import api.Commands.CommandInfo;
@@ -22,7 +23,11 @@ public class DeleteCommandGuilds extends PlayerCommandExecutor {
         if (!g.isOwner(p)) {
             return ChatUtil.sendMessage(p, "&8&l[&C&l!&8&l] &cNie jestes zalozycielem klanu!");
         }
-      
+
+        if (WorldGuardRegionHelper.isPlayerInAnyRegion(p.getUniqueId(), "crystal")) {
+            return ChatUtil.sendMessage(p, "&8&l[&C&l!&8&l] &cNie możesz usunąć klanu będąc w obszarze crystal!");
+        }
+
         UpdateGuildDeletePacket UpdateGuildDeletePacket;
         UpdateGuildDeletePacket = new UpdateGuildDeletePacket(g.getTag(), p.getName());
         Main.getPlugin().getRedisService().publishAsync("UpdateGuildDelete", UpdateGuildDeletePacket);        

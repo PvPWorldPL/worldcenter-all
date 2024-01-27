@@ -21,7 +21,7 @@ public class PlayerCommandPreprocessListener implements Listener {
 	private static final HelpMap HELP_MAP = Bukkit.getServer().getHelpMap();
 
 	private static final Set<String> BLOCKEDREGION_COMMANDS = new HashSet<>(Arrays.asList(
-			"/usun", "/opusc", "/wyrzuc","zapros"
+			"/usun", "/opusc", "/wyrzuc", "zapros"
 	));
 
 	private static final Set<String> BLOCKED_COMMANDS = new HashSet<>(Arrays.asList(
@@ -68,21 +68,4 @@ public class PlayerCommandPreprocessListener implements Listener {
 		}
 	}
 
-	@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
-	public void onBlockCommandRegion(PlayerCommandPreprocessEvent event) {
-		Player player1 = event.getPlayer();
-
-		if (!player1.hasPermission("core.plugins")) {
-			String message = event.getMessage();
-
-			if (message.startsWith("/")) {
-				String commands = event.getMessage().split(" ")[0].toLowerCase();
-
-				if (WorldGuardRegionHelper.isPlayerInAnyRegion(player1.getUniqueId(), "crystal") && BLOCKEDREGION_COMMANDS.contains(commands)) {
-					event.setCancelled(true);
-					ChatUtil.sendMessage(player1, ChatUtil.translateHexColorCodes("&7Komenda &#ff2609&l{command} &7nie została odnaleziona".replace("{command}", event.getMessage().replace("//", "/").replace("%newline%", "\n"))));
-				}
-			}
-		}
-	}
 }

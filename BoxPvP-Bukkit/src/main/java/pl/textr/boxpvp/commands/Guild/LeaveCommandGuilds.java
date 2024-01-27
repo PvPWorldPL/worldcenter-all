@@ -1,5 +1,6 @@
 package pl.textr.boxpvp.commands.Guild;
 
+import api.regions.WorldGuardRegionHelper;
 import org.bukkit.entity.Player;
 
 import api.Commands.CommandInfo;
@@ -22,6 +23,11 @@ public class LeaveCommandGuilds extends PlayerCommandExecutor {
         if (g.isOwner(p)) {
             return ChatUtil.sendMessage(p, "&cTy jestes zalozycielem klanu nie mozesz go opuscic!");
         }
+
+        if (WorldGuardRegionHelper.isPlayerInAnyRegion(p.getUniqueId(), "crystal")) {
+            return ChatUtil.sendMessage(p, "&8[&C&l!&8] &cNie możesz opuscic klanu będąc w obszarze crystal!");
+        }
+
 
       //  g.removeMember(p.getName());
         UpdateGuildRemovePlayerPacket UpdateGuildRemovePlayerPacket;

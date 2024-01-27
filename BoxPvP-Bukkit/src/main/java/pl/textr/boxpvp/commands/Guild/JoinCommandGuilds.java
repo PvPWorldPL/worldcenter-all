@@ -1,5 +1,6 @@
 package pl.textr.boxpvp.commands.Guild;
 
+import api.regions.WorldGuardRegionHelper;
 import org.bukkit.entity.Player;
 
 import api.Commands.CommandInfo;
@@ -29,6 +30,10 @@ public class JoinCommandGuilds extends PlayerCommandExecutor {
         }
         if (g.getMembers().size() >= 30) {
             return ChatUtil.sendMessage(p, "&8[&C&l!&8] &cTen klan  posiada juz maksymalna ilosc czlonkow! (30 osob)");
+        }
+
+        if (WorldGuardRegionHelper.isPlayerInAnyRegion(p.getUniqueId(), "crystal")) {
+            return ChatUtil.sendMessage(p, "&8[&C&l!&8] &cNie mozesz dolaczyc do klanu będac w obszarze crystal!");
         }
         if (!g.getInvites().contains(p)) {
             return ChatUtil.sendMessage(p, "&8[&C&l!&8] &cNie posiadasz zaproszenia do klanu " + g.getTag() + "!");

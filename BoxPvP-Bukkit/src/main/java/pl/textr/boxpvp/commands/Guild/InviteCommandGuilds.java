@@ -1,5 +1,6 @@
 package pl.textr.boxpvp.commands.Guild;
 
+import api.regions.WorldGuardRegionHelper;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -43,7 +44,9 @@ public class InviteCommandGuilds extends PlayerCommandExecutor {
         if (p.getName().equalsIgnoreCase(o.getName())) {
             return ChatUtil.sendMessage(p, "&8[&C&l!&8] &cNie możesz zaprosić samego siebie!");
         }
-       
+
+
+
         final Clans go = ClanManager.getGuild(o.getPlayer());
         if (go != null) {
             return ChatUtil.sendMessage(p, "&8[&C&l!&8] &cGracz posiada juz klan!");
@@ -57,12 +60,6 @@ public class InviteCommandGuilds extends PlayerCommandExecutor {
       Player player = Bukkit.getPlayer(o.getName());  
       g.getInvites().add(player);   
        ChatUtil.sendMessage(o.getPlayer(), "&7Zostales zaproszony do klanu: &r" + g.getTag() + "\n &7Aby zaakceptowac wpisz: &r/dolacz " + g.getTag());
-      
-        
-      //  UpdateGuildInvitePacket UpdateGuildInvitePacket;
-        //UpdateGuildInvitePacket = new UpdateGuildInvitePacket(g.getTag(), o.getName(), p.getName());
-        //Main.getPlugin().getRedisService().publishAsync("UpdateGuildInvitePlayerPacket", UpdateGuildInvitePacket);  
-       
 
         return ChatUtil.sendMessage(p, "&8[&C&l!&8] &7Wyslales zaproszenie do klanu dla gracza &c" + o.getName() + "&7!");
         

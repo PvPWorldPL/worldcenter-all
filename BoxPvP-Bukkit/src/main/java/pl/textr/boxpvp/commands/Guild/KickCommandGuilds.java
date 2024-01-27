@@ -1,5 +1,6 @@
  package pl.textr.boxpvp.commands.Guild;
 
+import api.regions.WorldGuardRegionHelper;
 import org.bukkit.entity.Player;
 
 import api.Commands.CommandInfo;
@@ -36,7 +37,10 @@ public class KickCommandGuilds extends PlayerCommandExecutor {
         if (p.getName().equals(o.getName())) {
             return ChatUtil.sendMessage(p, "&8[&C&l!&8] &cNie mozesz wyrzucic samego siebie!");
         }
-   
+
+        if (WorldGuardRegionHelper.isPlayerInAnyRegion(p.getUniqueId(), "crystal")) {
+            return ChatUtil.sendMessage(p, "&8[&C&l!&8] &cNie możesz wyrzucić gracza poniewaz znajduje sie on w obszarze 'crystal'!");
+        }
       //  g.removeMember(o.getName());
         UpdateGuildKickPlayerPacket UpdateGuildKickPlayerPacket;
         UpdateGuildKickPlayerPacket = new UpdateGuildKickPlayerPacket(String.valueOf(g.getTag()), o.getName());
