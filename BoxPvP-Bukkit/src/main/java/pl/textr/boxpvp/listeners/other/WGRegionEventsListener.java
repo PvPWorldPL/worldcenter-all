@@ -76,21 +76,25 @@ public class WGRegionEventsListener implements Listener {
             Clans clan = ClanManager.getGuild(player);
 
             if (clan == null) {
-                handleRegionEntryDenied(player, "&cNie możesz wejść na obszar &fcrystal&c, ponieważ nie należysz do żadnego klanu");
+                handleRegionEntryDenied(player);
+
+                player.spigot().sendMessage(ChatMessageType.CHAT, new TextComponent(ChatUtil.translateHexColorCodes("&cNie możesz wejść na obszar &fcrystal&c, ponieważ nie należysz do żadnego klanu")));
                 return;
             }
 
             int totalClanMembersInRegion = WorldGuardRegionHelper.getClanMembersInRegionCount(clan, "crystal");
 
             if (totalClanMembersInRegion >= 2) {
-                handleRegionEntryDenied(player, "&cNie możesz wejść na obszar &facrystal&c, ponieważ liczba członków gildii na obszarze jest już powyżej 2.");
+                handleRegionEntryDenied(player);
+                player.spigot().sendMessage(ChatMessageType.CHAT, new TextComponent(ChatUtil.translateHexColorCodes("&cNie możesz wejść na obszar &facrystal&c, ponieważ liczba członków gildii na obszarze jest już powyżej 2.")));
                 return;
             }
 
             int totalPlayersInRegion = WorldGuardRegionHelper.getPlayersInRegionCount("crystal");
 
             if (totalPlayersInRegion >= 30) {
-                handleRegionEntryDenied(player, "&cNie możesz wejść na obszar &facrystal&c, ponieważ liczba graczy na obszarze jest już powyżej 30.");
+                handleRegionEntryDenied(player);
+                 player.spigot().sendMessage(ChatMessageType.CHAT, new TextComponent(ChatUtil.translateHexColorCodes("&cNie możesz wejść na obszar &facrystal&c, ponieważ liczba graczy na obszarze jest już powyżej 30.")));
                 return;
             }
 
@@ -98,10 +102,9 @@ public class WGRegionEventsListener implements Listener {
         }
     }
 
-    private void handleRegionEntryDenied(Player player, String message) {
+    private void handleRegionEntryDenied(Player player) {
         Vector knockbackDirection = new Vector(0, 0, -1);
         player.setVelocity(knockbackDirection);
-        player.spigot().sendMessage(ChatMessageType.CHAT, new TextComponent(ChatUtil.translateHexColorCodes(message)));
 
     }
 
