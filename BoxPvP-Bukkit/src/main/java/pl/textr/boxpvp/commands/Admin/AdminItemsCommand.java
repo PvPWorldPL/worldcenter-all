@@ -24,7 +24,7 @@ public class AdminItemsCommand extends PlayerCommandExecutor {
   }
   
   public void show(Player p) {
-	    Inventory inv = Bukkit.createInventory((InventoryHolder)p, 54, ChatUtil.fixColor("&fItemy administratora"));
+	    Inventory inv = Bukkit.createInventory(p, 54, ChatUtil.fixColor("&fItemy administratora"));
 	    ItemBuilder.fillGui(inv);
 	    inv.addItem(new ItemStack(ItemsManager.getMoneta1(64)));
 	    inv.addItem(new ItemStack(ItemsManager.getMoneta2(64)));
@@ -34,14 +34,12 @@ public class AdminItemsCommand extends PlayerCommandExecutor {
 	    inv.addItem(new ItemStack(ItemsManager.getMoneta6(64)));
 	    inv.addItem(new ItemStack(ItemsManager.getMoneta7(64)));
 	    inv.addItem(new ItemStack(ItemsManager.getMoneta8(64)));
-	    
 	    inv.addItem(new ItemStack(ItemsManager.getVoucherSPONSOR(64)));
 	    inv.addItem(new ItemStack(ItemsManager.getVoucherSVIP(64)));
 		inv.addItem(new ItemStack(ItemsManager.getVoucherVIP(64)));
 	    inv.addItem(new ItemStack(ItemsManager.getUsuwacz(64)));
 	    inv.addItem(new ItemStack(ItemsManager.getodlamek(64)));
-	    
-	    
+		inv.addItem(new ItemStack(ItemsManager.getrozdzkawiatr(64)));
 	    p.openInventory(inv);
 	  }
 }

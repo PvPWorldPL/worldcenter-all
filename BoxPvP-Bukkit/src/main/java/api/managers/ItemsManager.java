@@ -227,4 +227,16 @@ public class ItemsManager {
 				.setGlow().ToItemStack();
 		return vip;
 	}
+
+    public static ItemStack getrozdzkawiatr(int size) {
+		ItemStack rozdzkawiatr = (new ItemBuilder(Material.STICK, size))
+				.setTitle(ChatUtil.fixColor("&e&lRozdzka Wiatr"))
+				.addLore("")
+				.addLore("")
+				.addLore(ChatUtil.fixColor("&7Kliknij aby odrzucic gracza w powietrze!"))
+				.addLore("")
+				.setGlow().ToItemStack();
+		return rozdzkawiatr;
+	}
+
 }

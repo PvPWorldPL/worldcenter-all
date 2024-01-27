@@ -41,13 +41,6 @@ public class UsuwaczListener implements Listener {
             return;
         }
 
-        if (event instanceof Cancellable) {
-            Cancellable cancellableEvent = event;
-            if (cancellableEvent.isCancelled()) {
-                cancellableEvent.setCancelled(true);
-                return;
-            }
-        }
 
         if (CooldownManager.isCooldownActive(player)) {
             long remainingCooldown = CooldownManager.getRemainingCooldown(player);
