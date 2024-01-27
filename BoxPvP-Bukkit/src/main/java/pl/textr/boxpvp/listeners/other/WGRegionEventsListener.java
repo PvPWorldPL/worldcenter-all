@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import api.data.Clans;
 import api.managers.ClanManager;
+import api.regions.WorldGuardRegionHelper;
 import com.sk89q.worldguard.protection.ApplicableRegionSet;
 import com.sk89q.worldguard.protection.regions.RegionQuery;
 import org.bukkit.Bukkit;
@@ -75,29 +76,26 @@ public class WGRegionEventsListener implements Listener {
         String regionId = event.getRegionName();
 
         if (regionId.equals("crystal")) {
-            Clans guild = ClanManager.getGuild(player);
+            Clans clan = ClanManager.getGuild(player);
 
-            if (guild == null) {
+            if (clan == null) {
                 handleRegionEntryDenied(player);
                 player.spigot().sendMessage(ChatMessageType.CHAT,
                 new TextComponent(ChatUtil.translateHexColorCodes("&cNie możesz wejść na obszar &fcrystal&c, ponieważ nie należysz do żadnego klanu")));
                 return;
             }
 
-            int totalMembersInRegion = (int) guild.getOnlineMembers().stream()
-                    .filter(member -> isSameWorldAndWithinRadius(player, member.getLocation(), 5))
-                    .count();
+            int totalGuildMembersInRegion = WorldGuardRegionHelper.getGuildMembersInRegionCount(clan, "crystal");
 
-            int totalPlayersInRegion = (int) Bukkit.getOnlinePlayers().stream()
-                    .filter(p -> isSameWorldAndWithinRadius(player, p.getLocation(), 5))
-                    .count();
 
-            if (totalMembersInRegion >= 2) {
+            if (totalGuildMembersInRegion >= 2) {
                 handleRegionEntryDenied(player);
                 player.spigot().sendMessage(ChatMessageType.CHAT,
-                new TextComponent(ChatUtil.translateHexColorCodes("&cNie możesz wejść na obszar &facrystal&c, ponieważ liczba członków gildii na obszarze jest już powyżej 2."))) ;
+                        new TextComponent(ChatUtil.translateHexColorCodes("&cNie możesz wejść na obszar &facrystal&c, ponieważ liczba członków gildii na obszarze jest już powyżej 2.")));
                 return;
             }
+
+            int totalPlayersInRegion = WorldGuardRegionHelper.getPlayersInRegionCount("crystal");
 
             if (totalPlayersInRegion >= 30) {
                 handleRegionEntryDenied(player);
@@ -117,10 +115,10 @@ public class WGRegionEventsListener implements Listener {
 
 
     private void handleRegionEntryDenied(Player player) {
-        Vector knockbackDirection = player.getLocation().getDirection().multiply(-1); // Kierunek odepchnięcia (w tył)
-        knockbackDirection.setY(1); // Odepchnięcie w górę, aby uniknąć utknięcia w blokach
+        Vector knockbackDirection = new Vector(0, 0, -1);
         player.setVelocity(knockbackDirection);
     }
+
 
 
     @EventHandler

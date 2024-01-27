@@ -36,11 +36,11 @@ public class RozdzkiListener implements Listener {
         }
 
 
-        if (WorldGuardRegionHelper.isPlayerInAnyRegion(player.getUniqueId(), "protectspawn")) {
-            player.sendMessage(ChatColor.RED + "Nie możesz używać tego przedmiotu w tym obszarze!");
+        if (WorldGuardRegionHelper.isPlayerInAnyRegion(player.getUniqueId(), "protectspawn", "spawn", "kopalniapremium", "kopalnia","afk")) {
             event.setCancelled(true);
             return;
         }
+
 
         ItemStack item = player.getInventory().getItemInMainHand();
         if (!item.isSimilar(ItemsManager.getrozdzkawiatr(1))) {
@@ -48,12 +48,6 @@ public class RozdzkiListener implements Listener {
         }
 
         if (targetEntity instanceof Player targetPlayer) {
-
-            if (WorldGuardRegionHelper.isPlayerInAnyRegion(targetPlayer.getUniqueId(), "protectspawn")) {
-                player.sendMessage(ChatColor.RED + "Nie możesz używać tego przedmiotu na graczach w obszarze protectspawn!");
-                event.setCancelled(true);
-                return;
-            }
             pushPlayer(targetPlayer, 3, 3);
             player.getInventory().removeItem(new ItemStack(ItemsManager.getrozdzkawiatr(1)));
         }

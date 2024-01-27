@@ -1,5 +1,6 @@
 package api.regions;
 
+import api.data.Clans;
 import com.sk89q.worldedit.bukkit.BukkitAdapter;
 import com.sk89q.worldguard.protection.ApplicableRegionSet;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
@@ -87,6 +88,42 @@ public class WorldGuardRegionHelper {
         }
         return false;
     }
+
+
+    /**
+     * Pobiera liczbę graczy obecnych w danym regionie.
+     *
+     * @param regionName Nazwa obszaru, dla którego chcesz sprawdzić liczbę graczy.
+     * @return Liczba graczy w danym regionie.
+     */
+    public static int getPlayersInRegionCount(String regionName) {
+        int playerCount = 0;
+
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            UUID playerUUID = player.getUniqueId();
+            if (isPlayerInAnyRegion(playerUUID, regionName)) {
+                playerCount++;
+            }
+        }
+
+        return playerCount;
+    }
+
+    /**
+     * Pobiera liczbę członków klanu obecnych w danym regionie.
+     *
+     * @param clan       Klan, którego członków chcesz zliczyć.
+     * @param regionName Nazwa obszaru, dla którego chcesz sprawdzić liczbę członków klanu.
+     * @return Liczba członków klanu w danym regionie.
+     */
+    public static int getGuildMembersInRegionCount(Clans clan, String regionName) {
+        Set<Player> guildMembersInRegion = clan.getOnlineMembers().stream()
+                .filter(member -> isPlayerInAnyRegion(member.getUniqueId(), regionName))
+                .collect(Collectors.toSet());
+
+        return guildMembersInRegion.size();
+    }
+
 
     /**
      * Sprawdza, czy wszyscy gracze online znajdują się w jednym lub kilku obszarach.
