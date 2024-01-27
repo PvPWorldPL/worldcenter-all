@@ -7,6 +7,7 @@ import api.managers.UserAccountManager;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
+import pl.textr.boxpvp.utils.ChatUtil;
 import pl.textr.boxpvp.utils.teleport.TeleportTimer;
 
 public class ActionbarTask implements Runnable {
@@ -34,7 +35,7 @@ public class ActionbarTask implements Runnable {
             }
             message += "&7Przerabianie bloków: " + (user.isPrzerabianieBlokow() ? "&a&l✔" : "&c&l✖") + " &7Przerabianie monet: " + (user.isPrzerabianieMonet() ? "&a&l✔" : "&c&l✖") + " &7Przerabianie kasy: " + (user.isPrzerabianieKasy() ? "&a&l✔" : "&c&l✖") + " &8(&f/ustawienia&8)";
 
-            player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.translateAlternateColorCodes('&', message)));
+            player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtil.translateHexColorCodes(message)));
         }
     }
 }

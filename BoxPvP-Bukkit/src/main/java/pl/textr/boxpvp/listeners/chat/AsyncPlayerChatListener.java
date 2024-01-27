@@ -120,38 +120,17 @@ public class AsyncPlayerChatListener implements Listener {
 
     public String getRainbow(Player p) {
         String playernickname = p.getName();
-        StringBuilder rainbow_nick = new StringBuilder(playernickname.length() * 10); // Przybliżamy początkową pojemność, aby uniknąć nadmiernej realokacji pamięci
+        StringBuilder rainbow_nick = new StringBuilder(playernickname.length() * 10);
         Random r = new Random();
 
-        List<String> colors = Arrays.asList(
-        	    "#008080", // Ciemny turkus
-        	    "#00CED1", // Jasny turkus
-        	    "#4B0082", // Ciemny indygo
-        	    "#6495ED", // Jasny indygo
-        	    "#556B2F", // Ciemny oliwkowy
-        	    "#6B8E23", // Jasny oliwkowy
-        	    "#CD853F", // Ciemny złocisto-brązowy
-        	    "#DAA520", // Jasny złocisto-brązowy
-        	    "#006400", // Ciemny malachitowy
-        	    "#00FF7F", // Jasny malachitowy
-        	    "#483D8B", // Ciemny lazurowy
-        	    "#4169E1 ", // Jasny lazurowy
-        	    "#DC143C ", // Ciemny karmazyn
-        	    "#FF6EB4 ", // Jasny karmazyn
-        	    "#C0C0C0", // Ciemny srebrzysty
-        	    "#ECECEC ", // Jasny srebrzysty
-        	    "#800080", // Ciemny purpurowy
-        	    "#FF00FF", // Jasny purpurowy
-        	    "#FF1493", // Ciemny truskawkowy
-        	    "#FF69B4" // Jasny truskawkowy
-        );
-
-        for (int i = 0; i < playernickname.length(); ++i) {
-            String randomColor = colors.get(r.nextInt(colors.size()));
-            rainbow_nick.append("&").append(randomColor).append(playernickname.charAt(i));
+        for (char c : playernickname.toCharArray()) {
+            int randomColorCode = r.nextInt(9) + 1;
+            rainbow_nick.append("&").append(randomColorCode).append(c);
         }
 
         return rainbow_nick.toString();
     }
+
+
 
 }
