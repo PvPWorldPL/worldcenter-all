@@ -3,6 +3,7 @@ package pl.textr.boxpvp.listeners.items;
 
 import api.managers.CooldownManager;
 import api.managers.ItemsManager;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -18,6 +19,7 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.util.Vector;
+import pl.textr.boxpvp.Main;
 import pl.textr.boxpvp.utils.ChatUtil;
 import api.regions.WorldGuardRegionHelper;
 
@@ -38,7 +40,9 @@ public class RozdzkiListener implements Listener {
         if (item.isSimilar(ItemsManager.getrozdzkawiatr(1))) {
             if (WorldGuardRegionHelper.isPlayerInAnyRegion(player.getUniqueId(), "protectspawn", "spawn", "kopalniapremium", "kopalnia", "afk")) {
                     event.setCancelled(true);
-                    player.sendMessage("&cNie możesz używać rozdzki w tym regionie");
+                    if (Main.getPlugin().getConfiguration().debug) {
+                    Bukkit.getLogger().info("interakcja wylaczona");
+                }
                 } else {
                     // Gracz nie jest w żadnym z zablokowanych regionów, więc rozdzka działa
                     if (targetEntity instanceof Player targetPlayer) {
