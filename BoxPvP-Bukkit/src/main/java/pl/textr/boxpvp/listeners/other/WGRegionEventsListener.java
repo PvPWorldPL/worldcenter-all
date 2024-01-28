@@ -69,7 +69,7 @@ public class WGRegionEventsListener implements Listener {
 
 
     @EventHandler
-    public void onRegionEnteredCrystal(PlayerMoveEvent event) {
+    public void onRegionEnteredCrystal(RegionEnteredEvent event) {
         Player player = event.getPlayer();
 
         if (WorldGuardRegionHelper.isPlayerInAnyRegion(player.getUniqueId(), "crystal")) {
@@ -105,6 +105,7 @@ public class WGRegionEventsListener implements Listener {
     private void handleRegionEntryDenied(Player player) {
         Vector knockbackDirection = new Vector(0, 0, -1);
         player.setVelocity(knockbackDirection);
+
 
     }
 

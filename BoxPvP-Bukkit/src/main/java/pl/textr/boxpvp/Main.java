@@ -10,6 +10,8 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
+import api.redis.cache.server.ServerRefreshConfigurationCache;
+import api.redis.packet.server.ServerRefreshConfigurationPacket;
 import api.regions.Entry;
 import com.sk89q.worldguard.WorldGuard;
 import com.sk89q.worldguard.protection.regions.RegionContainer;
@@ -258,7 +260,8 @@ public class Main extends JavaPlugin {
         this.redisDatabase.subscribe("UpdateGuildColorTag", new UpdateGuildColorTagPacketCache(), UpdateGuildColorTagPacket.class);
         this.redisDatabase.subscribe("ServerRefreshTops", new ServerRefreshTopsRankingCache(), ServerRefreshTopsRanking.class);
         this.redisDatabase.subscribe("ServerRestart", new ServerRestartPacketCache(), ServerRestartPacket.class);
-  
+        this.redisDatabase.subscribe("ServerRefreshConfiguration", new ServerRefreshConfigurationCache(), ServerRefreshConfigurationPacket.class);
+
     }
 
 
