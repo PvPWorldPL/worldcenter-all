@@ -25,7 +25,6 @@ import java.util.Set;
 
 public class RozdzkiListener implements Listener {
 
-
     @EventHandler
     public void handlewiatr(PlayerInteractEntityEvent event) {
         Player player = event.getPlayer();
@@ -35,23 +34,25 @@ public class RozdzkiListener implements Listener {
             return;
         }
 
-
-        if (WorldGuardRegionHelper.isPlayerInAnyRegion(player.getUniqueId(), "protectspawn", "spawn", "kopalniapremium", "kopalnia","afk")) {
-            event.setCancelled(true);
-            return;
-        }
-
-
         ItemStack item = player.getInventory().getItemInMainHand();
-        if (!item.isSimilar(ItemsManager.getrozdzkawiatr(1))) {
-            return;
-        }
-
-        if (targetEntity instanceof Player targetPlayer) {
-            pushPlayer(targetPlayer, 3, 3);
-            player.getInventory().removeItem(new ItemStack(ItemsManager.getrozdzkawiatr(1)));
+        if (item.isSimilar(ItemsManager.getrozdzkawiatr(1))) {
+            if (WorldGuardRegionHelper.isPlayerInAnyRegion(player.getUniqueId(), "protectspawn", "spawn", "kopalniapremium", "kopalnia", "afk")) {
+                if (targetEntity instanceof Player targetPlayer) {
+                    event.setCancelled(true);
+                    player.sendMessage("&cNie możesz używać rozdzki w tym regionie");
+                } else {
+                    // Gracz nie jest w żadnym z zablokowanych regionów, więc rozdzka działa
+                    if (targetEntity instanceof Player targetPlayer) {
+                        pushPlayer(targetPlayer, 3, 3);
+                        player.getInventory().removeItem(new ItemStack(ItemsManager.getrozdzkawiatr(1)));
+                    }
+                }
+            }
         }
     }
+
+
+
 
     private void pushPlayer(Player player, int strength, int height) {
         Location playerLocation = player.getLocation();
