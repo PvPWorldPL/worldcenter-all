@@ -77,7 +77,6 @@ public class WGRegionEventsListener implements Listener {
 
             if (clan == null) {
                 handleRegionEntryDenied(player);
-//mozna usunac i przed crystal hologram dac ze klan trzeba miec
                 player.spigot().sendMessage(ChatMessageType.CHAT, new TextComponent(ChatUtil.translateHexColorCodes("&cNie możesz wejść na obszar &fcrystal&c, ponieważ nie należysz do żadnego klanu")));
                 return;
             }
@@ -103,10 +102,13 @@ public class WGRegionEventsListener implements Listener {
     }
 
     private void handleRegionEntryDenied(Player player) {
-        Vector knockbackDirection = new Vector(0, 0, -1);
-        player.setVelocity(knockbackDirection);
+        Vector knockbackDirection = new Vector(0, 0, -1.5);
 
-
+        if (player.isFlying() || player.isGliding()) {
+            player.setVelocity(knockbackDirection);
+        } else {
+            player.setVelocity(knockbackDirection);
+        }
     }
 
 
