@@ -94,7 +94,7 @@ public class PlaceHolderRegisterAPI extends PlaceholderExpansion {
 	    if (identifier.equalsIgnoreCase("clanspoints")) {
 	        // Pobieranie punktów gildii
 	        int gpoints = (g != null) ? g.getPoints() : 0;
-	        return (gpoints > 0) ? "" + gpoints : "";
+	        return (gpoints > 0) ? "&#fc7cff⚔ &fPunkty" + gpoints : "";
 	    }
 	    if (identifier.equalsIgnoreCase("clanspointstab")) {
 	        // Pobieranie punktów gildii   
