@@ -37,7 +37,6 @@ public class RozdzkiListener implements Listener {
         ItemStack item = player.getInventory().getItemInMainHand();
         if (item.isSimilar(ItemsManager.getrozdzkawiatr(1))) {
             if (WorldGuardRegionHelper.isPlayerInAnyRegion(player.getUniqueId(), "protectspawn", "spawn", "kopalniapremium", "kopalnia", "afk")) {
-                if (targetEntity instanceof Player targetPlayer) {
                     event.setCancelled(true);
                     player.sendMessage("&cNie możesz używać rozdzki w tym regionie");
                 } else {
@@ -46,7 +45,7 @@ public class RozdzkiListener implements Listener {
                         pushPlayer(targetPlayer, 3, 3);
                         player.getInventory().removeItem(new ItemStack(ItemsManager.getrozdzkawiatr(1)));
                     }
-                }
+
             }
         }
     }
