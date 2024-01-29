@@ -28,7 +28,7 @@ public class ShopMenu
     }
     
     public static void show(final Player p) {
-        final Inventory inv = Bukkit.createInventory((InventoryHolder)p, 54, ChatUtil.translateHexColorCodes("&eSklep &7(sklep za czas)"));
+        final Inventory inv = Bukkit.createInventory(p, 54, ChatUtil.translateHexColorCodes("&eSklep &7(sklep za czas)"));
         final UserProfile user = UserAccountManager.getUser(p);
        
         final ItemBuilder shulkerbox = new ItemBuilder(Material.SHULKER_BOX)
@@ -51,24 +51,25 @@ public class ShopMenu
         .setTitle(ChatUtil.translateHexColorCodes("&7Klucz do skrzyni &a&lRZADKIEJ"))
         .addLore(ChatUtil.translateHexColorCodes("&7Koszt: &f600&7 monet czasu"))
         .addLore(ChatUtil.translateHexColorCodes("&aKliknij aby zakupic!"));
-  
-        final ItemBuilder moneta1 = new ItemBuilder(Material.GHAST_TEAR, 10)
-        .setTitle(ChatUtil.translateHexColorCodes("&#00F3FF&lK&#00E9FF&lr&#00DFFF&lo&#00D5FF&lp&#00CBFF&ll&#00C2FF&la &#00B8FF&lb&#00AEFF&lo&#00A4FF&lg&#009AFF&la"))
+
+
+        final ItemBuilder moneta1 = new ItemBuilder(Material.LIME_DYE, 10)
+        .setTitle(ChatUtil.translateHexColorCodes("&#30ff38&lʀ&#2ef636&lᴜ&#2cec34&lʙ&#2ae331&lɪ&#28d92f&lɴ &#26d02d&ls&#24c62b&lᴢ&#22bd29&lᴍ&#21b326&lᴀ&#1faa24&lʀ&#1da022&lᴀ&#1b9720&lɢ&#198d1e&lᴅ&#17841b&lᴏ&#157a19&lᴡ&#137117&lʏ &8(&6✪1&8)"))
         .addLore(ChatUtil.translateHexColorCodes("&7Koszt: &e1000&7 monet czasu"))
         .addLore(ChatUtil.translateHexColorCodes("&aKliknij aby zakupic!"));
-        
-        final ItemBuilder moneta4 = new ItemBuilder(Material.WITHER_ROSE, 10)
-        .setTitle(ChatUtil.translateHexColorCodes("&#FF7400&lR&#F87405&ló&#F1750B&lz&#EB7510&la &#E47615&lU&#DD761B&lp&#D67720&la&#CF7726&ld&#C8782B&lł&#C27830&le&#BB7936&lg&#B4793B&lo"))
+
+        final ItemBuilder moneta2 = new ItemBuilder(Material.LIGHT_BLUE_DYE, 5)
+                .setTitle(ChatUtil.translateHexColorCodes("&#5be1ff&lʀ&#56d9fb&lᴜ&#51d0f6&lʙ&#4cc8f2&lɪ&#46c0ed&lɴ &#41b8e9&lʟ&#3cafe4&lᴀ&#37a7e0&lᴢ&#329fdb&lᴜ&#2d96d7&lʀ&#288ed2&lʏ&#2286ce&lᴛ&#1d7ec9&lᴏ&#1875c5&lᴡ&#136dc0&lʏ &8(&6✪2&8)"))
+                .addLore(ChatUtil.translateHexColorCodes("&7Koszt: &e3000&7 monet czasu"))
+                .addLore(ChatUtil.translateHexColorCodes("&aKliknij aby zakupic!"));
+
+
+        final ItemBuilder moneta4 = new ItemBuilder(Material.BLUE_DYE, 10)
+        .setTitle(ChatUtil.translateHexColorCodes("&#1400fb&lʀ&#1803f9&lᴜ&#1b06f8&lʙ&#1f09f6&lɪ&#220cf5&lɴ &#260ff3&lɢ&#2912f1&lʀ&#2d15f0&lᴀ&#3018ee&lɴ&#341bec&lᴀ&#371eeb&lᴛ&#3b21e9&lᴏ&#3e24e8&lᴡ&#4227e6&lʏ &8(&6✪4&8)"))
         .addLore(ChatUtil.translateHexColorCodes("&7Koszt: &e5000&7 monet czasu"))
         .addLore(ChatUtil.translateHexColorCodes("&aKliknij aby zakupic!"));
                 
-        
-        final ItemBuilder moneta2 = new ItemBuilder(Material.LEAD, 5)
-        .setTitle(ChatUtil.translateHexColorCodes("&#DE00FF&lP&#CC01ED&lo&#BA02DA&ls&#A903C8&lk&#9704B5&lr&#8505A3&la&#730591&lm&#61067E&li&#50076C&la&#3E0859&lc&#2C0947&lz"))
-        .addLore(ChatUtil.translateHexColorCodes("&7Koszt: &e3000&7 monet czasu"))
-        .addLore(ChatUtil.translateHexColorCodes("&aKliknij aby zakupic!"));
-        
-        
+
        
         final ItemBuilder stankonta = new ItemBuilder(Material.PLAYER_HEAD)
         .setTitle(ChatUtil.translateHexColorCodes("&7Stan konta")).addLore(ChatUtil.fixColor(""))
@@ -92,7 +93,7 @@ public class ShopMenu
         final UserProfile user = UserAccountManager.getUser(p);
         
         final ItemBuilder moneta1 = new ItemBuilder(Material.GHAST_TEAR, 1)
-        .setTitle(ChatUtil.translateHexColorCodes("&#00F3FF&lK&#00E9FF&lr&#00DFFF&lo&#00D5FF&lp&#00CBFF&ll&#00C2FF&la &#00B8FF&lb&#00AEFF&lo&#00A4FF&lg&#009AFF&la"))
+        .setTitle(ChatUtil.translateHexColorCodes("&#30ff38&lʀ&#2ef636&lᴜ&#2cec34&lʙ&#2ae331&lɪ&#28d92f&lɴ &#26d02d&ls&#24c62b&lᴢ&#22bd29&lᴍ&#21b326&lᴀ&#1faa24&lʀ&#1da022&lᴀ&#1b9720&lɢ&#198d1e&lᴅ&#17841b&lᴏ&#157a19&lᴡ&#137117&lʏ &8(&6✪1&8)"))
         .addLore(ChatUtil.fixColor("&7Kwota zakupu: &a$1"))
         .addLore(ChatUtil.fixColor("&7Kwota sprzedazy: &c$1"))
         .addLore(ChatUtil.fixColor(""))
@@ -101,7 +102,7 @@ public class ShopMenu
         .addLore(ChatUtil.fixColor("&aKliknij SHIFT + LPM aby sprzedac wszystko!"));
 
         ItemBuilder moneta2 = new ItemBuilder(Material.LEAD, 1)
-        .setTitle(ChatUtil.translateHexColorCodes("&#DE00FF&lP&#CC01ED&lo&#BA02DA&ls&#A903C8&lk&#9704B5&lr&#8505A3&la&#730591&lm&#61067E&li&#50076C&la&#3E0859&lc&#2C0947&lz"))
+        .setTitle(ChatUtil.translateHexColorCodes("&#5be1ff&lʀ&#56d9fb&lᴜ&#51d0f6&lʙ&#4cc8f2&lɪ&#46c0ed&lɴ &#41b8e9&lʟ&#3cafe4&lᴀ&#37a7e0&lᴢ&#329fdb&lᴜ&#2d96d7&lʀ&#288ed2&lʏ&#2286ce&lᴛ&#1d7ec9&lᴏ&#1875c5&lᴡ&#136dc0&lʏ &8(&6✪2&8)"))
         .addLore(ChatUtil.fixColor("&7Kwota zakupu: &a$64"))
         .addLore(ChatUtil.fixColor("&7Kwota sprzedazy: &c$64"))
         .addLore(ChatUtil.fixColor(""))
@@ -110,7 +111,7 @@ public class ShopMenu
         .addLore(ChatUtil.fixColor("&aKliknij SHIFT + LPM aby sprzedac wszystko!"));
         
         final ItemBuilder moneta3 = new ItemBuilder(Material.CRIMSON_FUNGUS, 1)
-        .setTitle(ChatUtil.translateHexColorCodes("&#C03450&lR&#BB3350&lu&#B53250&lb&#B03151&li&#AA3051&ln&#A52F51&lk&#A02E51&lo&#9A2D52&lw&#952C52&ly &#902B52&lg&#8A2A52&lr&#852953&lz&#7F2853&ly&#7A2753&lb"))
+        .setTitle(ChatUtil.translateHexColorCodes("&#fa1eff&lʀ&#f21ffb&lᴜ&#eb20f7&lʙ&#e321f2&lɪ&#dc22ee&lɴ &#d423ea&lʙ&#cc24e6&lᴜ&#c525e2&lʀ&#bd27dd&ls&#b628d9&lᴢ&#ae29d5&lᴛ&#a62ad1&lʏ&#9f2bcd&lɴ&#972cc8&lᴏ&#902dc4&lᴡ&#882ec0&lʏ  &8(&6✪3&8)"))
         .addLore(ChatUtil.fixColor("&7Kwota zakupu: &a$4.1k"))
         .addLore(ChatUtil.fixColor("&7Kwota sprzedazy: &c$4.1k"))
         .addLore(ChatUtil.fixColor(""))
@@ -119,7 +120,7 @@ public class ShopMenu
         .addLore(ChatUtil.fixColor("&aKliknij SHIFT + LPM aby sprzedac wszystko!"));
         
         final ItemBuilder moneta4 = new ItemBuilder(Material.WITHER_ROSE, 1)
-        .setTitle(ChatUtil.translateHexColorCodes("&#FF7400&lR&#F87405&ló&#F1750B&lz&#EB7510&la &#E47615&lU&#DD761B&lp&#D67720&la&#CF7726&ld&#C8782B&lł&#C27830&le&#BB7936&lg&#B4793B&lo"))
+        .setTitle(ChatUtil.translateHexColorCodes("&#1400fb&lʀ&#1803f9&lᴜ&#1b06f8&lʙ&#1f09f6&lɪ&#220cf5&lɴ &#260ff3&lɢ&#2912f1&lʀ&#2d15f0&lᴀ&#3018ee&lɴ&#341bec&lᴀ&#371eeb&lᴛ&#3b21e9&lᴏ&#3e24e8&lᴡ&#4227e6&lʏ &8(&6✪4&8)"))
         .addLore(ChatUtil.fixColor("&7Kwota zakupu: &a$262.14M"))
         .addLore(ChatUtil.fixColor("&7Kwota sprzedazy: &c$262.14M"))
         .addLore(ChatUtil.fixColor(""))
@@ -129,7 +130,7 @@ public class ShopMenu
         
         
         final ItemBuilder moneta5 = new ItemBuilder(Material.HORN_CORAL, 1)
-        .setTitle(ChatUtil.translateHexColorCodes("&#FFF000&lK&#FCE902&lo&#F9E205&lr&#F6DB07&la&#F2D40A&ll&#EFCD0C&lo&#ECC60F&lw&#E9BE11&ly &#E6B714&lp&#E3B016&lr&#DFA919&lo&#DCA21B&lm&#D99B1E&ly&#D69420&lk"))
+        .setTitle(ChatUtil.translateHexColorCodes("&#fb2020&lʀ&#fb2421&lᴜ&#fb2821&lʙ&#fb2d22&lɪ&#fc3122&lɴ &#fc3523&ls&#fc3923&lᴢ&#fc3e24&lᴋ&#fc4225&lᴀ&#fc4625&lʀ&#fc4a26&lʟ&#fd4e26&lᴀ&#fd5327&lᴛ&#fd5727&lɴ&#fd5b28&lʏ &8(&6✪5&8)"))
         .addLore(ChatUtil.fixColor("&7Kwota zakupu: &a$562.14M"))
         .addLore(ChatUtil.fixColor("&7Kwota sprzedazy: &c$562.14M"))
         .addLore(ChatUtil.fixColor(""))
