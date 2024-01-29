@@ -18,7 +18,7 @@ public class ActionbarTask implements Runnable {
             String message = "";
 
             if (user.isVanish()) {
-                message += "&#1eff12j&#1cf111e&#1be210s&#19d40ft&#17c50ee&#16b70ds &#14a80cw &#129a0bt&#118b0ar&#0f7d09y&#118b0ab&#129a0bi&#14a80ce &#16b70dv&#17c50ea&#19d40fn&#1be210i&#1cf111s&#1eff12h";
+                message += "&aJestes niewidzialny dla innych graczy!";
             }
 
             if (TeleportTimer.teleporting.containsKey(player)) {
@@ -33,7 +33,6 @@ public class ActionbarTask implements Runnable {
             if (!message.isEmpty()) {
                 message += " &8| ";
             }
-            message += "&7Przerabianie bloków: " + (user.isPrzerabianieBlokow() ? "&a&l✔" : "&c&l✖") + " &7Przerabianie monet: " + (user.isPrzerabianieMonet() ? "&a&l✔" : "&c&l✖") + " &7Przerabianie kasy: " + (user.isPrzerabianieKasy() ? "&a&l✔" : "&c&l✖") + " &8(&f/ustawienia&8)";
 
             player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtil.translateHexColorCodes(message)));
         }

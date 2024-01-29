@@ -86,17 +86,25 @@ public class ItemBuilder {
   }
   
   public static void fillGui(Inventory inventory) {
-    ItemBuilder zolte = (new ItemBuilder(Material.LIME_STAINED_GLASS_PANE, (short)3)).setTitle(ChatUtil.fixColor("&8#")).setGlow();
+    ItemBuilder zolte = (new ItemBuilder(Material.LIME_STAINED_GLASS_PANE, (short)3)).setTitle(ChatUtil.fixColor("&8#"));
     ItemBuilder czarne = (new ItemBuilder(Material.LIGHT_BLUE_STAINED_GLASS_PANE, (short)15)).setTitle(ChatUtil.fixColor("&8#"));
+    ItemBuilder banner = (new ItemBuilder(Material.LIME_BANNER, (short)15)).setTitle(ChatUtil.fixColor("&8#"));
+
+    int[] bannerr = {
+            18,26 };
+
     int[] zielony = {
-        1, 2,6,7,9,10,16,17,18,26,27,28,34,35,37,38,42,43 };
+        1, 2,6,7,9,10,16,17,27,28,34,35,37,38,42,43 };
     int[] niebieski = {
         0,3,4,5,8,36,39,40,41,44 };
     for (int i : zielony)
       inventory.setItem(i, zolte.ToItemStack());
     for (int i : niebieski)
       inventory.setItem(i, czarne.ToItemStack());
+    for (int i : bannerr)
+      inventory.setItem(i, banner.ToItemStack());
   }
+
   
   public ItemBuilder setGlow() {
     this.meta.addEnchant(Enchantment.DURABILITY, 1, true);

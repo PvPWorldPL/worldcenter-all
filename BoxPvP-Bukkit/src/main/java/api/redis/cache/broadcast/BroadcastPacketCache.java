@@ -20,11 +20,11 @@ public class BroadcastPacketCache implements PacketListener<BroadcastPacket> {
             return;
         }
         if (broadcastType == BroadcastType.TITLE) {
-            Bukkit.getServer().getOnlinePlayers().forEach(p -> ChatUtil.sendTitle(p, packet.getContent(), " ", 55, 55, 55));
+            Bukkit.getServer().getOnlinePlayers().forEach(p -> ChatUtil.sendTitle(p, "&8[&a&lOGLOSZENIE&8]", packet.getContent(), 55, 55, 55));
             return;
         }
         if (broadcastType == BroadcastType.SUBTITLE) {
-            Bukkit.getServer().getOnlinePlayers().forEach(p -> ChatUtil.sendTitle(p, " ", packet.getContent(), 55, 55, 55));
+            Bukkit.getServer().getOnlinePlayers().forEach(p -> ChatUtil.sendTitle(p, "&8[&a&lOGLOSZENIE&8]", packet.getContent(), 55, 55, 55));
             return;
         }
         if (broadcastType == BroadcastType.ACTIONBAR) {
