@@ -127,8 +127,8 @@ public class ShopMenu
         .addLore(ChatUtil.fixColor("&aKliknij LPM aby zakupic!"))
         .addLore(ChatUtil.fixColor("&aKliknij PPM aby sprzedac!"))
         .addLore(ChatUtil.fixColor("&aKliknij SHIFT + LPM aby sprzedac wszystko!"));
-        
-        
+        //
+
         final ItemBuilder moneta5 = new ItemBuilder(Material.HORN_CORAL, 1)
         .setTitle(ChatUtil.translateHexColorCodes("&#fb2020&lʀ&#fb2421&lᴜ&#fb2821&lʙ&#fb2d22&lɪ&#fc3122&lɴ &#fc3523&ls&#fc3923&lᴢ&#fc3e24&lᴋ&#fc4225&lᴀ&#fc4625&lʀ&#fc4a26&lʟ&#fd4e26&lᴀ&#fd5327&lᴛ&#fd5727&lɴ&#fd5b28&lʏ &8(&6✪5&8)"))
         .addLore(ChatUtil.fixColor("&7Kwota zakupu: &a$562.14M"))
