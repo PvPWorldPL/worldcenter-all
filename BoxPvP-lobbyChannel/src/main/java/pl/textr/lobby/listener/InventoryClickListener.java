@@ -8,6 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
 import pl.textr.lobby.Lobby;
+import pl.textr.lobby.ping.HexTransform;
 import pl.textr.lobby.ping.ServerInfo;
 
 import java.util.logging.Logger;
@@ -32,18 +33,17 @@ public class InventoryClickListener implements Listener
                         if (servers.isOnline()) {
                             if (servers.getServerName().equals(Lobby.getInstance().currentServer)) {
                                 p.closeInventory();
-                                p.sendMessage(Lobby.getInstance().getString("messages.prefix") + Lobby.getInstance().getString("messages.server_already_connected").replace("%server%", servers.getDisplayName()));
-
+                                p.sendMessage(HexTransform.translateHexColorCodes("&cJestes juz polaczony z tym kanalem").replace("%server%", servers.getDisplayName()));
                             }
                             else {
                                 p.closeInventory();
-                                p.sendMessage(Lobby.getInstance().getString("messages.prefix") + Lobby.getInstance().getString("messages.server_connect").replace("%server%", servers.getDisplayName()));
                                 Lobby.getInstance().sendToServer(p, servers.getServerName());
+                                p.sendMessage(HexTransform.translateHexColorCodes("&7Trwa laczenie do &f%server%").replace("%server%", servers.getDisplayName()));
                             }
                         }
                         else {
                             p.closeInventory();
-                            p.sendMessage(Lobby.getInstance().getString("messages.prefix") + Lobby.getInstance().getString("messages.server_offline").replace("%server%", servers.getDisplayName()));
+                            p.sendMessage(HexTransform.translateHexColorCodes("&cKanal jest obecnie offline"));
                         }
                     }
                 }
