@@ -89,94 +89,87 @@ public class ItemsManager {
 	    }
 	    
 	  public static ItemStack getMoneta1(int size) {
-	    ItemStack odlamek = (new ItemBuilder(Material.GHAST_TEAR, size))
-	    .setTitle(ChatUtil.translateHexColorCodes("&#00F3FF&lK&#00E9FF&lr&#00DFFF&lo&#00D5FF&lp&#00CBFF&ll&#00C2FF&la &#00B8FF&lb&#00AEFF&lo&#00A4FF&lg&#009AFF&la"))
-	    .addLore("")
-	    .addLore(ChatUtil.translateHexColorCodes("&7Tym itemem możesz handlować"))
-		.addLore(ChatUtil.translateHexColorCodes("&7z villagerami na spawn"))
-		.addLore("")
-	    .setGlow().ToItemStack();
-	    return odlamek;
+		  ItemStack odlamek = (new ItemBuilder(Material.LIME_DYE, size))
+				  .setTitle(ChatUtil.translateHexColorCodes("&#30ff38&lʀ&#2ef636&lᴜ&#2cec34&lʙ&#2ae331&lɪ&#28d92f&lɴ &#26d02d&ls&#24c62b&lᴢ&#22bd29&lᴍ&#21b326&lᴀ&#1faa24&lʀ&#1da022&lᴀ&#1b9720&lɢ&#198d1e&lᴅ&#17841b&lᴏ&#157a19&lᴡ&#137117&lʏ &8(&6✪1&8)"))
+				  .addLore(ChatUtil.fixColor("&7(ᴍᴏɴᴇᴛᴀ ᴅᴏ ʜᴀɴᴅʟᴏᴡᴀɴɪᴀ)"))
+				  .addLore(ChatUtil.translateHexColorCodes(""))
+				  .addLore(ChatUtil.translateHexColorCodes(" &8&l・&fᴊᴇsᴛ ᴛᴏ ᴏᴅʟᴀᴍᴇᴋ &5ʀᴜʙɪɴᴜ &#30ff38s&#2ef736ᴢ&#2def34ᴍ&#2be733ᴀ&#2adf31ʀ&#28d82fᴀ&#26d02dɢ&#25c82bᴅ&#23c029ᴏ&#22b828ᴡ&#20b026ᴇ&#1ea824ᴊ &#1da022ᴘ&#1b9820ʟ&#19911eᴀ&#18891dɴ&#16811bᴇ&#157919ᴛ&#137117ʏ"))
+				  .addLore(ChatUtil.translateHexColorCodes("&8&l・&fᴋᴛᴏʀʏ ᴍᴏᴢᴇsᴢ sᴘʀᴢᴇᴅᴀᴄ ᴘᴏᴅ ᴋᴏᴍᴇɴᴅᴀ &2/sᴋʟᴇᴘ"))
+				  .addLore("")
+				  .setGlow().ToItemStack();
+		  return odlamek;
 	  }
 	  
 	  public static ItemStack getMoneta2(int size) {
-	    ItemStack odlamek2 = (new ItemBuilder(Material.LEAD, size))
-	    .setTitle(ChatUtil.translateHexColorCodes("&#DE00FF&lP&#CC01ED&lo&#BA02DA&ls&#A903C8&lk&#9704B5&lr&#8505A3&la&#730591&lm&#61067E&li&#50076C&la&#3E0859&lc&#2C0947&lz"))
-	    .addLore("")
-		.addLore(ChatUtil.translateHexColorCodes("&7Tym itemem możesz handlować"))
-		.addLore(ChatUtil.translateHexColorCodes("&7z villagerami na spawn"))
-		.addLore("")
-	    .setGlow().ToItemStack();
-	    return odlamek2;
+		  ItemStack odlamek2 = (new ItemBuilder(Material.LIGHT_BLUE_DYE, size))
+				  .setTitle(ChatUtil.translateHexColorCodes("&#5be1ff&lʀ&#56d9fb&lᴜ&#51d0f6&lʙ&#4cc8f2&lɪ&#46c0ed&lɴ &#41b8e9&lʟ&#3cafe4&lᴀ&#37a7e0&lᴢ&#329fdb&lᴜ&#2d96d7&lʀ&#288ed2&lʏ&#2286ce&lᴛ&#1d7ec9&lᴏ&#1875c5&lᴡ&#136dc0&lʏ &8(&6✪2&8)"))
+				  .addLore(ChatUtil.fixColor("&7(ᴍᴏɴᴇᴛᴀ ᴅᴏ ʜᴀɴᴅʟᴏᴡᴀɴɪᴀ)"))
+				  .addLore(ChatUtil.translateHexColorCodes(""))
+				  .addLore(ChatUtil.translateHexColorCodes("&8&l・&fᴊᴇsᴛ ᴛᴏ ᴏᴅʟᴀᴍᴇᴋ &5ʀᴜʙɪɴᴜ &#5be1ffʟ&#57dafbᴀ&#53d3f8ᴢ&#4ecdf4ᴜ&#4ac6f0ʀ&#46bfecʏ&#42b8e9ᴛ&#3db1e5ᴏ&#39aae1ᴡ&#35a4deᴇ&#319ddaᴊ &#2c96d6ᴘ&#288fd3ʟ&#2488cfᴀ&#2081cbɴ&#1b7bc7ᴇ&#1774c4ᴛ&#136dc0ʏ"))
+				  .addLore(ChatUtil.translateHexColorCodes("&8&l・&fᴋᴛᴏʀʏ ᴍᴏᴢᴇsᴢ sᴘʀᴢᴇᴅᴀᴄ ᴘᴏᴅ ᴋᴏᴍᴇɴᴅᴀ &2/sᴋʟᴇᴘ"))
+				  .addLore("")
+				  .setGlow().ToItemStack();
+		  return odlamek2;
 	  }
 	  
 	  public static ItemStack getMoneta3(int size) {
-	    ItemStack odlamek3 = (new ItemBuilder(Material.CRIMSON_FUNGUS, size))
-	    .setTitle(ChatUtil.translateHexColorCodes("&#C03450&lR&#BB3350&lu&#B53250&lb&#B03151&li&#AA3051&ln&#A52F51&lk&#A02E51&lo&#9A2D52&lw&#952C52&ly &#902B52&lg&#8A2A52&lr&#852953&lz&#7F2853&ly&#7A2753&lb"))
-	    .addLore("")
-		.addLore(ChatUtil.translateHexColorCodes("&7Tym itemem możesz handlować"))
-		.addLore(ChatUtil.translateHexColorCodes("&7z villagerami na spawn"))
-		.addLore("")
-	    .setGlow().ToItemStack();
-	    return odlamek3;
+		  ItemStack odlamek3 = (new ItemBuilder(Material.MAGENTA_DYE, size))
+				  .setTitle(ChatUtil.translateHexColorCodes("&#fa1eff&lʀ&#f21ffb&lᴜ&#eb20f7&lʙ&#e321f2&lɪ&#dc22ee&lɴ &#d423ea&lʙ&#cc24e6&lᴜ&#c525e2&lʀ&#bd27dd&ls&#b628d9&lᴢ&#ae29d5&lᴛ&#a62ad1&lʏ&#9f2bcd&lɴ&#972cc8&lᴏ&#902dc4&lᴡ&#882ec0&lʏ  &8(&6✪3&8)"))
+				  .addLore(ChatUtil.fixColor("&7(ᴍᴏɴᴇᴛᴀ ᴅᴏ ʜᴀɴᴅʟᴏᴡᴀɴɪᴀ)"))
+				  .addLore(ChatUtil.translateHexColorCodes(""))
+				  .addLore(ChatUtil.translateHexColorCodes("&8&l・&fᴊᴇsᴛ ᴛᴏ ᴏᴅʟᴀᴍᴇᴋ &5ʀᴜʙɪɴᴜ &#fa1effʙ&#f41ffcᴜ&#ed20f8ʀ&#e721f5s&#e122f1ᴢ&#da22eeᴛ&#d423eaʏ&#ce24e7ɴ&#c725e3ᴏ&#c126e0ᴡ&#bb27dcᴇ&#b428d9ᴊ &#ae29d5ᴘ&#a82ad2ʟ&#a12aceᴀ&#9b2bcbɴ&#952cc7ᴇ&#8e2dc4ᴛ&#882ec0ʏ"))
+				  .addLore(ChatUtil.translateHexColorCodes("&8&l・&fᴋᴛᴏʀʏ ᴍᴏᴢᴇsᴢ sᴘʀᴢᴇᴅᴀᴄ ᴘᴏᴅ ᴋᴏᴍᴇɴᴅᴀ &2/sᴋʟᴇᴘ"))
+				  .addLore("")
+				  .setGlow().ToItemStack();
+		  return odlamek3;
 	  }
 	  
 	  public static ItemStack getMoneta4(int size) {
-	    ItemStack odlamek4 = (new ItemBuilder(Material.WITHER_ROSE, size))
-	    .setTitle(ChatUtil.translateHexColorCodes("&#FF7400&lR&#F87405&ló&#F1750B&lz&#EB7510&la &#E47615&lU&#DD761B&lp&#D67720&la&#CF7726&ld&#C8782B&lł&#C27830&le&#BB7936&lg&#B4793B&lo"))
-	    .addLore("")
-		.addLore(ChatUtil.translateHexColorCodes("&7Tym itemem możesz handlować"))
-		.addLore(ChatUtil.translateHexColorCodes("&7z villagerami na spawn"))
-		.addLore("")
-	    .setGlow().ToItemStack();
+		ItemStack odlamek4 = (new ItemBuilder(Material.BLUE_DYE, size))
+		 .setTitle(ChatUtil.translateHexColorCodes("&#1400fb&lʀ&#1803f9&lᴜ&#1b06f8&lʙ&#1f09f6&lɪ&#220cf5&lɴ &#260ff3&lɢ&#2912f1&lʀ&#2d15f0&lᴀ&#3018ee&lɴ&#341bec&lᴀ&#371eeb&lᴛ&#3b21e9&lᴏ&#3e24e8&lᴡ&#4227e6&lʏ &8(&6✪4&8)"))
+				.addLore(ChatUtil.fixColor("&7(ᴍᴏɴᴇᴛᴀ ᴅᴏ ʜᴀɴᴅʟᴏᴡᴀɴɪᴀ)"))
+		 .addLore(ChatUtil.translateHexColorCodes(""))
+		 .addLore(ChatUtil.translateHexColorCodes("&8&l・&fᴊᴇsᴛ ᴛᴏ ᴏᴅʟᴀᴍᴇᴋ &5ʀᴜʙɪɴᴜ &#1400fbɢ&#1702faʀ&#1a05f8ᴀ&#1d07f7ɴ&#200af6ᴀ&#220cf4ᴛ&#250ff3ᴏ&#2811f2ᴡ&#2b14f1ᴇ&#2e16efᴊ &#3118eeɢ&#341bedᴡ&#371debɪ&#3920eaᴀ&#3c22e9ᴢ&#3f25e7ᴅ&#4227e6ʏ"))
+		 .addLore(ChatUtil.translateHexColorCodes("&8&l・&fᴋᴛᴏʀʏ ᴍᴏᴢᴇsᴢ sᴘʀᴢᴇᴅᴀᴄ ᴘᴏᴅ ᴋᴏᴍᴇɴᴅᴀ &2/sᴋʟᴇᴘ"))
+		 .addLore("")
+		 .setGlow().ToItemStack();
 	    return odlamek4;
 	  }
 	  
 	  public static ItemStack getMoneta5(int size) {
-	    ItemStack odlamek5 = (new ItemBuilder(Material.HORN_CORAL, size))
-	    .setTitle(ChatUtil.translateHexColorCodes("&#FFF000&lK&#FCE902&lo&#F9E205&lr&#F6DB07&la&#F2D40A&ll&#EFCD0C&lo&#ECC60F&lw&#E9BE11&ly &#E6B714&lp&#E3B016&lr&#DFA919&lo&#DCA21B&lm&#D99B1E&ly&#D69420&lk"))
-	    .addLore("")
-		.addLore(ChatUtil.translateHexColorCodes("&7Tym itemem możesz handlować"))
-		.addLore(ChatUtil.translateHexColorCodes("&7z villagerami na spawn"))
+	    ItemStack odlamek5 = (new ItemBuilder(Material.RED_DYE, size))
+	    .setTitle(ChatUtil.translateHexColorCodes("&#fb2020&lʀ&#fb2421&lᴜ&#fb2821&lʙ&#fb2d22&lɪ&#fc3122&lɴ &#fc3523&ls&#fc3923&lᴢ&#fc3e24&lᴋ&#fc4225&lᴀ&#fc4625&lʀ&#fc4a26&lʟ&#fd4e26&lᴀ&#fd5327&lᴛ&#fd5727&lɴ&#fd5b28&lʏ &8(&6✪5&8)"))
+		.addLore(ChatUtil.fixColor("&7(ᴍᴏɴᴇᴛᴀ ᴅᴏ ʜᴀɴᴅʟᴏᴡᴀɴɪᴀ)"))
+		.addLore(ChatUtil.translateHexColorCodes(""))
+		.addLore(ChatUtil.translateHexColorCodes("&8&l・&fᴊᴇsᴛ ᴛᴏ ᴏᴅʟᴀᴍᴇᴋ &5ʀᴜʙɪɴᴜ &#fb2020s&#fb2320ᴢ&#fb2721ᴋ&#fb2a21ᴀ&#fb2e22ʀ&#fc3122ʟ&#fc3523ᴀ&#fc3823ᴛ&#fc3c24ɴ&#fc3f24ᴇ&#fc4325ᴊ &#fc4625ᴘ&#fc4a26ʟ&#fd4d26ᴀ&#fd5127ɴ&#fd5427ᴇ&#fd5828ᴛ&#fd5b28ʏ"))
+		.addLore(ChatUtil.translateHexColorCodes("&8&l・&fᴋᴛᴏʀʏ ᴍᴏᴢᴇsᴢ sᴘʀᴢᴇᴅᴀᴄ ᴘᴏᴅ ᴋᴏᴍᴇɴᴅᴀ &2/sᴋʟᴇᴘ"))
 		.addLore("")
 	    .setGlow().ToItemStack();
 	    return odlamek5;
 	  }
 	  
 	  public static ItemStack getMoneta6(int size) {
-	    ItemStack odlamek5 = (new ItemBuilder(Material.NAUTILUS_SHELL, size))
-		.setTitle(ChatUtil.translateHexColorCodes("&#fbf9e5&lS&#fbf9e0&lk&#fbf9da&lr&#fbf9d5&lo&#fcf9cf&lu&#fcf9ca&lp&#fcf9c5&la &#fcf9bf&lN&#fcf9ba&la&#fcf9b4&lu&#fcf9af&lt&#fcf9aa&li&#fdf9a4&ll&#fdf99f&lu&#fdf999&ls&#fdf994&la"))
-		.addLore("")
-		.addLore(ChatUtil.translateHexColorCodes("&7Tym itemem możesz handlować"))
-		.addLore(ChatUtil.translateHexColorCodes("&7z villagerami na spawn"))
+	    ItemStack odlamek5 = (new ItemBuilder(Material.PAPER, size))
 		.addLore("")
 		.setGlow().ToItemStack();
 		 return odlamek5;
 		  }
-	  
-	  
-	  public static ItemStack getMoneta7(int size) {
-	   ItemStack odlamek5 = (new ItemBuilder(Material.SLIME_BALL, size))
-	   .setTitle(ChatUtil.translateHexColorCodes("&#93ec22&lL&#88e11e&le&#7cd51a&lp&#71ca15&lk&#65be11&la &#5ab30d&lK&#4ea709&lu&#439c04&ll&#379000&la"))
-	   .addLore("")
-	   .addLore(ChatUtil.translateHexColorCodes("&7Tym itemem możesz handlować"))
-	   .addLore(ChatUtil.translateHexColorCodes("&7z villagerami na spawn"))
-	   .addLore("")
-	   .setGlow().ToItemStack();
-	   return odlamek5;
-		  }
-	  
-	  
-	  public static ItemStack getMoneta8(int size) {
-	    ItemStack odlamek5 = (new ItemBuilder(Material.BLACK_DYE, size))
-		.setTitle(ChatUtil.translateHexColorCodes("&#848484&lS&#888c8b&lz&#8d9392&la&#919b9a&lr&#95a2a1&ly &#9aaaa8&lP&#9eb1af&ly&#a2b9b7&ll&#a7c0be&le&#abc8c5&lk"))
-		.addLore("")
-		.addLore(ChatUtil.translateHexColorCodes("&7Tym itemem możesz handlować"))
-		.addLore(ChatUtil.translateHexColorCodes("&7z villagerami na spawn"))
-		.addLore("")
-		.setGlow().ToItemStack();
+
+
+	public static ItemStack getMoneta7(int size) {
+		ItemStack odlamek5 = (new ItemBuilder(Material.PAPER, size))
+				.addLore("")
+				.setGlow().ToItemStack();
 		return odlamek5;
-		  }
+	}
+
+
+	public static ItemStack getMoneta8(int size) {
+		ItemStack odlamek5 = (new ItemBuilder(Material.PAPER, size))
+				.addLore("")
+				.setGlow().ToItemStack();
+		return odlamek5;
+	}
 	  
 	  public static ItemStack getUsuwacz(int size) {
 	    ItemStack usuwacz = (new ItemBuilder(Material.BLAZE_ROD, size))
