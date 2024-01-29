@@ -119,25 +119,25 @@ public class RewardTask extends BukkitRunnable {
     private void giveMoneyToPlayer(Player player) {
 	  player.getInventory().addItem(new ItemStack(ItemsManager.getMoneta1(16)));
 	  if (player.getInventory().contains(ItemsManager.getMoneta1(64))) {
-    	  ItemsManager.change3(player, ItemsManager.getMoneta1(64), ItemsManager.getMoneta2(1));
+    	  ItemsManager.convertMoneyToOtherMoney(player, ItemsManager.getMoneta1(64), ItemsManager.getMoneta2(1));
       }
       if (player.getInventory().contains(ItemsManager.getMoneta2(64))) {
-    	  ItemsManager.change3(player, ItemsManager.getMoneta2(64), ItemsManager.getMoneta3(1));
+    	  ItemsManager.convertMoneyToOtherMoney(player, ItemsManager.getMoneta2(64), ItemsManager.getMoneta3(1));
       }
       if (player.getInventory().contains(ItemsManager.getMoneta3(64))) {
-    	  ItemsManager.change3(player, ItemsManager.getMoneta3(64), ItemsManager.getMoneta4(1));
+    	  ItemsManager.convertMoneyToOtherMoney(player, ItemsManager.getMoneta3(64), ItemsManager.getMoneta4(1));
       }
       if (player.getInventory().contains(ItemsManager.getMoneta4(64))) {
-    	  ItemsManager.change3(player, ItemsManager.getMoneta4(64), ItemsManager.getMoneta5(1));
+    	  ItemsManager.convertMoneyToOtherMoney(player, ItemsManager.getMoneta4(64), ItemsManager.getMoneta5(1));
       }
       if (player.getInventory().contains(ItemsManager.getMoneta5(64))) {
-    	  ItemsManager.change3(player, ItemsManager.getMoneta5(64), ItemsManager.getMoneta6(1));
+    	  ItemsManager.convertMoneyToOtherMoney(player, ItemsManager.getMoneta5(64), ItemsManager.getMoneta6(1));
         }
       if (player.getInventory().contains(ItemsManager.getMoneta6(64))) {
-    	  ItemsManager.change3(player, ItemsManager.getMoneta6(64), ItemsManager.getMoneta7(1));
+    	  ItemsManager.convertMoneyToOtherMoney(player, ItemsManager.getMoneta6(64), ItemsManager.getMoneta7(1));
         }
       if (player.getInventory().contains(ItemsManager.getMoneta7(64))) {
-    	  ItemsManager.change3(player, ItemsManager.getMoneta7(64), ItemsManager.getMoneta8(1));
+    	  ItemsManager.convertMoneyToOtherMoney(player, ItemsManager.getMoneta7(64), ItemsManager.getMoneta8(1));
         }
 }
 }
