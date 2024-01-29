@@ -86,23 +86,23 @@ public class ItemBuilder {
   }
   
   public static void fillGui(Inventory inventory) {
-    ItemBuilder zolte = (new ItemBuilder(Material.MAGENTA_STAINED_GLASS_PANE, (short)3)).setTitle(ChatUtil.fixColor("&8#")).setGlow();
-    ItemBuilder czarne = (new ItemBuilder(Material.BLACK_STAINED_GLASS_PANE, (short)15)).setTitle(ChatUtil.fixColor("&8#"));
-    int[] yellow = { 
+    ItemBuilder zolte = (new ItemBuilder(Material.LIME_STAINED_GLASS_PANE, (short)3)).setTitle(ChatUtil.fixColor("&8#")).setGlow();
+    ItemBuilder czarne = (new ItemBuilder(Material.LIGHT_BLUE_STAINED_GLASS_PANE, (short)15)).setTitle(ChatUtil.fixColor("&8#"));
+    int[] yellow = {
         2, 3, 4, 5, 6, 17, 47, 48, 49, 50, 
         51,27,18, 35,26 };
     int[] black = { 
         0, 1, 7, 8, 9, 17, 36, 44, 45, 46, 
         52, 53 };
     for (int i : yellow)
-      inventory.setItem(i, zolte.ToItemStack()); 
+      inventory.setItem(i, zolte.ToItemStack());
     for (int i : black)
-      inventory.setItem(i, czarne.ToItemStack()); 
+      inventory.setItem(i, czarne.ToItemStack());
   }
   
   public ItemBuilder setGlow() {
     this.meta.addEnchant(Enchantment.DURABILITY, 1, true);
-    this.meta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS });
+    this.meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
     return this;
   }
 

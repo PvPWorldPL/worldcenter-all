@@ -14,7 +14,7 @@ import pl.textr.boxpvp.utils.ItemBuilder;
 public class ShopMenu
 {
     public static void menu(final Player p) {
-        final Inventory inv = Bukkit.createInventory((InventoryHolder)p, 54, ChatUtil.translateHexColorCodes("&eSklep &7(menu)"));
+        final Inventory inv = Bukkit.createInventory(p, 54, ChatUtil.translateHexColorCodes("&eSklep &7(menu)"));
         final ItemBuilder sklepzaczas = new ItemBuilder(Material.CLOCK).setTitle(ChatUtil.translateHexColorCodes("&#d34fc9&lSklep za czas")).addLore(ChatUtil.fixColor("&aKliknij aby przejsc"));
  
         final ItemBuilder sklep = new ItemBuilder(Material.SUNFLOWER).setTitle(ChatUtil.translateHexColorCodes("&#d34fc9&lSklep za kase")).addLore(ChatUtil.fixColor("&aKliknij aby przejsc"));
