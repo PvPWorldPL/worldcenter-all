@@ -13,32 +13,29 @@ import pl.textr.boxpvp.utils.RandomUtil;
 
 public class ItemsManager {
 
+	public static void convertMoneyToCurrency(Player player, ItemStack item, Double amount) {
+		UserProfile userProfile = UserAccountManager.getUser(player);
 
-
-	public static void kasakasa(Player player, ItemStack item, Double amount) {
-	    UserProfile u = UserAccountManager.getUser(player);
-	    if (player.getInventory().containsAtLeast(new ItemStack(item), 1)) {
-	        int x = 0;
-	        while (x < 2304) {
-	            if (!player.getInventory().containsAtLeast(new ItemStack(item), 1)) {
-	                return;
-	            }
-	            player.getInventory().removeItem(new ItemStack(item));
-	            u.addBalance(amount);
-	            u.save();
-	            x++;
-	        }
-	    } else {
-	        ChatUtil.sendMessage(player, "&8[&C&l!&8] &cNie posiadasz wystarczająco przedmiotów.");
+		if (player.getInventory().containsAtLeast(new ItemStack(item), 1)) {
+			int x = 0;
+			while (x < 2304) {
+				if (!player.getInventory().containsAtLeast(new ItemStack(item), 1)) {
+					return;
+				}
+				player.getInventory().removeItem(new ItemStack(item));
+				userProfile.addBalance(amount);
+				userProfile.save();
+				x++;
+			}
+		} else {
+			ChatUtil.sendMessage(player, "&8[&C&l!&8] &cNie posiadasz wystarczająco przedmiotów.");
 		}
-	    
 	}
 
 
-	
-	
 
-	  public static void recalculateDurability(Player player, ItemStack item) {
+
+	public static void recalculateDurability(Player player, ItemStack item) {
 		    if (item.getType().getMaxDurability() == 0)
 		      return; 
 		    int enchantLevel = item.getEnchantmentLevel(Enchantment.DURABILITY);
@@ -58,19 +55,28 @@ public class ItemsManager {
 		      item.setDurability((short)(d + 1));
 		    } 
 		  }
-		  
-	  
-	    
-	    public static void change(Player p, Material item, Material item2) {
-	      for (int x = 0; x < 256; x++) { //domyslnie wartosc 9
-	        if (p.getInventory().containsAtLeast(new ItemStack(item), 64)) {
-	          p.getInventory().removeItem(new ItemStack(item, 64));
-	          p.getInventory().addItem(new ItemStack(item2, 1));
-	        } 
-	      } 
-	    }
-	    
-	    public static void change2(Player p, Material item, Integer amount, ItemStack item2) {
+
+
+
+	public static void transformMaterial(Player p, Material item, Material item2) {
+		for (int x = 0; x < 256; x++) { //domyslnie wartosc 9
+			if (p.getInventory().containsAtLeast(new ItemStack(item), 64)) {
+				p.getInventory().removeItem(new ItemStack(item, 64));
+				p.getInventory().addItem(new ItemStack(item2, 1));
+			}
+		}
+	}
+
+	public static void convertMoneyToOtherMoney(Player p, ItemStack item, ItemStack item2) {
+		for (int x = 0; x < 256; x++) {
+			if (p.getInventory().containsAtLeast(new ItemStack(item), 64)) {
+				p.getInventory().removeItem(new ItemStack(item));
+				p.getInventory().addItem(new ItemStack(item2));
+			}
+		}
+	}
+
+	    public static void convertBlockToMoney(Player p, Material item, Integer amount, ItemStack item2) {
 	      for (int x = 0; x < 256; x++) {
 	        if (p.getInventory().containsAtLeast(new ItemStack(item), amount)) {
 	          p.getInventory().removeItem(new ItemStack(item, amount));
@@ -79,14 +85,7 @@ public class ItemsManager {
 	      } 
 	    }
 	    
-	    public static void change3(Player p, ItemStack item, ItemStack item2) {
-	      for (int x = 0; x < 256; x++) {
-	        if (p.getInventory().containsAtLeast(new ItemStack(item), 64)) {
-	          p.getInventory().removeItem(new ItemStack(item));
-	          p.getInventory().addItem(new ItemStack(item2));
-	        } 
-	      } 
-	    }
+
 	    
 	  public static ItemStack getMoneta1(int size) {
 		  ItemStack odlamek = (new ItemBuilder(Material.LIME_DYE, size))

@@ -7,6 +7,7 @@ import java.util.List;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -104,7 +105,8 @@ public class ItemBuilder {
     this.meta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS });
     return this;
   }
-  
+
+
   public ItemStack ToItemStack() {
     if (!this.lore.isEmpty())
       this.meta.setLore(this.lore); 

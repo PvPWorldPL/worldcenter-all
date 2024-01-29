@@ -97,8 +97,10 @@ public class UserAccountManager {
 						UserKillManager.addKill(u);
 						UserDeathManager.addDeath(u);
 						UserBalanceManager.addBalance(u);
+
 						p.getEnderChest().clear();
 						p.getInventory().clear();
+
 						Bukkit.getServer().getScheduler().runTask(Main.getPlugin(), () -> {
 							Location location = Main.getPlugin().getConfiguration().getSpawnLocation();
 							p.teleport(location);
@@ -146,10 +148,12 @@ public class UserAccountManager {
 				u.setVanish(rs.getBoolean("vanish"));
 				rs.close();
 			}
+
 			if (Main.getPlugin().getConfiguration().debug) {
 				final Long startTime2 = System.currentTimeMillis() - startTime;
 				Bukkit.getLogger().info("Done! " + startTime2 + "ms");
 				Bukkit.getLogger().info("  ");
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

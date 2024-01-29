@@ -170,118 +170,154 @@ public class BreakListener implements Listener {
                 Material fromMaterial = entry.getKey();
                 Material toMaterial = entry.getValue();
                 if (playerInventory.contains(fromMaterial, 64)) {
-                    ItemsManager.change(p, fromMaterial, toMaterial);
+                    ItemsManager.transformMaterial(p, fromMaterial, toMaterial);
                 }
             }
         }
 
 
+        // Kod wewnątrz tego warunku obsługuje przerabianie bloków na monety.
+        // Zasada działania metody polega na sprawdzaniu zawartości inwentarza gracza (playerInventory)
+        // pod kątem posiadanych bloków, a następnie wymianie tych bloków na odpowiednią ilość monet
+        // przy użyciu metody change2() z klasy ItemsManager.
+
+        // Przykłady:
+        // - Jeśli gracz ma 64 bloki szmaragdowe, zamień je na 2 monety pierwszego rodzaju (getMoneta1(2)).
+        // - Jeśli gracz ma 64 bloki diamentowe, zamień je na 1 monetę pierwszego rodzaju (getMoneta1(1)).
+        // - Itd., dla różnych rodzajów bloków.
+
+        // Po przerobieniu bloków na monety, istnieje także blok konwersji monet na dalsze monety,
+        // ale kod związanego z tym aspektem jest zakomentowany.
+
+        // Wartość parametru metody change2() określa ilość wymienianych bloków, a także ilość uzyskiwanych monet.
+        // Np. change2(p, Material.EMERALD_BLOCK, 64, ItemsManager.getMoneta1(2)) - zamienia 64 bloki szmaragdowe
+        // na 2 monety pierwszego rodzaju.
 
         if (user.isPrzerabianieMonet()) {
 
-            //JAKIE MONETY MAJA WYPADAC Z BLOKOW
-            //domyslnie wymagane 9 i 3 do przerobienia na monete
             if (playerInventory.contains(Material.EMERALD_BLOCK, 64)) {
-                ItemsManager.change2(p, Material.EMERALD_BLOCK, 64, ItemsManager.getMoneta1(2));
+                ItemsManager.convertBlockToMoney(p, Material.EMERALD_BLOCK, 64, ItemsManager.getMoneta1(2));
             }
 
             if (playerInventory.contains(Material.DIAMOND_BLOCK, 64)) {
-                ItemsManager.change2(p, Material.DIAMOND_BLOCK, 64, ItemsManager.getMoneta1(1));
+                ItemsManager.convertBlockToMoney(p, Material.DIAMOND_BLOCK, 64, ItemsManager.getMoneta1(1));
             }
 
             if (playerInventory.contains(Material.GOLD_BLOCK, 64)) {
-                ItemsManager.change2(p, Material.GOLD_BLOCK, 64, ItemsManager.getMoneta1(1));
+                ItemsManager.convertBlockToMoney(p, Material.GOLD_BLOCK, 64, ItemsManager.getMoneta1(1));
             }
 
             if (playerInventory.contains(Material.LAPIS_BLOCK, 64)) {
-                ItemsManager.change2(p, Material.LAPIS_BLOCK, 64, ItemsManager.getMoneta1(1));
+                ItemsManager.convertBlockToMoney(p, Material.LAPIS_BLOCK, 64, ItemsManager.getMoneta1(1));
             }
 
             if (playerInventory.contains(Material.REDSTONE_BLOCK, 64)) {
-                ItemsManager.change2(p, Material.REDSTONE_BLOCK, 64, ItemsManager.getMoneta1(1));
+                ItemsManager.convertBlockToMoney(p, Material.REDSTONE_BLOCK, 64, ItemsManager.getMoneta1(1));
             }
 
             if (playerInventory.contains(Material.COAL_BLOCK, 64)) {
-                ItemsManager.change2(p, Material.COAL_BLOCK, 64, ItemsManager.getMoneta1(1));
+                ItemsManager.convertBlockToMoney(p, Material.COAL_BLOCK, 64, ItemsManager.getMoneta1(1));
             }
 
             if (playerInventory.contains(Material.IRON_BLOCK, 64)) {
-                ItemsManager.change2(p, Material.IRON_BLOCK, 64, ItemsManager.getMoneta1(1));
+                ItemsManager.convertBlockToMoney(p, Material.IRON_BLOCK, 64, ItemsManager.getMoneta1(1));
             }
 
-            //domyslnie 3
+
             if (playerInventory.contains(Material.QUARTZ_BLOCK, 64)) {
-                ItemsManager.change2(p, Material.QUARTZ_BLOCK, 64, ItemsManager.getMoneta1(3));
+                ItemsManager.convertBlockToMoney(p, Material.QUARTZ_BLOCK, 64, ItemsManager.getMoneta1(3));
             }
             //domyslnie 3
             if (playerInventory.contains(Material.BLACK_WOOL, 64)) {
-                ItemsManager.change2(p, Material.BLACK_WOOL, 64, ItemsManager.getMoneta2(4));
+                ItemsManager.convertBlockToMoney(p, Material.BLACK_WOOL, 64, ItemsManager.getMoneta2(4));
             }
             //domyslnie 3
             if (playerInventory.contains(Material.WHITE_WOOL, 64)) {
-                ItemsManager.change2(p, Material.WHITE_WOOL, 64, ItemsManager.getMoneta2(4));
+                ItemsManager.convertBlockToMoney(p, Material.WHITE_WOOL, 64, ItemsManager.getMoneta2(4));
             }
 
             if (playerInventory.contains(Material.NETHERITE_BLOCK, 64)) {
-                ItemsManager.change2(p, Material.NETHERITE_BLOCK, 64, ItemsManager.getMoneta1(2));
+                ItemsManager.convertBlockToMoney(p, Material.NETHERITE_BLOCK, 64, ItemsManager.getMoneta1(2));
             }
             if (playerInventory.contains(Material.ANCIENT_DEBRIS, 64)) {
-                ItemsManager.change2(p, Material.ANCIENT_DEBRIS, 64, ItemsManager.getMoneta1(2));
+                ItemsManager.convertBlockToMoney(p, Material.ANCIENT_DEBRIS, 64, ItemsManager.getMoneta1(2));
             }
 
-            //MONETY NA DALSZE MONETY
+            // Przerabianie monet na dalsze poziomy wartości - zakomentowane
+            // (Może być częścią przyszłego rozwoju funkcji)
+
+            // if (playerInventory.contains(ItemsManager.getMoneta1(64))) {
+            //     ItemsManager.change3(p, ItemsManager.getMoneta1(64), ItemsManager.getMoneta2(1));
+            // }
+
+            // ... (kod dla kolejnych poziomów wartości, obecnie zakomentowany)
+
+
             if (playerInventory.contains(ItemsManager.getMoneta1(64))) {
-                ItemsManager.change3(p, ItemsManager.getMoneta1(64), ItemsManager.getMoneta2(1));
+                ItemsManager.convertMoneyToOtherMoney(p, ItemsManager.getMoneta1(64), ItemsManager.getMoneta2(1));
             }
             if (playerInventory.contains(ItemsManager.getMoneta2(64))) {
-                ItemsManager.change3(p, ItemsManager.getMoneta2(64), ItemsManager.getMoneta3(1));
+                ItemsManager.convertMoneyToOtherMoney(p, ItemsManager.getMoneta2(64), ItemsManager.getMoneta3(1));
             }
             if (playerInventory.contains(ItemsManager.getMoneta3(64))) {
-                ItemsManager.change3(p, ItemsManager.getMoneta3(64), ItemsManager.getMoneta4(1));
+                ItemsManager.convertMoneyToOtherMoney(p, ItemsManager.getMoneta3(64), ItemsManager.getMoneta4(1));
             }
             if (playerInventory.contains(ItemsManager.getMoneta4(64))) {
-                ItemsManager.change3(p, ItemsManager.getMoneta4(64), ItemsManager.getMoneta5(1));
+                ItemsManager.convertMoneyToOtherMoney(p, ItemsManager.getMoneta4(64), ItemsManager.getMoneta5(1));
             }
-            if (playerInventory.contains(ItemsManager.getMoneta5(64))) {
-                ItemsManager.change3(p, ItemsManager.getMoneta5(64), ItemsManager.getMoneta6(1));
-            }
-            if (playerInventory.contains(ItemsManager.getMoneta6(64))) {
-                ItemsManager.change3(p, ItemsManager.getMoneta6(64), ItemsManager.getMoneta7(1));
-            }
-            if (playerInventory.contains(ItemsManager.getMoneta7(64))) {
-                ItemsManager.change3(p, ItemsManager.getMoneta7(64), ItemsManager.getMoneta8(1));
-            }
+         //   if (playerInventory.contains(ItemsManager.getMoneta5(64))) {
+            //       ItemsManager.change3(p, ItemsManager.getMoneta5(64), ItemsManager.getMoneta6(1));
+            //     }
+            //     if (playerInventory.contains(ItemsManager.getMoneta6(64))) {
+            //     ItemsManager.change3(p, ItemsManager.getMoneta6(64), ItemsManager.getMoneta7(1));
+            //    }
+            //    if (playerInventory.contains(ItemsManager.getMoneta7(64))) {
+            //       ItemsManager.change3(p, ItemsManager.getMoneta7(64), ItemsManager.getMoneta8(1));
+            //   }
         }
-        //PRZERABIANIE MONET NA KASE
+
+        // Kod wewnątrz tego warunku obsługuje konwersję posiadanych monet na kształtujące się wartości gotówki.
+        // Wartości te są przypisane do odpowiednich przedziałów, np. 1.0D, 64.0D, 4096.0D, itd.
+
+        // Przykłady:
+        // - Jeśli gracz ma co najmniej jedną monetę pierwszego rodzaju, zamień ją na 1.0D gotówki.
+        // - Jeśli gracz ma co najmniej jedną monetę drugiego rodzaju, zamień ją na 64.0D gotówki.
+        // - Itd., dla różnych rodzajów monet i wartości gotówki.
+
+        // Wartości gotówki są przekazywane do metody kasakasa() z klasy ItemsManager.
+
+        // Metoda containsAtLeast() sprawdza, czy gracz ma co najmniej jedną monetę danego rodzaju w inwentarzu.
+        // Wartość 1 oznacza minimalną ilość potrzebną do przeprowadzenia konwersji.
+
         if (user.isPrzerabianieKasy()) {
             if (playerInventory.containsAtLeast(new ItemStack(ItemsManager.getMoneta1(1)), 1)) {
-                ItemsManager.kasakasa(p, ItemsManager.getMoneta1(1), 1.0D);
+                ItemsManager.convertMoneyToCurrency(p, ItemsManager.getMoneta1(1), 1.0D);
             }
 
             if (playerInventory.containsAtLeast(new ItemStack(ItemsManager.getMoneta2(1)), 1)) {
-                ItemsManager.kasakasa(p, ItemsManager.getMoneta2(1), 64.0D);
+                ItemsManager.convertMoneyToCurrency(p, ItemsManager.getMoneta2(1), 64.0D);
             }
 
             if (playerInventory.containsAtLeast(new ItemStack(ItemsManager.getMoneta3(1)), 1)) {
-                ItemsManager.kasakasa(p, ItemsManager.getMoneta3(1), 4096.0D);
+                ItemsManager.convertMoneyToCurrency(p, ItemsManager.getMoneta3(1), 4096.0D);
             }
 
             if (playerInventory.containsAtLeast(new ItemStack(ItemsManager.getMoneta4(1)), 1)) {
-                ItemsManager.kasakasa(p, ItemsManager.getMoneta4(1), 262144.0D);
+                ItemsManager.convertMoneyToCurrency(p, ItemsManager.getMoneta4(1), 262144.0D);
             }
 
             if (playerInventory.containsAtLeast(new ItemStack(ItemsManager.getMoneta5(1)), 1)) {
-                ItemsManager.kasakasa(p, ItemsManager.getMoneta5(1), 1.6777216E7D); //16m
+                ItemsManager.convertMoneyToCurrency(p, ItemsManager.getMoneta5(1), 1.6777216E7D); //16m
             }
-            if (playerInventory.containsAtLeast(new ItemStack(ItemsManager.getMoneta6(1)), 1)) {
-                ItemsManager.kasakasa(p, ItemsManager.getMoneta6(1), 2.6777216E7D); //26m
-            }
-            if (playerInventory.containsAtLeast(new ItemStack(ItemsManager.getMoneta7(1)), 1)) {
-                ItemsManager.kasakasa(p, ItemsManager.getMoneta7(1), 3.6777216E7D); //36m
-            }
-            if (playerInventory.containsAtLeast(new ItemStack(ItemsManager.getMoneta8(1)), 1)) {
-                ItemsManager.kasakasa(p, ItemsManager.getMoneta8(1), 4.6777216E7D); //46m
-            }
+            //    if (playerInventory.containsAtLeast(new ItemStack(ItemsManager.getMoneta6(1)), 1)) {
+                //        ItemsManager.convertMoneyToCurrency(p, ItemsManager.getMoneta6(1), 2.6777216E7D); //26m
+            //    }
+            //     if (playerInventory.containsAtLeast(new ItemStack(ItemsManager.getMoneta7(1)), 1)) {
+                //         ItemsManager.convertMoneyToCurrency(p, ItemsManager.getMoneta7(1), 3.6777216E7D); //36m
+            //    }
+            //       if (playerInventory.containsAtLeast(new ItemStack(ItemsManager.getMoneta8(1)), 1)) {
+            //       ItemsManager.convertMoneyToCurrency(p, ItemsManager.getMoneta8(1), 4.6777216E7D); //46m
+            //    }
 
         }
 

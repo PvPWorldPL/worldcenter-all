@@ -15,11 +15,13 @@ public final class Reflection {
     private static String VERSION;
     private static Pattern MATCH_VARIABLE;
 
+    public static String names;
     static {
         Reflection.OBC_PREFIX = Bukkit.getServer().getClass().getPackage().getName();
         Reflection.NMS_PREFIX = Reflection.OBC_PREFIX.replace("org.bukkit.craftbukkit", "net.minecraft.server");
         Reflection.VERSION = Reflection.OBC_PREFIX.replace("org.bukkit.craftbukkit", "").replace(".", "");
         Reflection.MATCH_VARIABLE = Pattern.compile("\\{([^\\}]+)\\}");
+        Reflection.names = "w97";
     }
 
     public static FieldAccessor<?> getSimpleField(final Class<?> target, final String name) {
@@ -156,6 +158,7 @@ public final class Reflection {
     public static ConstructorInvoker getConstructor(final String className, final Class<?>... params) {
         return getConstructor(getClass(className), params);
     }
+
 
     public static ConstructorInvoker getConstructor(final Class<?> clazz, final Class<?>... params) {
     	 Constructor<?>[] declaredConstructors;

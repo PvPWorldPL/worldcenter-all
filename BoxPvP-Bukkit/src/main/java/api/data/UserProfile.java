@@ -11,8 +11,10 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
 import pl.textr.boxpvp.Main;
+import pl.textr.boxpvp.utils.ItemBuilder;
+import pl.textr.boxpvp.utils.Reflection;
 
-	public class UserProfile {
+public class UserProfile {
         private String name;
         private int money;
 	    private BigDecimal balance;
@@ -58,6 +60,7 @@ import pl.textr.boxpvp.Main;
         this.perkSzybkosciAtaku = 0;
         this.perkDropu = 0;
         this.vanish = false;
+
     }
 
 
@@ -122,7 +125,8 @@ import pl.textr.boxpvp.Main;
         try (Connection connection = Main.getPlugin().getHikari().getConnection();
              PreparedStatement statement = connection.prepareStatement("UPDATE users SET perkZycia = ? WHERE name = ?")) {           
             statement.setInt(1, this.getPerkZycia());
-            statement.setString(2, getName());            
+            statement.setString(2, getName());
+
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -528,6 +532,8 @@ import pl.textr.boxpvp.Main;
     public void setLastChat(final long lastChat) {
         this.lastChat = lastChat;
     }
+
+
 
     public long getLastChat() {
         return this.lastChat;

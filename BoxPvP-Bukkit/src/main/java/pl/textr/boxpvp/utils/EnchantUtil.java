@@ -16,7 +16,7 @@ public final class EnchantUtil {
     }
 
     static {
-        (enchants = new HashMap<String, Enchantment>()).put("alldamage", Enchantment.DAMAGE_ALL);
+        (enchants = new HashMap<>()).put("alldamage", Enchantment.DAMAGE_ALL);
         EnchantUtil.enchants.put("alldmg", Enchantment.DAMAGE_ALL);
         EnchantUtil.enchants.put("sharpness", Enchantment.DAMAGE_ALL);
         EnchantUtil.enchants.put("sharp", Enchantment.DAMAGE_ALL);
@@ -119,4 +119,6 @@ public final class EnchantUtil {
         EnchantUtil.enchants.put("unlimitedarrows", Enchantment.ARROW_INFINITE);
         EnchantUtil.enchants.put("ai", Enchantment.ARROW_INFINITE);
     }
+
+
 }
