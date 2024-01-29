@@ -18,32 +18,33 @@ public class InventoryClickListener implements Listener
     public InventoryClickListener() {
         super();
     }
-    
+
     @EventHandler
     public void onInventoryClick(final InventoryClickEvent e) {
-        final Player p = (Player)e.getWhoClicked();
+        final Player p = (Player) e.getWhoClicked();
         if (e.getCurrentItem() == null) {
             return;
         }
         if (e.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', Lobby.getInstance().cfg.getString("inventory.title")))) {
             e.setCancelled(true);
-            if (e.getCurrentItem().getType().equals(Material.getMaterial(Lobby.getInstance().cfg.getString("layouts.online.material")))) {
-                for (final ServerInfo servers : Lobby.getInstance().servers.values()) {
+            if (e.getCurrentItem().getType() == Material.getMaterial(Lobby.getInstance().cfg.getString("layouts.online.material"))) {
+                for (ServerInfo servers : Lobby.getInstance().servers.values()) {
                     if (e.getSlot() == servers.getSlot()) {
                         if (servers.isOnline()) {
-                            if (servers.getServerName().equals(Lobby.getInstance().currentServer)) {
+                            if (servers.getServerName().equalsIgnoreCase(Lobby.getInstance().currentServer)) {
                                 p.closeInventory();
                                 p.sendMessage(HexTransform.translateHexColorCodes("&cJestes juz polaczony z tym kanalem").replace("%server%", servers.getDisplayName()));
-                            }
-                            else {
+                                return;
+                            } else {
                                 p.closeInventory();
                                 Lobby.getInstance().sendToServer(p, servers.getServerName());
                                 p.sendMessage(HexTransform.translateHexColorCodes("&7Trwa laczenie do &f%server%").replace("%server%", servers.getDisplayName()));
+                                return;
                             }
-                        }
-                        else {
+                        } else {
                             p.closeInventory();
                             p.sendMessage(HexTransform.translateHexColorCodes("&cKanal jest obecnie offline"));
+                            return;
                         }
                     }
                 }
