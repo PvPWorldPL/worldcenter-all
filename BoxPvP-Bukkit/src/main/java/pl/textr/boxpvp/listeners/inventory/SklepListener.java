@@ -62,11 +62,13 @@ if (ChatUtil.fixColor("&eSklep &7(sklep za czas)").equalsIgnoreCase(e.getView().
             return;
         }
 
-        if (item.getType() == Material.BLUE_DYE) {
-            if (user.getMoney() >= 5000) {
-                ChatUtil.sendMessage(p, ChatUtil.translateHexColorCodes("&7Pomyslnie zakupiono &#1400fb&lʀ&#1803f9&lᴜ&#1b06f8&lʙ&#1f09f6&lɪ&#220cf5&lɴ &#260ff3&lɢ&#2912f1&lʀ&#2d15f0&lᴀ&#3018ee&lɴ&#341bec&lᴀ&#371eeb&lᴛ&#3b21e9&lᴏ&#3e24e8&lᴡ&#4227e6&lʏ &8(&6✪4&8)"));
-                user.setMoney(user.getMoney() - 5000);
-                p.getInventory().addItem(new ItemStack(ItemsManager.getMoneta4(5)));
+
+
+        if (item.getType() == Material.LIGHT_BLUE_DYE) {
+            if (user.getMoney() >= 3000) {
+                ChatUtil.sendMessage(p, ChatUtil.translateHexColorCodes("&7Pomyslnie zakupiono &#5be1ff&lʀ&#56d9fb&lᴜ&#51d0f6&lʙ&#4cc8f2&lɪ&#46c0ed&lɴ &#41b8e9&lʟ&#3cafe4&lᴀ&#37a7e0&lᴢ&#329fdb&lᴜ&#2d96d7&lʀ&#288ed2&lʏ&#2286ce&lᴛ&#1d7ec9&lᴏ&#1875c5&lᴡ&#136dc0&lʏ &8(&6✪2&8)"));
+                user.setMoney(user.getMoney() - 3000);
+                p.getInventory().addItem(new ItemStack(ItemsManager.getMoneta2(5)));
                 p.closeInventory();
             } else {
                 p.closeInventory();
@@ -76,10 +78,10 @@ if (ChatUtil.fixColor("&eSklep &7(sklep za czas)").equalsIgnoreCase(e.getView().
         }
 
         if (item.getType() == Material.BLUE_DYE) {
-            if (user.getMoney() >= 3000) {
-                ChatUtil.sendMessage(p, ChatUtil.translateHexColorCodes("&7Pomyslnie zakupiono &#5be1ff&lʀ&#56d9fb&lᴜ&#51d0f6&lʙ&#4cc8f2&lɪ&#46c0ed&lɴ &#41b8e9&lʟ&#3cafe4&lᴀ&#37a7e0&lᴢ&#329fdb&lᴜ&#2d96d7&lʀ&#288ed2&lʏ&#2286ce&lᴛ&#1d7ec9&lᴏ&#1875c5&lᴡ&#136dc0&lʏ &8(&6✪2&8)"));
-                user.setMoney(user.getMoney() - 3000);
-                p.getInventory().addItem(new ItemStack(ItemsManager.getMoneta2(5)));
+            if (user.getMoney() >= 5000) {
+                ChatUtil.sendMessage(p, ChatUtil.translateHexColorCodes("&7Pomyslnie zakupiono &#1400fb&lʀ&#1803f9&lᴜ&#1b06f8&lʙ&#1f09f6&lɪ&#220cf5&lɴ &#260ff3&lɢ&#2912f1&lʀ&#2d15f0&lᴀ&#3018ee&lɴ&#341bec&lᴀ&#371eeb&lᴛ&#3b21e9&lᴏ&#3e24e8&lᴡ&#4227e6&lʏ &8(&6✪4&8)"));
+                user.setMoney(user.getMoney() - 5000);
+                p.getInventory().addItem(new ItemStack(ItemsManager.getMoneta4(5)));
                 p.closeInventory();
             } else {
                 p.closeInventory();
