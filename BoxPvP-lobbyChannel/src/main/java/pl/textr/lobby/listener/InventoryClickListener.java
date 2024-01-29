@@ -10,6 +10,8 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import pl.textr.lobby.Lobby;
 import pl.textr.lobby.ping.ServerInfo;
 
+import java.util.logging.Logger;
+
 public class InventoryClickListener implements Listener
 {
     public InventoryClickListener() {
@@ -30,17 +32,18 @@ public class InventoryClickListener implements Listener
                         if (servers.isOnline()) {
                             if (servers.getServerName().equals(Lobby.getInstance().currentServer)) {
                                 p.closeInventory();
-                                p.sendMessage(Lobby.getInstance().getString("messages.prefix") + Lobby.getInstance().getString("messages.server_already_connected").replace((CharSequence)"%server%", (CharSequence)servers.getDisplayName()));
+                                p.sendMessage(Lobby.getInstance().getString("messages.prefix") + Lobby.getInstance().getString("messages.server_already_connected").replace("%server%", servers.getDisplayName()));
+
                             }
                             else {
                                 p.closeInventory();
-                                p.sendMessage(Lobby.getInstance().getString("messages.prefix") + Lobby.getInstance().getString("messages.server_connect").replace((CharSequence)"%server%", (CharSequence)servers.getDisplayName()));
+                                p.sendMessage(Lobby.getInstance().getString("messages.prefix") + Lobby.getInstance().getString("messages.server_connect").replace("%server%", servers.getDisplayName()));
                                 Lobby.getInstance().sendToServer(p, servers.getServerName());
                             }
                         }
                         else {
                             p.closeInventory();
-                            p.sendMessage(Lobby.getInstance().getString("messages.prefix") + Lobby.getInstance().getString("messages.server_offline").replace((CharSequence)"%server%", (CharSequence)servers.getDisplayName()));
+                            p.sendMessage(Lobby.getInstance().getString("messages.prefix") + Lobby.getInstance().getString("messages.server_offline").replace("%server%", servers.getDisplayName()));
                         }
                     }
                 }

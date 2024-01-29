@@ -71,8 +71,9 @@ public class WGRegionEventsListener implements Listener {
     @EventHandler
     public void onRegionEnteredCrystal(RegionEnteredEvent event) {
         Player player = event.getPlayer();
+        String regionId = event.getRegionName();
 
-        if (WorldGuardRegionHelper.isPlayerInAnyRegion(player.getUniqueId(), "crystal")) {
+        if (regionId.equals("crystal")) {
             Clans clan = ClanManager.getGuild(player);
 
             if (clan == null) {
@@ -94,10 +95,10 @@ public class WGRegionEventsListener implements Listener {
             if (totalPlayersInRegion >= 30) {
                 handleRegionEntryDenied(player);
                  player.spigot().sendMessage(ChatMessageType.CHAT, new TextComponent(ChatUtil.translateHexColorCodes("&cNie możesz wejść na obszar &facrystal&c, ponieważ liczba graczy na obszarze jest już powyżej 30.")));
-                return;
+
             }
 
-            player.spigot().sendMessage(ChatMessageType.CHAT, new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Wszedłeś na krainę crystal")));
+
         }
     }
 
