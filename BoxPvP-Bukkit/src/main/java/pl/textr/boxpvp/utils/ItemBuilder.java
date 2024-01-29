@@ -88,15 +88,13 @@ public class ItemBuilder {
   public static void fillGui(Inventory inventory) {
     ItemBuilder zolte = (new ItemBuilder(Material.LIME_STAINED_GLASS_PANE, (short)3)).setTitle(ChatUtil.fixColor("&8#")).setGlow();
     ItemBuilder czarne = (new ItemBuilder(Material.LIGHT_BLUE_STAINED_GLASS_PANE, (short)15)).setTitle(ChatUtil.fixColor("&8#"));
-    int[] yellow = {
-        2, 3, 4, 5, 6, 17, 47, 48, 49, 50, 
-        51,27,18, 35,26 };
-    int[] black = { 
-        0, 1, 7, 8, 9, 17, 36, 44, 45, 46, 
-        52, 53 };
-    for (int i : yellow)
+    int[] zielony = {
+        1, 2,6,7,9,10,16,17,18,26,27,28,34,35,37,38,42,43 };
+    int[] niebieski = {
+        0,3,4,5,8,36,39,40,41,44 };
+    for (int i : zielony)
       inventory.setItem(i, zolte.ToItemStack());
-    for (int i : black)
+    for (int i : niebieski)
       inventory.setItem(i, czarne.ToItemStack());
   }
   

@@ -35,13 +35,17 @@ public class SklepListener implements Listener {
     if (item != null) {
         if (item.getType() == Material.CLOCK) {
             ShopMenu.show(p);
-        } 
+        }
+        if (item.getType() == Material.VILLAGER_SPAWN_EGG) {
+            Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "shopkeepers open 4 " + p.getName());
+        }
         if (item.getType() == Material.SUNFLOWER) {
             ShopMenu.show2(p);
         }
         return;
     }
 }
+
 
 if (ChatUtil.fixColor("&eSklep &7(sklep za czas)").equalsIgnoreCase(e.getView().getTitle())) {
     e.setCancelled(true);
@@ -147,6 +151,7 @@ if (ChatUtil.fixColor("&eSklep &7(sklep za czas)").equalsIgnoreCase(e.getView().
             }
         }
     }
+
 
 
   

@@ -14,21 +14,35 @@ import pl.textr.boxpvp.utils.ItemBuilder;
 public class ShopMenu
 {
     public static void menu(final Player p) {
-        final Inventory inv = Bukkit.createInventory(p, 54, ChatUtil.translateHexColorCodes("&eSklep &7(menu)"));
-        final ItemBuilder sklepzaczas = new ItemBuilder(Material.CLOCK).setTitle(ChatUtil.translateHexColorCodes("&#d34fc9&lSklep za czas")).addLore(ChatUtil.fixColor("&aKliknij aby przejsc"));
- 
-        final ItemBuilder sklep = new ItemBuilder(Material.SUNFLOWER).setTitle(ChatUtil.translateHexColorCodes("&#d34fc9&lSklep za kase")).addLore(ChatUtil.fixColor("&aKliknij aby przejsc"));
-        final ItemBuilder stankonta = new ItemBuilder(Material.BOOK).setTitle(ChatUtil.translateHexColorCodes("&fInformacja")).addLore(ChatUtil.fixColor("")).addLore(ChatUtil.fixColor("&7Za kazde &f5 minut &7gry")).addLore(ChatUtil.fixColor("&7Otrzymujesz &f1 &7monete czasu")).addLore(ChatUtil.fixColor(""));
+        final Inventory inv = Bukkit.createInventory(p, 45, ChatUtil.translateHexColorCodes("&eSklep &7(menu)"));
+        final ItemBuilder sklepzaczas = new ItemBuilder(Material.CLOCK).setTitle(ChatUtil.translateHexColorCodes("&#fbda64s&#fbdb60ᴋ&#fcdb5dʟ&#fcdc59ᴇ&#fddc55ᴘ &#fddd52ᴢ&#fdde4eᴀ &#fede4aᴄ&#fedf46ᴢ&#ffdf43ᴀ&#ffe03fs"))
+                .addLore(ChatUtil.translateHexColorCodes("&7(ᴋʟɪᴋɴɪᴊ ᴀʙʏ ᴏᴛᴡᴏʀᴢʏᴄ)"))
+                .addLore(ChatUtil.translateHexColorCodes(""))
+                .addLore(ChatUtil.translateHexColorCodes("&8・&7ᴡ ᴛᴇᴊ ᴢᴀᴋʟᴀᴅᴄᴇ ᴍᴏᴢᴇsᴢ &aᴋᴜᴘɪᴄ"))
+                .addLore(ChatUtil.translateHexColorCodes("&8・&7sᴘᴇᴅᴢᴀᴊᴀᴄ &6ᴄᴢᴀs &7ɴᴀ sᴇʀᴡᴇʀᴢᴇ"))
+                .addLore(ChatUtil.translateHexColorCodes(""));
+        final ItemBuilder sklep = new ItemBuilder(Material.SUNFLOWER).setTitle(ChatUtil.translateHexColorCodes("&#3cfb5as&#43fb5fᴋ&#4afb63ʟ&#51fc68ᴇ&#58fc6cᴘ &#60fc71ᴢ&#67fc76ᴀ &#6efc7aᴋ&#75fd7fᴀ&#7cfd83s&#83fd88ᴇ"))
+                .addLore(ChatUtil.translateHexColorCodes("&7(ᴋʟɪᴋɴɪᴊ ᴀʙʏ ᴏᴛᴡᴏʀᴢʏᴄ)"))
+                .addLore(ChatUtil.translateHexColorCodes(""))
+                .addLore(ChatUtil.translateHexColorCodes("&8・&7ᴡ ᴛᴇᴊ ᴢᴀᴋʟᴀᴅᴄᴇ ᴍᴏᴢᴇsᴢ &aᴋᴜᴘɪᴄ"))
+                .addLore(ChatUtil.translateHexColorCodes("&8・&7ʟᴜʙ &csᴘʀᴢᴇᴅᴀᴄ &5ʀᴜʙɪɴʏ &7ᴢᴀ &2ᴘɪᴇɴɪᴀᴅᴢᴇ"));
+
+        final ItemBuilder przydatne = new ItemBuilder(Material.VILLAGER_SPAWN_EGG).setTitle(ChatUtil.translateHexColorCodes("&#ee962fᴘ&#e89330ʀ&#e18f31ᴢ&#db8c32ʏ&#d48933ᴅ&#ce8635ᴀ&#c88236ᴛ&#c17f37ɴ&#bb7c38ᴇ &#b57939ᴘ&#ae753aʀ&#a8723bᴢ&#a16f3cᴇ&#9b6b3dᴅ&#95683fᴍ&#8e6540ɪ&#886241ᴏ&#815e42ᴛ&#7b5b43ʏ"))
+                .addLore(ChatUtil.translateHexColorCodes("&7(ᴋʟɪᴋɴɪᴊ ᴀʙʏ ᴏᴛᴡᴏʀᴢʏᴄ)"))
+                .addLore(ChatUtil.translateHexColorCodes(""))
+                .addLore(ChatUtil.translateHexColorCodes("&8・&7ᴡ ᴛᴇᴊ ᴢᴀᴋʟᴀᴅᴄᴇ ᴍᴏᴢᴇsᴢ &aᴋᴜᴘɪᴄ"))
+                .addLore(ChatUtil.translateHexColorCodes("&8・&7sᴢʏʙᴄɪᴇᴊ &3ᴘᴏᴛʀᴢᴇʙɴᴇ ɪᴛᴇᴍʏ &fᴅᴏ &cᴋʟᴇᴘʏ"))
+                .addLore(ChatUtil.translateHexColorCodes("&8・&7ᴢᴀᴍɪᴀsᴛ ᴘᴏᴊsᴄ ᴅᴏ &#ffa132ᴠ&#f89f39ɪ&#f19d41ʟ&#e99b48ʟ&#e29a4fᴀ&#db9856ɢ&#d4965eᴇ&#cc9465ʀ&#c5926cᴀ &7ɴᴀ &fsᴘᴀᴡɴɪᴇ"));
+
         ItemBuilder.fillGui(inv);
         inv.setItem(20, sklep.ToItemStack());
-    
+        inv.setItem(22, przydatne.ToItemStack());
         inv.setItem(24, sklepzaczas.ToItemStack());
-        inv.setItem(40, stankonta.ToItemStack());
         p.openInventory(inv);
     }
     
     public static void show(final Player p) {
-        final Inventory inv = Bukkit.createInventory(p, 54, ChatUtil.translateHexColorCodes("&eSklep &7(sklep za czas)"));
+        final Inventory inv = Bukkit.createInventory(p, 45, ChatUtil.translateHexColorCodes("&eSklep &7(sklep za czas)"));
         final UserProfile user = UserAccountManager.getUser(p);
        
         final ItemBuilder shulkerbox = new ItemBuilder(Material.SHULKER_BOX)
@@ -89,7 +103,7 @@ public class ShopMenu
     }
     
     public static void show2(final Player p) {
-        final Inventory inv = Bukkit.createInventory((InventoryHolder)p, 54, ChatUtil.fixColor("&eSklep &7(sklep za kase)"));
+        final Inventory inv = Bukkit.createInventory((InventoryHolder)p, 45, ChatUtil.fixColor("&eSklep &7(sklep za kase)"));
         final UserProfile user = UserAccountManager.getUser(p);
         
         final ItemBuilder moneta1 = new ItemBuilder(Material.LIME_DYE, 1)
