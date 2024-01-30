@@ -29,12 +29,11 @@ public class InventoryClickListener implements Listener
             e.setCancelled(true);
             if (e.getCurrentItem().getType() == Material.getMaterial(Lobby.getInstance().cfg.getString("layouts.online.material"))) {
                 for (ServerInfo servers : Lobby.getInstance().servers.values()) {
-                    if (e.getSlot() == servers.getSlot()) {
-                        if (servers.isOnline()) {
-                            if (servers.getServerName().equalsIgnoreCase(Lobby.getInstance().currentServer)) {
-                                p.closeInventory();
-                                p.sendMessage(HexTransform.translateHexColorCodes("&cJestes juz polaczony z tym kanalem").replace("%server%", servers.getDisplayName()));
-                                return;
+                    if (e.getSlot() == servers.getSlot() && servers.isOnline()) {
+                        if (servers.getServerName().equalsIgnoreCase(Lobby.getInstance().currentServer)) {
+                            p.closeInventory();
+                            p.sendMessage(HexTransform.translateHexColorCodes("&cJestes juz polaczony z tym kanalem").replace("%server%", servers.getDisplayName()));
+                            return;
                             } else {
                                 p.closeInventory();
                                 Lobby.getInstance().sendToServer(p, servers.getServerName());
@@ -51,4 +50,3 @@ public class InventoryClickListener implements Listener
             }
         }
     }
-}

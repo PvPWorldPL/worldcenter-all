@@ -52,6 +52,7 @@ public class BreakListener implements Listener {
                 || block.getType() == Material.IRON_ORE
                 || block.getType() == Material.LAPIS_ORE
                 || block.getType() == Material.COAL_ORE
+                || block.getType() == Material.EMERALD_ORE
                 || block.getType() == Material.REDSTONE_ORE
                 || block.getType() == Material.BLACK_WOOL
                 || block.getType() == Material.WHITE_WOOL
