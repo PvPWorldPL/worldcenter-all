@@ -86,7 +86,7 @@ public class BreakListener implements Listener {
             // PerkDropu logic
             if (user.getPerkDropu() >= 1 && user.getPerkDropu() <= 4) {
                 double perkDropuMultiplier = switch (user.getPerkDropu()) {
-                    case 1 -> Main.getPlugin().getConfiguration().getPerkDropu1();
+                    case 1 -> Main.getPlugin().getConfiguration().getPerkDropu1(); //1.25
                     case 2 -> Main.getPlugin().getConfiguration().getPerkDropu2();
                     case 3 -> Main.getPlugin().getConfiguration().getPerkDropu3();
                     case 4 -> Main.getPlugin().getConfiguration().getPerkDropu4();
@@ -104,7 +104,7 @@ public class BreakListener implements Listener {
 
             // Turbodrop logic
             if (Main.getPlugin().getConfiguration().turbodrop > System.currentTimeMillis()) {
-                double turbodropMultiplier = Main.getPlugin().getConfiguration().turbodropmnoznik();
+                double turbodropMultiplier = Main.getPlugin().getConfiguration().turbodropmnoznik(); //wconfig domyslnie 2
                 totalMultiplier *= turbodropMultiplier;
 
                 for (ItemStack item : drops) {
