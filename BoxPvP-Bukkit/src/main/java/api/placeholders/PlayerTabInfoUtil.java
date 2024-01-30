@@ -168,7 +168,7 @@ import pl.textr.boxpvp.utils.ChatUtil;
             String colorTag = g.isColorTag();
             try {
                 ChatColor tagColor = ChatColor.of(colorTag);
-                formattedTag = tagColor + "&l" + formattedTag;
+				formattedTag = "&8[" + tagColor + formattedTag + "&8]";
             } catch (IllegalArgumentException e) {
                 // Obsłuż błąd, jeśli przekazany kolor nie jest prawidłowy
             }
