@@ -162,7 +162,7 @@ public class BreakListener implements Listener {
             materialMappings.put(Material.QUARTZ, Material.QUARTZ_BLOCK);
             materialMappings.put(Material.DIAMOND, Material.DIAMOND_BLOCK);
             materialMappings.put(Material.IRON_INGOT, Material.IRON_BLOCK);
-            materialMappings.put(Material.GOLD_INGOT, Material.GOLD_BLOCK);
+            materialMappings.put(Material.RAW_GOLD, Material.GOLD_BLOCK);
             materialMappings.put(Material.LAPIS_LAZULI, Material.LAPIS_BLOCK);
             materialMappings.put(Material.REDSTONE, Material.REDSTONE_BLOCK);
             materialMappings.put(Material.COAL, Material.COAL_BLOCK);
