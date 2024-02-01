@@ -11,7 +11,7 @@ import pl.textr.boxpvp.utils.ItemBuilder;
 
 public class RanksMenu {
 	  public static void show(final Player p) {
-		   final Inventory inv = Bukkit.createInventory((InventoryHolder)p, 54, ChatUtil.translateHexColorCodes("&7RANGI"));
+		   final Inventory inv = Bukkit.createInventory(p, 54, ChatUtil.translateHexColorCodes("&7RANGI"));
 		     
         /// #FF0404 #EA7737
        

@@ -13,7 +13,7 @@ import pl.textr.boxpvp.utils.ItemBuilder;
 
 public class UstawieniaMenu {
     public static void show(final Player p) {
-        final Inventory inv = Bukkit.createInventory((InventoryHolder)p, 45, ChatUtil.translateHexColorCodes("&#2cfe4e&lU&#43f64b&lS&#5aef49&lT&#72e746&lA&#89df43&lW&#a0d841&lI&#b7d03e&lE&#cfc83b&lN&#e6c139&lI&#fdb936&lA"));
+        final Inventory inv = Bukkit.createInventory(p, 45, ChatUtil.translateHexColorCodes("&#2cfe4e&lU&#43f64b&lS&#5aef49&lT&#72e746&lA&#89df43&lW&#a0d841&lI&#b7d03e&lE&#cfc83b&lN&#e6c139&lI&#fdb936&lA"));
         
     	   final UserProfile u = UserAccountManager.getUser(p);
     

@@ -8,10 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
 import pl.textr.lobby.Lobby;
-import pl.textr.lobby.ping.HexTransform;
 import pl.textr.lobby.ping.ServerInfo;
-
-import java.util.logging.Logger;
 
 public class InventoryClickListener implements Listener
 {
@@ -21,32 +18,33 @@ public class InventoryClickListener implements Listener
 
     @EventHandler
     public void onInventoryClick(final InventoryClickEvent e) {
-        final Player p = (Player) e.getWhoClicked();
+        final Player p = (Player)e.getWhoClicked();
         if (e.getCurrentItem() == null) {
             return;
         }
         if (e.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', Lobby.getInstance().cfg.getString("inventory.title")))) {
             e.setCancelled(true);
-            if (e.getCurrentItem().getType() == Material.getMaterial(Lobby.getInstance().cfg.getString("layouts.online.material"))) {
-                for (ServerInfo servers : Lobby.getInstance().servers.values()) {
-                    if (e.getSlot() == servers.getSlot() && servers.isOnline()) {
-                        if (servers.getServerName().equalsIgnoreCase(Lobby.getInstance().currentServer)) {
-                            p.closeInventory();
-                            p.sendMessage(HexTransform.translateHexColorCodes("&cJestes juz polaczony z tym kanalem").replace("%server%", servers.getDisplayName()));
-                            return;
-                            } else {
+            if (e.getCurrentItem().getType().equals(Material.getMaterial(Lobby.getInstance().cfg.getString("layouts.online.material")))) {
+                for (final ServerInfo servers : Lobby.getInstance().servers.values()) {
+                    if (e.getSlot() == servers.getSlot()) {
+                        if (servers.isOnline()) {
+                            if (servers.getServerName().equals(Lobby.getInstance().currentServer)) {
                                 p.closeInventory();
-                                Lobby.getInstance().sendToServer(p, servers.getServerName());
-                                p.sendMessage(HexTransform.translateHexColorCodes("&7Trwa laczenie do &f%server%").replace("%server%", servers.getDisplayName()));
-                                return;
+                                p.sendMessage(Lobby.getInstance().getString("messages.prefix") + Lobby.getInstance().getString("messages.server_already_connected").replace("%server%", servers.getDisplayName()));
                             }
-                        } else {
+                            else {
+                                p.closeInventory();
+                                p.sendMessage(Lobby.getInstance().getString("messages.prefix") + Lobby.getInstance().getString("messages.server_connect").replace("%server%", servers.getDisplayName()));
+                                Lobby.getInstance().sendToServer(p, servers.getServerName());
+                            }
+                        }
+                        else {
                             p.closeInventory();
-                            p.sendMessage(HexTransform.translateHexColorCodes("&cKanal jest obecnie offline"));
-                            return;
+                            p.sendMessage(Lobby.getInstance().getString("messages.prefix") + Lobby.getInstance().getString("messages.server_offline").replace("%server%", servers.getDisplayName()));
                         }
                     }
                 }
             }
         }
     }
+}

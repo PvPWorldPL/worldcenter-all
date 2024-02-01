@@ -103,7 +103,7 @@ public class ShopMenu
     }
     
     public static void show2(final Player p) {
-        final Inventory inv = Bukkit.createInventory((InventoryHolder)p, 45, ChatUtil.fixColor("&eSklep &7(sklep za kase)"));
+        final Inventory inv = Bukkit.createInventory(p, 45, ChatUtil.fixColor("&eSklep &7(sklep za kase)"));
         final UserProfile user = UserAccountManager.getUser(p);
         
         final ItemBuilder moneta1 = new ItemBuilder(Material.LIME_DYE, 1)

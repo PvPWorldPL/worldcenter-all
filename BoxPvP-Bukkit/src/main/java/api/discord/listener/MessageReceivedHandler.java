@@ -15,7 +15,7 @@ public class MessageReceivedHandler extends ListenerAdapter
     
     public MessageReceivedHandler(final DiscordBot bot) {
         this.bot = bot;
-        this.bot.getJda().addEventListener(new Object[] { this });
+        this.bot.getJda().addEventListener(this);
     }
     
     public void onMessageReceived(final MessageReceivedEvent event) {

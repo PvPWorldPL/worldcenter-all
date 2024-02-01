@@ -29,33 +29,33 @@ public class AwardCommand implements CommandDiscord
         }
 
         final EmbedBuilder offlinePlayer = new EmbedBuilder();
-        offlinePlayer.setTitle("PVPWORLD.PL - NAGRODY (BOXPVP)");
+        offlinePlayer.setTitle("WORLDCENTER.PL - NAGRODY (BOXPVP)");
         offlinePlayer.setColor(Color.RED);
         offlinePlayer.addField("BŁĄD! :interrobang: Podany gracz ``" + args[1] + "`` jest offline", "Żeby odebrać nagrodę musisz być online na boxpvp_1", false);      
-        offlinePlayer.setFooter("Administracja PVPWORLD pozdrawia!");
+        offlinePlayer.setFooter("Administracja WORLDCENTER pozdrawia!");
         offlinePlayer.setThumbnail("https://cravatar.eu/helmhead/" + args[1] + "/190.png");
 
         final EmbedBuilder wrongChannel = new EmbedBuilder();
-        wrongChannel.setTitle("PVPWORLD.PL - NAGRODY (BOXPVP)");
+        wrongChannel.setTitle("WORLDCENTER.PL - NAGRODY (BOXPVP)");
         wrongChannel.setColor(Color.RED);
         wrongChannel.addField("BŁĄD! :interrobang: Błędny kanał do odebrania nagrody", "Prawidłowy kanał to <#1165651577701412984>!", false);
-        wrongChannel.setFooter("Administracja PVPWORLD pozdrawia!");
+        wrongChannel.setFooter("Administracja WORLDCENTER pozdrawia!");
 
         
         final EmbedBuilder awardedBefore = new EmbedBuilder();
-        awardedBefore.setTitle("PVPWORLD.PL - NAGRODY (BOXPVP)");
+        awardedBefore.setTitle("WORLDCENTER.PL - NAGRODY (BOXPVP)");
         awardedBefore.setColor(Color.RED);
         awardedBefore.addField("BŁĄD! :interrobang: Odebrałeś już nagrodę !", "nie możesz jej odebrać drugi raz!", false);  
-        awardedBefore.setFooter("Administracja PVPWORLD pozdrawia!");
+        awardedBefore.setFooter("Administracja WORLDCENTER pozdrawia!");
         awardedBefore.setThumbnail("https://cravatar.eu/helmhead/" + args[1] + "/190.png");
 
         
      
         final EmbedBuilder awardedPlayer = new EmbedBuilder();
-        awardedPlayer.setTitle("PVPWORLD.PL - NAGRODY (BOXPVP)");
+        awardedPlayer.setTitle("WORLDCENTER.PL - NAGRODY (BOXPVP)");
         awardedPlayer.setColor(Color.GREEN);
         awardedPlayer.addField("POMYŚLNIE ODEBRANO! ✅", "Podany nick ``" + args[1] + "`` pomyślnie odebrał nagrodę!", false);
-        awardedPlayer.setFooter("Administracja PVPWORLD pozdrawia!");
+        awardedPlayer.setFooter("Administracja WORLDCENTER pozdrawia!");
         awardedPlayer.setThumbnail("https://cravatar.eu/helmhead/" + args[1] + "/190.png");
 
         

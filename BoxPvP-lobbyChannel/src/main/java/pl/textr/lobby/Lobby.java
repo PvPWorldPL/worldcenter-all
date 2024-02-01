@@ -39,12 +39,13 @@ public class Lobby extends JavaPlugin implements PluginMessageListener {
     public  HashMap<String, ServerInfo> servers = new HashMap<>();
     public  String currentServer;
 
-    public  boolean updateAvailable = false;
 
     public  boolean reloading = false;
 
 
-
+    public String getCurrentServer() {
+        return currentServer;
+    }
     private static Lobby instance;
 
     @Override
