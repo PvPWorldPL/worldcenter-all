@@ -18,14 +18,13 @@ public class Main extends JavaPlugin {
     private static Main plugin;
 
     public static Main getPlugin() {
-
         return Main.plugin;
     }
 
     @Override
     public void onEnable() {
         Main.plugin = this;
-        Main.plugin.getServer().getMessenger().registerOutgoingPluginChannel(Main.plugin, "BungeeCord");
+        getServer().getMessenger().registerOutgoingPluginChannel(Main.plugin, "BungeeCord");
         loadCommands();
         new PlaceHolderRegisterAPI().register();
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
