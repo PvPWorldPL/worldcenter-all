@@ -3,7 +3,11 @@
   <component name="FacetManager">
     <facet type="minecraft" name="Minecraft">
       <configuration>
-        <projectReimportVersion>1</projectReimportVersion>
+        <autoDetectTypes>
+          <platformType>ADVENTURE</platformType>
+          <platformType>SPIGOT</platformType>
+          <platformType>MCP</platformType>
+        </autoDetectTypes>
       </configuration>
     </facet>
   </component>

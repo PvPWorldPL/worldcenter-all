@@ -2,12 +2,11 @@ package pl.worldcenter;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
-import org.bukkit.entity.Player;
 
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
+import org.bukkit.entity.Player;
 import pl.worldcenter.commands.RangaCommand;
-import pl.worldcenter.util.ChatUtil;
 
 public class PlaceHolderRegisterAPI extends PlaceholderExpansion {
 
@@ -22,21 +21,31 @@ public class PlaceHolderRegisterAPI extends PlaceholderExpansion {
         String boxPvpRanks = RangaCommand.getRanksOnServer(user, "boxpvp");
         String skyPvpRanks = RangaCommand.getRanksOnServer(user, "skypvp");
         String lifeStealRanks = RangaCommand.getRanksOnServer(user, "lifesteal");
+        String KitPvPRanks = RangaCommand.getRanksOnServer(user, "kitpvp");
+        String ZombieModRanks = RangaCommand.getRanksOnServer(user, "zombiemod");
 
-            if (identifier.equalsIgnoreCase("boxpvp")) {
-                return boxPvpRanks;
-            }
+        if (identifier.equalsIgnoreCase("boxpvp")) {
+            return boxPvpRanks;
+        }
 
-            if (identifier.equalsIgnoreCase("skypvp")) {
-                return skyPvpRanks;
-            }
+        if (identifier.equalsIgnoreCase("skypvp")) {
+            return skyPvpRanks;
+        }
 
         if (identifier.equalsIgnoreCase("lifesteal")) {
             return lifeStealRanks;
         }
-        return null;
-    }
 
+        if (identifier.equalsIgnoreCase("kitpvp")) {
+            return KitPvPRanks;
+        }
+
+        if (identifier.equalsIgnoreCase("ZombieMod")) {
+            return ZombieModRanks;
+        }
+
+            return "";
+    }
 
 
 
