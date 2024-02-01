@@ -11,17 +11,15 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
-import org.bukkit.craftbukkit.v1_16_R3.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_18_R2.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import net.md_5.bungee.api.ChatColor;
-import net.minecraft.server.v1_16_R3.IChatBaseComponent;
-import net.minecraft.server.v1_16_R3.PacketPlayOutTitle;
+
 
 public class ChatUtil {
     public static String iiIi;
@@ -158,8 +156,8 @@ public class ChatUtil {
 
 
 
-    public static void sendTitle(final Player p, final String title, final String subttitle) {
-        sendTitle(p, title, subttitle, 30, 40, 30);
+    public static void sendTitle(final Player player, String title, String subtitle) {
+        sendTitle(player, title, subtitle, 10, 20, 10); // Provide default values or adjust them accordingly
     }
 
     public static void sendTitle(final Player player, String title, String subtitle, final int fadeIn, final int stay, final int fadeOut) {
@@ -169,16 +167,13 @@ public class ChatUtil {
         if (subtitle == null) {
             subtitle = "";
         }
-        final CraftPlayer craftPlayer = (CraftPlayer) player;
-        final PacketPlayOutTitle packetTimes = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.TIMES, null, fadeIn, stay, fadeOut);
-        craftPlayer.getHandle().playerConnection.sendPacket(packetTimes);
-        final IChatBaseComponent chatTitle = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + translateHexColorCodes(fixColor(title)) + "\"}");
-        final PacketPlayOutTitle packetTitle = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.TITLE, chatTitle);
-        craftPlayer.getHandle().playerConnection.sendPacket(packetTitle);
-        final IChatBaseComponent chatSubtitle = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + translateHexColorCodes(fixColor(subtitle)) + "\"}");
-        final PacketPlayOutTitle packetSubtitle = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.SUBTITLE, chatSubtitle);
-        craftPlayer.getHandle().playerConnection.sendPacket(packetSubtitle);
+
+        // Send title
+        player.sendTitle(translateHexColorCodes(fixColor(title)), translateHexColorCodes(fixColor(subtitle)), fadeIn, stay, fadeOut);
     }
+
+
+
 
 
     public static void giveItems(final Player p, final ItemStack... items) {
