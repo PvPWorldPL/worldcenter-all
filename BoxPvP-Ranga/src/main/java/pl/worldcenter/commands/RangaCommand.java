@@ -11,10 +11,7 @@ import pl.worldcenter.util.ChatUtil;
 import pl.worldcenter.commands.api.CommandInfo;
 import pl.worldcenter.commands.api.PlayerCommandExecutor;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @CommandInfo(name = "ranga", description = "Pokazuje posiadane rangi gracza", usage = "/ranga", permission = "core.cmd.user", aliases = {"rangi", "group"})
@@ -66,18 +63,20 @@ public class RangaCommand extends PlayerCommandExecutor {
         String serverPrefix = SERVER_NAME.containsKey(serverName) ?
                 ChatUtil.translateHexColorCodes("&e&l➥") + SERVER_NAME.get(serverName) + "&8»&8 " : "";
 
-        if (serverRanks.isEmpty()) {
+
+        if (!serverRanks.isEmpty()) {
+            StringBuilder ranksWithServer = new StringBuilder(serverPrefix);
+
+            Iterator<String> iterator = serverRanks.iterator();
+            ranksWithServer.append(iterator.next());
+
+            iterator.forEachRemaining(rank -> ranksWithServer.append("&7,").append(rank));
+
+            return ranksWithServer.toString();
+        } else {
             return "";
         }
-
-        StringBuilder ranksWithServer = new StringBuilder(serverPrefix);
-        serverRanks.forEach(rank -> ranksWithServer.append("&7 ").append(rank));
-
-        return ranksWithServer.substring(0, ranksWithServer.length() - 1);
     }
-
-
-
 
 
 
