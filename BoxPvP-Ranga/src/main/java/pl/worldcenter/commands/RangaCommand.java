@@ -60,9 +60,13 @@ public class RangaCommand extends PlayerCommandExecutor {
                     return SERVER_NAME.getOrDefault(serverName, "") + "&8»&8 " + rankName;
                 })
                 .collect(Collectors.toSet());
+
+        if (serverRanks.isEmpty()) {
+            return "&cBrak";
+        }
+
         return String.join(", ", serverRanks);
     }
-
 
 
 
