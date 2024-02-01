@@ -40,6 +40,7 @@ public class RangaCommand extends PlayerCommandExecutor {
         RANK_MAPPINGS.put("group.platyna", ChatUtil.translateHexColorCodes("&#d7dadfᴘ&#d7dadfʟ&#d7dadfᴀ&#d7dadfᴛ&#d7dadfʏ&#d7dadfɴ&#d7dadfᴀ&8&l"));
         RANK_MAPPINGS.put("group.svip", ChatUtil.translateHexColorCodes("&es&6ᴠɪᴘ&8&l"));
         RANK_MAPPINGS.put("group.vip", ChatUtil.translateHexColorCodes("&6ᴠɪᴘ&8&l"));
+
         SERVER_NAME.put("boxpvp", "&8 &#55ff04&#5cfa0d&#63f617&#6af120&l&#71ed2a&#78e833boxpvp &8");
         SERVER_NAME.put("skypvp", "&8 &#6ae4ff&#5ecafa&#52b0f6&l&#4696f1&#3a7ced&#2e62e8skypvp &8");
         SERVER_NAME.put("lifesteal", "&8 &#fbff23&#f7f820&l&#f3f11e&#efea1b&#ece318&l&#e8dc15&#e4d513&#e0ce10&#dcc70dlifesteal &8");
@@ -58,24 +59,23 @@ public class RangaCommand extends PlayerCommandExecutor {
         Set<String> serverRanks = user.getNodes().stream()
                 .filter(node -> node.getType() == NodeType.INHERITANCE)
                 .filter(node -> node.getContexts().getAnyValue("server").map(serverName::equalsIgnoreCase).orElse(false))
-                .map(node -> {
-                    String rankName = RANK_MAPPINGS.getOrDefault(node.getKey(), "");
-                    return rankName.isEmpty() ? null : rankName;
-                })
-                .filter(Objects::nonNull)
+                .map(node -> RANK_MAPPINGS.getOrDefault(node.getKey(), ""))
+                .filter(rankName -> !rankName.isEmpty())
                 .collect(Collectors.toSet());
 
         String serverPrefix = SERVER_NAME.containsKey(serverName) ?
-                ChatUtil.translateHexColorCodes("&e&l➥")
-                        + SERVER_NAME.get(serverName) + "&8»&8 " : "";
+                ChatUtil.translateHexColorCodes("&e&l➥") + SERVER_NAME.get(serverName) + "&8»&8 " : "";
 
         if (serverRanks.isEmpty()) {
-            return "brak";
+            return "";
         }
 
-        String ranksWithServer = serverPrefix + String.join("&7,", serverRanks);
-        return "" + ranksWithServer;
+        StringBuilder ranksWithServer = new StringBuilder(serverPrefix);
+        serverRanks.forEach(rank -> ranksWithServer.append("&7 ").append(rank));
+
+        return ranksWithServer.substring(0, ranksWithServer.length() - 1);
     }
+
 
 
 
