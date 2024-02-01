@@ -51,6 +51,7 @@ public class MsgCommand extends Command implements TabExecutor {
 
 	        // Ustaw odpowiedni UUID odbiorcy w mapie replyMap
 	        messageManager.setReplyTarget(senderPlayer.getUniqueId(), targetPlayer.getUniqueId());
+			messageManager.setReplyTarget(targetPlayer.getUniqueId(), senderPlayer.getUniqueId());
 
 	        // Formatowanie wiadomości
 	        BaseComponent[] targetMessage = TextComponent.fromLegacyText(ChatUtil.fixColor("&8[&f"  + senderName + " &8-> &eja&8] &7" + messageContent)); 

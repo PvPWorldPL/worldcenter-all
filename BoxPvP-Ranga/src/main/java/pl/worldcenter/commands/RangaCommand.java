@@ -121,13 +121,19 @@ public class RangaCommand extends PlayerCommandExecutor {
                 player.sendMessage(ChatUtil.fixColor("&fBrak"));
             } else {
                 if (!boxPvPRanks.isEmpty()) {
-                    player.sendMessage(ChatUtil.fixColor("&c&LBOXPVP&f Ranga" + boxPvPRanks + "&7"));
+                    player.sendMessage(ChatUtil.translateHexColorCodes("&#55ff04&#5cfa0d&#63f617&#6af120&l&#71ed2a&#78e833boxpvp&f Ranga " + boxPvPRanks + "&7"));
                 }
                 if (!skyPvPRanks.isEmpty()) {
-                    player.sendMessage(ChatUtil.fixColor("&a&LSKYPVP&f Ranga" + skyPvPRanks + "&7"));
+                    player.sendMessage(ChatUtil.translateHexColorCodes("&#6ae4ff&#5ecafa&#52b0f6&l&#4696f1&#3a7ced&#2e62e8skypvp&f Ranga " + skyPvPRanks + "&7"));
                 }
                 if (!lifeStealRanks.isEmpty()) {
-                    player.sendMessage(ChatUtil.fixColor("&6&lLIFESTEAL&f Ranga" + lifeStealRanks + "&7"));
+                    player.sendMessage(ChatUtil.translateHexColorCodes("&#fbff23&#f7f820&l&#f3f11e&#efea1b&#ece318&l&#e8dc15&#e4d513&#e0ce10&#dcc70dlifesteal&f Ranga " + lifeStealRanks + "&7"));
+                }
+                if (!KitPvPRanks.isEmpty()) {
+                    player.sendMessage(ChatUtil.translateHexColorCodes("&#ff44f8&#ef45f9&#df46fb&#cf48fc&#bf49fe&l&#af4affkitpvp&f Ranga " + KitPvPRanks + "&7"));
+                }
+                if (!ZombieModRanks.isEmpty()) {
+                    player.sendMessage(ChatUtil.translateHexColorCodes(" &#ff0000&#ed0302&#db0704&#c90a06&#b70e08&l&#a41109&#92140b&#80180d&#6e1b0fzombiemod&f Ranga " + ZombieModRanks + "&7"));
                 }
             }
         }
