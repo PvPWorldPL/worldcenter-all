@@ -16,30 +16,24 @@ public class NpcClickListener implements Listener {
     public void onRightClick(NPCRightClickEvent event) {
         NPC npc = event.getNPC();
         Player player = event.getClicker();
-        Bukkit.getLogger().warning("Debug chuj");
+        Bukkit.getLogger().info("Debug chuj");
 
-        if (npc.getName().contains("boxpvp")) {
-            Bukkit.getLogger().warning("Debug 1");
+        String npcName = npc.getName();
+
+        if (npcName.contains("boxpvp")) {
+            Bukkit.getLogger().info("Debug 1");
             ConnectUtil.connect(player, "boxpvp-1");
-            return;
-        }
-        if (npc.getName().contains("skypvp")) {
-            Bukkit.getLogger().warning("Debug 2");
+        } else if (npcName.contains("skypvp")) {
+            Bukkit.getLogger().info("Debug 2");
             ConnectUtil.connect(player, "skypvp-1");
-            return;
-        }
-        if (npc.getName().contains("lifesteal")) {
-            Bukkit.getLogger().warning("Debug 3");
+        } else if (npcName.contains("lifesteal")) {
+            Bukkit.getLogger().info("Debug 3");
             ConnectUtil.connect(player, "lifesteal-1");
-            return;
-        }
-        if (npc.getName().contains("kitpvp")) {
-            Bukkit.getLogger().warning("Debug 4");
+        } else if (npcName.contains("kitpvp")) {
+            Bukkit.getLogger().info("Debug 4");
             ConnectUtil.connect(player, "kitpvp-1");
-            return;
-        }
-        if (npc.getName().contains("zombiemod")) {
-            Bukkit.getLogger().warning("Debug 5");
+        } else if (npcName.contains("zombiemod")) {
+            Bukkit.getLogger().info("Debug 5");
             ConnectUtil.connect(player, "zombiemod-1");
         }
     }
