@@ -3,4 +3,5 @@ version: 2.0 Alpha
 author: TexTr
 name: LobbyCore
 api-version: 1.18
+depend: [PlaceholderAPI, Citizens]
 website: http://worldcenter.pl

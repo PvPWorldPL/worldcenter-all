@@ -18,27 +18,27 @@ public class NpcClickListener implements Listener {
         Player player = event.getClicker();
         Bukkit.getLogger().warning("Debug chuj");
 
-        if (npc.getName().equals("boxpvp")) {
+        if (npc.getName().contains("boxpvp")) {
             Bukkit.getLogger().warning("Debug 1");
             ConnectUtil.connect(player, "boxpvp-1");
             return;
         }
-        if (npc.getName().equals("skypvp")) {
+        if (npc.getName().contains("skypvp")) {
             Bukkit.getLogger().warning("Debug 2");
             ConnectUtil.connect(player, "skypvp-1");
             return;
         }
-        if (npc.getName().equals("lifesteal")) {
+        if (npc.getName().contains("lifesteal")) {
             Bukkit.getLogger().warning("Debug 3");
             ConnectUtil.connect(player, "lifesteal-1");
             return;
         }
-        if (npc.getName().equals("kitpvp")) {
+        if (npc.getName().contains("kitpvp")) {
             Bukkit.getLogger().warning("Debug 4");
             ConnectUtil.connect(player, "kitpvp-1");
             return;
         }
-        if (npc.getName().equals("zombiemod")) {
+        if (npc.getName().contains("zombiemod")) {
             Bukkit.getLogger().warning("Debug 5");
             ConnectUtil.connect(player, "zombiemod-1");
         }
