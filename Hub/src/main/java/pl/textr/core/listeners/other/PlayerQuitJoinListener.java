@@ -44,7 +44,7 @@ public class PlayerQuitJoinListener implements Listener {
 		p.sendMessage(ChatUtil.translateHexColorCodes("&7» &fᴛɪᴋᴛᴏᴋ: &#ff0050ᴛ&#df1e63ᴛ&#bf3d77.&#9f5b8aᴡ&#80799dᴏ&#6097b0ʀ&#40b6c4ʟ&#20d4d7ᴅ&#00f2eaᴄ&#00d4cdᴇ&#00b6b0ɴ&#009792ᴛ&#007975ᴇ&#005b58ʀ&#003d3b.&#001e1dᴘ&#000000ʟ"));
 		p.sendMessage(ChatUtil.translateHexColorCodes("&7» &fғʙ: &#326cffғ&#3f75ffʙ&#4c7eff.&#5887feᴡ&#6591feᴏ&#729afeʀ&#7fa3feʟ&#8cacfeᴅ&#99b5feᴄ&#a5befdᴇ&#b2c7fdɴ&#bfd0fdᴛ&#ccdafdᴇ&#d9e3fdʀ&#e5ecfc.&#f2f5fcᴘ&#fffefcʟ "));
 		p.sendMessage(ChatUtil.translateHexColorCodes(""));
-
+		p.setAllowFlight(true);
 	}
 
 	@EventHandler

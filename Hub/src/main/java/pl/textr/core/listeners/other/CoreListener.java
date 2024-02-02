@@ -1,5 +1,7 @@
 package pl.textr.core.listeners.other;
 
+import org.bukkit.Effect;
+import org.bukkit.GameMode;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -8,7 +10,9 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
+import org.bukkit.event.player.PlayerToggleFlightEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
+import org.bukkit.util.Vector;
 
 public class CoreListener implements Listener {
 
@@ -47,6 +51,29 @@ public class CoreListener implements Listener {
 	        event.setCancelled(true);
 	    }
 	}
+
+	@EventHandler
+	public void onPlayerToggleFlight(PlayerToggleFlightEvent event) {
+		Player player = event.getPlayer();
+		GameMode gameMode = player.getGameMode();
+
+		if (gameMode == GameMode.ADVENTURE || gameMode == GameMode.SURVIVAL) {
+			if (!player.isFlying()) {
+				event.setCancelled(true);
+				player.setFlying(false);
+				launchPlayer(player);
+			}
+		}
+	}
+
+
+	private void launchPlayer(Player player) {
+		Vector vector = player.getLocation().getDirection().normalize().multiply(1.1);
+		vector.setY(0.5);
+		player.setVelocity(vector);
+		player.getWorld().playEffect(player.getLocation(), Effect.CLICK1, 1);
+	}
+
 
 
 
