@@ -53,7 +53,7 @@ public class WGRegionEventsListener implements Listener
    public void onRegionEntered(final RegionEnteredEvent event) {
        final Player p = event.getPlayer();
        if (event.getRegion().getId().equals("srodek")) {
-           p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Jestes na srodku spawnu zostales &cukryty")));
+           p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtil.translateHexColorCodes("&8[&a&l!&8] &fJestes na srodku spawnu zostales &cukryty")));
            for (final Player otherPlayer : Bukkit.getOnlinePlayers()) {
                p.hidePlayer(otherPlayer);
                otherPlayer.hidePlayer(p);
@@ -68,7 +68,7 @@ public class WGRegionEventsListener implements Listener
    public void onRegionLeft(final RegionLeftEvent event) {
        final Player player = event.getPlayer();
        if (event.getRegion().getId().equals("srodek")) {
-           player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtil.translateHexColorCodes("&8[&c&l!&8] &7Opusciles srodek spawnu, zostales odkryty!")));
+           player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtil.translateHexColorCodes("&8[&a&l!&8] &fOpusciles srodek spawnu, zostales &aodkryty!")));
            for (final Player otherPlayer : Bukkit.getOnlinePlayers()) {
         	   player.showPlayer(otherPlayer);
                otherPlayer.showPlayer(player);
