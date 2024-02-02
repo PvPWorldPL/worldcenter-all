@@ -48,14 +48,14 @@ public class ChatUtil {
                 .anyMatch(s -> mess.toLowerCase().contains(s.toLowerCase()));
     }
 
-    
+
     public static boolean isAlphaNumeric(final String s) {
         return s.matches("^[a-zA-Z0-9_]*$");
     }
-    
 
- 
-    
+
+
+
     public static boolean isInteger(final String string) {
         return Pattern.matches("-?[0-9]+", string.subSequence(0, string.length()));
     }
@@ -65,7 +65,7 @@ public class ChatUtil {
         p.sendMessage(fixColor(message));
         return false;
     }
-    
+
     public static boolean sendMessage(final Collection<? extends CommandSender> collection, final String message) {
         for (final CommandSender cs : collection) {
             sendMessage(cs, message);

@@ -44,7 +44,7 @@ public class PlaceHolderRegisterAPI extends PlaceholderExpansion {
             return ZombieModRanks;
         }
 
-            return "";
+        return "";
     }
 
 

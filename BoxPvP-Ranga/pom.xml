@@ -61,6 +61,12 @@
             <url>https://repo.panda-lang.org/maven-central</url>
         </repository>
 
+
+        <repository>
+            <id>krypton</id>
+            <url>https://repo.kryptonmc.org/releases</url>
+        </repository>
+
         <!-- Citizens repo -->
         <repository>
             <id>citizens-repo</id>
@@ -129,6 +135,14 @@
             <scope>provided</scope>
         </dependency>
 
+
+        <!-- TAB -->
+        <dependency>
+            <groupId>me.neznamy</groupId>
+            <artifactId>tab-api</artifactId>
+            <version>4.0.2</version>
+            <scope>provided</scope>
+        </dependency>
 
         <!-- LuckyPerms -->
         <dependency>

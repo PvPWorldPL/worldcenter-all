@@ -4,6 +4,7 @@ import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.data.DataType;
 import net.luckperms.api.model.user.User;
+import net.luckperms.api.node.Node;
 import net.luckperms.api.node.NodeType;
 import org.bukkit.entity.Player;
 
@@ -11,18 +12,17 @@ import pl.worldcenter.util.ChatUtil;
 import pl.worldcenter.commands.api.CommandInfo;
 import pl.worldcenter.commands.api.PlayerCommandExecutor;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @CommandInfo(name = "ranga", description = "Pokazuje posiadane rangi gracza", usage = "/ranga", permission = "core.cmd.user", aliases = {"rangi", "group"})
 public class RangaCommand extends PlayerCommandExecutor {
 
     private static final Map<String, String> RANK_MAPPINGS = new HashMap<>();
-    private static final Map<String, String> RANK_GLOBAL_MAPPINGS = new HashMap<>();
-
     private static final Map<String, String> SERVER_NAME = new HashMap<>();
 
 
@@ -43,7 +43,6 @@ public class RangaCommand extends PlayerCommandExecutor {
         RANK_MAPPINGS.put("group.svip", ChatUtil.translateHexColorCodes("&es&6ᴠɪᴘ&8&l"));
         RANK_MAPPINGS.put("group.vip", ChatUtil.translateHexColorCodes("&6ᴠɪᴘ&8&l"));
 
-
         SERVER_NAME.put("boxpvp", "&8 &#55ff04&#5cfa0d&#63f617&#6af120&l&#71ed2a&#78e833boxpvp &8");
         SERVER_NAME.put("skypvp", "&8 &#6ae4ff&#5ecafa&#52b0f6&l&#4696f1&#3a7ced&#2e62e8skypvp &8");
         SERVER_NAME.put("lifesteal", "&8 &#fbff23&#f7f820&l&#f3f11e&#efea1b&#ece318&l&#e8dc15&#e4d513&#e0ce10&#dcc70dlifesteal &8");
@@ -62,29 +61,16 @@ public class RangaCommand extends PlayerCommandExecutor {
         Set<String> serverRanks = user.getNodes().stream()
                 .filter(node -> node.getType() == NodeType.INHERITANCE)
                 .filter(node -> node.getContexts().getAnyValue("server").map(serverName::equalsIgnoreCase).orElse(false))
-                .map(node -> {
-                    String rankName = RANK_MAPPINGS.getOrDefault(node.getKey(), "");
-                    return rankName.isEmpty() ? null : rankName;
-                })
-                .filter(Objects::nonNull)
+                .map(node -> RANK_MAPPINGS.getOrDefault(node.getKey(), ""))
+                .filter(rankName -> !rankName.isEmpty())
                 .collect(Collectors.toSet());
-
-        String serverPrefix = SERVER_NAME.containsKey(serverName) ?
-                ChatUtil.translateHexColorCodes("&e&l➥")
-                + SERVER_NAME.get(serverName) + "&8»&8 " : "";
-
+        String serverPrefix = SERVER_NAME.containsKey(serverName) ? ChatUtil.translateHexColorCodes("&e&l➥") + SERVER_NAME.get(serverName) + "&8»&8 " : "";
         if (serverRanks.isEmpty()) {
             return "";
         }
-
-        String ranksWithServer = serverPrefix + String.join("&7,", serverRanks);
-        return "" + ranksWithServer;
+        String ranksString = (serverRanks.size() == 1) ? serverRanks.iterator().next() : String.join("&7,", serverRanks);
+        return serverPrefix + ranksString;
     }
-
-
-
-
-
 
 
     public static String getRanksOnServerkomenda(User user, String serverName) {
@@ -94,7 +80,7 @@ public class RangaCommand extends PlayerCommandExecutor {
                 .map(node -> {
                     String rankName = RANK_MAPPINGS.getOrDefault(node.getKey(), "");
                     String expiryInfo = node.hasExpiry() && node.getExpiry() != null ?
-                            ChatUtil.fixColor( " &fwygasa &8(&a " + (node.getExpiry()) + "&8)").replace("T", " ").replace("Z", " "):
+                            ChatUtil.fixColor(" &fwygasa &8(&a " + (node.getExpiry()) + "&8)").replace("T", " ").replace("Z", " ") :
                             ChatUtil.fixColor(" &8(&fwygasa &cNIGDY&8)");
                     return rankName + expiryInfo;
                 })
@@ -106,36 +92,36 @@ public class RangaCommand extends PlayerCommandExecutor {
         LuckPerms luckPerms = LuckPermsProvider.get();
         User user = luckPerms.getUserManager().getUser(player.getUniqueId());
 
-        if (user != null) {
-            String boxPvPRanks = getRanksOnServerkomenda(user, "boxpvp");
-            String skyPvPRanks = getRanksOnServerkomenda(user, "skypvp");
-            String lifeStealRanks = getRanksOnServerkomenda(user, "lifesteal");
-            String KitPvPRanks = getRanksOnServerkomenda(user, "kitpvp");
-            String ZombieModRanks = getRanksOnServerkomenda(user, "zombiemod");
+        if (user == null) {
+            player.sendMessage(ChatUtil.fixColor("&cWystąpił problem z pobraniem danych"));
+            return;
+        }
 
-            LuckPerms api = LuckPermsProvider.get();
-            String prefix = user.getCachedData().getMetaData().getPrefix();
-            player.sendMessage(ChatUtil.translateHexColorCodes("&fRanga globalna&8: " + prefix));
-            player.sendMessage(ChatUtil.fixColor("&7Rangi na trybach: "));
-            if (boxPvPRanks.isEmpty() && skyPvPRanks.isEmpty() && lifeStealRanks.isEmpty() && KitPvPRanks.isEmpty() && ZombieModRanks.isEmpty()) {
-                player.sendMessage(ChatUtil.fixColor("&fBrak"));
-            } else {
-                if (!boxPvPRanks.isEmpty()) {
-                    player.sendMessage(ChatUtil.translateHexColorCodes("&#55ff04&#5cfa0d&#63f617&#6af120&l&#71ed2a&#78e833boxpvp&f Ranga " + boxPvPRanks + "&7"));
+        Map<String, String> ranksByServer = Stream.of("boxpvp", "skypvp", "lifesteal", "kitpvp", "zombiemod").collect(Collectors.toMap(server -> server, server -> getRanksOnServerkomenda(user, server)));
+
+        String prefix = user.getCachedData().getMetaData().getPrefix();
+        player.sendMessage(ChatUtil.translateHexColorCodes("&fRanga globalna&8: " + prefix));
+        player.sendMessage(ChatUtil.translateHexColorCodes(""));
+        player.sendMessage(ChatUtil.fixColor("&7Rangi na trybach: "));
+
+        boolean anyRanksPresent = ranksByServer.values().stream().anyMatch(ranks -> !ranks.isEmpty());
+
+        if (!anyRanksPresent) {
+            player.sendMessage(ChatUtil.fixColor("&fBrak"));
+        } else {
+            ranksByServer.forEach((server, ranks) -> {
+                if (!ranks.isEmpty()) {
+                    String serverMessageFormat = switch (server) {
+                        case "boxpvp" -> "&#55ff04&#5cfa0d&#63f617&#6af120&l&#71ed2a&#78e833boxpvp";
+                        case "skypvp" -> "&#6ae4ff&#5ecafa&#52b0f6&l&#4696f1&#3a7ced&#2e62e8skypvp";
+                        case "lifesteal" -> "&#fbff23&#f7f820&l&#f3f11e&#efea1b&#ece318&l&#e8dc15&#e4d513&#e0ce10&#dcc70dlifesteal";
+                        case "kitpvp" -> "&#ff44f8&#ef45f9&#df46fb&#cf48fc&#bf49fe&l&#af4affkitpvp";
+                        case "zombiemod" -> "&#ff0000&#ed0302&#db0704&#c90a06&#b70e08&l&#a41109&#92140b&#80180d&#6e1b0fzombiemod";
+                        default -> "";
+                    };
+                    player.sendMessage(ChatUtil.translateHexColorCodes(serverMessageFormat + " &fRanga " + ranks + "&7"));
                 }
-                if (!skyPvPRanks.isEmpty()) {
-                    player.sendMessage(ChatUtil.translateHexColorCodes("&#6ae4ff&#5ecafa&#52b0f6&l&#4696f1&#3a7ced&#2e62e8skypvp&f Ranga " + skyPvPRanks + "&7"));
-                }
-                if (!lifeStealRanks.isEmpty()) {
-                    player.sendMessage(ChatUtil.translateHexColorCodes("&#fbff23&#f7f820&l&#f3f11e&#efea1b&#ece318&l&#e8dc15&#e4d513&#e0ce10&#dcc70dlifesteal&f Ranga " + lifeStealRanks + "&7"));
-                }
-                if (!KitPvPRanks.isEmpty()) {
-                    player.sendMessage(ChatUtil.translateHexColorCodes("&#ff44f8&#ef45f9&#df46fb&#cf48fc&#bf49fe&l&#af4affkitpvp&f Ranga " + KitPvPRanks + "&7"));
-                }
-                if (!ZombieModRanks.isEmpty()) {
-                    player.sendMessage(ChatUtil.translateHexColorCodes(" &#ff0000&#ed0302&#db0704&#c90a06&#b70e08&l&#a41109&#92140b&#80180d&#6e1b0fzombiemod&f Ranga " + ZombieModRanks + "&7"));
-                }
-            }
+            });
         }
     }
 }

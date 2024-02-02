@@ -52,6 +52,11 @@
       <option name="url" value="https://repo1.maven.org/maven2" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="krypton" />
+      <option name="name" value="krypton" />
+      <option name="url" value="https://repo.kryptonmc.org/releases" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="okaeri-repo" />
       <option name="name" value="okaeri-repo" />
       <option name="url" value="https://storehouse.okaeri.eu/repository/maven-public/" />
