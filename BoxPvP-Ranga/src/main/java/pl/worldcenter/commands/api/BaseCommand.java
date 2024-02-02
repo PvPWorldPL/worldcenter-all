@@ -11,7 +11,7 @@ import java.util.List;
 
 
 @CommandInfo(name = "", description = "", usage = "", permission = "")
-public abstract class BaseCommand extends org.bukkit.command.Command {
+public abstract class   BaseCommand extends org.bukkit.command.Command {
 
     CommandInfo annotation = getClass().getAnnotation(CommandInfo.class);
 

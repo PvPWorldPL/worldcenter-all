@@ -63,55 +63,9 @@ public class WGRegionEventsListener implements Listener {
                 player.hidePlayer(Main.getPlugin(), otherPlayer);
                 otherPlayer.hidePlayer(Main.getPlugin(), player);
             }
-        }
-    }
-
-
-
-    @EventHandler
-    public void onRegionEnteredCrystal(RegionEnteredEvent event) {
-        Player player = event.getPlayer();
-        String regionId = event.getRegionName();
-
-        if (regionId.equals("crystal")) {
-            Clans clan = ClanManager.getGuild(player);
-
-            if (clan == null) {
-                handleRegionEntryDenied(player);
-                player.spigot().sendMessage(ChatMessageType.CHAT, new TextComponent(ChatUtil.translateHexColorCodes("&cNie możesz wejść na obszar &fcrystal&c, ponieważ nie należysz do żadnego klanu")));
-                return;
-            }
-
-            int totalClanMembersInRegion = WorldGuardRegionHelper.getClanMembersInRegionCount(clan, "crystal");
-
-            if (totalClanMembersInRegion >= 2) {
-                handleRegionEntryDenied(player);
-                player.spigot().sendMessage(ChatMessageType.CHAT, new TextComponent(ChatUtil.translateHexColorCodes("&cNie możesz wejść na obszar &facrystal&c, ponieważ liczba członków gildii na obszarze jest już powyżej 2.")));
-                return;
-            }
-
-            int totalPlayersInRegion = WorldGuardRegionHelper.getPlayersInRegionCount("crystal");
-
-            if (totalPlayersInRegion >= 30) {
-                handleRegionEntryDenied(player);
-                 player.spigot().sendMessage(ChatMessageType.CHAT, new TextComponent(ChatUtil.translateHexColorCodes("&cNie możesz wejść na obszar &facrystal&c, ponieważ liczba graczy na obszarze jest już powyżej 30.")));
-
-            }
-
 
         }
     }
-
-    private void handleRegionEntryDenied(Player player) {
-        Vector knockbackDirection = new Vector(0, 0, -1.5);
-
-        if (player.isFlying() || player.isGliding()) {
-            player.setVelocity(knockbackDirection);
-        } else {
-            player.setVelocity(knockbackDirection);
-        }
-    }
-
 
 
 
