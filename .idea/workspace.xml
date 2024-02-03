@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c917f97-945c-4f28-adca-8a181d78a753" name="Changes" comment=".">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hub/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hub/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/listeners/other/NpcClickListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/listeners/other/NpcClickListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/listeners/other/WGRegionEventsListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/listeners/other/WGRegionEventsListener.java" afterDir="false" />
-    </list>
+    <list default="true" id="9c917f97-945c-4f28-adca-8a181d78a753" name="Changes" comment="." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,7 +113,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706918289825</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary=".">
+      <option name="closed" value="true" />
+      <created>1706920073230</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1706920073230</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
