@@ -127,13 +127,32 @@ public class SzamanMenu {
               .addLore(ChatUtil.translateHexColorCodes("&#ff99cc&lK&#fc96c9&ll&#f993c6&li&#f690c3&lk&#f38dc0&ln&#f08abd&li&#ed87ba&lj &#ea84b7&la&#e781b4&lb&#e47eb1&ly &#e17bae&lu&#de78ab&ll&#db75a8&le&#d872a5&lp&#d56fa2&ls&#d26c9f&lz&#cf699c&ly&#cc6699&lc"))
               .addLore(ChatUtil.fixColor(""));
 
+      ItemBuilder perk7 = (new ItemBuilder(Material.SPYGLASS))
+              .setTitle(ChatUtil.translateHexColorCodes("&#00ff00&lPerk &#00f500&lRankingu"))
+              .addLore(ChatUtil.fixColor(""))
+              .addLore(ChatUtil.fixColor("&7Aktualny poziom: &f" + user.getPerkRankingu()))
+              .addLore(ChatUtil.fixColor(""))
+              .addLore(ChatUtil.translateHexColorCodes("&#ff92c0&lP&#f494c9&lo&#ea97d2&lz&#df99db&li&#d49be4&lo&#c99ded&lm&#bfa0f6&ly&#b4a2ff&l:"))
+              .addLore(ChatUtil.fixColor(""))
+              .addLore(ChatUtil.fixColor("&71 &8- &7Zwieksza ranking o &c1%"))
+              .addLore(ChatUtil.fixColor("&72 &8- &7Zwieksza ranking o &c2%"))
+              .addLore(ChatUtil.fixColor("&73 &8- &7Zwieksza ranking o &c3%"))
+              .addLore(ChatUtil.fixColor("&74 &8- &7Zwieksza ranking o &c4%"))
+              .addLore(ChatUtil.fixColor(""))
+              .addLore(ChatUtil.fixColor("&7Koszt ulepszenia: &f50 &7odlamkow"))
+              .addLore(ChatUtil.fixColor(""))
+              .addLore(ChatUtil.translateHexColorCodes("&#ff99cc&lK&#fc96c9&ll&#f993c6&li&#f690c3&lk&#f38dc0&ln&#f08abd&li&#ed87ba&lj &#ea84b7&la&#e781b4&lb&#e47eb1&ly &#e17bae&lu&#de78ab&ll&#db75a8&le&#d872a5&lp&#d56fa2&ls&#d26c9f&lz&#cf699c&ly&#cc6699&lc"))
+              .addLore(ChatUtil.fixColor(""));
+
       ItemBuilder.fillGui(inv);
-    inv.setItem(20, perk1.ToItemStack());
-    inv.setItem(21, perk2.ToItemStack());
-    inv.setItem(22, perk3.ToItemStack());
-    inv.setItem(23, perk4.ToItemStack());
-    inv.setItem(24, perk5.ToItemStack());
-      inv.setItem(29, perk6.ToItemStack());
+    inv.setItem(19, perk1.ToItemStack());
+    inv.setItem(20, perk2.ToItemStack());
+    inv.setItem(21, perk3.ToItemStack());
+    inv.setItem(22, perk4.ToItemStack());
+    inv.setItem(23, perk5.ToItemStack());
+      inv.setItem(24, perk6.ToItemStack());
+      inv.setItem(25, perk7.ToItemStack());
+
 
       p.openInventory(inv);
   }
@@ -198,7 +217,7 @@ public class SzamanMenu {
     if (user.getPerkWampiryzmu() == 4) {
     p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
     }
-      //oddanie odlamkow za perk PerkWampiryzmu
+      //oddanie odlamkow za perk perk dropu
       if (user.getPerkDropu() == 1) {
           p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
       }
@@ -209,6 +228,19 @@ public class SzamanMenu {
           p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
       }
       if (user.getPerkDropu() == 4) {
+          p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
+      }
+      //oddanie odlamkow za perk perk Rankingu
+      if (user.getPerkRankingu() == 1) {
+          p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
+      }
+      if (user.getPerkRankingu() == 2) {
+          p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
+      }
+      if (user.getPerkRankingu() == 3) {
+          p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
+      }
+      if (user.getPerkRankingu() == 4) {
           p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
       }
     p.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(20.0D);

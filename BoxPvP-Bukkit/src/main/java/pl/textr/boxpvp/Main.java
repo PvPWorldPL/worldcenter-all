@@ -334,6 +334,7 @@ public class Main extends JavaPlugin {
                     "perkWampiryzmu INTEGER NOT NULL, " +
                     "perkSzybkosciAtaku INTEGER NOT NULL, " +
                     "perkDropu INTEGER NOT NULL, " +
+                    "perkRankignu INTEGER NOT NULL, " +
                     "vanish INTEGER NOT NULL)");
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS clans " +
                     "(id SERIAL PRIMARY KEY, " +

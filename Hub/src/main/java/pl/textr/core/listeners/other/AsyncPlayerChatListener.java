@@ -22,11 +22,11 @@ public class AsyncPlayerChatListener implements Listener {
     @EventHandler(priority = EventPriority.LOW)
     public void onChat(final AsyncPlayerChatEvent e) {
         final Player p = e.getPlayer();
-     
+
         net.luckperms.api.model.user.User lpuser = api.getUserManager().getUser(p.getUniqueId());
         Collection<Group> inheritedGroups = lpuser.getInheritedGroups(lpuser.getQueryOptions());
         final String prefix = lpuser.getCachedData().getMetaData().getPrefix();
-       
+
         if (ChatUtil.isBlocked(e.getMessage()) && (!p.hasPermission("core.cmd.helper"))) {
             ChatUtil.sendMessage(p, "&8[&C&l!&8] &cNiektorych slow nie wolno uzywac na naszym serwerze");
             e.setCancelled(true);
@@ -63,17 +63,16 @@ public class AsyncPlayerChatListener implements Listener {
         }
         if (inheritedGroups.stream().anyMatch(g -> g.getName().equals("headadmin"))) {
         globalFormat = ChatUtil.fixColor(LobbyPlugin.getPlugin().getConfiguration().ChatFormatHeadAdmin());
-        
+
         }
         globalFormat = globalFormat.replace("{PREFIX}", prefix);
         globalFormat = globalFormat.replace("{PLAYER}",  p.getName());
         globalFormat = globalFormat.replace("{MESSAGE}", e.getMessage());
-        e.setCancelled(true);   
+        e.setCancelled(true);
         if (!e.getMessage().startsWith("!"))   {
         ChatPacket chatpacket;
         chatpacket = new ChatPacket(ChatUtil.translateHexColorCodes(globalFormat));
         LobbyPlugin.getPlugin().getRedisService().publishAsync("chatlobby", chatpacket);
-        return;
         }
     }
 

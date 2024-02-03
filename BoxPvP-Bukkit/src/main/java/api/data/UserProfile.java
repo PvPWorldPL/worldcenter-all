@@ -36,6 +36,7 @@ public class UserProfile {
 	    private int perkSzybkosciAtaku;
 
         private int perkDropu;
+    private int perkRankingu;
         private boolean vanish;
 
     public UserProfile(final Player p) {
@@ -59,6 +60,7 @@ public class UserProfile {
         this.perkWampiryzmu = 0;
         this.perkSzybkosciAtaku = 0;
         this.perkDropu = 0;
+        this.perkRankingu = 0;
         this.vanish = false;
 
     }
@@ -85,14 +87,15 @@ public class UserProfile {
         this.perkWampiryzmu = rs.getInt("perkWampiryzmu");
         this.perkSzybkosciAtaku = rs.getInt("perkSzybkosciAtaku");
         this.perkSzybkosciAtaku = rs.getInt("perkDropu");
+        this.perkRankingu = rs.getInt("perkRankingu");
         this.vanish = (rs.getInt("vanish") == 1);
     }
 
     public void insert() {
         try (Connection connection = Main.getPlugin().getHikari().getConnection();
              PreparedStatement statement = connection.prepareStatement(
-                     "INSERT INTO users (name, money, balance, teczowy, points, kills, deaths, lastKill, lastKillTime,  god, PrzerabianieKasy, PrzerabianieMonet, PrzerabianieBlokow,  perkZycia, perkSzybkosci, perkSily, perkWampiryzmu, perkSzybkosciAtaku, perkDropu, vanish) " +
-                             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)")) {
+                     "INSERT INTO users (name, money, balance, teczowy, points, kills, deaths, lastKill, lastKillTime,  god, PrzerabianieKasy, PrzerabianieMonet, PrzerabianieBlokow,  perkZycia, perkSzybkosci, perkSily, perkWampiryzmu, perkSzybkosciAtaku, perkDropu, perkRankingu, vanish) " +
+                             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)")) {
             statement.setString(1, this.getName());
             statement.setInt(2, this.getMoney());
             statement.setBigDecimal(3, this.getBalance());
@@ -112,7 +115,8 @@ public class UserProfile {
             statement.setInt(17, this.getPerkWampiryzmu());
             statement.setInt(18, this.getPerkSzybkosciAtaku());
             statement.setInt(19, this.getPerkDropu());
-            statement.setInt(20, this.isVanish() ? 1 : 0);
+            statement.setInt(20, this.getPerkRankingu());
+            statement.setInt(21, this.isVanish() ? 1 : 0);
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -132,7 +136,19 @@ public class UserProfile {
             e.printStackTrace();
         }
     }
-      
+
+    public void setPerkRankingu(Integer index) {
+        this.perkRankingu = index;
+        try (Connection connection = Main.getPlugin().getHikari().getConnection();
+             PreparedStatement statement = connection.prepareStatement("UPDATE users SET perkRankingu = ? WHERE name = ?")) {
+            statement.setInt(1, this.getPerkRankingu());
+            statement.setString(2, getName());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     
     public void setPerkSzybkosci(Integer index) {
         this.perkSzybkosci = index;
@@ -245,6 +261,7 @@ public class UserProfile {
                      + "PerkWampiryzmu = ?, "  
                      + "PerkSzybkosciAtaku = ?, "
                      + "PerkDropu = ?, "
+                     + "PerkRankingu = ?, "
                      + "teczowy = ?, "
                      + "vanish = ? "
                      + "WHERE name = ?")) {
@@ -265,17 +282,28 @@ public class UserProfile {
             statement.setInt(15, this.getPerkWampiryzmu());
             statement.setInt(16, this.getPerkSzybkosciAtaku());
             statement.setInt(17, this.getPerkDropu());
-            statement.setInt(18, this.isTeczowy() ? 1 : 0);
-            statement.setInt(19, this.isVanish() ? 1 : 0);
-            statement.setString(20, this.getName());
+            statement.setInt(18, this.getPerkRankingu());
+            statement.setInt(19, this.isTeczowy() ? 1 : 0);
+            statement.setInt(20, this.isVanish() ? 1 : 0);
+            statement.setString(21, this.getName());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-	
-    
-    
+
+
+    public void addperkRankingu() {
+        this.perkRankingu++;
+        try (Connection connection = Main.getPlugin().getHikari().getConnection();
+             PreparedStatement statement = connection.prepareStatement("UPDATE users SET perkRankingu = ? WHERE name = ?")) {
+            statement.setInt(1, this.getPerkRankingu());
+            statement.setString(2, getName());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     
     public void addperkZycia() {
     	   this.perkZycia++;
@@ -409,7 +437,11 @@ public class UserProfile {
     public int getPerkDropu() {
         return this.perkDropu;
         }
-    
+
+    public int getPerkRankingu() {
+        return this.perkRankingu;
+    }
+
     public String getLastKill() {
         return this.lastKill;
     }
@@ -433,16 +465,8 @@ public class UserProfile {
     public void setPoints(final int points) {
         this.points = points;
     }
-    
-    public void addPoints(final int index) {
-        this.points += index;
-    }
-    
-    public void removePoints(final int index) {
-        this.points -= index;
-    }
 
-        public int getKills() {
+    public int getKills() {
             return this.kills;
         }
     
@@ -454,11 +478,6 @@ public class UserProfile {
         this.kills += index;
   
     }
-    
-    public void removeKills(final int index) {
-        this.kills -= index;
-    }
-    
     public int getDeaths() {
         return this.deaths;
     }
@@ -470,11 +489,7 @@ public class UserProfile {
     public void addDeaths(final int index) {
         this.deaths += index;
     }
-     
-    public void removeDeaths(final int index) {
-        this.deaths -= index;
-    }
-       
+
     public boolean isPrzerabianieKasy() {
         return this.PrzerabianieKasy;
     }

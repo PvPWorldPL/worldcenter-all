@@ -45,10 +45,10 @@ public class TeleportCommand extends PlayerCommand
     
             }
             case 3: {
-                final Double x = Double.parseDouble(args[0]);
-                final Double y = Double.parseDouble(args[1]);
-                final Double z = Double.parseDouble(args[2]);
-                if (x.isNaN() && y.isNaN() && z.isNaN()) {
+                final double x = Double.parseDouble(args[0]);
+                final double y = Double.parseDouble(args[1]);
+                final double z = Double.parseDouble(args[2]);
+                if (Double.isNaN(x) && Double.isNaN(y) && Double.isNaN(z)) {
                     return ChatUtil.sendMessage(p, "&8[&c&l!&8] &7Koordynaty musza byc liczbami!");
                 }
                 p.teleport(new Location(p.getWorld(), x, y, z));
@@ -59,10 +59,10 @@ public class TeleportCommand extends PlayerCommand
                 if (o == null) {
                     return ChatUtil.sendMessage(p, "&8[&C&l!&8] &cGracz jest offline lub  nie znaleziono go w bazie danych!");
                 }
-                final Double x2 = Double.parseDouble(args[1]);
-                final Double y2 = Double.parseDouble(args[2]);
-                final Double z2 = Double.parseDouble(args[3]);
-                if (x2.isNaN() && y2.isNaN() && z2.isNaN()) {
+                final double x2 = Double.parseDouble(args[1]);
+                final double y2 = Double.parseDouble(args[2]);
+                final double z2 = Double.parseDouble(args[3]);
+                if (Double.isNaN(x2) && Double.isNaN(y2) && Double.isNaN(z2)) {
                     return ChatUtil.sendMessage(p, "&8[&c&l!&8] &7Koordynaty musza byc liczbami!");
                 }
                 o.teleport(new Location(o.getWorld(), x2, y2, z2));

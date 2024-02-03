@@ -61,7 +61,7 @@ public class UserAccountManager {
 			@Override
 			public void run() {
 				try (Connection connection = Main.getPlugin().getHikari().getConnection();
-					 PreparedStatement select = connection.prepareStatement("SELECT money,  balance, teczowy,  points, kills, deaths, god, PrzerabianieKasy, PrzerabianieMonet, PrzerabianieBlokow, perkZycia, perkSzybkosci, perkSily, perkWampiryzmu, perkSzybkosciAtaku, perkDropu, vanish  FROM users WHERE name = ?")) {
+					 PreparedStatement select = connection.prepareStatement("SELECT money,  balance, teczowy,  points, kills, deaths, god, PrzerabianieKasy, PrzerabianieMonet, PrzerabianieBlokow, perkZycia, perkSzybkosci, perkSily, perkWampiryzmu, perkSzybkosciAtaku, perkDropu, perkRankingu, vanish  FROM users WHERE name = ?")) {
 					select.setString(1, p.getName());
 					ResultSet rs = select.executeQuery();
 					if (rs.next()) {
@@ -85,6 +85,7 @@ public class UserAccountManager {
 						u.setPerkWampiryzmu(rs.getInt("perkWampiryzmu"));
 						u.setPerkSzybkosciAtaku(rs.getInt("perkSzybkosciAtaku"));
 						u.setPerkDropu(rs.getInt("perkDropu"));
+						u.setPerkRankingu(rs.getInt("perkRankingu"));
 						u.setVanish(rs.getBoolean("vanish"));
 
 						rs.close();
@@ -121,7 +122,7 @@ public class UserAccountManager {
 			Bukkit.getLogger().info("ladowanie danych gracza " + p);
 		}
 		try (Connection connection = Main.getPlugin().getHikari().getConnection();
-			 PreparedStatement select = connection.prepareStatement("SELECT money,  balance, teczowy, points, kills, deaths, god, PrzerabianieKasy, PrzerabianieMonet, PrzerabianieBlokow, perkZycia, perkSzybkosci, perkSily, perkWampiryzmu, perkSzybkosciAtaku, perkDropu, vanish FROM users WHERE name = ?")) {
+			 PreparedStatement select = connection.prepareStatement("SELECT money,  balance, teczowy, points, kills, deaths, god, PrzerabianieKasy, PrzerabianieMonet, PrzerabianieBlokow, perkZycia, perkSzybkosci, perkSily, perkWampiryzmu, perkSzybkosciAtaku, perkDropu, perkRankingu, vanish FROM users WHERE name = ?")) {
 			select.setString(1, p);
 			ResultSet rs = select.executeQuery();
 			if (rs.next()) {
@@ -145,6 +146,7 @@ public class UserAccountManager {
 				u.setPerkWampiryzmu(rs.getInt("perkWampiryzmu"));
 				u.setPerkSzybkosciAtaku(rs.getInt("perkSzybkosciAtaku"));
 				u.setPerkDropu(rs.getInt("perkDropu"));
+				u.setPerkRankingu(rs.getInt("perkRankingu"));
 				u.setVanish(rs.getBoolean("vanish"));
 				rs.close();
 			}

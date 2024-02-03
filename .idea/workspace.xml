@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c917f97-945c-4f28-adca-8a181d78a753" name="Changes" comment="FIX SOUND LAUNCHPLAYER">
-      <change beforePath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/listeners/other/CoreListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/listeners/other/CoreListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/api/data/UserProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/api/data/UserProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/api/managers/UserAccountManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/api/managers/UserAccountManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/api/menu/SzamanMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/api/menu/SzamanMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/listeners/player/PlayerDeathListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/listeners/player/PlayerDeathListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/commands/Helper/TeleportCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/commands/Helper/TeleportCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/listeners/other/AsyncPlayerChatListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/listeners/other/AsyncPlayerChatListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +78,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1706661888057</updated>
-      <workItem from="1706954942149" duration="2618000" />
+      <workItem from="1706954942149" duration="5602000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <option name="closed" value="true" />
@@ -209,7 +216,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706957528979</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="FIX SOUND LAUNCHPLAYER">
+      <option name="closed" value="true" />
+      <created>1706957611137</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1706957611137</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
