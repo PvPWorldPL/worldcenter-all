@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c917f97-945c-4f28-adca-8a181d78a753" name="Changes" comment="update pom na boxranga i hub">
+    <list default="true" id="9c917f97-945c-4f28-adca-8a181d78a753" name="Changes" comment="update pomy">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/target.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/target1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoxPvP-Platform/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Platform/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoxPvP-Ranga/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Ranga/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoxPvP-lobbyChannel/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-lobbyChannel/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hub/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hub/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/listeners/other/CoreListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/listeners/other/CoreListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +74,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1706661888057</updated>
-      <workItem from="1706954942149" duration="1997000" />
+      <workItem from="1706954942149" duration="2450000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <option name="closed" value="true" />
@@ -190,7 +188,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706956337869</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="update pomy">
+      <option name="closed" value="true" />
+      <created>1706956960289</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1706956960289</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,6 +218,7 @@
     <MESSAGE value="." />
     <MESSAGE value="juz dziala" />
     <MESSAGE value="update pom na boxranga i hub" />
-    <option name="LAST_COMMIT_MESSAGE" value="update pom na boxranga i hub" />
+    <MESSAGE value="update pomy" />
+    <option name="LAST_COMMIT_MESSAGE" value="update pomy" />
   </component>
 </project>

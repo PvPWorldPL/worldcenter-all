@@ -72,6 +72,8 @@ public class CoreListener implements Listener {
 		vector.setY(0.5);
 		player.setVelocity(vector);
 		player.getWorld().playEffect(player.getLocation(), Effect.CLICK1, 1);
+
+
 	}
 
 
