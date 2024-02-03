@@ -55,11 +55,10 @@
   
  <repositories>
 
-<repository>
-  <id>reposilite-repository-maven-central</id>
-  <name>Reposilite Repository</name>
-  <url>https://repo.panda-lang.org/maven-central</url>
-</repository>
+     <repository>
+         <id>spigot-repo</id>
+         <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+     </repository>
 
     <!-- Citizens repo -->
     <repository>
@@ -228,13 +227,15 @@
         <artifactId>lettuce-core</artifactId>
         <version>6.2.6.RELEASE</version>
     </dependency>
-     
-       <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot</artifactId>
-            <version>1.18.2-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
+
+
+    <!-- PaperSpigot -->
+    <dependency>
+        <groupId>org.spigotmc</groupId>
+        <artifactId>spigot-api</artifactId>
+        <version>1.18.2-R0.1-SNAPSHOT</version>
+    </dependency>
+
      
   
 
