@@ -2,6 +2,7 @@ package pl.textr.core.listeners.other;
 
 import org.bukkit.Effect;
 import org.bukkit.GameMode;
+import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -71,9 +72,8 @@ public class CoreListener implements Listener {
 		Vector vector = player.getLocation().getDirection().normalize().multiply(1.1);
 		vector.setY(0.5);
 		player.setVelocity(vector);
-		player.getWorld().playEffect(player.getLocation(), Effect.CLICK1, 1);
-
-
+		// Odtwarzanie dźwięku tylko dla danego gracza
+		player.playSound(player.getLocation(), Sound.UI_BUTTON_CLICK, 1.0f, 1.0f);
 	}
 
 
