@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c917f97-945c-4f28-adca-8a181d78a753" name="Changes" comment="FIX SOUND LAUNCHPLAYER">
+    <list default="true" id="9c917f97-945c-4f28-adca-8a181d78a753" name="Changes" comment="add perk rankingu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/api/data/UserProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/api/data/UserProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/api/managers/UserAccountManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/api/managers/UserAccountManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/api/menu/SzamanMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/api/menu/SzamanMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/listeners/player/PlayerDeathListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/listeners/player/PlayerDeathListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/commands/Helper/TeleportCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/commands/Helper/TeleportCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/listeners/other/AsyncPlayerChatListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/listeners/other/AsyncPlayerChatListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +72,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1706661888057</updated>
-      <workItem from="1706954942149" duration="5602000" />
+      <workItem from="1706954942149" duration="6117000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <option name="closed" value="true" />
@@ -224,7 +218,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706957611137</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="add perk rankingu">
+      <option name="closed" value="true" />
+      <created>1706960623021</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1706960623021</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,6 +250,7 @@
     <MESSAGE value="update pom na boxranga i hub" />
     <MESSAGE value="update pomy" />
     <MESSAGE value="FIX SOUND LAUNCHPLAYER" />
-    <option name="LAST_COMMIT_MESSAGE" value="FIX SOUND LAUNCHPLAYER" />
+    <MESSAGE value="add perk rankingu" />
+    <option name="LAST_COMMIT_MESSAGE" value="add perk rankingu" />
   </component>
 </project>

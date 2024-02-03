@@ -78,10 +78,9 @@ public class PlayerDeathListener implements Listener {
 
 			double percentageToAdd = calculatePercentageToAdd(kUser.getPerkRankingu());
 
-			int initialPoints = (int) ((43.0 + (kUser.getPoints() - victim.getPoints()) * -0.25) * (1 + percentageToAdd));
+			int initialPoints = (int) ((43.0 + (kUser.getPoints() - user.getPoints()) * -0.25) * (percentageToAdd));
 			int addedPoints = Math.min(Math.max(initialPoints, 20), 450);
 			int removedPoints = Math.min(Math.max(addedPoints / 2, 10), 250);
-
 
 			//add message kuser // voucher give random
 			ChatUtil.sendTitle(k.getPlayer(), "", ChatUtil.fixColor("&7zabiles &f" +  victim.getName() + "&r" + " &8[&c+" + addedPoints + "&8]"));
