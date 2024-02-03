@@ -56,12 +56,10 @@
         <url>https://storehouse.okaeri.eu/repository/maven-public/</url>
     </repository>
 
-<repository>
-  <id>reposilite-repository-maven-central</id>
-  <name>Reposilite Repository</name>
-  <url>https://repo.panda-lang.org/maven-central</url>
-</repository>
-
+        <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
 
   <repository>
             <id>placeholderapi</id>
@@ -149,10 +147,10 @@
     <!-- PaperSpigot -->
     <dependency>
         <groupId>org.spigotmc</groupId>
-        <artifactId>spigot</artifactId>
+        <artifactId>spigot-api</artifactId>
         <version>1.18.2-R0.1-SNAPSHOT</version>
-        <scope>provided</scope>
     </dependency>
+
     <dependency>
         <groupId>net.citizensnpcs</groupId>
         <artifactId>citizens-main</artifactId>

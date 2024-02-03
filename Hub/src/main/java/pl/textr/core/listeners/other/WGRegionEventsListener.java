@@ -182,11 +182,9 @@ public class WGRegionEventsListener implements Listener
                     regions.addAll(oldRegions);
                     return true;
                 }
-                Bukkit.getScheduler().runTaskLater(LobbyPlugin.getPlugin(), new Runnable() {
-                    public void run() {
-                        final RegionEnteredEvent e = new RegionEnteredEvent(region, player, movement, event);
-                        Bukkit.getServer().getPluginManager().callEvent(e);
-                    }
+                Bukkit.getScheduler().runTaskLater(LobbyPlugin.getPlugin(), () -> {
+                    final RegionEnteredEvent e1 = new RegionEnteredEvent(region, player, movement, event);
+                    Bukkit.getServer().getPluginManager().callEvent(e1);
                 }, 1L);
                 regions.add(region);
             }
@@ -205,11 +203,9 @@ public class WGRegionEventsListener implements Listener
                         regions.addAll(oldRegions);
                         return true;
                     }
-                    Bukkit.getScheduler().runTaskLater(LobbyPlugin.getPlugin(), new Runnable() {
-                        public void run() {
-                            final RegionLeftEvent e = new RegionLeftEvent(region2, player, movement, event);
-                            Bukkit.getServer().getPluginManager().callEvent(e);
-                        }
+                    Bukkit.getScheduler().runTaskLater(LobbyPlugin.getPlugin(), () -> {
+                        final RegionLeftEvent e = new RegionLeftEvent(region2, player, movement, event);
+                        Bukkit.getServer().getPluginManager().callEvent(e);
                     }, 1L);
                     itr.remove();
                 }
