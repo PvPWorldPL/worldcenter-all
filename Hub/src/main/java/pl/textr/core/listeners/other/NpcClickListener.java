@@ -19,8 +19,23 @@ public class NpcClickListener implements Listener {
         Player player = event.getClicker();
 
         if (npc.getName().contains("boxpvp")) {
-
-            player.sendMessage("xdd");
+            ConnectUtil.connect(player, "boxpvp-1");
+            return;
+        }
+        if (npc.getName().contains("skypvp")) {
+            ConnectUtil.connect(player, "skypvp-1");
+            return;
+        }
+        if (npc.getName().contains("lifesteal")) {
+            ConnectUtil.connect(player, "lifesteal-1");
+            return;
+        }
+        if (npc.getName().contains("kitpvp")) {
+            ConnectUtil.connect(player, "kitpvp-1");
+            return;
+        }
+        if (npc.getName().contains("zombiemod")) {
+            ConnectUtil.connect(player, "zombiemod-1");
         }
     }
 }

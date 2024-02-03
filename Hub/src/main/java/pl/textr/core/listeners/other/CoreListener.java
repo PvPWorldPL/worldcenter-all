@@ -76,7 +76,7 @@ public class CoreListener implements Listener {
 
 
 
-
+	@EventHandler
 	public void onFoodLevelChangeEvent(final FoodLevelChangeEvent e) {
 		e.setCancelled(true);
 	}
