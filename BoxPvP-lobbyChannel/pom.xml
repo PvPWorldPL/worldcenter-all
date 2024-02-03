@@ -61,31 +61,16 @@
             <url>https://repo.panda-lang.org/maven-central</url>
         </repository>
 
-        <!-- Citizens repo -->
-        <repository>
-            <id>citizens-repo</id>
-            <url>https://maven.citizensnpcs.co/repo</url>
-        </repository>
-
         <!-- Jitpack.io -->
         <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
 
-
-
-
         <!-- PlaceholderAPI -->
         <repository>
             <id>placeholderapi</id>
             <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
-        </repository>
-
-        <!-- Okaeri-repository -->
-        <repository>
-            <id>okaeri-repo</id>
-            <url>https://storehouse.okaeri.eu/repository/maven-public/</url>
         </repository>
 
         <!-- Sonatype-snapshots -->
@@ -102,18 +87,6 @@
             <id>jcenter</id>
             <name>jcenter-bintray</name>
             <url>https://jcenter.bintray.com</url>
-        </repository>
-
-        <!-- Sk89q-repo -->
-        <repository>
-            <id>sk89q</id>
-            <url>https://maven.enginehub.org/repo/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
         </repository>
     </repositories>
 
