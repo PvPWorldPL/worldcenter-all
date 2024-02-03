@@ -56,16 +56,17 @@ public class CoreListener implements Listener {
 	@EventHandler
 	public void onPlayerToggleFlight(PlayerToggleFlightEvent event) {
 		Player player = event.getPlayer();
-		GameMode gameMode = player.getGameMode();
-
-		if (gameMode == GameMode.ADVENTURE || gameMode == GameMode.SURVIVAL) {
-			if (!player.isFlying()) {
-				event.setCancelled(true);
-				player.setFlying(false);
-				launchPlayer(player);
-			}
+		Runnable launchAction = () -> {
+			event.setCancelled(true);
+			player.setFlying(false);
+			launchPlayer(player);
+		};
+		if ((player.getGameMode() == GameMode.ADVENTURE || player.getGameMode() == GameMode.SURVIVAL) &&
+			!player.isFlying()) {
+			launchAction.run();
 		}
 	}
+
 
 
 	private void launchPlayer(Player player) {
