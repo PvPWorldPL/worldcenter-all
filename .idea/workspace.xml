@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c917f97-945c-4f28-adca-8a181d78a753" name="Changes" comment="juz dziala">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoxPvP-Ranga/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Ranga/pom.xml" afterDir="false" />
+    <list default="true" id="9c917f97-945c-4f28-adca-8a181d78a753" name="Changes" comment="update pom na boxranga i hub">
       <change beforePath="$PROJECT_DIR$/Hub/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hub/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +71,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1706661888057</updated>
-      <workItem from="1706954942149" duration="1258000" />
+      <workItem from="1706954942149" duration="1380000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <option name="closed" value="true" />
@@ -171,7 +169,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706955772778</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="update pom na boxranga i hub">
+      <option name="closed" value="true" />
+      <created>1706956226831</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1706956226831</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,6 +198,7 @@
     <MESSAGE value="feat: /sklep monety dodane" />
     <MESSAGE value="." />
     <MESSAGE value="juz dziala" />
-    <option name="LAST_COMMIT_MESSAGE" value="juz dziala" />
+    <MESSAGE value="update pom na boxranga i hub" />
+    <option name="LAST_COMMIT_MESSAGE" value="update pom na boxranga i hub" />
   </component>
 </project>
