@@ -1,15 +1,12 @@
-package pl.textr.core.listeners.other;
+package pl.worldcenter.listener;
 
 import net.citizensnpcs.api.event.NPCRightClickEvent;
 import net.citizensnpcs.api.npc.NPC;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-
 import org.bukkit.event.Listener;
-import pl.textr.core.utils.other.ConnectUtil;
-
-import java.util.logging.Logger;
+import pl.worldcenter.util.ConnectUtil;
 
 public class NpcClickListener implements Listener {
 
@@ -20,8 +17,10 @@ public class NpcClickListener implements Listener {
         Bukkit.getLogger().info("Debug chuj");
 
         String npcName = npc.getName();
+        int npcid = npc.getId();
 
-        if (npcName.contains("boxpvp")) {
+
+        if (npcid == 13) {
             Bukkit.getLogger().info("Debug 1");
             ConnectUtil.connect(player, "boxpvp-1");
         } else if (npcName.contains("skypvp")) {

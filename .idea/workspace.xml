@@ -4,9 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c917f97-945c-4f28-adca-8a181d78a753" name="Changes" comment="add perk rankingu">
+    <list default="true" id="9c917f97-945c-4f28-adca-8a181d78a753" name="Changes" comment=".">
+      <change afterPath="$PROJECT_DIR$/BoxPvP-Ranga/src/main/java/pl/worldcenter/listener/NpcClickListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BoxPvP-Ranga/src/main/java/pl/worldcenter/util/ConnectUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/task/ActionBarTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/utils/other/DataUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/listeners/player/PlayerDeathListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoxPvP-Bukkit/src/main/java/pl/textr/boxpvp/listeners/player/PlayerDeathListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hub/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hub/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hub/src/main/java/api/configurations/PluginConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hub/src/main/java/api/configurations/PluginConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/LobbyPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/LobbyPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/listeners/other/CoreListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/listeners/other/CoreListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/listeners/other/NpcClickListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/listeners/other/NpcClickListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/listeners/other/PlayerCommandPreprocessListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/listeners/other/PlayerCommandPreprocessListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/utils/other/ChatUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hub/src/main/java/pl/textr/core/utils/other/ChatUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,33 +46,25 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.Hub [install].executor": "Run",
-    "Maven.Ranga-Command [install].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.44367817",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.Hub [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Ranga-Command [install].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.44367817&quot;
   }
-}]]></component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-16.0.2-corretto-16.0.2-249ae16d76d6-d70a60f0" />
-        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-ebaef533" />
-      </set>
-    </attachedChunks>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="pl.textr.core.utils.other" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -72,7 +74,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1706661888057</updated>
-      <workItem from="1706954942149" duration="6117000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <option name="closed" value="true" />
@@ -130,107 +131,8 @@
       <option name="project" value="LOCAL" />
       <updated>1706918289825</updated>
     </task>
-    <task id="LOCAL-00008" summary=".">
-      <option name="closed" value="true" />
-      <created>1706920073230</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1706920073230</updated>
-    </task>
-    <task id="LOCAL-00009" summary=".">
-      <option name="closed" value="true" />
-      <created>1706920316894</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1706920316894</updated>
-    </task>
-    <task id="LOCAL-00010" summary=".">
-      <option name="closed" value="true" />
-      <created>1706920395849</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1706920395849</updated>
-    </task>
-    <task id="LOCAL-00011" summary=".">
-      <option name="closed" value="true" />
-      <created>1706921646415</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1706921646415</updated>
-    </task>
-    <task id="LOCAL-00012" summary="juz dziala">
-      <option name="closed" value="true" />
-      <created>1706955772778</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1706955772778</updated>
-    </task>
-    <task id="LOCAL-00013" summary="update pom na boxranga i hub">
-      <option name="closed" value="true" />
-      <created>1706956226831</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1706956226831</updated>
-    </task>
-    <task id="LOCAL-00014" summary="update pom na boxranga i hub">
-      <option name="closed" value="true" />
-      <created>1706956337869</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1706956337869</updated>
-    </task>
-    <task id="LOCAL-00015" summary="update pomy">
-      <option name="closed" value="true" />
-      <created>1706956960289</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1706956960289</updated>
-    </task>
-    <task id="LOCAL-00016" summary="update pomy">
-      <option name="closed" value="true" />
-      <created>1706957428184</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1706957428184</updated>
-    </task>
-    <task id="LOCAL-00017" summary="FIX SOUND LAUNCHPLAYER">
-      <option name="closed" value="true" />
-      <created>1706957528978</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1706957528979</updated>
-    </task>
-    <task id="LOCAL-00018" summary="FIX SOUND LAUNCHPLAYER">
-      <option name="closed" value="true" />
-      <created>1706957611137</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1706957611137</updated>
-    </task>
-    <task id="LOCAL-00019" summary="add perk rankingu">
-      <option name="closed" value="true" />
-      <created>1706960623021</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1706960623021</updated>
-    </task>
-    <option name="localTasksCounter" value="20" />
+    <option name="localTasksCounter" value="8" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -246,11 +148,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: /sklep monety dodane" />
     <MESSAGE value="." />
-    <MESSAGE value="juz dziala" />
-    <MESSAGE value="update pom na boxranga i hub" />
-    <MESSAGE value="update pomy" />
-    <MESSAGE value="FIX SOUND LAUNCHPLAYER" />
-    <MESSAGE value="add perk rankingu" />
-    <option name="LAST_COMMIT_MESSAGE" value="add perk rankingu" />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
 </project>

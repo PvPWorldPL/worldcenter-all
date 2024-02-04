@@ -40,6 +40,9 @@ import eu.okaeri.configs.serdes.standard.StandardSerdes;
 import eu.okaeri.configs.yaml.bukkit.YamlBukkitConfigurer;
 import pl.textr.core.commands.Api.Command;
 import pl.textr.core.commands.Api.CommandManager;
+import pl.textr.core.task.ActionBarTask;
+
+import javax.swing.*;
 
 public class LobbyPlugin extends JavaPlugin implements Listener {
 
@@ -71,10 +74,14 @@ public class LobbyPlugin extends JavaPlugin implements Listener {
         onRegion();
         loadListeners();
         loadCommands();
-        
+        registerTasks();
     }
 
 
+
+    public void registerTasks() {
+        Bukkit.getScheduler().runTaskTimerAsynchronously(this, new ActionBarTask(), 40L, 20L);
+    }
 
     public void onDisable() {
         Bukkit.getScheduler().cancelTasks(this);

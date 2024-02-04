@@ -66,6 +66,18 @@ public class PluginConfiguration extends OkaeriConfig {
     public String ChatFormatGlobal = "{GUILD} &7{PLAYER} &8» &7{MESSAGE}";
     public String ChatFormatPlayer = "{GUILD} &7{PLAYER} &8» &7{MESSAGE}";
 
+    public String ActionBarMessage = "start 123456";
+
+    public String odliczanieactionbar = "03/02/2024 20:00:00";
+
+    public String ActionBarMessage() {
+        return ActionBarMessage;
+    }
+
+    public String odliczanieactionbar() {
+        return odliczanieactionbar;
+    }
+
 
     public String redisurl() {
         return redisurl;

@@ -40,7 +40,7 @@ public class PlayerCommandPreprocessListener implements Listener {
 
 	        if (helpTopic == null) {
 	            String formattedCommand = command.replace("//", "/").replace("%newline%", "\n");
-	           ChatUtil.sendMessage(player, ChatUtil.translateHexColorCodes("&7Komenda  &#ff2609&l" + formattedCommand + " &7nie została odnaleziona"));
+	           ChatUtil.sendMessage(player, ChatUtil.translateHexColorCodes("&fKomenda &b" + formattedCommand + " &fnie została odnaleziona"));
 
 	            event.setCancelled(true);
 	        }
@@ -59,7 +59,7 @@ public class PlayerCommandPreprocessListener implements Listener {
                 String command = event.getMessage().split(" ")[0].toLowerCase();
                 if (BLOCKED_COMMANDS.contains(command)) {
                     event.setCancelled(true);
-                    ChatUtil.sendMessage(player, ChatUtil.translateHexColorCodes("&7Komenda &#ff2609&l{command} &7nie została odnaleziona".replace("{command}", message.replace("//", "/").replace("%newline%", "\n"))));
+                    ChatUtil.sendMessage(player, ChatUtil.translateHexColorCodes("&fKomenda &b{command} &fnie została odnaleziona".replace("{command}", message.replace("//", "/").replace("%newline%", "\n"))));
                 }
             }
         }
